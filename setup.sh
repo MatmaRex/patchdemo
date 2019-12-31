@@ -1,5 +1,5 @@
 # dependencies of MediaWiki
-sudo apt-get install apache2 mysql-server php libapache2-mod-php php-mysql php-intl php-xml php-mbstring
+sudo apt-get install apache2 mysql-server php libapache2-mod-php php-mysql php-intl php-xml php-mbstring php-curl
 # dependencies of our system
 sudo apt-get install git composer
 

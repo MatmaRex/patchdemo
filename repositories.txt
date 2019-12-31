@@ -27,3 +27,6 @@ mediawiki/extensions/WikiEditor w/extensions/WikiEditor
 mediawiki/skins/MonoBook w/skins/MonoBook
 mediawiki/skins/Timeless w/skins/Timeless
 mediawiki/skins/Vector w/skins/Vector
+mediawiki/services/parsoid w/parsoid
+mediawiki/extensions/VisualEditor w/extensions/VisualEditor
+mediawiki/extensions/DiscussionTools w/extensions/DiscussionTools

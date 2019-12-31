@@ -16,7 +16,14 @@ mysql -u patchdemo --password=patchdemo -e "CREATE DATABASE patchdemo_$NAME";
 cd $PATCHDEMO/$NAME/w
 composer update --no-dev
 
+cd $PATCHDEMO/$NAME/w/parsoid
+composer update --no-dev
+
+cd $PATCHDEMO/$NAME/w/extensions/VisualEditor
+git submodule update --init --recursive
+
 # install
+cd $PATCHDEMO/$NAME/w
 php $PATCHDEMO/$NAME/w/maintenance/install.php \
 --dbname=patchdemo_$NAME \
 --dbuser=patchdemo \
@@ -27,3 +34,6 @@ php $PATCHDEMO/$NAME/w/maintenance/install.php \
 --with-extensions \
 --pass=patchdemo \
 "$WIKINAME" "Patch Demo"
+
+# apply our default settings
+cat $PATCHDEMO/LocalSettings.txt >> $PATCHDEMO/$NAME/w/LocalSettings.php

@@ -1,0 +1,26 @@
+// Generic verbose error reporting stuff
+error_reporting( -1 );
+ini_set( 'display_startup_errors', 1 );
+ini_set( 'display_errors', 1 );
+$wgShowSQLErrors = true;
+$wgDebugDumpSql  = true;
+$wgShowDBErrorBacktrace = true;
+$wgShowExceptionDetails = true;
+$wgDebugComments = true;
+
+// Parsoid/PHP required configuration
+$wgEnableRestAPI = true;
+wfLoadExtension( 'Parsoid', 'parsoid/extension.json' );
+$wgParsoidSettings = [
+	'useSelser' => true,
+	'linting' => true,
+];
+
+// VisualEditor required configuration
+$wgDefaultUserOptions['visualeditor-enable'] = 1;
+$wgVirtualRestConfig['modules']['parsoid'] = [
+	'url' => $wgServer . $wgScriptPath . '/rest.php',
+];
+
+// DiscussionTools required configuration
+$wgLocaltimezone = 'UTC';
