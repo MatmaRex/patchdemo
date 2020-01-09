@@ -122,6 +122,18 @@ foreach ( $commands as $i => $command ) {
 	}
 }
 
+echo "Deduplicating files...";
+
+$cmd = make_shell_command( $baseEnv, __DIR__ . '/deduplicate.sh' );
+
+echo '<pre>';
+echo "$cmd\n";
+system( $cmd, $error );
+echo '</pre>';
+if ( $error ) {
+	die( "Could not deduplicate." );
+}
+
 echo "Seems good!";
 echo "<br>";
 echo "Your wiki is available at:";

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd $PATCHDEMO
+
 # Using hardlinks assumes that these files will never change,
 # as changing any of the deduplicated copies would affect all of them.
 
