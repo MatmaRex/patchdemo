@@ -29,6 +29,7 @@ mediawiki/skins/Timeless w/skins/Timeless
 mediawiki/skins/Vector w/skins/Vector
 mediawiki/services/parsoid w/parsoid
 mediawiki/extensions/VisualEditor w/extensions/VisualEditor
+VisualEditor/VisualEditor w/extensions/VisualEditor/lib/ve
 mediawiki/extensions/DiscussionTools w/extensions/DiscussionTools
 mediawiki/extensions/MobileFrontend w/extensions/MobileFrontend
 mediawiki/skins/MinervaNeue w/skins/MinervaNeue

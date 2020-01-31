@@ -57,14 +57,11 @@ foreach ( $patches as $patch ) {
 	$hash = $data[0]['current_revision'];
 	$ref = $data[0]['revisions'][$hash]['ref'];
 
-
-	if ( $repo === 'mediawiki/core' ) {
-		$path = 'w';
-	} elseif ( str_begins( $repo, 'mediawiki/extensions/' ) || str_begins( $repo, 'mediawiki/skins/' ) ) {
-		$path = 'w/' . substr( $repo, 10 );
-	} else {
+	$repos = get_repo_data();
+	if ( !isset( $repos[ $repo ] ) ) {
 		die( "Repository $repo not supported" );
 	}
+	$path = $repos[ $repo ];
 
 	if ( ( $data[0]['labels']['Verified']['approved']['_account_id'] ?? null ) !== 75 ) {
 		die( "Patch must be approved (Verified+2) by jenkins-bot" );
