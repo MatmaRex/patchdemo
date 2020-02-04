@@ -37,3 +37,7 @@ php $PATCHDEMO/wikis/$NAME/w/maintenance/install.php \
 
 # apply our default settings
 cat $PATCHDEMO/LocalSettings.txt >> $PATCHDEMO/wikis/$NAME/w/LocalSettings.php
+
+# copy logo
+cp $PATCHDEMO/logo.svg $PATCHDEMO/wikis/$NAME/w/
+

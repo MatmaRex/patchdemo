@@ -24,3 +24,6 @@ $wgVirtualRestConfig['modules']['parsoid'] = [
 
 // DiscussionTools required configuration
 $wgLocaltimezone = 'UTC';
+
+// Logo
+$wgLogo = "$wgResourceBasePath/logo.svg";

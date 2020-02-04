@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="135" height="135" version="1.1" viewBox="0 0 35.719 35.719" xmlns="http://www.w3.org/2000/svg">
+	<g transform="translate(0 -261.28)">
+		<g transform="translate(-.086342 -.15432)">
+			<rect transform="rotate(-45)" x="-205.23" y="203.37" width="40.864" height="13.621" rx="6.8107" color="#000000" fill="#069" fill-rule="evenodd"/>
+			<path d="m3.498 264.85c-2.668 2.668-2.668 6.9638-1.2e-6 9.6318l3.2026 3.2026 9.6318-9.6318-3.2026-3.2026c-2.668-2.668-6.9638-2.668-9.6318 0zm16.061 25.693 3.2027 3.2027c2.668 2.668 6.9638 2.668 9.6318 0 2.668-2.668 2.668-6.9638 0-9.6318l-3.2027-3.2027z" color="#000000" fill="#396" fill-rule="evenodd"/>
+			<text transform="scale(.91956 1.0875)" x="12.976678" y="257.9191" fill="none" font-family="Verdana" font-size="1.2044px" letter-spacing="0px" stroke="#000000" stroke-width=".090327px" word-spacing="0px" style="line-height:0px" xml:space="preserve"><tspan x="12.976678" y="257.9191" fill="#ffffff" font-family="Verdana" font-size="3.3722px" font-weight="bold" stroke="#ffffff" stroke-width=".090327px">[[     ]]</tspan></text>
+			<path d="m19.643 279.47-2.7141 1.567v-3.134z" color="#000000" fill="#900" fill-rule="evenodd" stroke="#fff" stroke-linejoin="round" stroke-width=".496"/>
+		</g>
+	</g>
+</svg>
