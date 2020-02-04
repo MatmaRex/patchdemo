@@ -13,7 +13,7 @@ Features
 
 Limitations
 ----
-* Runs MediaWiki only – no Parsoid, RESTBase, and other fancy stuff
+* Runs MediaWiki only – no RESTBase and other fancy stuff
 * Does not fetch dependency patches (you can list them manually)
 
 Setup
