@@ -12,5 +12,4 @@ cd $PATCHDEMO
 # I'd have to figure out how to provision instances using XFS or something.
 # (Also, `rdfind` doesn't have an option for that, `rmlint` could be used.)
 
-rdfind -makehardlinks true -makeresultsfile false -checksum sha1 \
-[0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f]
+rdfind -makehardlinks true -makeresultsfile false -checksum sha1 wikis
