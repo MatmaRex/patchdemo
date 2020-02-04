@@ -11,7 +11,7 @@ $namePath = md5( $branch . $patches . time() );
 
 echo "Your wiki will be available at:";
 echo "<br>";
-echo "<a href='/$namePath/w/'>$namePath</a>";
+echo "<a href='/wikis/$namePath/w/'>$namePath</a>";
 echo "<br>";
 echo "You can log in as user 'Patch Demo', password 'patchdemo'.";
 echo "<br>";
@@ -135,7 +135,7 @@ echo "Seems good!";
 echo "<br>";
 echo "Your wiki is available at:";
 echo "<br>";
-echo "<a href='/$namePath/w/'>$namePath</a>";
+echo "<a href='/wikis/$namePath/w/'>$namePath</a>";
 echo "<br>";
 echo "You can log in as user 'Patch Demo', password 'patchdemo'.";
 echo "<br>";

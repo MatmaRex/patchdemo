@@ -15,6 +15,9 @@ cd ..
 # Composer wants a directory for itself (COMPOSER_HOME)
 sudo -u www-data mkdir composer
 
+# Create folder for wikis
+sudo -u www-data mkdir wikis
+
 # create a database user that is allowed to create databases for each wiki
 sudo mysql -u root --password='' -e "
 CREATE USER 'patchdemo'@'localhost' IDENTIFIED BY 'patchdemo';
