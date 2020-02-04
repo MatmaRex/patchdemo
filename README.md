@@ -18,8 +18,8 @@ Limitations
 
 Setup
 ----
-Tested on Ubuntu 18.04.
+Tested on Ubuntu 18.04 and Debian 10.
 
 * Put all these files in `/var/www/html`
-* Run `setup.sh`
+* Run `sudo setup.sh`
 * Visit http://localhost in your browser
