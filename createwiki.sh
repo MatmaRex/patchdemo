@@ -6,6 +6,7 @@ mkdir $PATCHDEMO/wikis/$NAME/w
 
 # check out files
 while IFS=' ' read -r repo dir; do
+	git --git-dir=$PATCHDEMO/repositories/$repo/.git worktree prune
 	git --git-dir=$PATCHDEMO/repositories/$repo/.git worktree add --detach $PATCHDEMO/wikis/$NAME/$dir $BRANCH
 done < $PATCHDEMO/repositories.txt
 
