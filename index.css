@@ -1,0 +1,59 @@
+body {
+	font-family: sans-serif;
+}
+
+h1 {
+	background: url( logo.svg ) no-repeat 0 0;
+	background-size: contain;
+	line-height: 2.2em;
+	padding-left: 2.5em;
+}
+
+body,
+button,
+select,
+textarea {
+	font-size: 14px;
+	line-height: 1.5;
+}
+
+label {
+	display: block;
+	margin-bottom: 10px;
+	font-size: 0;
+}
+
+label > * {
+	font-size: 14px;
+}
+
+label > div {
+	width: 12em;
+}
+
+label > div,
+label > select,
+label > textarea {
+	display: inline-block;
+	vertical-align: top;
+}
+
+button[ type=submit ] {
+	margin-left: 12em;
+	cursor: pointer;
+}
+
+.wikis {
+	border-collapse: collapse;
+	margin-top: 1em;
+}
+
+.wikis th {
+	background: #ddd
+}
+
+.wikis th,
+.wikis td {
+	border: 1px solid #ddd;
+	padding: 0.3em 0.6em;
+}
