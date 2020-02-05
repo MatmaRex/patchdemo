@@ -38,7 +38,7 @@
 		</form>
 		<table class="wikis">
 			<caption>Previously generated wikis</caption>
-			<tr><th>Name</th><th>Link</th><th>Time</th></tr>
+			<tr><th>Patches</th><th>Link</th><th>Time</th></tr>
 			<?php
 			$dirs = array_filter( scandir( 'wikis' ), function ( $dir ) {
 				return substr( $dir, 0, 1 ) !== '.';
@@ -80,13 +80,16 @@
 			}
 
 			foreach ( $wikis as $wiki => $data ) {
-				preg_match( '`Patch Demo \(([0-9]*),([0-9]*)\)`', $data[ 'title' ], $matches );
-				$gerritlink = null;
+				preg_match( '`Patch Demo \((.*)\)`', $data[ 'title' ], $matches );
+				$title = $data[ 'title' ];
 				if ( count( $matches ) ) {
-					$gerritlink = 'https://gerrit.wikimedia.org/r/' . $matches[ 1 ];
+					preg_match_all( '`([0-9]+),[0-9]+`', $matches[ 1 ], $matches );
+					$title = implode( ', ', array_map( function ( $r, $t ) {
+						return '<a href="https://gerrit.wikimedia.org/r/' . $r . '">' . $t . '</a>';
+					}, $matches[ 1 ], $matches[ 0 ] ) );
 				}
 				echo '<tr>' .
-					'<td>' . ( $gerritlink ? '<a href="' . $gerritlink . '">' . $data[ 'title' ] . '</a>' : $data[ 'title' ] ) . '</td>' .
+					'<td>' . $title . '</td>' .
 					'<td><a href="wikis/' . $wiki .'/w">' . $wiki .'</a></td>' .
 					'<td>' . date( 'c', $data[ 'mtime' ] ) . '</td>' .
 				'</tr>';
