@@ -49,7 +49,9 @@
 			if ( $cache ) {
 				$wikis = json_decode( $cache, true );
 				$wikilist = array_keys( $wikis );
-				if ( sort( $wikilist ) === sort( $dirs ) ) {
+				sort( $wikilist );
+				sort( $dirs );
+				if ( $wikilist === $dirs ) {
 					$usecache = true;
 				}
 			}
