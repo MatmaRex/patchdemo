@@ -78,8 +78,13 @@
 			}
 
 			foreach ( $wikis as $wiki => $data ) {
+				preg_match( '`Patch Demo \(([0-9]*),([0-9]*)\)`', $data[ 'title' ], $matches );
+				$gerritlink = null;
+				if ( count( $matches ) ) {
+					$gerritlink = 'https://gerrit.wikimedia.org/r/' . $matches[ 1 ];
+				}
 				echo '<tr>' .
-					'<td>' . $data[ 'title' ] . '</td>' .
+					'<td>' . ( $gerritlink ? '<a href="' . $gerritlink . '">' . $data[ 'title' ] . '</a>' : $data[ 'title' ] ) . '</td>' .
 					'<td><a href="wikis/' . $wiki .'/w">' . $wiki .'</a></td>' .
 					'<td>' . date( 'c', $data[ 'mtime' ] ) . '</td>' .
 				'</tr>';
