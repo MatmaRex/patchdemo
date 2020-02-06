@@ -1,7 +1,7 @@
 # dependencies of MediaWiki
 sudo apt-get install apache2 default-mysql-server php libapache2-mod-php php-mysql php-intl php-xml php-mbstring php-curl
 # dependencies of our system
-sudo apt-get install git composer rdfind
+sudo apt-get install git composer unzip rdfind
 
 # create master copies of repositories
 sudo -u www-data mkdir repositories
