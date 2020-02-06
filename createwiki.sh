@@ -31,7 +31,7 @@ php $PATCHDEMO/wikis/$NAME/w/maintenance/install.php \
 --dbpass=patchdemo \
 --confpath=$PATCHDEMO/wikis/$NAME/w \
 --server="$SERVER" \
---scriptpath="/wikis/$NAME/w" \
+--scriptpath="$SERVERPATH/wikis/$NAME/w" \
 --with-extensions \
 --pass=patchdemo \
 "$WIKINAME" "Patch Demo"
