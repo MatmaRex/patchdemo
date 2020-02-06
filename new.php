@@ -11,7 +11,7 @@ $namePath = md5( $branch . $patches . time() );
 
 echo "Your wiki will be available at:";
 echo "<br>";
-echo "<a href='/wikis/$namePath/w/'>$namePath</a>";
+echo "<a href='wikis/$namePath/w/'>$namePath</a>";
 echo "<br>";
 echo "You can log in as user 'Patch Demo', password 'patchdemo'.";
 echo "<br>";
@@ -95,6 +95,7 @@ $cmd = make_shell_command( $baseEnv + [
 	'BRANCH' => $branch,
 	'WIKINAME' => $wikiName,
 	'SERVER' => "http://" . $_SERVER['HTTP_HOST'],
+	'SERVERPATH' => preg_replace( '`/[^/]*$`', '', $_SERVER['REQUEST_URI'] ),
 	'COMPOSER_HOME' => __DIR__ . '/composer',
 ], __DIR__ . '/createwiki.sh' );
 
@@ -135,7 +136,7 @@ echo "Seems good!";
 echo "<br>";
 echo "Your wiki is available at:";
 echo "<br>";
-echo "<a href='/wikis/$namePath/w/'>$namePath</a>";
+echo "<a href='wikis/$namePath/w/'>$namePath</a>";
 echo "<br>";
 echo "You can log in as user 'Patch Demo', password 'patchdemo'.";
 echo "<br>";
