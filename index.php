@@ -96,5 +96,6 @@
 			}
 			?>
 		</table>
+		<p><a href="https://github.com/MatmaRex/patchdemo">Source code</a></p>
 	</body>
 </html>
