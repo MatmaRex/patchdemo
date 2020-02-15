@@ -54,6 +54,7 @@ foreach ( $patches as $patch ) {
 
 	// get the info
 	$repo = $data[0]['project'];
+	$base = 'origin/' . $data[0]['branch'];
 	$hash = $data[0]['current_revision'];
 	$ref = $data[0]['revisions'][$hash]['ref'];
 
@@ -73,6 +74,7 @@ foreach ( $patches as $patch ) {
 			'PATCHDEMO' => __DIR__ . '/',
 			'REPO' => $path,
 			'REF' => $ref,
+			'BASE' => $base,
 			'HASH' => $hash,
 		],
 		__DIR__ . '/applypatch.sh'
