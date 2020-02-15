@@ -38,7 +38,8 @@ echo "Querying patch metadata...";
 $patchesApplied = [];
 $commands = [];
 
-foreach ( $patches as $patch ) {
+// Iterate by reference, so that we can modify the $patches array to add new entries
+foreach ( $patches as &$patch ) {
 	$patchSafe = preg_replace( '/^I?[^0-9a-f]$/', '', $patch );
 	$url = "https://gerrit.wikimedia.org/r/changes/?q=$patchSafe&o=LABELS&o=CURRENT_REVISION";
 	echo "<pre>$url</pre>";
@@ -79,6 +80,33 @@ foreach ( $patches as $patch ) {
 		],
 		__DIR__ . '/applypatch.sh'
 	];
+
+	// Look at all commits in this patch's tree for cross-repo dependencies to add
+	$url = "https://gerrit.wikimedia.org/r/changes/{$data[0]['id']}/revisions/$hash/related";
+	echo "<pre>$url</pre>";
+	$resp = file_get_contents( $url );
+	$data = json_decode( substr( $resp, 4 ), true );
+	$query = [];
+	// Ancestor commits only, not descendants
+	$foundCurr = false;
+	foreach ( $data['changes'] as $change ) {
+		$foundCurr = $foundCurr || $change['commit']['commit'] === $hash;
+		if ( $foundCurr ) {
+			// Querying by change number is allegedly deprecated, but the /related API doesn't return the 'id'
+			$url = "https://gerrit.wikimedia.org/r/changes/{$change['_change_number']}/revisions/{$change['_revision_number']}/commit";
+			echo "<pre>$url</pre>";
+			$resp = file_get_contents( $url );
+			$data = json_decode( substr( $resp, 4 ), true );
+
+			preg_match_all( '/^Depends-On: (.+)$/m', $data['message'], $m );
+			foreach ( $m[1] as $changeid ) {
+				if ( !in_array( $changeid, $patches, true ) ) {
+					// The entry we add here will be processed by the topmost foreach
+					$patches[] = $changeid;
+				}
+			}
+		}
+	}
 }
 
 $patchesAppliedText = implode( ' ', $patchesApplied );
