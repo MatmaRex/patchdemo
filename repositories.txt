@@ -1,4 +1,5 @@
 mediawiki/core w
+mediawiki/extensions/BetaFeatures w/extensions/BetaFeatures
 mediawiki/extensions/CategoryTree w/extensions/CategoryTree
 mediawiki/extensions/Cite w/extensions/Cite
 mediawiki/extensions/CiteThisPage w/extensions/CiteThisPage
