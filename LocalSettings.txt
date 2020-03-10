@@ -21,6 +21,8 @@ $wgDefaultUserOptions['visualeditor-enable'] = 1;
 $wgVirtualRestConfig['modules']['parsoid'] = [
 	'url' => $wgServer . $wgScriptPath . '/rest.php',
 ];
+// VE NWE beta feature
+$wgVisualEditorEnableWikitextBetaFeature = true;
 
 // DiscussionTools required configuration
 $wgLocaltimezone = 'UTC';
