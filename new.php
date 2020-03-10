@@ -130,6 +130,7 @@ $cmd = make_shell_command( $baseEnv + [
 	'NAME' => $namePath,
 	'BRANCH' => $branch,
 	'WIKINAME' => $wikiName,
+	'CREATOR' => $user ? $user->username : '',
 	'SERVER' => "http://" . $_SERVER['HTTP_HOST'],
 	'SERVERPATH' => preg_replace( '`/[^/]*$`', '', $_SERVER['REQUEST_URI'] ),
 	'COMPOSER_HOME' => __DIR__ . '/composer',

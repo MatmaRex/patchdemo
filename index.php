@@ -6,13 +6,15 @@
 		<link rel="stylesheet" href="index.css">
 	</head>
 	<body>
+		<?php
+		require_once "includes.php";
+		?>
 		<h1>Patch demo</h1>
 		<form action="new.php" method="POST">
 			<label>
 				<div>Start with version:</div>
 				<select name="branch">
 				<?php
-				require_once "includes.php";
 
 				$gitcmd = "git --git-dir=" . __DIR__ . "/repositories/mediawiki/core/.git";
 				// basically `git branch -r`, but without the silly parts
@@ -38,8 +40,15 @@
 		</form>
 		<table class="wikis">
 			<caption>Previously generated wikis</caption>
-			<tr><th>Patches</th><th>Link</th><th>Time</th></tr>
 			<?php
+
+			echo '<tr>' .
+				'<th>Patches</th>' .
+				'<th>Link</th>' .
+				'<th>Time</th>' .
+				( $useOAuth ? '<th>Creator</th>' : '' ) .
+			'</tr>';
+
 			$dirs = array_filter( scandir( 'wikis' ), function ( $dir ) {
 				return substr( $dir, 0, 1 ) !== '.';
 			} );
@@ -66,9 +75,12 @@
 							preg_match( '`wgSitename = "(.*)";`', $settings, $matches );
 							$title = $matches[ 1 ];
 						}
+						$creator = get_if_file_exists( 'wikis/' . $dir . '/creator.txt' );
+
 						$wikis[ $dir ] = [
 							'mtime' => filemtime( 'wikis/' . $dir ),
-							'title' => $title
+							'title' => $title,
+							'creator' => $creator
 						];
 					}
 				}
@@ -92,6 +104,7 @@
 					'<td>' . $title . '</td>' .
 					'<td><a href="wikis/' . $wiki . '/w">' . $wiki . '</a></td>' .
 					'<td>' . date( 'c', $data[ 'mtime' ] ) . '</td>' .
+					( $useOAuth ? '<td>' . $data[ 'creator' ] . '</td>' : '' ) .
 					( $config[ 'allowDelete' ] ?
 						'<td><a href="delete.php?wiki=' . $wiki . '">Delete</a></td>' :
 						''

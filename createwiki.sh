@@ -36,6 +36,12 @@ php $PATCHDEMO/wikis/$NAME/w/maintenance/install.php \
 --pass=patchdemo \
 "$WIKINAME" "Patch Demo"
 
+if [ -n "${CREATOR}" ]
+then
+	echo $CREATOR > $PATCHDEMO/wikis/$NAME/creator.txt
+fi
+
+
 # apply our default settings
 cat $PATCHDEMO/LocalSettings.txt >> $PATCHDEMO/wikis/$NAME/w/LocalSettings.php
 
