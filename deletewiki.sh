@@ -1,7 +1,7 @@
 #!/bin/bash
 set -ex
 
-rm -rf wikis/$1
+rm -rf $PATCHDEMO/wikis/$WIKI
 
 # delete database
-mysql -u patchdemo --password=patchdemo -e "DROP DATABASE patchdemo_$1";
+mysql -u patchdemo --password=patchdemo -e "DROP DATABASE patchdemo_$WIKI";

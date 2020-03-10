@@ -92,6 +92,10 @@
 					'<td>' . $title . '</td>' .
 					'<td><a href="wikis/' . $wiki . '/w">' . $wiki . '</a></td>' .
 					'<td>' . date( 'c', $data[ 'mtime' ] ) . '</td>' .
+					( $config[ 'allowDelete' ] ?
+						'<td><a href="delete.php?wiki=' . $wiki . '">Delete</a></td>' :
+						''
+					) .
 				'</tr>';
 			}
 			?>
