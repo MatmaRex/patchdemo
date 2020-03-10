@@ -1,12 +1,12 @@
 <?php
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+ini_set( 'display_errors', 1 );
+ini_set( 'display_startup_errors', 1 );
+error_reporting( E_ALL );
 
 function make_shell_command( $env, $cmd ) {
 	$prefix = '';
-	foreach ($env as $key => $value) {
+	foreach ( $env as $key => $value ) {
 		$value = escapeshellarg( $value );
 		$prefix .= "$key=$value ";
 	}
@@ -24,4 +24,8 @@ function get_repo_data() {
 	}
 
 	return $repos;
+}
+
+function get_if_file_exists( $file ) {
+	return file_exists( $file ) ? file_get_contents( $file ) : null;
 }

@@ -45,7 +45,7 @@
 			} );
 
 			$usecache = false;
-			$cache = @file_get_contents( 'wikicache.json' );
+			$cache = get_if_file_exists( 'wikicache.json' );
 			if ( $cache ) {
 				$wikis = json_decode( $cache, true );
 				$wikilist = array_keys( $wikis );
@@ -61,7 +61,7 @@
 				foreach ( $dirs as $dir ) {
 					if ( substr( $dir, 0, 1 ) !== '.' ) {
 						$title = '?';
-						$settings = @file_get_contents( 'wikis/' . $dir . '/w/LocalSettings.php' );
+						$settings = get_if_file_exists( 'wikis/' . $dir . '/w/LocalSettings.php' );
 						if ( $settings ) {
 							preg_match( '`wgSitename = "(.*)";`', $settings, $matches );
 							$title = $matches[ 1 ];
@@ -90,7 +90,7 @@
 				}
 				echo '<tr>' .
 					'<td>' . $title . '</td>' .
-					'<td><a href="wikis/' . $wiki .'/w">' . $wiki .'</a></td>' .
+					'<td><a href="wikis/' . $wiki . '/w">' . $wiki . '</a></td>' .
 					'<td>' . date( 'c', $data[ 'mtime' ] ) . '</td>' .
 				'</tr>';
 			}
