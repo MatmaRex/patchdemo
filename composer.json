@@ -1,0 +1,16 @@
+{
+	"require-dev": {
+		"jakub-onderka/php-parallel-lint": "1.0.0",
+		"jakub-onderka/php-console-highlighter": "0.4.0",
+		"mediawiki/mediawiki-codesniffer": "29.0.0"
+	},
+	"scripts": {
+		"test": [
+			"parallel-lint . --exclude vendor --exclude node_modules --exclude composer --exclude repositores --exclude wikis",
+			"phpcs -p -s"
+		],
+		"fix": [
+			"phpcbf"
+		]
+	}
+}

@@ -1,3 +1,5 @@
 wikis
 composer
+composer.lock
+vendor
 wikicache.json

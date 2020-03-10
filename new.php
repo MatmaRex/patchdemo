@@ -2,7 +2,7 @@
 
 require_once "includes.php";
 
-ob_implicit_flush(true);
+ob_implicit_flush( true );
 
 $branch = trim( $_POST['branch'] );
 $patches = $_POST['patches'];
