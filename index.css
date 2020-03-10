@@ -38,7 +38,7 @@ label > textarea {
 	vertical-align: top;
 }
 
-button[ type=submit ] {
+button[ type='submit' ] {
 	margin-left: 12em;
 	cursor: pointer;
 }
@@ -55,7 +55,7 @@ button[ type=submit ] {
 }
 
 .wikis th {
-	background: #ddd
+	background: #ddd;
 }
 
 .wikis th,

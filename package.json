@@ -1,0 +1,9 @@
+{
+	"private": true,
+	"scripts": {
+		"test": "stylelint *.css"
+	},
+	"devDependencies": {
+		"stylelint-config-wikimedia": "^0.9.0"
+	}
+}
