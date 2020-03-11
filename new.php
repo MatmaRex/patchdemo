@@ -41,7 +41,7 @@ $commands = [];
 // Iterate by reference, so that we can modify the $patches array to add new entries
 foreach ( $patches as &$patch ) {
 	$patchSafe = preg_replace( '/^I?[^0-9a-f]$/', '', $patch );
-	$url = "https://gerrit.wikimedia.org/r/changes/?q=$patchSafe&o=LABELS&o=CURRENT_REVISION";
+	$url = "https://gerrit.wikimedia.org/r/changes/?q=change:$patchSafe&o=LABELS&o=CURRENT_REVISION";
 	echo "<pre>$url</pre>";
 	$resp = file_get_contents( $url );
 	$data = json_decode( substr( $resp, 4 ), true );
