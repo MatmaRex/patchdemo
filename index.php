@@ -75,7 +75,7 @@
 							preg_match( '`wgSitename = "(.*)";`', $settings, $matches );
 							$title = $matches[ 1 ];
 						}
-						$creator = get_if_file_exists( 'wikis/' . $dir . '/creator.txt' );
+						$creator = get_creator( $dir );
 
 						$wikis[ $dir ] = [
 							'mtime' => filemtime( 'wikis/' . $dir ),
@@ -100,12 +100,13 @@
 						return '<a href="https://gerrit.wikimedia.org/r/' . $r . '">' . $t . '</a>';
 					}, $matches[ 1 ], $matches[ 0 ] ) );
 				}
+				$canDelete = can_delete( $data[ 'creator' ] ?? '' );
 				echo '<tr>' .
 					'<td>' . $title . '</td>' .
 					'<td><a href="wikis/' . $wiki . '/w">' . $wiki . '</a></td>' .
 					'<td>' . date( 'c', $data[ 'mtime' ] ) . '</td>' .
 					( $useOAuth ? '<td>' . ( $data[ 'creator' ] ?? '?' ) . '</td>' : '' ) .
-					( $config[ 'allowDelete' ] ?
+					( $canDelete ?
 						'<td><a href="delete.php?wiki=' . $wiki . '">Delete</a></td>' :
 						''
 					) .

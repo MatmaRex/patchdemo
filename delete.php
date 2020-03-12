@@ -2,11 +2,13 @@
 
 require_once "includes.php";
 
-if ( !$config[ 'allowDelete' ] ) {
-	die( 'You must set <code>allowDelete</code> to <code>true</code> in <code>config.php</code>' );
-}
-
 $wiki = $_GET[ 'wiki' ];
+
+$creator = get_creator( $wiki );
+
+if ( !can_delete( $creator ) ) {
+	die( '<p>You are not allowed to delete this wiki.</p>' );
+}
 
 if ( !isset( $_POST['confirm' ] ) ) {
 	echo '<form method="POST">' .

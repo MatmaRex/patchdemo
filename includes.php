@@ -39,3 +39,15 @@ function get_repo_data() {
 function get_if_file_exists( $file ) {
 	return file_exists( $file ) ? file_get_contents( $file ) : null;
 }
+
+function get_creator( $wiki ) {
+	return trim( get_if_file_exists( 'wikis/' . $wiki . '/creator.txt' ) ?? '' );
+}
+
+function can_delete( $creator = null ) {
+	global $config, $user;
+	$username = $user ? $user->username : null;
+	$admins = $config[ 'oauth' ] ? $config[ 'oauth' ][ 'admins' ] : [];
+	return $config[ 'allowDelete' ] || ( $username && $username === $creator ) ||
+		( $username && in_array( $username, $admins, true ) );
+}
