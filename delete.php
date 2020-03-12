@@ -3,7 +3,7 @@
 require_once "includes.php";
 
 if ( !$config[ 'allowDelete' ] ) {
-	die( 'You must set <code>allowDelete</code> to <code>true</code> in <code>config.json</code>' );
+	die( 'You must set <code>allowDelete</code> to <code>true</code> in <code>config.php</code>' );
 }
 
 $wiki = $_GET[ 'wiki' ];

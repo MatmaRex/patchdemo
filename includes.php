@@ -6,11 +6,10 @@ error_reporting( E_ALL );
 session_start();
 include_once './vendor/autoload.php';
 
-$config = json_decode( file_get_contents( 'config.default.json' ), true );
-$localConfig = get_if_file_exists( 'config.json' );
-
-if ( $localConfig ) {
-	$config = array_merge( $config, json_decode( $localConfig, true ) );
+include 'config.default.php';
+if ( file_exists( 'config.php' ) ) {
+	include 'config.php';
+	$config = array_merge( $config, $localConfig );
 }
 
 include_once 'oauth.php';
