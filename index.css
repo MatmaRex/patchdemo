@@ -43,6 +43,12 @@ button[ type=submit ] {
 	cursor: pointer;
 }
 
+.user {
+	position: absolute;
+	right: 1em;
+	top: 1em;
+}
+
 .wikis {
 	border-collapse: collapse;
 	margin-top: 1em;

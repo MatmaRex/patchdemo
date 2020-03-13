@@ -35,7 +35,7 @@ if ( $useOAuth ) {
 	if ( !empty( $_SESSION['access_key'] ) ) {
 		$accessToken = new Token( $_SESSION['access_key'], $_SESSION['access_secret'] );
 		$user = $client->identify( $accessToken );
-		echo "Logged in as <b>{$user->username}</b> [<a href='?logout'>Log out</a>]";
+		echo "<div class='user'>Logged in as <b>{$user->username}</b> [<a href='?logout'>Log out</a>]</div>";
 	} else {
 		$url = ( isset( $_SERVER['HTTPS'] ) ? 'https://' : 'http://' ) .
 			$_SERVER['HTTP_HOST'] .
@@ -47,7 +47,8 @@ if ( $useOAuth ) {
 		$_SESSION['request_key'] = $token->key;
 		$_SESSION['request_secret'] = $token->secret;
 
-		echo "You must <a href='$authUrl'>sign in with OAuth</a>";
+		echo "<a href='$authUrl'>Sign in with OAuth</a> to create and manage wikis.";
+		include 'footer.html';
 		die();
 	}
 

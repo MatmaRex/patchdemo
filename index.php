@@ -1,119 +1,110 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Patch demo</title>
-		<link rel="stylesheet" href="index.css">
-	</head>
-	<body>
+<?php
+require_once "includes.php";
+?>
+<form action="new.php" method="POST">
+	<label>
+		<div>Start with version:</div>
+		<select name="branch">
 		<?php
-		require_once "includes.php";
+
+		$gitcmd = "git --git-dir=" . __DIR__ . "/repositories/mediawiki/core/.git";
+		// basically `git branch -r`, but without the silly parts
+		$branches = explode( "\n", shell_exec( "$gitcmd for-each-ref refs/remotes/origin/ --format='%(refname:short)'" ) );
+
+		$branches = array_filter( $branches, function ( $branch ) {
+			return preg_match( '/^origin\/(master|wmf|REL)/', $branch );
+		} );
+		natcasesort( $branches );
+
+		foreach ( $branches as $branch ) {
+			echo "<option>" . htmlspecialchars( $branch ) . "</option>\n";
+		}
+
 		?>
-		<h1>Patch demo</h1>
-		<form action="new.php" method="POST">
-			<label>
-				<div>Start with version:</div>
-				<select name="branch">
-				<?php
+		</select>
+	</label>
+	<label>
+		<div>Then, apply patches:</div>
+		<textarea name="patches" placeholder="Gerrit changeset number or Change-Id, one per line" rows="4" cols="50"></textarea>
+	</label>
+	<button type="submit">Create demo</button>
+</form>
+<table class="wikis">
+	<caption>Previously generated wikis</caption>
+	<?php
 
-				$gitcmd = "git --git-dir=" . __DIR__ . "/repositories/mediawiki/core/.git";
-				// basically `git branch -r`, but without the silly parts
-				$branches = explode( "\n", shell_exec( "$gitcmd for-each-ref refs/remotes/origin/ --format='%(refname:short)'" ) );
+	echo '<tr>' .
+		'<th>Patches</th>' .
+		'<th>Link</th>' .
+		'<th>Time</th>' .
+		( $useOAuth ? '<th>Creator</th>' : '' ) .
+	'</tr>';
 
-				$branches = array_filter( $branches, function ( $branch ) {
-					return preg_match( '/^origin\/(master|wmf|REL)/', $branch );
-				} );
-				natcasesort( $branches );
+	$dirs = array_filter( scandir( 'wikis' ), function ( $dir ) {
+		return substr( $dir, 0, 1 ) !== '.';
+	} );
 
-				foreach ( $branches as $branch ) {
-					echo "<option>" . htmlspecialchars( $branch ) . "</option>\n";
+	$usecache = false;
+	$cache = get_if_file_exists( 'wikicache.json' );
+	if ( $cache ) {
+		$wikis = json_decode( $cache, true );
+		$wikilist = array_keys( $wikis );
+		sort( $wikilist );
+		sort( $dirs );
+		if ( $wikilist === $dirs ) {
+			$usecache = true;
+		}
+	}
+
+	if ( !$usecache ) {
+		$wikis = [];
+		foreach ( $dirs as $dir ) {
+			if ( substr( $dir, 0, 1 ) !== '.' ) {
+				$title = '?';
+				$settings = get_if_file_exists( 'wikis/' . $dir . '/w/LocalSettings.php' );
+				if ( $settings ) {
+					preg_match( '`wgSitename = "(.*)";`', $settings, $matches );
+					$title = $matches[ 1 ];
 				}
+				$creator = get_creator( $dir );
 
-				?>
-				</select>
-			</label>
-			<label>
-				<div>Then, apply patches:</div>
-				<textarea name="patches" placeholder="Gerrit changeset number or Change-Id, one per line" rows="4" cols="50"></textarea>
-			</label>
-			<button type="submit">Create demo</button>
-		</form>
-		<table class="wikis">
-			<caption>Previously generated wikis</caption>
-			<?php
-
-			echo '<tr>' .
-				'<th>Patches</th>' .
-				'<th>Link</th>' .
-				'<th>Time</th>' .
-				( $useOAuth ? '<th>Creator</th>' : '' ) .
-			'</tr>';
-
-			$dirs = array_filter( scandir( 'wikis' ), function ( $dir ) {
-				return substr( $dir, 0, 1 ) !== '.';
-			} );
-
-			$usecache = false;
-			$cache = get_if_file_exists( 'wikicache.json' );
-			if ( $cache ) {
-				$wikis = json_decode( $cache, true );
-				$wikilist = array_keys( $wikis );
-				sort( $wikilist );
-				sort( $dirs );
-				if ( $wikilist === $dirs ) {
-					$usecache = true;
-				}
+				$wikis[ $dir ] = [
+					'mtime' => filemtime( 'wikis/' . $dir ),
+					'title' => $title,
+					'creator' => $creator
+				];
 			}
+		}
+		uksort( $wikis, function ( $a, $b ) use ( $wikis ) {
+			return $wikis[ $a ][ 'mtime' ] < $wikis[ $b ][ 'mtime' ];
+		} );
 
-			if ( !$usecache ) {
-				$wikis = [];
-				foreach ( $dirs as $dir ) {
-					if ( substr( $dir, 0, 1 ) !== '.' ) {
-						$title = '?';
-						$settings = get_if_file_exists( 'wikis/' . $dir . '/w/LocalSettings.php' );
-						if ( $settings ) {
-							preg_match( '`wgSitename = "(.*)";`', $settings, $matches );
-							$title = $matches[ 1 ];
-						}
-						$creator = get_creator( $dir );
+		file_put_contents( 'wikicache.json', json_encode( $wikis ) );
+	}
 
-						$wikis[ $dir ] = [
-							'mtime' => filemtime( 'wikis/' . $dir ),
-							'title' => $title,
-							'creator' => $creator
-						];
-					}
-				}
-				uksort( $wikis, function ( $a, $b ) use ( $wikis ) {
-					return $wikis[ $a ][ 'mtime' ] < $wikis[ $b ][ 'mtime' ];
-				} );
+	foreach ( $wikis as $wiki => $data ) {
+		preg_match( '`Patch Demo \((.*)\)`', $data[ 'title' ], $matches );
+		$title = $data[ 'title' ];
+		if ( count( $matches ) ) {
+			preg_match_all( '`([0-9]+),[0-9]+`', $matches[ 1 ], $matches );
+			$title = implode( ', ', array_map( function ( $r, $t ) {
+				return '<a href="https://gerrit.wikimedia.org/r/' . $r . '">' . $t . '</a>';
+			}, $matches[ 1 ], $matches[ 0 ] ) );
+		}
+		$canDelete = can_delete( $data[ 'creator' ] ?? '' );
+		echo '<tr>' .
+			'<td>' . $title . '</td>' .
+			'<td><a href="wikis/' . $wiki . '/w">' . $wiki . '</a></td>' .
+			'<td>' . date( 'c', $data[ 'mtime' ] ) . '</td>' .
+			( $useOAuth ? '<td>' . ( !empty( $data[ 'creator' ] ) ? $data[ 'creator' ] : '?' ) . '</td>' : '' ) .
+			( $canDelete ?
+				'<td><a href="delete.php?wiki=' . $wiki . '">Delete</a></td>' :
+				''
+			) .
+		'</tr>';
+	}
+	?>
+</table>
 
-				file_put_contents( 'wikicache.json', json_encode( $wikis ) );
-			}
-
-			foreach ( $wikis as $wiki => $data ) {
-				preg_match( '`Patch Demo \((.*)\)`', $data[ 'title' ], $matches );
-				$title = $data[ 'title' ];
-				if ( count( $matches ) ) {
-					preg_match_all( '`([0-9]+),[0-9]+`', $matches[ 1 ], $matches );
-					$title = implode( ', ', array_map( function ( $r, $t ) {
-						return '<a href="https://gerrit.wikimedia.org/r/' . $r . '">' . $t . '</a>';
-					}, $matches[ 1 ], $matches[ 0 ] ) );
-				}
-				$canDelete = can_delete( $data[ 'creator' ] ?? '' );
-				echo '<tr>' .
-					'<td>' . $title . '</td>' .
-					'<td><a href="wikis/' . $wiki . '/w">' . $wiki . '</a></td>' .
-					'<td>' . date( 'c', $data[ 'mtime' ] ) . '</td>' .
-					( $useOAuth ? '<td>' . ( $data[ 'creator' ] ?? '?' ) . '</td>' : '' ) .
-					( $canDelete ?
-						'<td><a href="delete.php?wiki=' . $wiki . '">Delete</a></td>' :
-						''
-					) .
-				'</tr>';
-			}
-			?>
-		</table>
-		<p><a href="https://github.com/MatmaRex/patchdemo">Source code</a></p>
-	</body>
-</html>
+<?php
+include "footer.html";
