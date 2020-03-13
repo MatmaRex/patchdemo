@@ -8,6 +8,7 @@ $config = [
 	// wikis, and can delete their own wikis.
 	'oauth' => [
 		'url' => null,
+		'callback' => null,
 		'key' => null,
 		'secret' => null,
 		// OAuth admins can delete any wiki
