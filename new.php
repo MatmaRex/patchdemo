@@ -65,7 +65,10 @@ foreach ( $patches as &$patch ) {
 	}
 	$path = $repos[ $repo ];
 
-	if ( ( $data[0]['labels']['Verified']['approved']['_account_id'] ?? null ) !== 75 ) {
+	if (
+		$config[ 'requireVerified' ] &&
+		( $data[0]['labels']['Verified']['approved']['_account_id'] ?? null ) !== 75
+	) {
 		die( "Patch must be approved (Verified+2) by jenkins-bot" );
 	}
 
