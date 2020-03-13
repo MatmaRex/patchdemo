@@ -12,6 +12,16 @@ if ( file_exists( 'config.php' ) ) {
 	$config = array_merge( $config, $localConfig );
 }
 
+echo '<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Patch demo</title>
+		<link rel="stylesheet" href="index.css">
+	</head>
+	<body>
+		<h1>Patch demo</h1>';
+
 include_once 'oauth.php';
 
 function make_shell_command( $env, $cmd ) {
