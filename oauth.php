@@ -37,10 +37,7 @@ if ( $useOAuth ) {
 		$user = $client->identify( $accessToken );
 		echo "<div class='user'>Logged in as <b>{$user->username}</b> [<a href='?logout'>Log out</a>]</div>";
 	} else {
-		$url = ( isset( $_SERVER['HTTPS'] ) ? 'https://' : 'http://' ) .
-			$_SERVER['HTTP_HOST'] .
-			preg_replace( '/\?.*/', '', $_SERVER['REQUEST_URI'] );
-		$client->setCallback( $url );
+		$client->setCallback( $config[ 'oauth' ][ 'callback' ] );
 
 		list( $authUrl, $token ) = $client->initiate();
 
