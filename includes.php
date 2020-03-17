@@ -34,6 +34,21 @@ function make_shell_command( $env, $cmd ) {
 	return "$prefix$cmd 2>&1";
 }
 
+function shell_echo( $cmd ) {
+	echo '<pre>';
+	echo "$cmd\n";
+	system( $cmd, $error );
+	echo '</pre>';
+	return $error;
+}
+
+function gerrit_query_echo( $url ) {
+	echo "<pre>$url</pre>";
+	$resp = file_get_contents( $url );
+	$data = json_decode( substr( $resp, 4 ), true );
+	return $data;
+}
+
 function get_repo_data() {
 	$data = file_get_contents( __DIR__ . '/repositories.txt' );
 	$repos = [];

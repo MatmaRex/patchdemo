@@ -26,10 +26,7 @@ $cmd = make_shell_command( [
 	'WIKI' => $wiki
 ], __DIR__ . '/deletewiki.sh' );
 
-echo '<pre>';
-echo "$cmd\n";
-system( $cmd, $error );
-echo '</pre>';
+$error = shell_echo( $cmd );
 if ( $error ) {
 	die( "Could not delete." );
 }
