@@ -86,10 +86,10 @@ require_once "includes.php";
 		preg_match( '`Patch Demo \((.*)\)`', $data[ 'title' ], $matches );
 		$title = $data[ 'title' ];
 		if ( count( $matches ) ) {
-			preg_match_all( '`([0-9]+),[0-9]+`', $matches[ 1 ], $matches );
-			$title = implode( ', ', array_map( function ( $r, $t ) {
-				return '<a href="https://gerrit.wikimedia.org/r/' . $r . '">' . $t . '</a>';
-			}, $matches[ 1 ], $matches[ 0 ] ) );
+			preg_match_all( '`([0-9]+),([0-9]+)`', $matches[ 1 ], $matches );
+			$title = implode( ', ', array_map( function ( $r, $p, $t ) {
+				return '<a href="https://gerrit.wikimedia.org/r/c/' . $r . '/' . $p . '">' . $t . '</a>';
+			}, $matches[ 1 ], $matches[ 2 ], $matches[ 0 ] ) );
 		}
 		$canDelete = can_delete( $data[ 'creator' ] ?? '' );
 		echo '<tr>' .
