@@ -25,10 +25,7 @@ $cmd = make_shell_command( [
 	'PATCHDEMO' => __DIR__,
 ], __DIR__ . '/updaterepos.sh' );
 
-echo '<pre>';
-echo "$cmd\n";
-system( $cmd, $error );
-echo '</pre>';
+$error = shell_echo( $cmd );
 if ( $error ) {
 	die( "Could not update repositories." );
 }
@@ -42,9 +39,7 @@ $commands = [];
 foreach ( $patches as &$patch ) {
 	$patchSafe = preg_replace( '/^I?[^0-9a-f]$/', '', $patch );
 	$url = "https://gerrit.wikimedia.org/r/changes/?q=change:$patchSafe&o=LABELS&o=CURRENT_REVISION";
-	echo "<pre>$url</pre>";
-	$resp = file_get_contents( $url );
-	$data = json_decode( substr( $resp, 4 ), true );
+	$data = gerrit_query_echo( $url );
 
 	if ( count( $data ) === 0 ) {
 		die( "Could not find patch $patchSafe" );
@@ -89,9 +84,7 @@ foreach ( $patches as &$patch ) {
 
 	// Look at all commits in this patch's tree for cross-repo dependencies to add
 	$url = "https://gerrit.wikimedia.org/r/changes/{$data[0]['id']}/revisions/$hash/related";
-	echo "<pre>$url</pre>";
-	$resp = file_get_contents( $url );
-	$data = json_decode( substr( $resp, 4 ), true );
+	$data = gerrit_query_echo( $url );
 	// Ancestor commits only, not descendants
 	$foundCurr = false;
 	foreach ( $data['changes'] as $change ) {
@@ -104,9 +97,7 @@ foreach ( $patches as &$patch ) {
 
 	foreach ( $relatedChanges as [ $id, $rev ] ) {
 		$url = "https://gerrit.wikimedia.org/r/changes/$id/revisions/$rev/commit";
-		echo "<pre>$url</pre>";
-		$resp = file_get_contents( $url );
-		$data = json_decode( substr( $resp, 4 ), true );
+		$data = gerrit_query_echo( $url );
 
 		preg_match_all( '/^Depends-On: (.+)$/m', $data['message'], $m );
 		foreach ( $m[1] as $changeid ) {
@@ -139,10 +130,7 @@ $cmd = make_shell_command( $baseEnv + [
 	'COMPOSER_HOME' => __DIR__ . '/composer',
 ], __DIR__ . '/createwiki.sh' );
 
-echo '<pre>';
-echo "$cmd\n";
-system( $cmd, $error );
-echo '</pre>';
+$error = shell_echo( $cmd );
 if ( $error ) {
 	die( "Could not install the wiki." );
 }
@@ -151,10 +139,7 @@ echo "Fetching and applying patches $patchesAppliedText...";
 
 foreach ( $commands as $i => $command ) {
 	$cmd = make_shell_command( $baseEnv + $command[0], $command[1] );
-	echo '<pre>';
-	echo "$cmd\n";
-	system( $cmd, $error );
-	echo '</pre>';
+	$error = shell_echo( $cmd );
 	if ( $error ) {
 		die( "Could not apply patch $i." );
 	}
@@ -164,10 +149,7 @@ echo "Deduplicating files...";
 
 $cmd = make_shell_command( $baseEnv, __DIR__ . '/deduplicate.sh' );
 
-echo '<pre>';
-echo "$cmd\n";
-system( $cmd, $error );
-echo '</pre>';
+$error = shell_echo( $cmd );
 if ( $error ) {
 	die( "Could not deduplicate." );
 }
