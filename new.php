@@ -13,7 +13,7 @@ echo "Your wiki will be available at:";
 echo "<br>";
 echo "<a href='wikis/$namePath/w/'>$namePath</a>";
 echo "<br>";
-echo "You can log in as user 'Patch Demo', password 'patchdemo'.";
+echo "You can log in as user 'Patch Demo', password 'patchdemo1'.";
 echo "<br>";
 
 $patches = explode( "\n", trim( $patches ) );
@@ -160,5 +160,5 @@ echo "Your wiki is available at:";
 echo "<br>";
 echo "<a href='wikis/$namePath/w/'>$namePath</a>";
 echo "<br>";
-echo "You can log in as user 'Patch Demo', password 'patchdemo'.";
+echo "You can log in as user 'Patch Demo', password 'patchdemo1'.";
 echo "<br>";
