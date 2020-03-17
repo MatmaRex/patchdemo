@@ -33,7 +33,7 @@ php $PATCHDEMO/wikis/$NAME/w/maintenance/install.php \
 --server="$SERVER" \
 --scriptpath="$SERVERPATH/wikis/$NAME/w" \
 --with-extensions \
---pass=patchdemo \
+--pass=patchdemo1 \
 "$WIKINAME" "Patch Demo"
 
 if [ -n "${CREATOR}" ]
