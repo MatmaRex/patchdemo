@@ -8,6 +8,10 @@ $wgShowDBErrorBacktrace = true;
 $wgShowExceptionDetails = true;
 $wgDebugComments = true;
 
+// Disable ResourceLoader's localStorage cache as this will
+// fill up quickly when domains host multiple wikis (#35)
+$wgResourceLoaderStorageEnabled = false;
+
 // Parsoid/PHP required configuration
 $wgEnableRestAPI = true;
 wfLoadExtension( 'Parsoid', 'parsoid/extension.json' );
