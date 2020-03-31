@@ -20,7 +20,7 @@ echo '<!DOCTYPE html>
 		<link rel="stylesheet" href="index.css">
 	</head>
 	<body>
-		<h1>Patch demo</h1>';
+		<a href="."><h1>Patch demo</h1></a>';
 
 include_once 'oauth.php';
 
