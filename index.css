@@ -2,7 +2,10 @@ body {
 	font-family: sans-serif;
 }
 
-h1 {
+h1 > a {
+	display: inline-block;
+	text-decoration: none;
+	color: inherit;
 	background: url( logo.svg ) no-repeat 0 0;
 	background-size: contain;
 	line-height: 2.2em;
