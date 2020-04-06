@@ -65,6 +65,19 @@ require_once "includes.php";
 				if ( $settings ) {
 					preg_match( '`wgSitename = "(.*)";`', $settings, $matches );
 					$title = $matches[ 1 ];
+
+					preg_match( '`Patch Demo \((.*)\)`', $title, $matches );
+					if ( count( $matches ) ) {
+						preg_match_all( '`([0-9]+),([0-9]+)`', $matches[ 1 ], $matches );
+						$title = implode( '<br>', array_map( function ( $r, $p, $t ) {
+							$data = gerrit_get_commit_info( $r, $p );
+							if ( $data ) {
+								$t = $t . ': ' . $data[ 'subject' ];
+							}
+							return '<a href="https://gerrit.wikimedia.org/r/c/' . $r . '/' . $p . '">' . $t . '</a>';
+						}, $matches[ 1 ], $matches[ 2 ], $matches[ 0 ] ) );
+					}
+
 				}
 				$creator = get_creator( $dir );
 
@@ -83,14 +96,7 @@ require_once "includes.php";
 	}
 
 	foreach ( $wikis as $wiki => $data ) {
-		preg_match( '`Patch Demo \((.*)\)`', $data[ 'title' ], $matches );
 		$title = $data[ 'title' ];
-		if ( count( $matches ) ) {
-			preg_match_all( '`([0-9]+),([0-9]+)`', $matches[ 1 ], $matches );
-			$title = implode( ', ', array_map( function ( $r, $p, $t ) {
-				return '<a href="https://gerrit.wikimedia.org/r/c/' . $r . '/' . $p . '">' . $t . '</a>';
-			}, $matches[ 1 ], $matches[ 2 ], $matches[ 0 ] ) );
-		}
 		$canDelete = can_delete( $data[ 'creator' ] ?? '' );
 		echo '<tr>' .
 			'<td>' . $title . '</td>' .

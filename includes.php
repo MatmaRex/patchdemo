@@ -49,6 +49,13 @@ function gerrit_query_echo( $url ) {
 	return $data;
 }
 
+function gerrit_get_commit_info( $change, $rev ) {
+	$url = 'https://gerrit.wikimedia.org/r/changes/' . $change . '/revisions/' . $rev . '/commit';
+	$resp = file_get_contents( $url );
+	$data = json_decode( substr( $resp, 4 ), true );
+	return $data;
+}
+
 function get_repo_data() {
 	$data = file_get_contents( __DIR__ . '/repositories.txt' );
 	$repos = [];
