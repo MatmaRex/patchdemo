@@ -18,10 +18,10 @@ echo '<!DOCTYPE html>
 		<meta charset="utf-8">
 		<title>Patch demo</title>
 		<link rel="stylesheet" href="index.css">
-		<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
-		<link rel="mask-icon" href="icons/safari-pinned-tab.svg" color="#006699">
-		<link rel="shortcut icon" href="icons/favicon.ico">
+		<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+		<link rel="mask-icon" href="images/safari-pinned-tab.svg" color="#006699">
+		<link rel="shortcut icon" href="images/favicon.ico">
 	</head>
 	<body>
 		<h1>Patch demo</h1>';
