@@ -74,7 +74,9 @@ require_once "includes.php";
 							if ( $data ) {
 								$t = $t . ': ' . $data[ 'subject' ];
 							}
-							return '<a href="https://gerrit.wikimedia.org/r/c/' . $r . '/' . $p . '">' . $t . '</a>';
+							return '<a href="https://gerrit.wikimedia.org/r/c/' . $r . '/' . $p . '" title="' . htmlspecialchars( $t, ENT_QUOTES ) . '">' .
+								htmlspecialchars( $t ) .
+							'</a>';
 						}, $matches[ 1 ], $matches[ 2 ], $matches[ 0 ] ) );
 					}
 
@@ -99,7 +101,7 @@ require_once "includes.php";
 		$title = $data[ 'title' ];
 		$canDelete = can_delete( $data[ 'creator' ] ?? '' );
 		echo '<tr>' .
-			'<td>' . $title . '</td>' .
+			'<td class="title">' . $title . '</td>' .
 			'<td><a href="wikis/' . $wiki . '/w">' . $wiki . '</a></td>' .
 			'<td>' . date( 'c', $data[ 'mtime' ] ) . '</td>' .
 			( $useOAuth ? '<td>' . ( !empty( $data[ 'creator' ] ) ? $data[ 'creator' ] : '?' ) . '</td>' : '' ) .

@@ -64,3 +64,10 @@ button[ type='submit' ] {
 	padding: 0.3em 0.6em;
 	vertical-align: top;
 }
+
+.wikis .title {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	max-width: 30em;
+}
