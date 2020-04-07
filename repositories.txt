@@ -5,6 +5,7 @@ mediawiki/extensions/Cite w/extensions/Cite
 mediawiki/extensions/CiteThisPage w/extensions/CiteThisPage
 mediawiki/extensions/CodeEditor w/extensions/CodeEditor
 mediawiki/extensions/ConfirmEdit w/extensions/ConfirmEdit
+mediawiki/extensions/FlaggedRevs w/extensions/FlaggedRevs
 mediawiki/extensions/Gadgets w/extensions/Gadgets
 mediawiki/extensions/ImageMap w/extensions/ImageMap
 mediawiki/extensions/InputBox w/extensions/InputBox
