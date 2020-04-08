@@ -12,6 +12,15 @@ h1 > a {
 	padding-left: 2.5em;
 }
 
+a {
+	color: #0645ad;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
 body,
 button,
 select,
@@ -57,15 +66,23 @@ button[ type='submit' ] {
 	margin-top: 1em;
 }
 
-.wikis th {
-	background: #ddd;
-}
-
 .wikis th,
 .wikis td {
-	border: 1px solid #ddd;
+	border: 1px solid #a2a9b1;
 	padding: 0.3em 0.6em;
 	vertical-align: top;
+}
+
+.wikis th {
+	background: #eaecf0;
+}
+
+.wikis td {
+	background: #f8f9fa;
+}
+
+.wikis tr:hover td {
+	background: #eaf3ff;
 }
 
 .wikis .title {
