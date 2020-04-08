@@ -33,3 +33,4 @@ $wgLocaltimezone = 'UTC';
 
 // Logo
 $wgLogo = "$wgResourceBasePath/logo.svg";
+$wgFavicon = "$wgResourceBasePath/favicon.ico";

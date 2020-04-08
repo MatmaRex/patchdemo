@@ -46,5 +46,6 @@ fi
 cat $PATCHDEMO/LocalSettings.txt >> $PATCHDEMO/wikis/$NAME/w/LocalSettings.php
 
 # copy logo
-cp $PATCHDEMO/logo.svg $PATCHDEMO/wikis/$NAME/w/
+cp $PATCHDEMO/images/logo.svg $PATCHDEMO/wikis/$NAME/w/
+cp $PATCHDEMO/images/favicon.ico $PATCHDEMO/wikis/$NAME/w/
 
