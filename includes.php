@@ -76,3 +76,9 @@ function can_delete( $creator = null ) {
 	return $config[ 'allowDelete' ] || ( $username && $username === $creator ) ||
 		( $username && in_array( $username, $admins, true ) );
 }
+
+function user_link( $username ) {
+	global $config;
+	$base = preg_replace( '/(.*\/index.php).*/i', '$1', $config[ 'oauth' ][ 'url' ] );
+	return '<a href="' . $base . '?title=' . urlencode( 'User:' . $username ) . '" target="_blank">' . $username . '</a>';
+}
