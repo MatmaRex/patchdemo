@@ -29,16 +29,10 @@ require_once "includes.php";
 	</label>
 	<button type="submit">Create demo</button>
 </form>
+<br/>
+<h3>Previously generated wikis</h3>
 <table class="wikis">
-	<caption>Previously generated wikis</caption>
 	<?php
-
-	echo '<tr>' .
-		'<th>Patches</th>' .
-		'<th>Link</th>' .
-		'<th>Time</th>' .
-		( $useOAuth ? '<th>Creator</th>' : '' ) .
-	'</tr>';
 
 	$dirs = array_filter( scandir( 'wikis' ), function ( $dir ) {
 		return substr( $dir, 0, 1 ) !== '.';
@@ -97,10 +91,13 @@ require_once "includes.php";
 		file_put_contents( 'wikicache.json', json_encode( $wikis ) );
 	}
 
+	$rows = '';
+	$anyCanDelete = false;
 	foreach ( $wikis as $wiki => $data ) {
 		$title = $data[ 'title' ];
 		$canDelete = can_delete( $data[ 'creator' ] ?? '' );
-		echo '<tr>' .
+		$anyCanDelete = $anyCanDelete || $canDelete;
+		$rows .= '<tr>' .
 			'<td class="title">' . $title . '</td>' .
 			'<td><a href="wikis/' . $wiki . '/w">' . $wiki . '</a></td>' .
 			'<td>' . date( 'c', $data[ 'mtime' ] ) . '</td>' .
@@ -111,6 +108,17 @@ require_once "includes.php";
 			) .
 		'</tr>';
 	}
+
+	echo
+		'<tr>' .
+			'<th>Patches</th>' .
+			'<th>Link</th>' .
+			'<th>Time</th>' .
+			( $useOAuth ? '<th>Creator</th>' : '' ) .
+			( $anyCanDelete ? '<th>Actions</th>' : '' ) .
+		'</tr>' .
+		$rows;
+
 	?>
 </table>
 
