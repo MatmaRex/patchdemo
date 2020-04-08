@@ -1,7 +1,7 @@
 <?php
 require_once "includes.php";
 ?>
-<form action="new.php" method="POST">
+<form action="new.php" method="POST" id="new-form">
 	<label>
 		<div>Start with version:</div>
 		<select name="branch">
@@ -121,6 +121,6 @@ require_once "includes.php";
 
 	?>
 </table>
-
+<script src="index.js"></script>
 <?php
 include "footer.html";
