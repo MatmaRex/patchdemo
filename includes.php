@@ -18,6 +18,10 @@ echo '<!DOCTYPE html>
 		<meta charset="utf-8">
 		<title>Patch demo</title>
 		<link rel="stylesheet" href="index.css">
+		<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+		<link rel="mask-icon" href="images/safari-pinned-tab.svg" color="#006699">
+		<link rel="shortcut icon" href="images/favicon.ico">
 	</head>
 	<body>
 		<h1><a href=".">Patch demo</a></h1>';
