@@ -96,7 +96,7 @@ require_once "includes.php";
 			'<td>' . $title . '</td>' .
 			'<td><a href="wikis/' . $wiki . '/w">' . $wiki . '</a></td>' .
 			'<td>' . date( 'c', $data[ 'mtime' ] ) . '</td>' .
-			( $useOAuth ? '<td>' . ( !empty( $data[ 'creator' ] ) ? $data[ 'creator' ] : '?' ) . '</td>' : '' ) .
+			( $useOAuth ? '<td>' . ( !empty( $data[ 'creator' ] ) ? user_link( $data[ 'creator' ] ) : '?' ) . '</td>' : '' ) .
 			( $canDelete ?
 				'<td><a href="delete.php?wiki=' . $wiki . '">Delete</a></td>' :
 				''
