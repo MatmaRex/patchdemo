@@ -76,9 +76,18 @@ require_once "includes.php";
 
 				}
 				$creator = get_creator( $dir );
+				$created = get_created( $dir );
+
+				if ( !$created ) {
+					// Add created.txt to old wikis
+					$created = file_exists( 'wikis/' . $dir . '/w/LocalSettings.php' ) ?
+						filemtime( 'wikis/' . $dir . '/w/LocalSettings.php' ) :
+						filemtime( 'wikis/' . $dir );
+					file_put_contents( 'wikis/' . $dir . '/created.txt', $created );
+				}
 
 				$wikis[ $dir ] = [
-					'mtime' => filemtime( 'wikis/' . $dir ),
+					'mtime' => $created,
 					'title' => $title,
 					'creator' => $creator
 				];
