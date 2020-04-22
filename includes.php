@@ -80,6 +80,10 @@ function get_creator( $wiki ) {
 	return trim( get_if_file_exists( 'wikis/' . $wiki . '/creator.txt' ) ?? '' );
 }
 
+function get_created( $wiki ) {
+	return trim( get_if_file_exists( 'wikis/' . $wiki . '/created.txt' ) ?? false );
+}
+
 function can_delete( $creator = null ) {
 	global $config, $user;
 	$username = $user ? $user->username : null;

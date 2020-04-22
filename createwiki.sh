@@ -40,6 +40,7 @@ if [ -n "${CREATOR}" ]
 then
 	echo $CREATOR > $PATCHDEMO/wikis/$NAME/creator.txt
 fi
+date +%s > $PATCHDEMO/wikis/$NAME/created.txt
 
 
 # apply our default settings
