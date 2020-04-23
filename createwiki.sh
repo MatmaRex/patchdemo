@@ -41,9 +41,11 @@ then
 	echo $CREATOR > $PATCHDEMO/wikis/$NAME/creator.txt
 fi
 
-
 # apply our default settings
 cat $PATCHDEMO/LocalSettings.txt >> $PATCHDEMO/wikis/$NAME/w/LocalSettings.php
+
+# update Main_Page
+echo "$MAINPAGE" | php $PATCHDEMO/wikis/$NAME/w/maintenance/edit.php "Main_Page"
 
 # copy logo
 cp $PATCHDEMO/images/logo.svg $PATCHDEMO/wikis/$NAME/w/
