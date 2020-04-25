@@ -45,7 +45,7 @@ fi
 cat $PATCHDEMO/LocalSettings.txt >> $PATCHDEMO/wikis/$NAME/w/LocalSettings.php
 
 # update Main_Page
-sleep 2 # wait for install.php to create Main_Page
+sleep 1 # Ensure edit appears after creation in history
 echo "$MAINPAGE" | php $PATCHDEMO/wikis/$NAME/w/maintenance/edit.php "Main_Page"
 
 # copy logo
