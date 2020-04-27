@@ -8,6 +8,8 @@ $branch = trim( $_POST['branch'] );
 $patches = $_POST['patches'];
 
 $namePath = md5( $branch . $patches . time() );
+$server = ( isset( $_SERVER['HTTPS'] ) ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'];
+$serverPath = preg_replace( '`/[^/]*$`', '', $_SERVER['REQUEST_URI'] );
 
 echo "Your wiki will be available at:";
 echo "<br>";
@@ -113,6 +115,20 @@ $patchesAppliedText = implode( ' ', $patchesApplied );
 
 $wikiName = "Patch Demo ($patchesAppliedText)";
 
+$mainPage = "This wiki was generated on [$server$serverPath Patch Demo] at ~~~~~ and applies the following patches:\n";
+
+foreach ( $patchesApplied as $patch ) {
+	preg_match( '`([0-9]+),([0-9]+)`', $patch, $matches );
+	list( $t, $r, $p ) = $matches;
+
+	$data = gerrit_get_commit_info( $r, $p );
+	if ( $data ) {
+		$t = $t . ': ' . $data[ 'subject' ];
+	}
+
+	$mainPage .= "* [https://gerrit.wikimedia.org/r/c/$r/$p <nowiki>$t</nowiki>]\n";
+}
+
 $baseEnv = [
 	'PATCHDEMO' => __DIR__,
 	'NAME' => $namePath,
@@ -125,8 +141,9 @@ $cmd = make_shell_command( $baseEnv + [
 	'BRANCH' => $branch,
 	'WIKINAME' => $wikiName,
 	'CREATOR' => $user ? $user->username : '',
-	'SERVER' => "http://" . $_SERVER['HTTP_HOST'],
-	'SERVERPATH' => preg_replace( '`/[^/]*$`', '', $_SERVER['REQUEST_URI'] ),
+	'MAINPAGE' => $mainPage,
+	'SERVER' => $server,
+	'SERVERPATH' => $serverPath,
 	'COMPOSER_HOME' => __DIR__ . '/composer',
 ], __DIR__ . '/createwiki.sh' );
 
