@@ -115,7 +115,7 @@ $patchesAppliedText = implode( ' ', $patchesApplied );
 
 $wikiName = "Patch Demo ($patchesAppliedText)";
 
-$mainPage = "This wiki was automatically generated on [$server$serverPath Patch Demo] at ~~~~~ and applies the following patches:\n";
+$mainPage = "This wiki was generated on [$server$serverPath Patch Demo] at ~~~~~ and applies the following patches:\n";
 
 foreach ( $patchesApplied as $patch ) {
 	preg_match( '`([0-9]+),([0-9]+)`', $patch, $matches );
