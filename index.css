@@ -2,6 +2,11 @@ body {
 	font-family: sans-serif;
 }
 
+a {
+	color: #0645ad;
+	text-decoration: none;
+}
+
 h1 > a {
 	display: inline-block;
 	text-decoration: none;
@@ -10,11 +15,6 @@ h1 > a {
 	background-size: contain;
 	line-height: 2.2em;
 	padding-left: 2.5em;
-}
-
-a {
-	color: #0645ad;
-	text-decoration: none;
 }
 
 a:hover {
