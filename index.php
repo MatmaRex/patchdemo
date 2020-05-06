@@ -118,8 +118,7 @@ require_once "includes.php";
 		'</tr>';
 	}
 
-	echo
-		'<tr>' .
+	echo '<tr>' .
 			'<th>Patches</th>' .
 			'<th>Link</th>' .
 			'<th>Time</th>' .
