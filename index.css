@@ -1,15 +1,8 @@
 body {
 	font-family: sans-serif;
-}
-
-h1 > a {
-	display: inline-block;
-	text-decoration: none;
-	color: inherit;
-	background: url( images/logo.svg ) no-repeat 0 0;
-	background-size: contain;
-	line-height: 2.2em;
-	padding-left: 2.5em;
+	color: #222;
+	font-size: 14px;
+	line-height: 1.5;
 }
 
 a {
@@ -21,12 +14,55 @@ a:hover {
 	text-decoration: underline;
 }
 
-body,
 button,
 select,
 textarea {
-	font-size: 14px;
-	line-height: 1.5;
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+	color: inherit;
+	border: 1px solid #a2a9b1;
+	border-radius: 2px;
+	min-height: 2.3em;
+}
+
+button,
+select {
+	cursor: pointer;
+	background-color: #f8f9fa;
+}
+
+button:disabled {
+	border-color: #c8ccd1;
+	background-color: #c8ccd1;
+	color: #fff;
+	cursor: default;
+}
+
+textarea {
+	font-family: monospace, monospace;
+}
+
+textarea:focus,
+select:focus,
+button:focus {
+	border-color: #36c;
+	outline: 0;
+	box-shadow: inset 0 0 0 1px #36c;
+}
+
+.logo {
+	display: inline-block;
+	text-decoration: none;
+	color: inherit;
+	background: url( images/logo.svg ) no-repeat 0 0;
+	background-size: contain;
+	line-height: 2.2em;
+	padding-left: 2.5em;
+}
+
+.logo:hover {
+	text-decoration: none;
 }
 
 label {
@@ -37,22 +73,16 @@ label {
 
 label > * {
 	font-size: 14px;
+	display: inline-block;
+	vertical-align: top;
 }
 
 label > div {
 	width: 12em;
 }
 
-label > div,
-label > select,
-label > textarea {
-	display: inline-block;
-	vertical-align: top;
-}
-
 button[ type='submit' ] {
 	margin-left: 12em;
-	cursor: pointer;
 }
 
 .user {
