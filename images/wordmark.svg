@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="151" height="30" version="1.1" viewBox="0 0 39.952 7.9376" xmlns="http://www.w3.org/2000/svg">
+	<g transform="matrix(.1948 0 0 .1948 .39977 .52876)" fill-rule="evenodd">
+		<rect transform="rotate(-45)" x="-20.429" y="18.447" width="40.864" height="13.621" rx="6.8107" fill="#069"/>
+		<path d="m3.4117 3.4157c-2.668 2.668-2.668 6.9638-1e-6 9.6318l3.2026 3.2026 9.6318-9.6318-3.2026-3.2026c-2.668-2.668-6.9638-2.668-9.6318 0zm16.061 25.693 3.2027 3.2027c2.668 2.668 6.9638 2.668 9.6318 0s2.668-6.9638 0-9.6318l-3.2027-3.2027z" fill="#396"/>
+	</g>
+	<path d="m4.2095 4.0422-0.5287 0.30525v-0.6105z" color="#000000" fill="#900" stroke="#fff" stroke-linejoin="round" stroke-width=".09664"/>
+	<g transform="matrix(.1948 0 0 .1948 .39977 .52876)" fill="#fff">
+		<path d="m12.178 16.221v3.5781h1.1017v-0.51987h-0.53899v-2.5368h0.53899v-0.52142z"/>
+		<path d="m13.859 16.221v3.5781h1.1017v-0.51987h-0.53899v-2.5368h0.53899v-0.52142z"/>
+	</g>
+	<g transform="matrix(-.1948 0 0 .1948 7.359 .52876)" fill="#fff">
+		<path d="m12.178 16.221v3.5781h1.1017v-0.51987h-0.53899v-2.5368h0.53899v-0.52142z"/>
+		<path d="m13.859 16.221v3.5781h1.1017v-0.51987h-0.53899v-2.5368h0.53899v-0.52142z"/>
+	</g>
+	<text x="8.4825125" y="5.8100233" fill="#333333" font-family="Verdana" font-size="3.5278px" letter-spacing="0px" stroke-width=".26459px" word-spacing="0px" style="line-height:0px" xml:space="preserve"><tspan x="8.4825125" y="5.8100233" fill="#333333" font-family="sans-serif" font-size="4.9389px" stroke-width=".26459px">Patch demo</tspan></text>
+</svg>
