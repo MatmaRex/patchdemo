@@ -32,7 +32,7 @@ include_once 'oauth.php';
 if ( $user ) {
 	echo "<div class='user'>Logged in as <b>{$user->username}</b> [<a href='?logout'>Log out</a>]</div>";
 }
-echo '</header>';
+echo '</header><main>';
 
 function make_shell_command( $env, $cmd ) {
 	$prefix = '';
