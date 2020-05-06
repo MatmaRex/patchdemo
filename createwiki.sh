@@ -51,5 +51,6 @@ echo "$MAINPAGE" | php $PATCHDEMO/wikis/$NAME/w/maintenance/edit.php "Main_Page"
 
 # copy logo
 cp $PATCHDEMO/images/logo.svg $PATCHDEMO/wikis/$NAME/w/
+cp $PATCHDEMO/images/wordmark.svg $PATCHDEMO/wikis/$NAME/w/
 cp $PATCHDEMO/images/favicon.ico $PATCHDEMO/wikis/$NAME/w/
 
