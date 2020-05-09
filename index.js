@@ -2,7 +2,8 @@
 	// TODO: Use infuse to control OOUI widgets
 	var myWikis, wikisTable, branchSelect,
 		form = document.getElementById( 'new-form' ),
-		submit = form.querySelector( 'button[type=submit]' );
+		submit = form.querySelector( 'button[type=submit]' ),
+		siteConfig = form.querySelector( '[name=siteConfig]' );
 
 	function setDisabled( input, disabled ) {
 		input.disabled = disabled;
@@ -10,7 +11,17 @@
 		input.parentNode.classList.toggle( 'oo-ui-widget-enabled', !disabled );
 	}
 
-	form.addEventListener( 'submit', function () {
+	form.addEventListener( 'submit', function ( e ) {
+		if ( siteConfig.value.trim() ) {
+			try {
+				JSON.parse( siteConfig.value );
+			} catch ( err ) {
+				e.preventDefault();
+				// eslint-disable-next-line no-alert
+				alert( 'Invalid JSON: ' + err.message );
+				return;
+			}
+		}
 		setDisabled( submit, true );
 		return false;
 	} );

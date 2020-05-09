@@ -68,6 +68,19 @@ echo new OOUI\FormLayout( [
 						'align' => 'left',
 					]
 				),
+				new OOUI\FieldLayout(
+					new OOUI\MultilineTextInputWidget( [
+						'name' => 'siteConfig',
+						'placeholder' => "{\n    \"Sitename\": \"Test wiki\"\n}",
+						'rows' => 4,
+					] ),
+					[
+						'label' => 'Site config:',
+						'help' => new OOUI\HtmlSnippet( 'All keys will be given a <strong><code>$wg</code></strong> prefix.<br/>This file will be <strong>public</strong>.' ),
+						'helpInline' => true,
+						'align' => 'left',
+					]
+				),
 				new DetailsFieldLayout(
 					new OOUI\CheckboxMultiselectInputWidget( [
 						'name' => 'repos[]',
@@ -75,7 +88,9 @@ echo new OOUI\FormLayout( [
 						'value' => array_keys( $repoData ),
 					] ),
 					[
-						'label' => 'Choose extensions to enable (default: all):',
+						'label' => 'Choose extensions to enable:',
+						'help' => new OOUI\HtmlSnippet( '<br/>Defaults to all' ),
+						'helpInline' => true,
 						'align' => 'left',
 					]
 				),
@@ -157,6 +172,8 @@ if ( $user ) {
 				}
 				$creator = get_creator( $dir );
 				$created = get_created( $dir );
+				$siteConfig = get_if_file_exists( 'wikis/' . $dir . '/w/config.json' );
+				$hasConfig = $siteConfig && strlen( trim( $siteConfig ) );
 
 				if ( !$created ) {
 					// Add created.txt to old wikis
@@ -169,7 +186,8 @@ if ( $user ) {
 				$wikis[ $dir ] = [
 					'mtime' => $created,
 					'title' => $title,
-					'creator' => $creator
+					'creator' => $creator,
+					'hasConfig' => $hasConfig,
 				];
 			}
 		}
@@ -190,7 +208,13 @@ if ( $user ) {
 		$anyCanDelete = $anyCanDelete || $canDelete;
 		$rows .= '<tr' . ( $creator !== $username ? ' class="other"' : '' ) . '>' .
 			'<td class="title">' . ( $title ?: '<em>No patches</em>' ) . '</td>' .
-			'<td><a href="wikis/' . $wiki . '/w">' . $wiki . '</a></td>' .
+			'<td>' .
+				( !empty( $data[ 'hasConfig' ] ) ?
+					'<a href="wikis/' . $wiki . '/w/config.json">JSON</a>' :
+					''
+				) .
+			'</td>' .
+			'<td><a href="wikis/' . $wiki . '/w">' . substr( $wiki, 0, 20 ) . '&hellip;</a></td>' .
 			'<td class="date">' . date( 'c', $data[ 'mtime' ] ) . '</td>' .
 			( $useOAuth ? '<td>' . ( $creator ? user_link( $creator ) : '?' ) . '</td>' : '' ) .
 			( $canDelete ?
@@ -202,6 +226,7 @@ if ( $user ) {
 
 	echo '<tr>' .
 			'<th>Patches</th>' .
+			'<th>Config</th>' .
 			'<th>Link</th>' .
 			'<th>Time</th>' .
 			( $useOAuth ? '<th>Creator</th>' : '' ) .

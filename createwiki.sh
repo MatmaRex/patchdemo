@@ -49,6 +49,9 @@ date +%s > $PATCHDEMO/wikis/$NAME/created.txt
 # apply our default settings
 cat $PATCHDEMO/LocalSettings.txt >> $PATCHDEMO/wikis/$NAME/w/LocalSettings.php
 
+# add site config
+echo "$SITECONFIG" >> $PATCHDEMO/wikis/$NAME/w/config.json
+
 # update Main_Page
 sleep 1 # Ensure edit appears after creation in history
 echo "$MAINPAGE" | php $PATCHDEMO/wikis/$NAME/w/maintenance/edit.php "Main_Page"
