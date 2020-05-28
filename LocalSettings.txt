@@ -31,6 +31,9 @@ $wgVisualEditorEnableWikitextBetaFeature = true;
 // DiscussionTools required configuration
 $wgLocaltimezone = 'UTC';
 
+// InstantCommons
+$wgUseInstantCommons = true;
+
 // Logo
 $wgLogos = [
 	'svg' => "$wgResourceBasePath/logo.svg",
