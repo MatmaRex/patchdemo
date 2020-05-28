@@ -43,7 +43,7 @@ if ( $useOAuth ) {
 		$_SESSION['request_key'] = $token->key;
 		$_SESSION['request_secret'] = $token->secret;
 
-		echo "<a href='$authUrl'>Sign in with OAuth</a> to create and manage wikis.";
+		echo "</header><main><a href='$authUrl'>Sign in with OAuth</a> to create and manage wikis.";
 		include 'footer.html';
 		die();
 	}
