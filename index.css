@@ -44,7 +44,8 @@ textarea {
 }
 
 button,
-select {
+select,
+input[ type='checkbox' ] {
 	cursor: pointer;
 	background-color: #f8f9fa;
 }
@@ -112,6 +113,10 @@ button[ type='submit' ] {
 .wikis {
 	border-collapse: collapse;
 	margin-top: 1em;
+}
+
+.wikis.hideOthers tr.other {
+	display: none;
 }
 
 .wikis th,

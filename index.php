@@ -31,6 +31,11 @@ require_once "includes.php";
 </form>
 <br/>
 <h3>Previously generated wikis</h3>
+<?php
+if ( $user ) {
+	echo '<label><input type="checkbox" class="myWikis"><span> Show only my wikis</span></label>';
+}
+?>
 <table class="wikis">
 	<?php
 
@@ -104,13 +109,15 @@ require_once "includes.php";
 	$anyCanDelete = false;
 	foreach ( $wikis as $wiki => $data ) {
 		$title = $data[ 'title' ];
-		$canDelete = can_delete( $data[ 'creator' ] ?? '' );
+		$creator = $data[ 'creator' ] ?? '';
+		$username = $user ? $user->username : null;
+		$canDelete = can_delete( $creator );
 		$anyCanDelete = $anyCanDelete || $canDelete;
-		$rows .= '<tr>' .
+		$rows .= '<tr' . ( $creator !== $username ? ' class="other"' : '' ) . '>' .
 			'<td class="title">' . $title . '</td>' .
 			'<td><a href="wikis/' . $wiki . '/w">' . $wiki . '</a></td>' .
 			'<td>' . date( 'c', $data[ 'mtime' ] ) . '</td>' .
-			( $useOAuth ? '<td>' . ( !empty( $data[ 'creator' ] ) ? user_link( $data[ 'creator' ] ) : '?' ) . '</td>' : '' ) .
+			( $useOAuth ? '<td>' . ( $creator ? user_link( $creator ) : '?' ) . '</td>' : '' ) .
 			( $canDelete ?
 				'<td><a href="delete.php?wiki=' . $wiki . '">Delete</a></td>' :
 				''
