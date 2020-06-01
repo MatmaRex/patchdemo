@@ -1,5 +1,7 @@
 <?php
 
+use Symfony\Component\Yaml\Yaml;
+
 ini_set( 'display_errors', 1 );
 ini_set( 'display_startup_errors', 1 );
 error_reporting( E_ALL );
@@ -53,6 +55,7 @@ function shell_echo( $cmd ) {
 }
 
 function gerrit_query_echo( $url ) {
+	$url = 'https://gerrit.wikimedia.org/r/' . $url;
 	echo "<pre>$url</pre>";
 	$resp = file_get_contents( $url );
 	$data = json_decode( substr( $resp, 4 ), true );
@@ -102,4 +105,21 @@ function user_link( $username ) {
 	global $config;
 	$base = preg_replace( '/(.*\/index.php).*/i', '$1', $config[ 'oauth' ][ 'url' ] );
 	return '<a href="' . $base . '?title=' . urlencode( 'User:' . $username ) . '" target="_blank">' . $username . '</a>';
+}
+
+function is_trusted_user( $email ) {
+	$config = file_get_contents( 'https://raw.githubusercontent.com/wikimedia/integration-config/master/zuul/layout.yaml' );
+	// Hack: Parser doesn't understand this, even using Yaml::PARSE_CUSTOM_TAGS
+	$config = str_replace( '!!merge', 'merge', $config );
+	$data = Yaml::parse( $config );
+
+	$emailPatterns = $data[ 'pipelines' ][0][ 'trigger' ][ 'gerrit' ][ 0 ][ 'email' ];
+
+	foreach ( $emailPatterns as $pattern ) {
+		if ( preg_match( '/' . $pattern . '/', $email ) ) {
+			return true;
+		}
+	}
+
+	return false;
 }

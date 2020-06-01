@@ -1,6 +1,7 @@
 {
 	"require": {
-		"mediawiki/oauthclient": "1.1.0"
+		"mediawiki/oauthclient": "1.1.0",
+		"symfony/yaml": "^5.1"
 	},
 	"require-dev": {
 		"jakub-onderka/php-parallel-lint": "1.0.0",
