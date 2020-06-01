@@ -40,7 +40,7 @@ $commands = [];
 // Iterate by reference, so that we can modify the $patches array to add new entries
 foreach ( $patches as &$patch ) {
 	$patchSafe = preg_replace( '/^I?[^0-9a-f]$/', '', $patch );
-	$url = "https://gerrit.wikimedia.org/r/changes/?q=change:$patchSafe&o=LABELS&o=CURRENT_REVISION";
+	$url = "changes/?q=change:$patchSafe&o=LABELS&o=CURRENT_REVISION";
 	$data = gerrit_query_echo( $url );
 
 	if ( count( $data ) === 0 ) {
@@ -66,7 +66,12 @@ foreach ( $patches as &$patch ) {
 		$config[ 'requireVerified' ] &&
 		( $data[0]['labels']['Verified']['approved']['_account_id'] ?? null ) !== 75
 	) {
-		die( "Patch must be approved (Verified+2) by jenkins-bot" );
+		// The patch doesn't have V+2, check if the uploader is trusted
+		$uploaderId = $data[0]['revisions'][$hash]['uploader']['_account_id'];
+		$uploader = gerrit_query_echo( 'accounts/' . $uploaderId );
+		if ( !is_trusted_user( $uploader['email'] ) ) {
+			die( "Patch must be approved (Verified+2) by jenkins-bot, or uploaded by a trusted user" );
+		}
 	}
 
 	$patchesApplied[] = $data[0]['_number'] . ',' . $data[0]['revisions'][$hash]['_number'];
@@ -85,7 +90,7 @@ foreach ( $patches as &$patch ) {
 	$relatedChanges[] = [ $data[0]['_number'], $data[0]['revisions'][$hash]['_number'] ];
 
 	// Look at all commits in this patch's tree for cross-repo dependencies to add
-	$url = "https://gerrit.wikimedia.org/r/changes/{$data[0]['id']}/revisions/$hash/related";
+	$url = "changes/{$data[0]['id']}/revisions/$hash/related";
 	$data = gerrit_query_echo( $url );
 	// Ancestor commits only, not descendants
 	$foundCurr = false;
@@ -98,7 +103,7 @@ foreach ( $patches as &$patch ) {
 	}
 
 	foreach ( $relatedChanges as [ $id, $rev ] ) {
-		$url = "https://gerrit.wikimedia.org/r/changes/$id/revisions/$rev/commit";
+		$url = "changes/$id/revisions/$rev/commit";
 		$data = gerrit_query_echo( $url );
 
 		preg_match_all( '/^Depends-On: (.+)$/m', $data['message'], $m );
