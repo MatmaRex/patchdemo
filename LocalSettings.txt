@@ -13,19 +13,12 @@ $wgDebugComments = true;
 $wgResourceLoaderStorageEnabled = false;
 
 // Parsoid/PHP required configuration
-$wgEnableRestAPI = true;
-wfLoadExtension( 'Parsoid', 'parsoid/extension.json' );
 $wgParsoidSettings = [
 	'useSelser' => true,
 	'linting' => true,
 ];
 
-// VisualEditor required configuration
-$wgVirtualRestConfig['modules']['parsoid'] = [
-	'url' => $wgServer . $wgScriptPath . '/rest.php',
-];
 // Enable VE by default (T254349)
-$wgDefaultUserOptions['visualeditor-enable'] = 1;
 $wgHiddenPrefs[] = 'visualeditor-enable';
 // VE NWE beta feature
 $wgVisualEditorEnableWikitextBetaFeature = true;
