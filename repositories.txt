@@ -29,6 +29,7 @@ mediawiki/extensions/SyntaxHighlight_GeSHi w/extensions/SyntaxHighlight_GeSHi
 mediawiki/extensions/TextExtracts w/extensions/TextExtracts
 mediawiki/extensions/TimedMediaHandler w/extensions/TimedMediaHandler
 mediawiki/extensions/TitleBlacklist w/extensions/TitleBlacklist
+mediawiki/extensions/UniversalLanguageSelector w/extensions/UniversalLanguageSelector
 mediawiki/extensions/WikiEditor w/extensions/WikiEditor
 mediawiki/skins/MonoBook w/skins/MonoBook
 mediawiki/skins/Timeless w/skins/Timeless
