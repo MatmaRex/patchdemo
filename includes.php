@@ -27,14 +27,15 @@ echo '<!DOCTYPE html>
 	</head>
 	<body>
 		<header>
-			<h1><a class="logo" href=".">Patch demo</a></h1>';
+			<div class="headerInner">
+				<h1><a class="logo" href=".">Patch demo</a></h1>';
 
 include_once 'oauth.php';
 
 if ( $user ) {
 	echo "<div class='user'>Logged in as <b>{$user->username}</b> [<a href='?logout'>Log out</a>]</div>";
 }
-echo '</header><main>';
+echo '</div></header><main>';
 
 function make_shell_command( $env, $cmd ) {
 	$prefix = '';
