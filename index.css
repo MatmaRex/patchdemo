@@ -50,11 +50,33 @@ input[ type='checkbox' ] {
 	background-color: #f8f9fa;
 }
 
+button {
+	background: #36c;
+	border-color: #36c;
+	color: #fff;
+}
+
+button:hover {
+	background: #447ff5;
+	border-color: #447ff5;
+}
+
 button:disabled {
+	background: #c8ccd1;
 	border-color: #c8ccd1;
-	background-color: #c8ccd1;
 	color: #fff;
 	cursor: default;
+}
+
+button:focus {
+	box-shadow: inset 0 0 0 1px #36c, inset 0 0 0 2px #fff;
+	outline: 0;
+}
+
+button:active {
+	background: #2a4b8d;
+	border-color: #2a4b8d;
+	box-shadow: none;
 }
 
 textarea {
@@ -62,8 +84,7 @@ textarea {
 }
 
 textarea:focus,
-select:focus,
-button:focus {
+select:focus {
 	border-color: #36c;
 	outline: 0;
 	box-shadow: inset 0 0 0 1px #36c;
