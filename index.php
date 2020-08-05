@@ -16,6 +16,12 @@ require_once "includes.php";
 		} );
 		natcasesort( $branches );
 
+		// Put newest branches first
+		$branches = array_reverse( array_values( $branches ) );
+
+		// Move master to the top
+		array_unshift( $branches, array_pop( $branches ) );
+
 		foreach ( $branches as $branch ) {
 			echo "<option>" . htmlspecialchars( $branch ) . "</option>\n";
 		}
