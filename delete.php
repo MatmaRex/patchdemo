@@ -14,7 +14,12 @@ if ( !isset( $_POST['confirm' ] ) ) {
 	echo '<form method="POST">' .
 		'<p>Are you sure you want to delete this wiki: <a href="wikis/' . $wiki . '/w">' . $wiki . '</a>?</p>' .
 		'<p>This cannot be undone.</p>' .
-		'<button type="submit" name="confirm">Delete</button>' .
+		new OOUI\ButtonInputWidget( [
+			'type' => 'submit',
+			'name' => 'confirm',
+			'label' => 'Delete',
+			'flags' => [ 'primary', 'destructive' ]
+		] ) .
 	'</form>';
 	die();
 }

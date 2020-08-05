@@ -14,12 +14,15 @@ if ( file_exists( 'config.php' ) ) {
 	$config = array_merge( $config, $localConfig );
 }
 
+OOUI\Theme::setSingleton( new OOUI\WikimediaUITheme() );
+
 echo '<!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
 		<title>Patch demo</title>
 		<link rel="stylesheet" href="index.css">
+		<link rel="stylesheet" href="node_modules/oojs-ui/dist/oojs-ui-wikimediaui.min.css">
 		<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
 		<link rel="mask-icon" href="images/safari-pinned-tab.svg" color="#006699">
