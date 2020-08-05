@@ -6,5 +6,8 @@
 	"devDependencies": {
 		"eslint-config-wikimedia": "^0.16.2",
 		"stylelint-config-wikimedia": "^0.10.1"
+	},
+	"dependencies": {
+		"oojs-ui": "^0.40.0"
 	}
 }

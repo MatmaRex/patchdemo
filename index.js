@@ -1,13 +1,21 @@
 ( function () {
+	// TODO: Use infuse to control OOUI widgets
 	var myWikis, wikisTable, branchSelect,
-		form = document.getElementById( 'new-form' );
+		form = document.getElementById( 'new-form' ),
+		submit = form.querySelector( 'button[type=submit]' );
+
+	function setDisabled( input, disabled ) {
+		input.disabled = true;
+		input.parentNode.classList.toggle( 'oo-ui-widget-disabled', !!disabled );
+		input.parentNode.classList.toggle( 'oo-ui-widget-enabled', !disabled );
+	}
 
 	form.addEventListener( 'submit', function () {
-		form.querySelector( 'button[type=submit]' ).disabled = true;
+		setDisabled( submit, true );
+		return false;
 	} );
 
-	if ( document.getElementsByClassName( 'myWikis' ).length ) {
-		myWikis = document.getElementsByClassName( 'myWikis' )[ 0 ];
+	if ( ( myWikis = document.querySelector( '.myWikis > input' ) ) ) {
 		wikisTable = document.getElementsByClassName( 'wikis' )[ 0 ];
 		myWikis.addEventListener( 'change', function () {
 			if ( myWikis.checked ) {
@@ -24,7 +32,10 @@
 		branch = branchSelect.value;
 		for ( repo in window.repoBranches ) {
 			validBranch = window.repoBranches[ repo ].indexOf( branch ) !== -1;
-			document.querySelector( 'input[name="repos[' + repo + ']"]' ).disabled = !validBranch;
+			setDisabled(
+				document.querySelector( 'input[name="repos[' + repo + ']"]' ),
+				!validBranch
+			);
 		}
 	} );
 

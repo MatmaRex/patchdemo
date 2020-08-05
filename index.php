@@ -1,64 +1,114 @@
 <?php
 require_once "includes.php";
+
+$branches = get_branches( 'mediawiki/core' );
+
+$branches = array_filter( $branches, function ( $branch ) {
+	return preg_match( '/^origin\/(master|wmf|REL)/', $branch );
+} );
+natcasesort( $branches );
+
+// Put newest branches first
+$branches = array_reverse( array_values( $branches ) );
+
+// Move master to the top
+array_unshift( $branches, array_pop( $branches ) );
+
+$branches = array_map( function ( $branch ) {
+	return [ 'data' => $branch ];
+}, $branches );
+
+$repoBranches = [];
+$repoLayouts = [];
+$repoData = get_repo_data();
+ksort( $repoData );
+foreach ( $repoData as $repo => $path ) {
+	if ( $repo === 'mediawiki/core' ) {
+		continue;
+	}
+	$repoBranches[$repo] = get_branches( $repo );
+	$repo = htmlspecialchars( $repo );
+	$repoLayouts[] = new OOUI\FieldLayout(
+		new OOUI\CheckboxInputWidget( [
+			'name' => 'repos[' . $repo . ']',
+			'selected' => true
+		] ),
+		[
+			'align' => 'inline',
+			'label' => $repo
+		]
+	);
+}
+$repoBranches = htmlspecialchars( json_encode( $repoBranches ), ENT_NOQUOTES );
+echo "<script>window.repoBranches = $repoBranches;</script>\n";
+
+include_once 'DetailsFieldsetLayout.php';
+
+echo new OOUI\FormLayout( [
+	'infusable' => true,
+	'method' => 'POST',
+	'action' => 'new.php',
+	'id' => 'new-form',
+	'items' => [
+		new OOUI\FieldsetLayout( [
+			'label' => null,
+			'items' => [
+				new OOUI\FieldLayout(
+					new OOUI\DropdownInputWidget( [
+						'name' => 'branch',
+						'options' => $branches,
+					] ),
+					[
+						'label' => 'Start with version:',
+						'align' => 'left',
+					]
+				),
+				new OOUI\FieldLayout(
+					new OOUI\MultilineTextInputWidget( [
+						'name' => 'patches',
+						'placeholder' => 'Gerrit changeset number or Change-Id, one per line',
+						'rows' => 4,
+					] ),
+					[
+						'label' => 'Then, apply patches:',
+						'align' => 'left',
+					]
+				),
+				new OOUI\FieldLayout(
+					new OOUI\ButtonInputWidget( [
+						'label' => 'Create demo',
+						'type' => 'submit',
+						// 'disabled' => true,
+						'flags' => [ 'progressive', 'primary' ]
+					] ),
+					[
+						'label' => ' ',
+						'align' => 'left',
+					]
+				),
+			]
+		] ),
+		new DetailsFieldsetLayout( [
+			'label' => 'Choose extensions to enable (default: all):',
+			// 'labelElement' => new OOUI\Tag( 'summary' ),
+			'items' => $repoLayouts
+		] ),
+	]
+] );
 ?>
-<form action="new.php" method="POST" id="new-form">
-	<label>
-		<div>Start with version:</div>
-		<select name="branch">
-		<?php
-
-		$branches = get_branches( 'mediawiki/core' );
-
-		$branches = array_filter( $branches, function ( $branch ) {
-			return preg_match( '/^origin\/(master|wmf|REL)/', $branch );
-		} );
-		natcasesort( $branches );
-
-		// Put newest branches first
-		$branches = array_reverse( array_values( $branches ) );
-
-		// Move master to the top
-		array_unshift( $branches, array_pop( $branches ) );
-
-		foreach ( $branches as $branch ) {
-			echo "<option>" . htmlspecialchars( $branch ) . "</option>\n";
-		}
-
-		?>
-		</select>
-	</label>
-	<label>
-		<div>Then, apply patches:</div>
-		<textarea name="patches" placeholder="Gerrit changeset number or Change-Id, one per line" rows="4" cols="50"></textarea>
-	</label>
-	<details>
-		<summary>Choose extensions to enable (default: all):</summary>
-		<?php
-
-		$repoBranches = [];
-		$repoData = get_repo_data();
-		ksort( $repoData );
-		foreach ( $repoData as $repo => $path ) {
-			if ( $repo === 'mediawiki/core' ) {
-				continue;
-			}
-			$repoBranches[$repo] = get_branches( $repo );
-			$repo = htmlspecialchars( $repo );
-			echo "<label><input type='checkbox' checked name='repos[$repo]'> $repo</label>\n";
-		}
-		$repoBranches = htmlspecialchars( json_encode( $repoBranches ), ENT_NOQUOTES );
-		echo "<script>window.repoBranches = $repoBranches;</script>\n";
-
-		?>
-	</details>
-
-	<button type="submit">Create demo</button>
-</form>
 <br/>
 <h3>Previously generated wikis</h3>
 <?php
 if ( $user ) {
-	echo '<label><input type="checkbox" class="myWikis"><span> Show only my wikis</span></label>';
+	echo new OOUI\FieldLayout(
+		new OOUI\CheckboxInputWidget( [
+			'classes' => [ 'myWikis' ]
+		] ),
+		[
+			'align' => 'inline',
+			'label' => 'Show only my wikis',
+		]
+	);
 }
 ?>
 <table class="wikis">
