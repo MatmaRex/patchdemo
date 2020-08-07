@@ -184,3 +184,7 @@ button[ type='submit' ] {
 	white-space: nowrap;
 	max-width: 30em;
 }
+
+.wikis .date {
+	white-space: nowrap;
+}

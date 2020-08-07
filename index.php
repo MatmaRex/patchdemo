@@ -122,7 +122,7 @@ if ( $user ) {
 		$rows .= '<tr' . ( $creator !== $username ? ' class="other"' : '' ) . '>' .
 			'<td class="title">' . $title . '</td>' .
 			'<td><a href="wikis/' . $wiki . '/w">' . $wiki . '</a></td>' .
-			'<td>' . date( 'c', $data[ 'mtime' ] ) . '</td>' .
+			'<td class="date">' . date( 'c', $data[ 'mtime' ] ) . '</td>' .
 			( $useOAuth ? '<td>' . ( $creator ? user_link( $creator ) : '?' ) . '</td>' : '' ) .
 			( $canDelete ?
 				'<td><a href="delete.php?wiki=' . $wiki . '">Delete</a></td>' :
