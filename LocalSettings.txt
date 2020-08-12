@@ -55,4 +55,4 @@ $wgGERestbaseUrl = 'https://en.wikipedia.org/api/rest_v1';
 $wgGENewcomerTasksRemoteApiUrl = 'https://en.wikipedia.org/w/api.php';
 $wgGENewcomerTasksTopicType = 'ores';
 $wgWelcomeSurveyExperimentalGroups['exp2_target_specialpage']['range'] = '0-9';
-$wgGEHomepageMentorsList = 'Mentors';
+$wgGEHomepageMentorsList = 'Project:GrowthExperiments_mentors';
