@@ -12,6 +12,10 @@ $wgDebugComments = true;
 // fill up quickly when domains host multiple wikis (#35)
 $wgResourceLoaderStorageEnabled = false;
 
+// Set the name of the project namespace to "Project:", rather than
+// "Patch Demo (123456,7):"
+$wgMetaNamespace = 'Project';
+
 // Parsoid/PHP required configuration
 $wgEnableRestAPI = true;
 wfLoadExtension( 'Parsoid', 'parsoid/extension.json' );
