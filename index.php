@@ -7,9 +7,7 @@ require_once "includes.php";
 		<select name="branch">
 		<?php
 
-		$gitcmd = "git --git-dir=" . __DIR__ . "/repositories/mediawiki/core/.git";
-		// basically `git branch -r`, but without the silly parts
-		$branches = explode( "\n", shell_exec( "$gitcmd for-each-ref refs/remotes/origin/ --format='%(refname:short)'" ) );
+		$branches = get_branches( 'mediawiki/core' );
 
 		$branches = array_filter( $branches, function ( $branch ) {
 			return preg_match( '/^origin\/(master|wmf|REL)/', $branch );
@@ -33,6 +31,25 @@ require_once "includes.php";
 		<div>Then, apply patches:</div>
 		<textarea name="patches" placeholder="Gerrit changeset number or Change-Id, one per line" rows="4" cols="50"></textarea>
 	</label>
+	<details>
+		<summary>Choose extensions to enable (default: all):</summary>
+		<?php
+
+		$repoBranches = [];
+		foreach ( get_repo_data() as $repo => $path ) {
+			if ( $repo === 'mediawiki/core' ) {
+				continue;
+			}
+			$repoBranches[$repo] = get_branches( $repo );
+			$repo = htmlspecialchars( $repo );
+			echo "<label><input type='checkbox' checked name='repos[$repo]'> $repo</label>\n";
+		}
+		$repoBranches = htmlspecialchars( json_encode( $repoBranches ), ENT_NOQUOTES );
+		echo "<script>window.repoBranches = $repoBranches;</script>\n";
+
+		?>
+	</details>
+
 	<button type="submit">Create demo</button>
 </form>
 <br/>

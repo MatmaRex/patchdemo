@@ -8,7 +8,7 @@ mkdir $PATCHDEMO/wikis/$NAME/w
 while IFS=' ' read -r repo dir; do
 	git --git-dir=$PATCHDEMO/repositories/$repo/.git worktree prune
 	git --git-dir=$PATCHDEMO/repositories/$repo/.git worktree add --detach $PATCHDEMO/wikis/$NAME/$dir $BRANCH
-done < $PATCHDEMO/repositories.txt
+done <<< "$REPOSITORIES"
 
 # make database
 mysql -u patchdemo --password=patchdemo -e "CREATE DATABASE patchdemo_$NAME";
@@ -17,11 +17,15 @@ mysql -u patchdemo --password=patchdemo -e "CREATE DATABASE patchdemo_$NAME";
 cd $PATCHDEMO/wikis/$NAME/w
 composer update --no-dev
 
-cd $PATCHDEMO/wikis/$NAME/w/parsoid
-composer update --no-dev
+if [ -d $PATCHDEMO/wikis/$NAME/w/parsoid ]; then
+	cd $PATCHDEMO/wikis/$NAME/w/parsoid
+	composer update --no-dev
+fi
 
-cd $PATCHDEMO/wikis/$NAME/w/extensions/VisualEditor
-git submodule update --init --recursive
+if [ -d $PATCHDEMO/wikis/$NAME/w/extensions/VisualEditor ]; then
+	cd $PATCHDEMO/wikis/$NAME/w/extensions/VisualEditor
+	git submodule update --init --recursive
+fi
 
 # install
 cd $PATCHDEMO/wikis/$NAME/w

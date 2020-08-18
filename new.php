@@ -134,6 +134,24 @@ foreach ( $patchesApplied as $patch ) {
 	$mainPage .= "* [https://gerrit.wikimedia.org/r/c/$r/$p <nowiki>$t</nowiki>]\n";
 }
 
+// Choose repositories to enable
+$repos = get_repo_data();
+
+foreach ( array_keys( $repos ) as $repo ) {
+	// Unchecked the checkbox
+	if ( $repo !== 'mediawiki/core' && !isset( $_POST["repos"][$repo] ) ) {
+		unset( $repos[$repo] );
+	}
+	// This branch doesn't exist for this repo
+	if ( !in_array( $branch, get_branches( $repo ) ) ) {
+		unset( $repos[$repo] );
+	}
+}
+
+$reposString = implode( "\n", array_map( function ( $k, $v ) {
+	return "$k $v";
+}, array_keys( $repos ), array_values( $repos ) ) );
+
 $baseEnv = [
 	'PATCHDEMO' => __DIR__,
 	'NAME' => $namePath,
@@ -150,6 +168,7 @@ $cmd = make_shell_command( $baseEnv + [
 	'SERVER' => $server,
 	'SERVERPATH' => $serverPath,
 	'COMPOSER_HOME' => __DIR__ . '/composer',
+	'REPOSITORIES' => $reposString,
 ], __DIR__ . '/createwiki.sh' );
 
 $error = shell_echo( $cmd );

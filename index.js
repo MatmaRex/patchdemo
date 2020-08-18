@@ -1,5 +1,5 @@
 ( function () {
-	var myWikis, wikisTable,
+	var myWikis, wikisTable, branchSelect,
 		form = document.getElementById( 'new-form' );
 
 	form.addEventListener( 'submit', function () {
@@ -17,5 +17,15 @@
 			}
 		} );
 	}
+
+	branchSelect = document.querySelector( 'select[name=branch]' );
+	branchSelect.addEventListener( 'change', function () {
+		var branch, repo, validBranch;
+		branch = branchSelect.value;
+		for ( repo in window.repoBranches ) {
+			validBranch = window.repoBranches[ repo ].indexOf( branch ) !== -1;
+			document.querySelector( 'input[name="repos[' + repo + ']"]' ).disabled = !validBranch;
+		}
+	} );
 
 }() );

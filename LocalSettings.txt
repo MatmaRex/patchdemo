@@ -14,7 +14,9 @@ $wgResourceLoaderStorageEnabled = false;
 
 // Parsoid/PHP required configuration
 $wgEnableRestAPI = true;
-wfLoadExtension( 'Parsoid', 'parsoid/extension.json' );
+if ( file_exists( 'parsoid/extension.json' ) ) {
+	wfLoadExtension( 'Parsoid', 'parsoid/extension.json' );
+}
 $wgParsoidSettings = [
 	'useSelser' => true,
 	'linting' => true,
