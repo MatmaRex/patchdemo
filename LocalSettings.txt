@@ -36,7 +36,6 @@ $wgVirtualRestConfig['modules']['parsoid'] = [
 ];
 // Enable VE by default (T254349)
 $wgDefaultUserOptions['visualeditor-enable'] = 1;
-$wgHiddenPrefs[] = 'visualeditor-enable';
 // VE NWE beta feature
 $wgVisualEditorEnableWikitextBetaFeature = true;
 
