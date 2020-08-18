@@ -24,8 +24,6 @@ $wgParsoidSettings = [
 $wgVirtualRestConfig['modules']['parsoid'] = [
 	'url' => $wgServer . $wgScriptPath . '/rest.php',
 ];
-// Enable VE by default (T254349)
-$wgDefaultUserOptions['visualeditor-enable'] = 1;
 // VE NWE beta feature
 $wgVisualEditorEnableWikitextBetaFeature = true;
 
