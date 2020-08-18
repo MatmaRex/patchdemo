@@ -82,6 +82,13 @@ function get_repo_data() {
 	return $repos;
 }
 
+function get_branches( $repo ) {
+	$gitcmd = "git --git-dir=" . __DIR__ . "/repositories/$repo/.git";
+	// basically `git branch -r`, but without the silly parts
+	$branches = explode( "\n", shell_exec( "$gitcmd for-each-ref refs/remotes/origin/ --format='%(refname:short)'" ) );
+	return $branches;
+}
+
 function get_if_file_exists( $file ) {
 	return file_exists( $file ) ? file_get_contents( $file ) : null;
 }
