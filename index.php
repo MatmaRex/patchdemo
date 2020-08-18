@@ -36,7 +36,9 @@ require_once "includes.php";
 		<?php
 
 		$repoBranches = [];
-		foreach ( get_repo_data() as $repo => $path ) {
+		$repoData = get_repo_data();
+		ksort( $repoData );
+		foreach ( $repoData as $repo => $path ) {
 			if ( $repo === 'mediawiki/core' ) {
 				continue;
 			}
