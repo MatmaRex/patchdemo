@@ -1,0 +1,266 @@
+{
+    "topics": {
+        "africa": {
+            "group": "geography",
+            "oresTopics": [
+                "africa",
+                "central-africa",
+                "eastern-africa",
+                "northern-africa",
+                "southern-africa",
+                "western-africa"
+            ]
+        },
+        "architecture": {
+            "group": "culture",
+            "oresTopics": [
+                "architecture"
+            ]
+        },
+        "art": {
+            "group": "culture",
+            "oresTopics": [
+                "visual-arts"
+            ]
+        },
+        "asia": {
+            "group": "geography",
+            "oresTopics": [
+                "asia",
+                "central-asia",
+                "east-asia",
+                "south-asia",
+                "southeast-asia",
+                "west-asia"
+            ]
+        },
+        "biography": {
+            "group": "history-and-society",
+            "oresTopics": [
+                "biography"
+            ]
+        },
+        "biology": {
+            "group": "science-technology-and-math",
+            "oresTopics": [
+                "biology"
+            ]
+        },
+        "business-and-economics": {
+            "group": "history-and-society",
+            "oresTopics": [
+                "business-and-economics"
+            ]
+        },
+        "central-america": {
+            "group": "geography",
+            "oresTopics": [
+                "central-america"
+            ]
+        },
+        "chemistry": {
+            "group": "science-technology-and-math",
+            "oresTopics": [
+                "chemistry"
+            ]
+        },
+        "comics-and-anime": {
+            "group": "culture",
+            "oresTopics": [
+                "comics-and-anime"
+            ]
+        },
+        "computers-and-internet": {
+            "group": "science-technology-and-math",
+            "oresTopics": [
+                "internet-culture",
+                "software",
+                "computing"
+            ]
+        },
+        "earth-and-environment": {
+            "group": "science-technology-and-math",
+            "oresTopics": [
+                "geographical",
+                "earth-and-environment"
+            ]
+        },
+        "education": {
+            "group": "history-and-society",
+            "oresTopics": [
+                "education"
+            ]
+        },
+        "engineering": {
+            "group": "science-technology-and-math",
+            "oresTopics": [
+                "engineering"
+            ]
+        },
+        "entertainment": {
+            "group": "culture",
+            "oresTopics": [
+                "entertainment",
+                "radio"
+            ]
+        },
+        "europe": {
+            "group": "geography",
+            "oresTopics": [
+                "north-asia",
+                "eastern-europe",
+                "europe",
+                "northern-europe",
+                "southern-europe",
+                "western-europe"
+            ]
+        },
+        "fashion": {
+            "group": "culture",
+            "oresTopics": [
+                "fashion"
+            ]
+        },
+        "food-and-drink": {
+            "group": "history-and-society",
+            "oresTopics": [
+                "food-and-drink"
+            ]
+        },
+        "general-science": {
+            "group": "science-technology-and-math",
+            "oresTopics": [
+                "stem"
+            ]
+        },
+        "history": {
+            "group": "history-and-society",
+            "oresTopics": [
+                "history"
+            ]
+        },
+        "literature": {
+            "group": "culture",
+            "oresTopics": [
+                "literature",
+                "books"
+            ]
+        },
+        "mathematics": {
+            "group": "science-technology-and-math",
+            "oresTopics": [
+                "mathematics"
+            ]
+        },
+        "medicine-and-health": {
+            "group": "science-technology-and-math",
+            "oresTopics": [
+                "medicine-and-health"
+            ]
+        },
+        "military-and-warfare": {
+            "group": "history-and-society",
+            "oresTopics": [
+                "military-and-warfare"
+            ]
+        },
+        "music": {
+            "group": "culture",
+            "oresTopics": [
+                "music"
+            ]
+        },
+        "north-america": {
+            "group": "geography",
+            "oresTopics": [
+                "north-america"
+            ]
+        },
+        "oceania": {
+            "group": "geography",
+            "oresTopics": [
+                "oceania"
+            ]
+        },
+        "performing-arts": {
+            "group": "culture",
+            "oresTopics": [
+                "performing-arts"
+            ]
+        },
+        "philosophy-and-religion": {
+            "group": "history-and-society",
+            "oresTopics": [
+                "philosophy-and-religion"
+            ]
+        },
+        "physics": {
+            "group": "science-technology-and-math",
+            "oresTopics": [
+                "physics",
+                "space"
+            ]
+        },
+        "politics-and-government": {
+            "group": "history-and-society",
+            "oresTopics": [
+                "politics-and-government"
+            ]
+        },
+        "society": {
+            "group": "history-and-society",
+            "oresTopics": [
+                "society"
+            ]
+        },
+        "south-america": {
+            "group": "geography",
+            "oresTopics": [
+                "south-america"
+            ]
+        },
+        "sports": {
+            "group": "culture",
+            "oresTopics": [
+                "sports"
+            ]
+        },
+        "technology": {
+            "group": "science-technology-and-math",
+            "oresTopics": [
+                "technology"
+            ]
+        },
+        "transportation": {
+            "group": "history-and-society",
+            "oresTopics": [
+                "transportation"
+            ]
+        },
+        "tv-and-film": {
+            "group": "culture",
+            "oresTopics": [
+                "films",
+                "television"
+            ]
+        },
+        "video-games": {
+            "group": "culture",
+            "oresTopics": [
+                "video-games"
+            ]
+        },
+        "women": {
+            "group": "history-and-society",
+            "oresTopics": [
+                "women"
+            ]
+        }
+    },
+    "groups": [
+        "culture",
+        "history-and-society",
+        "science-technology-and-math",
+        "geography"
+    ]
+}

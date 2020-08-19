@@ -53,6 +53,13 @@ cat $PATCHDEMO/LocalSettings.txt >> $PATCHDEMO/wikis/$NAME/w/LocalSettings.php
 sleep 1 # Ensure edit appears after creation in history
 echo "$MAINPAGE" | php $PATCHDEMO/wikis/$NAME/w/maintenance/edit.php "Main_Page"
 
+if [ -d $PATCHDEMO/wikis/$NAME/w/extensions/GrowthExperiments ]; then
+	for page in $(find $PATCHDEMO/pages -not -type d -printf '%P\n')
+	do
+		cat "$PATCHDEMO/pages/$page" | php $PATCHDEMO/wikis/$NAME/w/maintenance/edit.php "$page"
+	done
+fi
+
 # copy logo
 cp $PATCHDEMO/images/logo.svg $PATCHDEMO/wikis/$NAME/w/
 cp $PATCHDEMO/images/wordmark.svg $PATCHDEMO/wikis/$NAME/w/

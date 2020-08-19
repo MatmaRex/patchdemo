@@ -52,3 +52,13 @@ $wgLogos = [
 	]
 ];
 $wgFavicon = "$wgResourceBasePath/favicon.ico";
+
+// PageViewInfo
+$wgPageViewInfoWikimediaDomain = 'en.wikipedia.org';
+
+// GrowthExperiments
+$wgGERestbaseUrl = 'https://en.wikipedia.org/api/rest_v1';
+$wgGENewcomerTasksRemoteApiUrl = 'https://en.wikipedia.org/w/api.php';
+$wgGENewcomerTasksTopicType = 'ores';
+$wgWelcomeSurveyExperimentalGroups['exp2_target_specialpage']['range'] = '0-9';
+$wgGEHomepageMentorsList = 'Project:GrowthExperiments_mentors';
