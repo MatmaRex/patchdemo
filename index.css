@@ -117,7 +117,8 @@ select:focus {
 	text-decoration: none;
 }
 
-label {
+label,
+details {
 	display: block;
 	margin-bottom: 10px;
 }
