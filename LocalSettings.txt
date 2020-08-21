@@ -19,6 +19,10 @@ $wgMetaNamespace = 'Project';
 // Parsoid/PHP required configuration
 $wgEnableRestAPI = true;
 if ( file_exists( 'parsoid/extension.json' ) ) {
+	// Ensure we load the right Parsoid (not via Composer)
+	AutoLoader::$psr4Namespaces += [
+		'Wikimedia\\Parsoid\\' => 'parsoid/src',
+	];
 	wfLoadExtension( 'Parsoid', 'parsoid/extension.json' );
 }
 $wgParsoidSettings = [
