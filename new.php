@@ -119,12 +119,24 @@ foreach ( $patches as &$patch ) {
 	}
 }
 
-$patchesAppliedText = implode( ' ', $patchesApplied );
+$branchDesc = preg_replace( '/^origin\//', '', $branch );
 
-$wikiName = "Patch Demo ($patchesAppliedText)";
+$wikiName = "Patch Demo (" . trim(
+	// Add branch name if it's not master, or if there are no patches
+	( $branchDesc !== 'master' || !$patchesApplied ? $branchDesc : '' ) . ' ' .
+	// Add list of patches
+	implode( ' ', $patchesApplied )
+) . ")";
 
-$mainPage = "This wiki was generated on [$server$serverPath Patch Demo] at ~~~~~ and applies the following patches:\n";
+$mainPage = "This wiki was generated on [$server$serverPath Patch Demo] at ~~~~~.
 
+Branch: $branchDesc
+
+Applied patches:\n";
+
+if ( !$patchesApplied ) {
+	$mainPage .= "(none)";
+}
 foreach ( $patchesApplied as $patch ) {
 	preg_match( '`([0-9]+),([0-9]+)`', $patch, $matches );
 	list( $t, $r, $p ) = $matches;
@@ -179,7 +191,7 @@ if ( $error ) {
 	die( "Could not install the wiki." );
 }
 
-echo "Fetching and applying patches $patchesAppliedText...";
+echo "Fetching and applying patches...";
 
 foreach ( $commands as $i => $command ) {
 	$cmd = make_shell_command( $baseEnv + $command[0], $command[1] );
