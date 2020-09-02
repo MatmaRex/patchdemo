@@ -5,7 +5,7 @@ require_once "includes.php";
 ob_implicit_flush( true );
 
 $branch = trim( $_POST['branch'] );
-$patches = $_POST['patches'];
+$patches = trim( $_POST['patches'] );
 
 $namePath = md5( $branch . $patches . time() );
 $server = ( isset( $_SERVER['HTTPS'] ) ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'];
@@ -18,8 +18,11 @@ echo "<br>";
 echo "You can log in as user 'Patch Demo', password 'patchdemo1'.";
 echo "<br>";
 
-$patches = explode( "\n", trim( $patches ) );
-$patches = array_map( 'trim', $patches );
+if ( $patches ) {
+	$patches = array_map( 'trim', explode( "\n", $patches ) );
+} else {
+	$patches = [];
+}
 
 echo "Updating repositories...";
 
