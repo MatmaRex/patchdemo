@@ -139,7 +139,7 @@ if ( $user ) {
 		$canDelete = can_delete( $creator );
 		$anyCanDelete = $anyCanDelete || $canDelete;
 		$rows .= '<tr' . ( $creator !== $username ? ' class="other"' : '' ) . '>' .
-			'<td class="title">' . $title . '</td>' .
+			'<td class="title">' . ( $title ?: '<em>No patches</em>' ) . '</td>' .
 			'<td><a href="wikis/' . $wiki . '/w">' . $wiki . '</a></td>' .
 			'<td class="date">' . date( 'c', $data[ 'mtime' ] ) . '</td>' .
 			( $useOAuth ? '<td>' . ( $creator ? user_link( $creator ) : '?' ) . '</td>' : '' ) .

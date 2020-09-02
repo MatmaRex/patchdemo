@@ -18,8 +18,13 @@ echo "<br>";
 echo "You can log in as user 'Patch Demo', password 'patchdemo1'.";
 echo "<br>";
 
-$patches = explode( "\n", trim( $patches ) );
-$patches = array_map( 'trim', $patches );
+$patches = trim( $patches );
+if ( $patches !== '' ) {
+	$patches = explode( "\n", $patches );
+	$patches = array_map( 'trim', $patches );
+} else {
+	$patches = [];
+}
 
 echo "Updating repositories...";
 
@@ -116,22 +121,30 @@ foreach ( $patches as &$patch ) {
 	}
 }
 
-$patchesAppliedText = implode( ' ', $patchesApplied );
+$patchesAppliedText = count( $patchesApplied ) ?
+	implode( ' ', $patchesApplied ) :
+	'no patches';
 
 $wikiName = "Patch Demo ($patchesAppliedText)";
 
-$mainPage = "This wiki was generated on [$server$serverPath Patch Demo] at ~~~~~ and applies the following patches:\n";
+$mainPage = "This wiki was generated on [$server$serverPath Patch Demo] at ~~~~~";
 
-foreach ( $patchesApplied as $patch ) {
-	preg_match( '`([0-9]+),([0-9]+)`', $patch, $matches );
-	list( $t, $r, $p ) = $matches;
+if ( count( $patchesApplied ) ) {
+	$mainPage .= " and applies the following patches:\n";
 
-	$data = gerrit_get_commit_info( $r, $p );
-	if ( $data ) {
-		$t = $t . ': ' . $data[ 'subject' ];
+	foreach ( $patchesApplied as $patch ) {
+		preg_match( '`([0-9]+),([0-9]+)`', $patch, $matches );
+		list( $t, $r, $p ) = $matches;
+
+		$data = gerrit_get_commit_info( $r, $p );
+		if ( $data ) {
+			$t = $t . ': ' . $data[ 'subject' ];
+		}
+
+		$mainPage .= "* [https://gerrit.wikimedia.org/r/c/$r/$p <nowiki>$t</nowiki>]\n";
 	}
-
-	$mainPage .= "* [https://gerrit.wikimedia.org/r/c/$r/$p <nowiki>$t</nowiki>]\n";
+} else {
+	$mainPage .= " with no patches."
 }
 
 // Choose repositories to enable
@@ -176,7 +189,9 @@ if ( $error ) {
 	die( "Could not install the wiki." );
 }
 
-echo "Fetching and applying patches $patchesAppliedText...";
+echo count( $patchesApplied ) ?
+	"Fetching and applying patches $patchesAppliedText..." :
+	"Fetching...";
 
 foreach ( $commands as $i => $command ) {
 	$cmd = make_shell_command( $baseEnv + $command[0], $command[1] );
