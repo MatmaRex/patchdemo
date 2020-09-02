@@ -31,6 +31,7 @@ foreach ( $repoData as $repo => $path ) {
 	$repoLayouts[] = new OOUI\FieldLayout(
 		new OOUI\CheckboxInputWidget( [
 			'name' => 'repos[' . $repo . ']',
+			'value' => '1',
 			'selected' => true
 		] ),
 		[
