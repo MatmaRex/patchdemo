@@ -14,12 +14,12 @@ $branches = array_reverse( array_values( $branches ) );
 // Move master to the top
 array_unshift( $branches, array_pop( $branches ) );
 
-$branches = array_map( function ( $branch ) {
+$branchesOptions = array_map( function ( $branch ) {
 	return [ 'data' => $branch ];
 }, $branches );
 
 $repoBranches = [];
-$repoLayouts = [];
+$repoOptions = [];
 $repoData = get_repo_data();
 ksort( $repoData );
 foreach ( $repoData as $repo => $path ) {
@@ -28,22 +28,15 @@ foreach ( $repoData as $repo => $path ) {
 	}
 	$repoBranches[$repo] = get_branches( $repo );
 	$repo = htmlspecialchars( $repo );
-	$repoLayouts[] = new OOUI\FieldLayout(
-		new OOUI\CheckboxInputWidget( [
-			'name' => 'repos[' . $repo . ']',
-			'value' => '1',
-			'selected' => true
-		] ),
-		[
-			'align' => 'inline',
-			'label' => $repo
-		]
-	);
+	$repoOptions[] = [
+		'data' => $repo,
+		'label' => $repo,
+	];
 }
 $repoBranches = htmlspecialchars( json_encode( $repoBranches ), ENT_NOQUOTES );
 echo "<script>window.repoBranches = $repoBranches;</script>\n";
 
-include_once 'DetailsFieldsetLayout.php';
+include_once 'DetailsFieldLayout.php';
 
 echo new OOUI\FormLayout( [
 	'infusable' => true,
@@ -57,7 +50,7 @@ echo new OOUI\FormLayout( [
 				new OOUI\FieldLayout(
 					new OOUI\DropdownInputWidget( [
 						'name' => 'branch',
-						'options' => $branches,
+						'options' => $branchesOptions,
 					] ),
 					[
 						'label' => 'Start with version:',
@@ -75,6 +68,17 @@ echo new OOUI\FormLayout( [
 						'align' => 'left',
 					]
 				),
+				new DetailsFieldLayout(
+					new OOUI\CheckboxMultiselectInputWidget( [
+						'name' => 'repos[]',
+						'options' => $repoOptions,
+						'value' => array_keys( $repoData ),
+					] ),
+					[
+						'label' => 'Choose extensions to enable (default: all):',
+						'align' => 'left',
+					]
+				),
 				new OOUI\FieldLayout(
 					new OOUI\ButtonInputWidget( [
 						'label' => 'Create demo',
@@ -88,11 +92,6 @@ echo new OOUI\FormLayout( [
 					]
 				),
 			]
-		] ),
-		new DetailsFieldsetLayout( [
-			'label' => 'Choose extensions to enable (default: all):',
-			// 'labelElement' => new OOUI\Tag( 'summary' ),
-			'items' => $repoLayouts
 		] ),
 	]
 ] );

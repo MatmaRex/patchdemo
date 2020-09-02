@@ -33,7 +33,7 @@
 		for ( repo in window.repoBranches ) {
 			validBranch = window.repoBranches[ repo ].indexOf( branch ) !== -1;
 			setDisabled(
-				document.querySelector( 'input[name="repos[' + repo + ']"]' ),
+				document.querySelector( 'input[name="repos[]"][value="' + repo + '"]' ),
 				!validBranch
 			);
 		}

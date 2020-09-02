@@ -154,7 +154,7 @@ $repos = get_repo_data();
 
 foreach ( array_keys( $repos ) as $repo ) {
 	// Unchecked the checkbox
-	if ( $repo !== 'mediawiki/core' && !isset( $_POST["repos"][$repo] ) ) {
+	if ( $repo !== 'mediawiki/core' && !in_array( $repo, $_POST["repos"] ) ) {
 		unset( $repos[$repo] );
 	}
 	// This branch doesn't exist for this repo
