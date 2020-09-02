@@ -1,7 +1,7 @@
 # dependencies of MediaWiki
 sudo apt-get install apache2 default-mysql-server php libapache2-mod-php php-mysql php-intl php-xml php-mbstring php-curl
 # dependencies of our system
-sudo apt-get install git composer unzip rdfind
+sudo apt-get install git composer npm unzip rdfind
 
 # create master copies of repositories
 sudo -u www-data mkdir repositories
@@ -23,3 +23,7 @@ sudo mysql -u root --password='' -e "
 CREATE USER 'patchdemo'@'localhost' IDENTIFIED BY 'patchdemo';
 GRANT ALL PRIVILEGES ON \`patchdemo\_%\`.* TO 'patchdemo'@'localhost';
 "
+
+# dependencies for the website
+composer update --no-dev
+npm install --production
