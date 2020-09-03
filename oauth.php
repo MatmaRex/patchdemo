@@ -9,7 +9,7 @@ $user = null;
 
 $useOAuth = !empty( $config[ 'oauth' ][ 'url' ] );
 
-if ( $useOAuth ) {
+if ( $useOAuth && !$is404 ) {
 	$conf = new ClientConfig( $config[ 'oauth' ][ 'url' ] );
 	$conf->setConsumer( new Consumer(
 		$config[ 'oauth' ][ 'key' ],
@@ -48,5 +48,4 @@ if ( $useOAuth ) {
 		include 'footer.html';
 		die();
 	}
-
 }

@@ -16,22 +16,25 @@ if ( file_exists( 'config.php' ) ) {
 
 OOUI\Theme::setSingleton( new OOUI\WikimediaUITheme() );
 
+$IP = dirname( $_SERVER['SCRIPT_NAME'] );
+$is404 = basename( $_SERVER['SCRIPT_NAME'] ) === '404.php';
+
 echo '<!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
 		<title>Patch demo</title>
-		<link rel="stylesheet" href="index.css">
-		<link rel="stylesheet" href="node_modules/oojs-ui/dist/oojs-ui-wikimediaui.min.css">
-		<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
-		<link rel="mask-icon" href="images/safari-pinned-tab.svg" color="#006699">
-		<link rel="shortcut icon" href="images/favicon.ico">
+		<link rel="stylesheet" href="' . $IP . '/index.css">
+		<link rel="stylesheet" href="' . $IP . '/node_modules/oojs-ui/dist/oojs-ui-wikimediaui.min.css">
+		<link rel="icon" type="image/png" sizes="32x32" href="' . $IP . '/images/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="' . $IP . '/images/favicon-16x16.png">
+		<link rel="mask-icon" href="' . $IP . '/images/safari-pinned-tab.svg" color="#006699">
+		<link rel="shortcut icon" href="' . $IP . '/images/favicon.ico">
 	</head>
 	<body>
 		<header>
 			<div class="headerInner">
-				<h1><a class="logo" href=".">Patch demo</a></h1>';
+				<h1><a class="logo" href="' . $IP . '/.">Patch demo</a></h1>';
 
 include_once 'oauth.php';
 
