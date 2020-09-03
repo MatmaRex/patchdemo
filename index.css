@@ -83,6 +83,11 @@ summary {
 	cursor: pointer;
 }
 
+summary > .oo-ui-labelElement-label {
+	/* stylelint-disable-next-line declaration-no-important */
+	display: inline !important;
+}
+
 .wikis {
 	width: 100%;
 	border-collapse: collapse;
