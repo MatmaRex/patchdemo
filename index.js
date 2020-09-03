@@ -5,7 +5,7 @@
 		submit = form.querySelector( 'button[type=submit]' );
 
 	function setDisabled( input, disabled ) {
-		input.disabled = true;
+		input.disabled = disabled;
 		input.parentNode.classList.toggle( 'oo-ui-widget-disabled', !!disabled );
 		input.parentNode.classList.toggle( 'oo-ui-widget-enabled', !disabled );
 	}
