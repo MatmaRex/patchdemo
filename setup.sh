@@ -27,3 +27,12 @@ GRANT ALL PRIVILEGES ON \`patchdemo\_%\`.* TO 'patchdemo'@'localhost';
 # dependencies for the website
 composer update --no-dev
 npm install --production
+
+# enable .htaccess files
+echo "<Directory /var/www/html>
+AllowOverride All
+</Directory>" > /etc/apache2/sites-available/patchdemo.conf
+sudo a2ensite patchdemo
+# enable mod_rewrite
+sudo a2enmod rewrite
+sudo systemctl restart apache2
