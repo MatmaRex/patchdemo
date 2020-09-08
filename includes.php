@@ -16,22 +16,28 @@ if ( file_exists( 'config.php' ) ) {
 
 OOUI\Theme::setSingleton( new OOUI\WikimediaUITheme() );
 
+$basePath = dirname( $_SERVER['SCRIPT_NAME'] );
+if ( $basePath === '/' ) {
+	$basePath = '';
+}
+$is404 = basename( $_SERVER['SCRIPT_NAME'] ) === '404.php';
+
 echo '<!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
 		<title>Patch demo</title>
-		<link rel="stylesheet" href="index.css">
-		<link rel="stylesheet" href="node_modules/oojs-ui/dist/oojs-ui-wikimediaui.min.css">
-		<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
-		<link rel="mask-icon" href="images/safari-pinned-tab.svg" color="#006699">
-		<link rel="shortcut icon" href="images/favicon.ico">
+		<link rel="stylesheet" href="' . $basePath . '/index.css">
+		<link rel="stylesheet" href="' . $basePath . '/node_modules/oojs-ui/dist/oojs-ui-wikimediaui.min.css">
+		<link rel="icon" type="image/png" sizes="32x32" href="' . $basePath . '/images/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="' . $basePath . '/images/favicon-16x16.png">
+		<link rel="mask-icon" href="' . $basePath . '/images/safari-pinned-tab.svg" color="#006699">
+		<link rel="shortcut icon" href="' . $basePath . '/images/favicon.ico">
 	</head>
 	<body>
 		<header>
 			<div class="headerInner">
-				<h1><a class="logo" href=".">Patch demo</a></h1>';
+				<h1><a class="logo" href="' . $basePath . '/.">Patch demo</a></h1>';
 
 include_once 'oauth.php';
 
