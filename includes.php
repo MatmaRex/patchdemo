@@ -94,12 +94,17 @@ function remove_from_wikicache( $wiki ) {
 	}
 }
 
+$requestCache = [];
+
 function gerrit_query_echo( $url ) {
-	$url = 'https://gerrit.wikimedia.org/r/' . $url;
-	echo "<pre>$url</pre>";
-	$resp = file_get_contents( $url );
-	$data = json_decode( substr( $resp, 4 ), true );
-	return $data;
+	global $requestCache;
+	if ( empty( $requestCache[$url] ) ) {
+		$url = 'https://gerrit.wikimedia.org/r/' . $url;
+		echo "<pre>$url</pre>";
+		$resp = file_get_contents( $url );
+		$requestCache[$url] = json_decode( substr( $resp, 4 ), true );
+	}
+	return $requestCache[$url];
 }
 
 function gerrit_get_commit_info( $change, $rev ) {
