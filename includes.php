@@ -64,6 +64,36 @@ function shell_echo( $cmd ) {
 	return $error;
 }
 
+function delete_wiki( $wiki ) {
+	$cmd = make_shell_command( [
+		'PATCHDEMO' => __DIR__,
+		'WIKI' => $wiki
+	], __DIR__ . '/deletewiki.sh' );
+	$error = shell_echo( $cmd );
+
+	// Remove wiki from the cache to avoid a full rebuild
+	remove_from_wikicache( $wiki );
+
+	return $error;
+}
+
+function load_wikicache() {
+	return get_if_file_exists( 'wikicache.json' );
+}
+
+function save_wikicache( $wikis ) {
+	file_put_contents( 'wikicache.json', json_encode( $wikis, JSON_PRETTY_PRINT ) );
+}
+
+function remove_from_wikicache( $wiki ) {
+	$cache = load_wikicache();
+	if ( $cache ) {
+		$wikis = json_decode( $cache, true );
+		unset( $wikis[$wiki] );
+		save_wikicache( $wikis );
+	}
+}
+
 function gerrit_query_echo( $url ) {
 	$url = 'https://gerrit.wikimedia.org/r/' . $url;
 	echo "<pre>$url</pre>";

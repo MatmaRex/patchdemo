@@ -119,7 +119,7 @@ if ( $user ) {
 	} );
 
 	$usecache = false;
-	$cache = get_if_file_exists( 'wikicache.json' );
+	$cache = load_wikicache();
 	if ( $cache ) {
 		$wikis = json_decode( $cache, true );
 		$wikilist = array_keys( $wikis );
@@ -177,7 +177,7 @@ if ( $user ) {
 			return $wikis[ $a ][ 'mtime' ] < $wikis[ $b ][ 'mtime' ];
 		} );
 
-		file_put_contents( 'wikicache.json', json_encode( $wikis ) );
+		save_wikicache( $wikis );
 	}
 
 	$rows = '';
