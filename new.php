@@ -30,17 +30,6 @@ if ( $patches ) {
 	$patches = [];
 }
 
-echo "Updating repositories...";
-
-$cmd = make_shell_command( [
-	'PATCHDEMO' => __DIR__,
-], __DIR__ . '/updaterepos.sh' );
-
-$error = shell_echo( $cmd );
-if ( $error ) {
-	abandon( "Could not update repositories." );
-}
-
 echo "Querying patch metadata...";
 
 $patchesApplied = [];
@@ -177,6 +166,17 @@ $baseEnv = [
 	'PATCHDEMO' => __DIR__,
 	'NAME' => $namePath,
 ];
+
+echo "Updating repositories...";
+
+$cmd = make_shell_command( [
+	'PATCHDEMO' => __DIR__,
+], __DIR__ . '/updaterepos.sh' );
+
+$error = shell_echo( $cmd );
+if ( $error ) {
+	abandon( "Could not update repositories." );
+}
 
 echo "Creating your wiki...";
 
