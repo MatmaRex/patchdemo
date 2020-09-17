@@ -125,10 +125,10 @@ $mainPage = "This wiki was generated on [$server$serverPath Patch Demo] at ~~~~~
 
 Branch: $branchDesc
 
-Applied patches:\n";
+Applied patches:";
 
 if ( !$patchesApplied ) {
-	$mainPage .= "(none)";
+	$mainPage .= " (none)";
 }
 foreach ( $patchesApplied as $patch ) {
 	preg_match( '`([0-9]+),([0-9]+)`', $patch, $matches );
@@ -139,7 +139,7 @@ foreach ( $patchesApplied as $patch ) {
 		$t = $t . ': ' . $data[ 'subject' ];
 	}
 
-	$mainPage .= "* [https://gerrit.wikimedia.org/r/c/$r/$p <nowiki>$t</nowiki>]\n";
+	$mainPage .= "\n* [https://gerrit.wikimedia.org/r/c/$r/$p <nowiki>$t</nowiki>]";
 }
 
 // Choose repositories to enable
