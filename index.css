@@ -88,6 +88,14 @@ summary > .oo-ui-labelElement-label {
 	display: inline !important;
 }
 
+.status-ABANDONED {
+	content: '✗';
+}
+
+.status-MERGED:before {
+	content: '✓';
+}
+
 .wikis {
 	width: 100%;
 	border-collapse: collapse;
