@@ -44,6 +44,7 @@ if ( $error ) {
 echo "Querying patch metadata...";
 
 $patchesApplied = [];
+$linkedTasks = [];
 $commands = [];
 
 // Iterate by reference, so that we can modify the $patches array to add new entries
@@ -148,9 +149,23 @@ foreach ( $patchesApplied as $patch ) {
 	$data = gerrit_query( "changes/$r/revisions/$p/commit", true );
 	if ( $data ) {
 		$t = $t . ': ' . $data[ 'subject' ];
+		preg_match_all( '/^Bug: T([0-9]+)$/m', $data['message'], $m );
+		foreach ( $m[1] as $task ) {
+			if ( !in_array( $task, $linkedTasks, true ) ) {
+				$linkedTasks[] = $task;
+			}
+		}
 	}
 
 	$mainPage .= "\n* [https://gerrit.wikimedia.org/r/c/$r/$p <nowiki>$t</nowiki>]";
+}
+
+$mainPage .= "\n\nLinked tasks:";
+if ( !$linkedTasks ) {
+	$mainPage .= " (none)";
+}
+foreach ( $linkedTasks as $task ) {
+	$mainPage .= "\n* [https://phabricator.wikimedia.org/$task $task]";
 }
 
 // Choose repositories to enable
