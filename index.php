@@ -144,7 +144,7 @@ if ( $user ) {
 					if ( count( $matches ) ) {
 						preg_match_all( '`([0-9]+),([0-9]+)`', $matches[ 1 ], $matches );
 						$title = implode( '<br>', array_map( function ( $r, $p, $t ) {
-							$data = gerrit_get_commit_info( $r, $p );
+							$data = gerrit_query( "changes/$r/revisions/$p/commit" );
 							if ( $data ) {
 								$t = $t . ': ' . $data[ 'subject' ];
 							}
