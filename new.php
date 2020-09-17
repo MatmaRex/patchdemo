@@ -49,8 +49,7 @@ $commands = [];
 // Iterate by reference, so that we can modify the $patches array to add new entries
 foreach ( $patches as &$patch ) {
 	$patchSafe = preg_replace( '/^I?[^0-9a-f]$/', '', $patch );
-	$url = "changes/?q=change:$patchSafe&o=LABELS&o=CURRENT_REVISION";
-	$data = gerrit_query_echo( $url );
+	$data = gerrit_query( "changes/?q=change:$patchSafe&o=LABELS&o=CURRENT_REVISION", true );
 
 	if ( count( $data ) === 0 ) {
 		abandon( "Could not find patch $patchSafe" );
@@ -62,8 +61,9 @@ foreach ( $patches as &$patch ) {
 	// get the info
 	$repo = $data[0]['project'];
 	$base = 'origin/' . $data[0]['branch'];
-	$hash = $data[0]['current_revision'];
-	$ref = $data[0]['revisions'][$hash]['ref'];
+	$revision = $data[0]['current_revision'];
+	$ref = $data[0]['revisions'][$revision]['ref'];
+	$id = $data[0]['id'];
 
 	$repos = get_repo_data();
 	if ( !isset( $repos[ $repo ] ) ) {
@@ -76,31 +76,30 @@ foreach ( $patches as &$patch ) {
 		( $data[0]['labels']['Verified']['approved']['_account_id'] ?? null ) !== 75
 	) {
 		// The patch doesn't have V+2, check if the uploader is trusted
-		$uploaderId = $data[0]['revisions'][$hash]['uploader']['_account_id'];
-		$uploader = gerrit_query_echo( 'accounts/' . $uploaderId );
+		$uploaderId = $data[0]['revisions'][$revision]['uploader']['_account_id'];
+		$uploader = gerrit_query( 'accounts/' . $uploaderId, true );
 		if ( !is_trusted_user( $uploader['email'] ) ) {
 			abandon( "Patch must be approved (Verified+2) by jenkins-bot, or uploaded by a trusted user" );
 		}
 	}
 
-	$patchesApplied[] = $data[0]['_number'] . ',' . $data[0]['revisions'][$hash]['_number'];
+	$patchesApplied[] = $data[0]['_number'] . ',' . $data[0]['revisions'][$revision]['_number'];
 	$commands[] = [
 		[
 			'PATCHDEMO' => __DIR__ . '/',
 			'REPO' => $path,
 			'REF' => $ref,
 			'BASE' => $base,
-			'HASH' => $hash,
+			'HASH' => $revision,
 		],
 		__DIR__ . '/applypatch.sh'
 	];
 
 	$relatedChanges = [];
-	$relatedChanges[] = [ $data[0]['_number'], $data[0]['revisions'][$hash]['_number'] ];
+	$relatedChanges[] = [ $data[0]['_number'], $data[0]['revisions'][$revision]['_number'] ];
 
 	// Look at all commits in this patch's tree for cross-repo dependencies to add
-	$url = "changes/{$data[0]['id']}/revisions/$hash/related";
-	$data = gerrit_query_echo( $url );
+	$data = gerrit_query( "changes/$id/revisions/$revision/related", true );
 	// Ancestor commits only, not descendants
 	$foundCurr = false;
 	foreach ( $data['changes'] as $change ) {
@@ -108,12 +107,11 @@ foreach ( $patches as &$patch ) {
 			// Querying by change number is allegedly deprecated, but the /related API doesn't return the 'id'
 			$relatedChanges[] = [ $change['_change_number'], $change['_revision_number'] ];
 		}
-		$foundCurr = $foundCurr || $change['commit']['commit'] === $hash;
+		$foundCurr = $foundCurr || $change['commit']['commit'] === $revision;
 	}
 
-	foreach ( $relatedChanges as [ $id, $rev ] ) {
-		$url = "changes/$id/revisions/$rev/commit";
-		$data = gerrit_query_echo( $url );
+	foreach ( $relatedChanges as [ $c, $r ] ) {
+		$data = gerrit_query( "changes/$c/revisions/$r/commit", true );
 
 		preg_match_all( '/^Depends-On: (.+)$/m', $data['message'], $m );
 		foreach ( $m[1] as $changeid ) {
@@ -147,7 +145,7 @@ foreach ( $patchesApplied as $patch ) {
 	preg_match( '`([0-9]+),([0-9]+)`', $patch, $matches );
 	list( $t, $r, $p ) = $matches;
 
-	$data = gerrit_get_commit_info( $r, $p );
+	$data = gerrit_query( "changes/$r/revisions/$p/commit", true );
 	if ( $data ) {
 		$t = $t . ': ' . $data[ 'subject' ];
 	}
