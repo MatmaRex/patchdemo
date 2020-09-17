@@ -111,6 +111,7 @@ if ( $user ) {
 	);
 }
 ?>
+<p><em>✓=Merged ✗=Abandoned</em></p>
 <table class="wikis">
 	<?php
 
@@ -144,11 +145,16 @@ if ( $user ) {
 					if ( count( $matches ) ) {
 						preg_match_all( '`([0-9]+),([0-9]+)`', $matches[ 1 ], $matches );
 						$title = implode( '<br>', array_map( function ( $r, $p, $t ) {
-							$data = gerrit_query( "changes/$r/revisions/$p/commit" );
-							if ( $data ) {
-								$t = $t . ': ' . $data[ 'subject' ];
+							$changeData = gerrit_query( "changes/$r" );
+							$status = 'UNKNOWN';
+							if ( $changeData ) {
+								$status = $changeData['status'];
 							}
-							return '<a href="https://gerrit.wikimedia.org/r/c/' . $r . '/' . $p . '" title="' . htmlspecialchars( $t, ENT_QUOTES ) . '">' .
+							$commitData = gerrit_query( "changes/$r/revisions/$p/commit" );
+							if ( $commitData ) {
+								$t = $t . ': ' . $commitData[ 'subject' ];
+							}
+							return '<a href="https://gerrit.wikimedia.org/r/c/' . $r . '/' . $p . '" title="' . htmlspecialchars( $t, ENT_QUOTES ) . '" class="status-' . $status . '">' .
 								htmlspecialchars( $t ) .
 							'</a>';
 						}, $matches[ 1 ], $matches[ 2 ], $matches[ 0 ] ) );
