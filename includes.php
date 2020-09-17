@@ -64,6 +64,14 @@ function shell_echo( $cmd ) {
 	return $error;
 }
 
+function delete_wiki( $wiki ) {
+	$cmd = make_shell_command( [
+		'PATCHDEMO' => __DIR__,
+		'WIKI' => $wiki
+	], __DIR__ . '/deletewiki.sh' );
+	return shell_echo( $cmd );
+}
+
 function gerrit_query_echo( $url ) {
 	$url = 'https://gerrit.wikimedia.org/r/' . $url;
 	echo "<pre>$url</pre>";

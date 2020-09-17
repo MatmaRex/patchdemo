@@ -26,14 +26,9 @@ if ( !isset( $_POST['confirm' ] ) ) {
 
 ob_implicit_flush( true );
 
-$cmd = make_shell_command( [
-	'PATCHDEMO' => __DIR__,
-	'WIKI' => $wiki
-], __DIR__ . '/deletewiki.sh' );
-
-$error = shell_echo( $cmd );
+$error = delete_wiki( $wiki );
 if ( $error ) {
-	die( "Could not delete." );
+	die( "Wiki not cleanly deleted, may have not been fully setup." );
 }
 
 echo "Wiki deleted.";

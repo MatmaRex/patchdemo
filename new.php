@@ -11,6 +11,12 @@ $namePath = md5( $branch . $patches . time() );
 $server = ( isset( $_SERVER['HTTPS'] ) ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'];
 $serverPath = preg_replace( '`/[^/]*$`', '', $_SERVER['REQUEST_URI'] );
 
+function abandon( $err ) {
+	global $namePath;
+	delete_wiki( $namePath );
+	die( $err );
+}
+
 echo "Your wiki will be available at:";
 echo "<br>";
 echo "<a href='wikis/$namePath/w/'>$namePath</a>";
@@ -32,7 +38,7 @@ $cmd = make_shell_command( [
 
 $error = shell_echo( $cmd );
 if ( $error ) {
-	die( "Could not update repositories." );
+	abandon( "Could not update repositories." );
 }
 
 echo "Querying patch metadata...";
@@ -47,10 +53,10 @@ foreach ( $patches as &$patch ) {
 	$data = gerrit_query_echo( $url );
 
 	if ( count( $data ) === 0 ) {
-		die( "Could not find patch $patchSafe" );
+		abandon( "Could not find patch $patchSafe" );
 	}
 	if ( count( $data ) !== 1 ) {
-		die( "Ambiguous query $patchSafe" );
+		abandon( "Ambiguous query $patchSafe" );
 	}
 
 	// get the info
@@ -61,7 +67,7 @@ foreach ( $patches as &$patch ) {
 
 	$repos = get_repo_data();
 	if ( !isset( $repos[ $repo ] ) ) {
-		die( "Repository $repo not supported" );
+		abandon( "Repository $repo not supported" );
 	}
 	$path = $repos[ $repo ];
 
@@ -73,7 +79,7 @@ foreach ( $patches as &$patch ) {
 		$uploaderId = $data[0]['revisions'][$hash]['uploader']['_account_id'];
 		$uploader = gerrit_query_echo( 'accounts/' . $uploaderId );
 		if ( !is_trusted_user( $uploader['email'] ) ) {
-			die( "Patch must be approved (Verified+2) by jenkins-bot, or uploaded by a trusted user" );
+			abandon( "Patch must be approved (Verified+2) by jenkins-bot, or uploaded by a trusted user" );
 		}
 	}
 
@@ -188,7 +194,7 @@ $cmd = make_shell_command( $baseEnv + [
 
 $error = shell_echo( $cmd );
 if ( $error ) {
-	die( "Could not install the wiki." );
+	abandon( "Could not install the wiki." );
 }
 
 echo "Fetching and applying patches...";
@@ -197,7 +203,7 @@ foreach ( $commands as $i => $command ) {
 	$cmd = make_shell_command( $baseEnv + $command[0], $command[1] );
 	$error = shell_echo( $cmd );
 	if ( $error ) {
-		die( "Could not apply patch $i." );
+		abandon( "Could not apply patch $i." );
 	}
 }
 
@@ -207,7 +213,7 @@ $cmd = make_shell_command( $baseEnv, __DIR__ . '/deduplicate.sh' );
 
 $error = shell_echo( $cmd );
 if ( $error ) {
-	die( "Could not deduplicate." );
+	abandon( "Could not deduplicate." );
 }
 
 echo "Seems good!";
