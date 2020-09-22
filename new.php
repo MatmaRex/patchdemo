@@ -154,7 +154,7 @@ if ( !$linkedTasks ) {
 	$mainPage .= " (none)";
 }
 foreach ( $linkedTasks as $task ) {
-	$mainPage .= "\n* [https://phabricator.wikimedia.org/$task $task]";
+	$mainPage .= "\n* [https://phabricator.wikimedia.org/T$task T$task]";
 }
 
 // Choose repositories to enable
