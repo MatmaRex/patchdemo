@@ -95,6 +95,11 @@ echo new OOUI\FormLayout( [
 		] ),
 	]
 ] );
+
+$banner = banner_html();
+if ( $banner ) {
+	echo "<p class='banner'>$banner</p>";
+}
 ?>
 <br/>
 <h3>Previously generated wikis</h3>
