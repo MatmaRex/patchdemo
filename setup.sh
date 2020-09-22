@@ -32,6 +32,20 @@ npm install --production
 echo "<Directory /var/www/html>
 AllowOverride All
 </Directory>" > /etc/apache2/sites-available/patchdemo.conf
+
+# Support Parsoid URLs for pages with slashes in the title.
+#
+# https://www.mediawiki.org/wiki/Extension:VisualEditor#Troubleshooting
+# This has to be set for each virtualhost (it doesn't work when set at server level while using
+# virtualhosts), so we have to edit the 000-default file, where the default (and only) virtualhost
+# is defined. This is extremely stupid behavior from Apache, and the Byzantine configuration
+# utilities provided by Debian/Ubuntu turn out to be entirely incapable of handling it.
+#
+# So, here goes grep and sed.
+grep -q "AllowEncodedSlashes NoDecode" /etc/apache2/sites-available/000-default.conf ||
+	sed -i "/<\/VirtualHost>/i\
+	AllowEncodedSlashes NoDecode" /etc/apache2/sites-available/000-default.conf
+
 sudo a2ensite patchdemo
 # enable mod_rewrite
 sudo a2enmod rewrite
