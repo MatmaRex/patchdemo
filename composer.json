@@ -1,6 +1,7 @@
 {
 	"require": {
 		"mediawiki/oauthclient": "1.1.0",
+		"symfony/process": "^5.1",
 		"symfony/yaml": "^5.1",
 		"oojs/oojs-ui": "0.39.3"
 	},

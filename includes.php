@@ -1,5 +1,6 @@
 <?php
 
+use Symfony\Component\Process\Process;
 use Symfony\Component\Yaml\Yaml;
 
 ini_set( 'display_errors', 1 );
@@ -58,8 +59,12 @@ function make_shell_command( $env, $cmd ) {
 
 function shell_echo( $cmd ) {
 	echo '<pre>';
-	echo "$cmd\n";
-	system( $cmd, $error );
+	echo htmlspecialchars( "$cmd\n" );
+	$process = Process::fromShellCommandline( $cmd );
+	$process->setTimeout( null );
+	$error = $process->run( function ( $type, $buffer ) {
+		echo htmlspecialchars( $buffer );
+	} );
 	echo '</pre>';
 	return $error;
 }
