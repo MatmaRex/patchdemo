@@ -88,6 +88,8 @@ summary > .oo-ui-labelElement-label {
 	display: inline !important;
 }
 
+/* Wiki list */
+
 .status-ABANDONED {
 	content: '✗';
 }
@@ -134,4 +136,20 @@ summary > .oo-ui-labelElement-label {
 
 .wikis .date {
 	white-space: nowrap;
+}
+
+/* Install page */
+
+.installForm {
+	max-width: 50em;
+	/* stylelint-disable-next-line declaration-no-important */
+	margin: 2em auto !important;
+}
+
+.consoleLog {
+	font-size: 90%;
+	background: #222;
+	color: #eee;
+	padding: 1em;
+	overflow-x: auto;
 }

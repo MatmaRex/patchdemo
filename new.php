@@ -13,16 +13,76 @@ $serverPath = preg_replace( '`/[^/]*$`', '', $_SERVER['REQUEST_URI'] );
 
 function abandon( $err ) {
 	global $namePath;
+	$errJson = json_encode( $err );
+	echo <<<EOT
+		<script>
+			pd.installProgressField.fieldWidget.setDisabled( true );
+			pd.installProgressField.setErrors( [ $errJson ] );
+		</script>
+	EOT;
 	delete_wiki( $namePath );
 	die( $err );
 }
 
-echo "Your wiki will be available at:";
-echo "<br>";
-echo "<a href='wikis/$namePath/w/'>$namePath</a>";
-echo "<br>";
-echo "You can log in as user 'Patch Demo', password 'patchdemo1'.";
-echo "<br>";
+function set_progress( int $pc, string $label ) {
+	echo $label;
+	$labelJson = json_encode( $label );
+	echo <<<EOT
+		<script>
+			pd.installProgressField.fieldWidget.setProgress( $pc );
+			pd.installProgressField.setLabel( $labelJson );
+		</script>
+	EOT;
+	if ( $pc === 100 ) {
+		echo <<<EOT
+		<script>
+			pd.openWiki.setDisabled( false );
+		</script>
+	EOT;
+
+	}
+}
+
+echo new OOUI\FieldsetLayout( [
+	'label' => null,
+	'classes' => [ 'installForm' ],
+	'items' => [
+		new OOUI\FieldLayout(
+			new OOUI\ProgressBarWidget(),
+			[
+				'align' => 'top',
+				'label' => 'Installing...',
+				'classes' => [ 'installProgressField' ],
+				'infusable' => true,
+			]
+		),
+		new OOUI\FieldLayout(
+			new OOUI\ButtonWidget( [
+				'label' => 'Open wiki',
+				'flags' => [ 'progressive', 'primary' ],
+				'href' => "wikis/$namePath/w/",
+				'disabled' => true,
+				'classes' => [ 'openWiki' ],
+				'infusable' => true,
+			] ),
+			[
+				'align' => 'inline',
+				'classes' => [ 'openWikiField' ],
+				'label' => "When complete, use this button to open your wiki ($namePath)",
+				'help' => "You can log in as user 'Patch Demo', password 'patchdemo1'.",
+				'helpInline' => true,
+			]
+		),
+	]
+] );
+
+echo '<script src="' . $basePath . '/node_modules/jquery/dist/jquery.min.js"></script>';
+echo '<script src="' . $basePath . '/node_modules/oojs/dist/oojs.jquery.min.js"></script>';
+echo '<script src="' . $basePath . '/node_modules/oojs-ui/dist/oojs-ui.min.js"></script>';
+echo '<script src="' . $basePath . '/node_modules/oojs-ui/dist/oojs-ui-wikimediaui.min.js"></script>';
+echo '<script src="' . $basePath . '/new.js"></script>';
+
+echo '<div class="consoleLog">';
 
 if ( $patches ) {
 	$patches = array_map( 'trim', explode( "\n", $patches ) );
@@ -30,7 +90,7 @@ if ( $patches ) {
 	$patches = [];
 }
 
-echo "Querying patch metadata...";
+set_progress( 0, 'Querying patch metadata...' );
 
 $patchesApplied = [];
 $linkedTasks = [];
@@ -180,7 +240,7 @@ $baseEnv = [
 	'NAME' => $namePath,
 ];
 
-echo "Updating repositories...";
+set_progress( 20, 'Updating repositories...' );
 
 $cmd = make_shell_command( [
 	'PATCHDEMO' => __DIR__,
@@ -191,7 +251,7 @@ if ( $error ) {
 	abandon( "Could not update repositories." );
 }
 
-echo "Creating your wiki...";
+set_progress( 40, 'Creating your wiki...' );
 
 $cmd = make_shell_command( $baseEnv + [
 	'NAME' => $namePath,
@@ -210,7 +270,7 @@ if ( $error ) {
 	abandon( "Could not install the wiki." );
 }
 
-echo "Fetching and applying patches...";
+set_progress( 60, 'Fetching and applying patches...' );
 
 foreach ( $commands as $i => $command ) {
 	$cmd = make_shell_command( $baseEnv + $command[0], $command[1] );
@@ -220,7 +280,7 @@ foreach ( $commands as $i => $command ) {
 	}
 }
 
-echo "Deduplicating files...";
+set_progress( 80, 'Deduplicating files...' );
 
 $cmd = make_shell_command( $baseEnv, __DIR__ . '/deduplicate.sh' );
 
@@ -229,11 +289,6 @@ if ( $error ) {
 	abandon( "Could not deduplicate." );
 }
 
-echo "Seems good!";
-echo "<br>";
-echo "Your wiki is available at:";
-echo "<br>";
-echo "<a href='wikis/$namePath/w/'>$namePath</a>";
-echo "<br>";
-echo "You can log in as user 'Patch Demo', password 'patchdemo1'.";
-echo "<br>";
+set_progress( 100, 'All done!' );
+
+echo '</div>';
