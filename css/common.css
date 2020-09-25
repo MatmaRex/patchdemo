@@ -113,6 +113,15 @@ form {
 	max-width: 52em;
 }
 
+/* Left margin looks odd when there is no field label */
+.createField .oo-ui-fieldLayout-messages > .oo-ui-messageWidget {
+	margin-left: 0;
+}
+
+.createField .oo-ui-fieldLayout-messages > .oo-ui-messageWidget:first-child {
+	margin-top: 12px;
+}
+
 summary {
 	cursor: pointer;
 	/* stylelint-disable-next-line declaration-no-important */

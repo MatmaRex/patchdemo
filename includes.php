@@ -416,11 +416,6 @@ function user_link( string $username ): string {
 	return '<a href="' . $base . '?title=' . urlencode( 'User:' . $username ) . '" target="_blank">' . $username . '</a>';
 }
 
-function banner_html(): string {
-	global $config;
-	return $config['banner'];
-}
-
 function is_trusted_user( string $email ): bool {
 	$config = file_get_contents( 'https://raw.githubusercontent.com/wikimedia/integration-config/master/zuul/layout.yaml' );
 	// Hack: Parser doesn't understand this, even using Yaml::PARSE_CUSTOM_TAGS
