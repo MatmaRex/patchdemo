@@ -1,5 +1,7 @@
 <?php
 $config = [
+	// Warning shown below the new wiki form (allows HTML formatting)
+	'newWikiWarning' => '',
 	'phabricatorUrl' => 'https://phabricator.wikimedia.org',
 	'gerritUrl' => 'https://gerrit.wikimedia.org',
 	// Message shown below the main form (allows HTML formatting)
