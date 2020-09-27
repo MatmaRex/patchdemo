@@ -1,5 +1,6 @@
 config.php
 wikis
+repositories
 composer
 composer.lock
 vendor
