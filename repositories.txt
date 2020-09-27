@@ -9,7 +9,9 @@ mediawiki/extensions/CodeMirror w/extensions/CodeMirror
 mediawiki/extensions/ConfirmEdit w/extensions/ConfirmEdit
 mediawiki/extensions/FlaggedRevs w/extensions/FlaggedRevs
 mediawiki/extensions/Gadgets w/extensions/Gadgets
+mediawiki/extensions/GlobalWatchlist w/extensions/GlobalWatchlist
 mediawiki/extensions/GrowthExperiments w/extensions/GrowthExperiments
+mediawiki/extensions/GuidedTour w/extensions/GuidedTour
 mediawiki/extensions/ImageMap w/extensions/ImageMap
 mediawiki/extensions/InputBox w/extensions/InputBox
 mediawiki/extensions/Interwiki w/extensions/Interwiki
