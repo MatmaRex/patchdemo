@@ -25,7 +25,7 @@ function abandon( $err ) {
 }
 
 function set_progress( int $pc, string $label ) {
-	echo $label;
+	echo '<p>' . htmlspecialchars( $label ) . '</p>';
 	$labelJson = json_encode( $label );
 	echo <<<EOT
 		<script>
