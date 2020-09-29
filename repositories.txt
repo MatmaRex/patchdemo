@@ -4,6 +4,7 @@ mediawiki/extensions/BetaFeatures w/extensions/BetaFeatures
 mediawiki/extensions/CategoryTree w/extensions/CategoryTree
 mediawiki/extensions/Cite w/extensions/Cite
 mediawiki/extensions/CiteThisPage w/extensions/CiteThisPage
+mediawiki/extensions/Citoid w/extensions/Citoid
 mediawiki/extensions/CodeEditor w/extensions/CodeEditor
 mediawiki/extensions/CodeMirror w/extensions/CodeMirror
 mediawiki/extensions/ConfirmEdit w/extensions/ConfirmEdit

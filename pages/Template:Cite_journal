@@ -1,0 +1,1123 @@
+{{{last|}}}, {{{first|}}} ({{{date|}}}) "{{{title|}}}". ''{{{journal|}}}''<noinclude>
+<templatedata>
+{
+	"description": "This template formats a citation to an article in a magazine or journal, using the provided source information (e.g. journal name, author, title, issue, URL) and various formatting options.",
+	"params": {
+		"url": {
+			"label": "URL",
+			"description": "The URL of the online location where the text of the publication can be found. Requires schemes of the type \"http://...\" or maybe even the &nbsp;protocol relative scheme \"//...\"",
+			"type": "line",
+			"aliases": [
+				"URL"
+			],
+			"suggested": true,
+			"example": "https://www.nytimes.com/..."
+		},
+		"title": {
+			"label": "Title",
+			"description": "The title of the article; can be wikilinked to an existing Wikipedia article or url may be used to add an external link, but not both. Displays in quotes.",
+			"type": "content",
+			"required": true
+		},
+		"last": {
+			"label": "Last name",
+			"description": "The surname of the author; don't wikilink, use 'authorlink'; can suffix with a numeral to add additional authors",
+			"aliases": [
+				"author",
+				"author1",
+				"authors",
+				"last1"
+			],
+			"type": "line",
+			"suggested": true
+		},
+		"first": {
+			"label": "First name",
+			"description": "Given or first name, middle names, or initials of the author; don't wikilink, use 'authorlink'; can suffix with a numeral to add additional authors",
+			"aliases": [
+				"first1"
+			],
+			"type": "line",
+			"suggested": true
+		},
+		"last2": {
+			"label": "Last name 2",
+			"description": "The surname of the second author; don't wikilink, use 'authorlink2'.",
+			"aliases": [
+				"author2"
+			],
+			"type": "line"
+		},
+		"first2": {
+			"label": "First name 2",
+			"description": "Given or first name, middle names, or initials of the second author; don't wikilink.",
+			"type": "line"
+		},
+		"date": {
+			"label": "Source date",
+			"description": "Date of the source; do not wikilink. As listed in the publication",
+			"type": "date",
+			"suggested": true
+		},
+		"journal": {
+			"label": "Journal",
+			"description": "Name of the source journal; may be wikilinked; displays in italics; alias of 'work'",
+			"type": "content",
+			"required": true,
+			"example": "[[American Journal of Sociology]]"
+		},
+		"publisher": {
+			"label": "Publisher",
+			"description": "Name of the publisher; displays after title",
+			"type": "content",
+			"example": "[[University of Chicago Press]]"
+		},
+		"issue": {
+			"label": "Issue",
+			"description": "Issue identifier when the source is part of a series that is published periodically",
+			"type": "line"
+		},
+		"doi": {
+			"label": "DOI",
+			"description": "Digital Object Identifier; begins with '10.'",
+			"type": "string"
+		},
+		"doi-broken-date": {
+			"label": "DOI broken date",
+			"description": "The date that the DOI was determined to be broken",
+			"type": "date"
+		},
+		"others": {
+			"label": "Others",
+			"description": "Used to record other contributions to the work, such as 'Illustrated by John Smith' or 'Translated by John Smith'",
+			"type": "content"
+		},
+		"year": {
+			"label": "Year of publication",
+			"description": "Year of the source being referenced; recommended only when date parameter format is YYYY-MM-DD and a CITEREF disambiguator is needed",
+			"type": "number"
+		},
+		"orig-year": {
+			"label": "Original year",
+			"description": "Original year of publication; provide specifics",
+			"type": "number",
+			"aliases": [
+				"origyear"
+			]
+		},
+		"editor-last": {
+			"label": "Editor last name",
+			"description": "The surname of the editor; don't wikilink, use 'editor-link'; can suffix with a numeral to add additional editors; alias of 'editor1-last', 'editor'",
+			"aliases": [
+				"editor1-last"
+			],
+			"type": "line"
+		},
+		"editor-first": {
+			"label": "Editor first name",
+			"description": "Given or first name, middle names, or initials of the editor; don't wikilink, use 'editor-link'; can suffix with a numeral to add additional editors; alias of 'editor1-first'",
+			"aliases": [
+				"editor1-first"
+			],
+			"type": "line"
+		},
+		"editor-link": {
+			"label": "Editor link",
+			"description": "Title of existing Wikipedia article about the editor; can suffix with a numeral to add additional editors; alias of 'editor1-link'",
+			"type": "wiki-page-name"
+		},
+		"series": {
+			"label": "Series",
+			"description": "Series identifier when the source is part of a series, such as a book series or a journal; alias of 'version'",
+			"type": "content",
+			"aliases": [
+				"version"
+			]
+		},
+		"department": {
+			"label": "Department",
+			"description": "Department within the periodical",
+			"type": "string"
+		},
+		"location": {
+			"label": "Location of publication",
+			"description": "Geographical place of publication; usually not wikilinked; omit when the publication name includes place; alias of 'place'",
+			"type": "string"
+		},
+		"publication-place": {
+			"label": "Place of publication",
+			"description": "Publication place shows after title; if 'place' or 'location' are also given, they are displayed before the title prefixed with 'written at'",
+			"type": "content"
+		},
+		"publication-date": {
+			"label": "Publication date",
+			"description": "Date of publication when different from the date the work was written; do not wikilink",
+			"type": "date"
+		},
+		"edition": {
+			"label": "Edition",
+			"description": "When the publication has more than one edition; for example: '2nd', 'Revised' etc.; suffixed with ' ed.'",
+			"type": "line"
+		},
+		"volume": {
+			"label": "Volume",
+			"description": "For one publication published in several volumes",
+			"type": "line",
+			"suggested": true
+		},
+		"page": {
+			"label": "Page",
+			"description": "Page in the source that supports the content; displays after 'p.'",
+			"type": "line"
+		},
+		"pages": {
+			"label": "Pages",
+			"description": "Pages in the source that support the content (not an indication of the number of pages in the source; displays after 'pp.'",
+			"type": "line",
+			"suggested": true
+		},
+		"nopp": {
+			"label": "No pp",
+			"description": "Set to 'y' to suppress the 'p.' or 'pp.' display with 'page' or 'pages' when inappropriate (such as 'Front cover')",
+			"type": "line"
+		},
+		"at": {
+			"label": "At",
+			"description": "May be used instead of 'page' or 'pages' where a page number is inappropriate or insufficient",
+			"type": "line"
+		},
+		"language": {
+			"label": "Language",
+			"description": "The language in which the source is written, if not English; use the full language name; do not use icons or templates",
+			"type": "content"
+		},
+		"script-title": {
+			"label": "Script title",
+			"description": "For titles in languages that do not use a Latin-based alphabet (Arabic, Chinese, Cyrillic, Greek, Hebrew, Japanese, Korean, Vietnamese, etc). Prefix with two-character ISO639-1 language code followed by a colon. For Japanese use: |script-title=ja:...",
+			"type": "line"
+		},
+		"trans-title": {
+			"label": "Translated title",
+			"description": "An English language title, if the source cited is in a foreign language; 'language' is recommended",
+			"type": "content"
+		},
+		"type": {
+			"label": "Type",
+			"description": "Additional information about the media type of the source; format in sentence case",
+			"type": "content"
+		},
+		"format": {
+			"label": "Format",
+			"description": "Format of the work referred to by 'url' ('url' is required when using 'format'); examples: PDF, DOC, XLS; do not specify HTML",
+			"type": "content"
+		},
+		"arxiv": {
+			"label": "arXiv identifier",
+			"description": "An identifier for arXive electronic preprints of scientific papers",
+			"type": "line"
+		},
+		"asin": {
+			"label": "ASIN",
+			"description": "Amazon Standard Identification Number; 10 characters",
+			"type": "line"
+		},
+		"asin-tld": {
+			"label": "ASIN TLD",
+			"description": "ASIN top-level domain for Amazon sites other than the US",
+			"type": "line"
+		},
+		"bibcode": {
+			"label": "Bibcode",
+			"description": "Bibliographic Reference Code (REFCODE); 19 characters",
+			"type": "line"
+		},
+		"biorxiv": {
+			"label": "biorXiv",
+			"description": "biorXiv identifier; 6 digits",
+			"type": "line"
+		},
+		"citeseerx": {
+			"label": "CiteSeerX",
+			"description": "CiteSeerX identifier; found after the 'doi=' query parameter",
+			"type": "line"
+		},
+		"isbn": {
+			"label": "ISBN",
+			"description": "International Standard Book Number; use the 13-digit ISBN where possible",
+			"type": "line"
+		},
+		"issn": {
+			"label": "ISSN",
+			"description": "International Standard Serial Number (print); 8 characters; usually split into two groups of four using a hyphen",
+			"type": "line"
+		},
+		"eissn": {
+			"label": "eISSN",
+			"description": "International Standard Serial Number (online); 8 characters; usually split into two groups of four using a hyphen",
+			"type": "line"
+		},
+		"jfm": {
+			"label": "jfm code",
+			"description": "Jahrbuch über die Fortschritte der Mathematik classification code",
+			"type": "line"
+		},
+		"jstor": {
+			"label": "JSTOR",
+			"description": "JSTOR identifier",
+			"type": "line"
+		},
+		"lccn": {
+			"label": "LCCN",
+			"description": "Library of Congress Control Number",
+			"type": "line"
+		},
+		"mr": {
+			"label": "MR",
+			"description": "Mathematical Reviews identifier",
+			"type": "line"
+		},
+		"oclc": {
+			"label": "OCLC",
+			"description": "Online Computer Library Center number",
+			"type": "number"
+		},
+		"ol": {
+			"label": "OL",
+			"description": "Open Library identifier",
+			"type": "line"
+		},
+		"osti": {
+			"label": "OSTI",
+			"description": "Office of Scientific and Technical Information identifier",
+			"type": "line"
+		},
+		"pmc": {
+			"label": "PMC",
+			"description": "PubMed Center article number",
+			"type": "number"
+		},
+		"pmid": {
+			"label": "PMID",
+			"description": "PubMed Unique Identifier",
+			"type": "line"
+		},
+		"rfc": {
+			"label": "RFC",
+			"description": "Request for Comments number",
+			"type": "number"
+		},
+		"ssrn": {
+			"label": "SSRN",
+			"description": "Social Science Research Network",
+			"type": "line"
+		},
+		"zbl": {
+			"label": "Zbl",
+			"description": "Zentralblatt MATH journal identifier",
+			"type": "line"
+		},
+		"id": {
+			"label": "id",
+			"description": "A unique identifier used where none of the specialized ones are applicable",
+			"type": "line"
+		},
+		"quote": {
+			"label": "Quote",
+			"description": "Relevant text quoted from the source; displays last, enclosed in quotes; must include terminating punctuation",
+			"type": "content"
+		},
+		"ref": {
+			"label": "Ref",
+			"description": "An anchor identifier; can be made the target of wikilinks to full references; special value 'harv' generates an anchor suitable for the harv and sfn templates",
+			"type": "line"
+		},
+		"separator": {
+			"label": "Separator",
+			"description": "The punctuation used to separate lists of authors, editors, etc.; a space must be encoded as &#32; to suppress use reserved keyword 'none'",
+			"type": "line",
+			"default": "."
+		},
+		"postscript": {
+			"label": "Postscript",
+			"description": "The closing punctuation for the citation; ignored if 'quote' is defined; to suppress use reserved keyword 'none'",
+			"type": "line",
+			"default": "."
+		},
+		"last3": {
+			"label": "Last name 3",
+			"description": "The surname of the third author; don't wikilink, use 'authorlink3'.",
+			"aliases": [
+				"author3"
+			],
+			"type": "line"
+		},
+		"first3": {
+			"label": "First name 3",
+			"description": "Given or first name, middle names, or initials of the third author; don't wikilink.",
+			"type": "line"
+		},
+		"last4": {
+			"label": "Last name 4",
+			"description": "The surname of the forth author; don't wikilink, use 'authorlink4'.",
+			"aliases": [
+				"author4"
+			],
+			"type": "line"
+		},
+		"first4": {
+			"label": "First name 4",
+			"description": "Given or first name, middle names, or initials of the forth author; don't wikilink.",
+			"type": "line"
+		},
+		"last5": {
+			"label": "Last name 5",
+			"description": "The surname of the fifth author; don't wikilink, use 'authorlink5'.",
+			"aliases": [
+				"author5"
+			],
+			"type": "line"
+		},
+		"first5": {
+			"label": "First name 5",
+			"description": "Given or first name, middle names, or initials of the fifth author; don't wikilink.",
+			"type": "line"
+		},
+		"last6": {
+			"label": "Last name 6",
+			"description": "The surname of the sixth author; don't wikilink, use 'authorlink6'.",
+			"aliases": [
+				"author6"
+			],
+			"type": "line"
+		},
+		"first6": {
+			"label": "First name 6",
+			"description": "Given or first name, middle names, or initials of the sixth author; don't wikilink.",
+			"type": "line"
+		},
+		"last7": {
+			"label": "Last name 7",
+			"description": "The surname of the seventh author; don't wikilink, use 'authorlink7'.",
+			"aliases": [
+				"author7"
+			],
+			"type": "line"
+		},
+		"first7": {
+			"label": "First name 7",
+			"description": "Given or first name, middle names, or initials of the seventh author; don't wikilink.",
+			"type": "line"
+		},
+		"last8": {
+			"label": "Last name 8",
+			"description": "The surname of the eighth author; don't wikilink, use 'authorlink8'.",
+			"aliases": [
+				"author8"
+			],
+			"type": "line"
+		},
+		"first8": {
+			"label": "First name 8",
+			"description": "Given or first name, middle names, or initials of the eighth author; don't wikilink.",
+			"type": "line"
+		},
+		"last9": {
+			"label": "Last name 9",
+			"description": "The surname of the ninth author; don't wikilink, use 'authorlink9'. If nine authors are defined, then only eight will show and 'et al.' will show in place of the last author.",
+			"aliases": [
+				"author9"
+			],
+			"type": "line"
+		},
+		"first9": {
+			"label": "First name 9",
+			"description": "Given or first name, middle names, or initials of the ninth author; don't wikilink.",
+			"type": "line"
+		},
+		"last10": {
+			"label": "Last name 10",
+			"description": "The surname of the tenth author; don't wikilink, use 'authorlink9'. If ten authors are defined, then only eight will show and 'et al.' will show in place of the last two authors.",
+			"aliases": [
+				"author10"
+			],
+			"type": "line"
+		},
+		"first10": {
+			"label": "First name 10",
+			"description": "Given or first name, middle names, or initials of the tenth author; don't wikilink.",
+			"type": "line"
+		},
+		"last11": {
+			"label": "Last name 11",
+			"description": "The surname of the 11th author; don't wikilink, use 'authorlink9'. If more than nine authors are defined, then only eight will show and 'et al.' will show in place of the remaining authors.",
+			"aliases": [
+				"author11"
+			],
+			"type": "line"
+		},
+		"first11": {
+			"label": "First name 11",
+			"description": "Given or first name, middle names, or initials of the 11th author; don't wikilink.",
+			"type": "line"
+		},
+		"editor2-last": {
+			"label": "Editor last name 2",
+			"description": "The surname of the second editor; don't wikilink, use 'editor2-link'.",
+			"aliases": [
+				"editor2"
+			],
+			"type": "line"
+		},
+		"editor2-first": {
+			"label": "Editor first name 2",
+			"description": "Given or first name, middle names, or initials of the second editor; don't wikilink.",
+			"type": "line"
+		},
+		"editor3-last": {
+			"label": "Editor last name 3",
+			"description": "The surname of the third editor; don't wikilink, use 'editor3-link'.",
+			"aliases": [
+				"editor3"
+			],
+			"type": "line"
+		},
+		"editor3-first": {
+			"label": "Editor first name 3",
+			"description": "Given or first name, middle names, or initials of the third editor; don't wikilink.",
+			"type": "line"
+		},
+		"editor4-last": {
+			"label": "Editor last name 4",
+			"description": "The surname of the fourth editor; don't wikilink, use 'editor4-link'.",
+			"aliases": [
+				"editor4"
+			],
+			"type": "line"
+		},
+		"editor4-first": {
+			"label": "Editor first name 4",
+			"description": "Given or first name, middle names, or initials of the fourth editor; don't wikilink.",
+			"type": "line"
+		},
+		"editor5-last": {
+			"label": "Editor last name 5",
+			"description": "The surname of the fifth editor; don't wikilink, use 'editor5-link'.",
+			"aliases": [
+				"editor5"
+			],
+			"type": "line"
+		},
+		"editor5-first": {
+			"label": "Editor first name 5",
+			"description": "Given or first name, middle names, or initials of the fifth editor; don't wikilink.",
+			"type": "line"
+		},
+		"editor6-last": {
+			"label": "Editor last name 6",
+			"description": "The surname of the sixth editor; don't wikilink, use 'editor6-link'.",
+			"aliases": [
+				"editor6"
+			],
+			"type": "line"
+		},
+		"editor6-first": {
+			"label": "Editor first name 6",
+			"description": "Given or first name, middle names, or initials of the sixth editor; don't wikilink.",
+			"type": "line"
+		},
+		"editor7-last": {
+			"label": "Editor last name 7",
+			"description": "The surname of the seventh editor; don't wikilink, use 'editor7-link'.",
+			"aliases": [
+				"editor7"
+			],
+			"type": "line"
+		},
+		"editor7-first": {
+			"label": "Editor first name 7",
+			"description": "Given or first name, middle names, or initials of the seventh editor; don't wikilink.",
+			"type": "line"
+		},
+		"editor8-last": {
+			"label": "Editor last name 8",
+			"description": "The surname of the eighth editor; don't wikilink, use 'editor8-link'.",
+			"aliases": [
+				"editor8"
+			],
+			"type": "line"
+		},
+		"editor8-first": {
+			"label": "Editor first name 8",
+			"description": "Given or first name, middle names, or initials of the eighth editor; don't wikilink.",
+			"type": "line"
+		},
+		"editor9-last": {
+			"label": "Editor last name 9",
+			"description": "The surname of the ninth editor; don't wikilink, use 'editor9-link'.",
+			"aliases": [
+				"editor9"
+			],
+			"type": "line"
+		},
+		"editor9-first": {
+			"label": "Editor first name 9",
+			"description": "Given or first name, middle names, or initials of the ninth editor; don't wikilink.",
+			"type": "line"
+		},
+		"author-mask": {
+			"label": "Author mask",
+			"description": "Replaces the name of the first author with em dashes or text; set to a numeric value 'n' to set the dash 'n' em spaces wide; set to a text value to display the text without a trailing author separator; for example, 'with' instead",
+			"type": "string"
+		},
+		"author-name-separator": {
+			"label": "Author name separator",
+			"description": "Changes the separator between last and first names; defaults to a comma and space; a space must be encoded as &#32;",
+			"type": "line",
+			"default": ", "
+		},
+		"author-separator": {
+			"label": "Author separator",
+			"description": "Changes the separator between authors; defaults to a semicolon and space; a space must be encoded as &#32;",
+			"type": "line",
+			"default": "; "
+		},
+		"subscription": {
+			"label": "Subscription",
+			"description": "If the reference requires a subscription, type 'yes' to notify the reader.",
+			"type": "string"
+		},
+		"author-link": {
+			"label": "Author link",
+			"description": "Title of existing Wikipedia article about the author; can suffix with a numeral to add additional authors",
+			"type": "wiki-page-name",
+			"aliases": [
+				"authorlink"
+			]
+		},
+		"author-link2": {
+			"label": "Author link 2",
+			"description": "Title of existing Wikipedia article about the second author.",
+			"type": "wiki-page-name",
+			"aliases": [
+				"author2-link",
+				"authorlink2"
+			]
+		},
+		"access-date": {
+			"label": "URL access date",
+			"description": "The full date when the original URL was accessed; do not wikilink",
+			"type": "date",
+			"aliases": [
+				"accessdate"
+			]
+		},
+		"archive-url": {
+			"label": "Archive URL",
+			"description": "The URL of an archived copy of a web page, if or in case the URL becomes unavailable; requires 'archivedate'",
+			"type": "line",
+			"aliases": [
+				"archiveurl"
+			]
+		},
+		"archive-date": {
+			"label": "Archive date",
+			"description": "Date when the original URL was archived; do not wikilink",
+			"type": "date",
+			"aliases": [
+				"archivedate"
+			]
+		},
+		"url-status": {
+			"label": "URL status",
+			"description": "If set to 'live', the title displays with the URL linked; if set to 'dead', the title displays with the archive URL linked",
+			"type": "line"
+		},
+		"lay-url": {
+			"label": "Lay summary URL",
+			"description": "URL link to a non-technical summary or review of the source; alias of 'laysummary'",
+			"type": "line",
+			"aliases": [
+				"layurl",
+				"laysummary"
+			]
+		},
+		"lay-source": {
+			"label": "Lay source",
+			"description": "Name of the source of the laysummary; displays in italics, preceded by an en dash",
+			"type": "string",
+			"aliases": [
+				"laysource"
+			]
+		},
+		"lay-date": {
+			"label": "Lay date",
+			"description": "Date of the summary; displays in parentheses",
+			"type": "date",
+			"aliases": [
+				"laydate"
+			]
+		},
+		"author-link3": {
+			"label": "Author link 3",
+			"description": "Title of existing Wikipedia article about the third author.",
+			"type": "wiki-page-name",
+			"aliases": [
+				"author3-link",
+				"authorlink3"
+			]
+		},
+		"author-link4": {
+			"label": "Author link 4",
+			"description": "Title of existing Wikipedia article about the forth author.",
+			"type": "wiki-page-name",
+			"aliases": [
+				"author4-link",
+				"authorlink4"
+			]
+		},
+		"author-link5": {
+			"label": "Author link 5",
+			"description": "Title of existing Wikipedia article about the fifth author.",
+			"type": "wiki-page-name",
+			"aliases": [
+				"author5-link",
+				"authorlink5"
+			]
+		},
+		"author-link6": {
+			"label": "Author link 6",
+			"description": "Title of existing Wikipedia article about the sixth author.",
+			"type": "wiki-page-name",
+			"aliases": [
+				"author6-link",
+				"authorlink6"
+			]
+		},
+		"author-link7": {
+			"label": "Author link 7",
+			"description": "Title of existing Wikipedia article about the seventh author.",
+			"type": "wiki-page-name",
+			"aliases": [
+				"author7-link",
+				"authorlink7"
+			]
+		},
+		"author-link8": {
+			"label": "Author link 8",
+			"description": "Title of existing Wikipedia article about the eighth author.",
+			"type": "wiki-page-name",
+			"aliases": [
+				"author8-link",
+				"authorlink8"
+			]
+		},
+		"author-link9": {
+			"label": "Author link 9",
+			"description": "Title of existing Wikipedia article about the ninth author.",
+			"type": "wiki-page-name",
+			"aliases": [
+				"author9-link",
+				"authorlink9"
+			]
+		},
+		"editor2-link": {
+			"label": "Editor link 2",
+			"description": "Title of existing Wikipedia article about the second editor.",
+			"type": "wiki-page-name",
+			"aliases": [
+				"editor2link",
+				"editorlink2"
+			]
+		},
+		"editor3-link": {
+			"label": "Editor link 3",
+			"description": "Title of existing Wikipedia article about the third editor.",
+			"type": "wiki-page-name",
+			"aliases": [
+				"editor3link",
+				"editorlink3"
+			]
+		},
+		"editor4-link": {
+			"label": "Editor link 4",
+			"description": "Title of existing Wikipedia article about the fourth editor.",
+			"type": "wiki-page-name",
+			"aliases": [
+				"editor4link",
+				"editorlink4"
+			]
+		},
+		"editor5-link": {
+			"label": "Editor link 5",
+			"description": "Title of existing Wikipedia article about the fifth editor.",
+			"type": "wiki-page-name",
+			"aliases": [
+				"editor5link",
+				"editorlink5"
+			]
+		},
+		"editor6-link": {
+			"label": "Editor link 6",
+			"description": "Title of existing Wikipedia article about the sixth editor.",
+			"type": "wiki-page-name",
+			"aliases": [
+				"editor6link",
+				"editorlink6"
+			]
+		},
+		"editor7-link": {
+			"label": "Editor link 7",
+			"description": "Title of existing Wikipedia article about the seventh editor.",
+			"type": "wiki-page-name",
+			"aliases": [
+				"editor7link",
+				"editorlink7"
+			]
+		},
+		"editor8-link": {
+			"label": "Editor link 8",
+			"description": "Title of existing Wikipedia article about the eighth editor.",
+			"type": "wiki-page-name",
+			"aliases": [
+				"editor8link",
+				"editorlink8"
+			]
+		},
+		"editor9-link": {
+			"label": "Editor link 9",
+			"description": "Title of existing Wikipedia article about the ninth editor.",
+			"type": "wiki-page-name",
+			"aliases": [
+				"editor9link",
+				"editorlink9"
+			]
+		},
+		"displayauthors": {
+			"label": "Display authors",
+			"description": "number of authors to display before 'et al.' is used;",
+			"type": "number",
+			"aliases": [
+				"display-authors"
+			]
+		},
+		"last-author-amp": {
+			"label": "Last author ampersand",
+			"description": "When set to any value, changes the separator between the last two names of the author list to 'space ampersand space'",
+			"type": "boolean",
+			"aliases": [
+				"lastauthoramp"
+			]
+		},
+		"registration": {
+			"label": "Registration",
+			"description": "If the reference requires registration, type 'yes' to notify the reader.",
+			"type": "string"
+		},
+		"chapter": {
+			"label": "Chapter",
+			"description": "The chapter heading of the source",
+			"type": "string"
+		},
+		"via": {
+			"label": "Content deliverer (i.e. Database)",
+			"description": "Provider of the article (not the publisher), usually an aggregator of journal articles or a repository",
+			"example": "JSTOR, Project MUSE, Elsevier Science Direct",
+			"type": "string",
+			"suggested": true
+		},
+		"url-access": {
+			"label": "URL access level",
+			"description": "Classification of the access restrictions on the URL ('registration', 'subscription' or 'limited')",
+			"type": "string"
+		},
+		"bibcode-access": {
+			"label": "Bibcode access level",
+			"description": "If the full text is available from ADS via this Bibcode, type 'free'.",
+			"type": "string"
+		},
+		"doi-access": {
+			"label": "DOI access level",
+			"description": "If the full text is free to read via the DOI, type 'free'.",
+			"type": "string"
+		},
+		"hdl-access": {
+			"label": "HDL access level",
+			"description": "If the full text is free to read via the HDL, type 'free'.",
+			"type": "string"
+		},
+		"jstor-access": {
+			"label": "Jstor access level",
+			"description": "If the full text is free to read on Jstor, type 'free'.",
+			"type": "string"
+		},
+		"ol-access": {
+			"label": "OpenLibrary access level",
+			"description": "If the full text is free to read on OpenLibrary, type 'free'.",
+			"type": "string"
+		},
+		"osti-access": {
+			"label": "HDL access level",
+			"description": "If the full text is free to read on OSTI, type 'free'.",
+			"type": "string"
+		},
+		"vauthors": {
+			"label": "Vancouver style authors",
+			"description": "comma-separated list of author names in Vancouver style; enclose corporate or institutional author names in doubled parentheses",
+			"type": "line"
+		}
+	},
+	"paramOrder": [
+		"last",
+		"first",
+		"author-link",
+		"last2",
+		"first2",
+		"author-link2",
+		"last3",
+		"first3",
+		"author-link3",
+		"last4",
+		"first4",
+		"author-link4",
+		"last5",
+		"first5",
+		"author-link5",
+		"last6",
+		"first6",
+		"author-link6",
+		"last7",
+		"first7",
+		"author-link7",
+		"last8",
+		"first8",
+		"author-link8",
+		"last9",
+		"first9",
+		"author-link9",
+		"last10",
+		"first10",
+		"last11",
+		"first11",
+		"displayauthors",
+		"author-mask",
+		"last-author-amp",
+		"author-separator",
+		"author-name-separator",
+		"vauthors",
+		"date",
+		"year",
+		"orig-year",
+		"editor-last",
+		"editor-first",
+		"editor-link",
+		"editor2-last",
+		"editor2-first",
+		"editor2-link",
+		"editor3-last",
+		"editor3-first",
+		"editor3-link",
+		"editor4-last",
+		"editor4-first",
+		"editor4-link",
+		"editor5-last",
+		"editor5-first",
+		"editor5-link",
+		"editor6-last",
+		"editor6-first",
+		"editor6-link",
+		"editor7-last",
+		"editor7-first",
+		"editor7-link",
+		"editor8-last",
+		"editor8-first",
+		"editor8-link",
+		"editor9-last",
+		"editor9-first",
+		"editor9-link",
+		"others",
+		"title",
+		"script-title",
+		"trans-title",
+		"url",
+		"url-status",
+		"format",
+		"department",
+		"journal",
+		"chapter",
+		"type",
+		"series",
+		"language",
+		"edition",
+		"location",
+		"publisher",
+		"publication-place",
+		"publication-date",
+		"volume",
+		"issue",
+		"page",
+		"pages",
+		"at",
+		"nopp",
+		"arxiv",
+		"asin",
+		"asin-tld",
+		"bibcode",
+		"biorxiv",
+		"citeseerx",
+		"doi",
+		"doi-broken-date",
+		"isbn",
+		"issn",
+		"eissn",
+		"jfm",
+		"jstor",
+		"lccn",
+		"mr",
+		"oclc",
+		"ol",
+		"osti",
+		"pmc",
+		"pmid",
+		"rfc",
+		"ssrn",
+		"zbl",
+		"id",
+		"url-access",
+		"archive-url",
+		"archive-date",
+		"access-date",
+		"registration",
+		"subscription",
+		"lay-url",
+		"lay-source",
+		"lay-date",
+		"quote",
+		"postscript",
+		"ref",
+		"separator",
+		"via",
+		"bibcode-access",
+		"doi-access",
+		"hdl-access",
+		"jstor-access",
+		"ol-access",
+		"osti-access"
+	],
+	"maps": {
+		"citoid": {
+			"title": "title",
+			"url": "url",
+			"publisher": "publisher",
+			"publicationTitle": "journal",
+			"proceedingsTitle": "journal",
+			"encyclopediaTitle": "journal",
+			"dictionaryTitle": "journal",
+			"date": "date",
+			"place": "location",
+			"ISSN": [
+				"issn"
+			],
+			"ISBN": [
+				"isbn"
+			],
+			"PMCID": "pmc",
+			"PMID": "pmid",
+			"pages": "pages",
+			"volume": "volume",
+			"series": "series",
+			"seriesNumber": "volume",
+			"issue": "issue",
+			"DOI": "doi",
+			"oclc": "oclc",
+			"language": "language",
+			"contributor": "others",
+			"author": [
+				[
+					"first",
+					"last"
+				],
+				[
+					"first2",
+					"last2"
+				],
+				[
+					"first3",
+					"last3"
+				],
+				[
+					"first4",
+					"last4"
+				],
+				[
+					"first5",
+					"last5"
+				],
+				[
+					"first6",
+					"last6"
+				],
+				[
+					"first7",
+					"last7"
+				],
+				[
+					"first8",
+					"last8"
+				],
+				[
+					"first9",
+					"last9"
+				],
+				[
+					"first10",
+					"last10"
+				],
+				[
+					"first11",
+					"last11"
+				]
+			],
+			"editor": [
+				[
+					"editor-first",
+					"editor-last"
+				],
+				[
+					"editor2-first",
+					"editor2-last"
+				],
+				[
+					"editor3-first",
+					"editor3-last"
+				],
+				[
+					"editor4-first",
+					"editor4-last"
+				],
+				[
+					"editor5-first",
+					"editor5-last"
+				],
+				[
+					"editor6-first",
+					"editor6-last"
+				],
+				[
+					"editor7-first",
+					"editor7-last"
+				],
+				[
+					"editor8-first",
+					"editor8-last"
+				],
+				[
+					"editor9-first",
+					"editor9-last"
+				]
+			]
+		}
+	},
+	"format": "inline"
+}
+</templatedata>
+</noinclude>
