@@ -40,6 +40,9 @@ $wgVirtualRestConfig['modules']['parsoid'] = [
 // VE NWE beta feature
 $wgVisualEditorEnableWikitextBetaFeature = true;
 
+// Citoid
+$wgCitoidFullRestbaseURL = 'https://www.mediawiki.org/api/rest_';
+
 // DiscussionTools required configuration
 $wgLocaltimezone = 'UTC';
 

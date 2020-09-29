@@ -1,0 +1,22 @@
+[
+    {
+        "name": "web",
+        "icon": "ref-cite-web",
+        "template": "Cite web"
+    },
+    {
+        "name": "book",
+        "icon": "ref-cite-book",
+        "template": "Cite book"
+    },
+    {
+        "name": "news",
+        "icon": "ref-cite-news",
+        "template": "Cite news"
+    },
+    {
+        "name": "journal",
+        "icon": "ref-cite-journal",
+        "template": "Cite journal"
+    }
+]
