@@ -4,6 +4,11 @@ require_once "includes.php";
 
 ob_implicit_flush( true );
 
+if ( $useOAuth && !$user ) {
+	echo oauth_signin_prompt();
+	die();
+}
+
 $branch = trim( $_POST['branch'] );
 $patches = trim( $_POST['patches'] );
 
