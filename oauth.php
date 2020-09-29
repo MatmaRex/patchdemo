@@ -9,6 +9,11 @@ $user = null;
 
 $useOAuth = !empty( $config[ 'oauth' ][ 'url' ] );
 
+function oauth_signin_prompt() {
+	global $authUrl;
+	return "<div class='signIn'><a href='$authUrl'>Sign in with OAuth</a> to create and manage wikis.</div>";
+}
+
 if ( $useOAuth && !$is404 ) {
 	$conf = new ClientConfig( $config[ 'oauth' ][ 'url' ] );
 	$conf->setConsumer( new Consumer(
@@ -42,10 +47,5 @@ if ( $useOAuth && !$is404 ) {
 
 		$_SESSION['request_key'] = $token->key;
 		$_SESSION['request_secret'] = $token->secret;
-
-		echo "</div></header><main>" .
-			"<div class='signIn'><a href='$authUrl'>Sign in with OAuth</a> to create and manage wikis.</div>";
-		include 'footer.html';
-		die();
 	}
 }

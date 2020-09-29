@@ -1,104 +1,108 @@
 <?php
 require_once "includes.php";
 
-$branches = get_branches( 'mediawiki/core' );
+if ( $useOAuth && !$user ) {
+	echo oauth_signin_prompt();
+} else {
+	$branches = get_branches( 'mediawiki/core' );
 
-$branches = array_filter( $branches, function ( $branch ) {
-	return preg_match( '/^origin\/(master|wmf|REL)/', $branch );
-} );
-natcasesort( $branches );
+	$branches = array_filter( $branches, function ( $branch ) {
+		return preg_match( '/^origin\/(master|wmf|REL)/', $branch );
+	} );
+	natcasesort( $branches );
 
-// Put newest branches first
-$branches = array_reverse( array_values( $branches ) );
+	// Put newest branches first
+	$branches = array_reverse( array_values( $branches ) );
 
-// Move master to the top
-array_unshift( $branches, array_pop( $branches ) );
+	// Move master to the top
+	array_unshift( $branches, array_pop( $branches ) );
 
-$branchesOptions = array_map( function ( $branch ) {
-	return [ 'data' => $branch ];
-}, $branches );
+	$branchesOptions = array_map( function ( $branch ) {
+		return [ 'data' => $branch ];
+	}, $branches );
 
-$repoBranches = [];
-$repoOptions = [];
-$repoData = get_repo_data();
-ksort( $repoData );
-foreach ( $repoData as $repo => $path ) {
-	if ( $repo === 'mediawiki/core' ) {
-		continue;
+	$repoBranches = [];
+	$repoOptions = [];
+	$repoData = get_repo_data();
+	ksort( $repoData );
+	foreach ( $repoData as $repo => $path ) {
+		if ( $repo === 'mediawiki/core' ) {
+			continue;
+		}
+		$repoBranches[$repo] = get_branches( $repo );
+		$repo = htmlspecialchars( $repo );
+		$repoOptions[] = [
+			'data' => $repo,
+			'label' => $repo,
+		];
 	}
-	$repoBranches[$repo] = get_branches( $repo );
-	$repo = htmlspecialchars( $repo );
-	$repoOptions[] = [
-		'data' => $repo,
-		'label' => $repo,
-	];
-}
-$repoBranches = htmlspecialchars( json_encode( $repoBranches ), ENT_NOQUOTES );
-echo "<script>window.repoBranches = $repoBranches;</script>\n";
+	$repoBranches = htmlspecialchars( json_encode( $repoBranches ), ENT_NOQUOTES );
+	echo "<script>window.repoBranches = $repoBranches;</script>\n";
 
-include_once 'DetailsFieldLayout.php';
+	include_once 'DetailsFieldLayout.php';
 
-echo new OOUI\FormLayout( [
-	'infusable' => true,
-	'method' => 'POST',
-	'action' => 'new.php',
-	'id' => 'new-form',
-	'items' => [
-		new OOUI\FieldsetLayout( [
-			'label' => null,
-			'items' => [
-				new OOUI\FieldLayout(
-					new OOUI\DropdownInputWidget( [
-						'name' => 'branch',
-						'options' => $branchesOptions,
-					] ),
-					[
-						'label' => 'Start with version:',
-						'align' => 'left',
-					]
-				),
-				new OOUI\FieldLayout(
-					new OOUI\MultilineTextInputWidget( [
-						'name' => 'patches',
-						'placeholder' => 'Gerrit changeset number or Change-Id, one per line',
-						'rows' => 4,
-					] ),
-					[
-						'label' => 'Then, apply patches:',
-						'align' => 'left',
-					]
-				),
-				new DetailsFieldLayout(
-					new OOUI\CheckboxMultiselectInputWidget( [
-						'name' => 'repos[]',
-						'options' => $repoOptions,
-						'value' => array_keys( $repoData ),
-					] ),
-					[
-						'label' => 'Choose extensions to enable (default: all):',
-						'align' => 'left',
-					]
-				),
-				new OOUI\FieldLayout(
-					new OOUI\ButtonInputWidget( [
-						'label' => 'Create demo',
-						'type' => 'submit',
-						// 'disabled' => true,
-						'flags' => [ 'progressive', 'primary' ]
-					] ),
-					[
-						'label' => ' ',
-						'align' => 'left',
-					]
-				),
-			]
-		] ),
-	]
-] );
+	echo new OOUI\FormLayout( [
+		'infusable' => true,
+		'method' => 'POST',
+		'action' => 'new.php',
+		'id' => 'new-form',
+		'items' => [
+			new OOUI\FieldsetLayout( [
+				'label' => null,
+				'items' => [
+					new OOUI\FieldLayout(
+						new OOUI\DropdownInputWidget( [
+							'name' => 'branch',
+							'options' => $branchesOptions,
+						] ),
+						[
+							'label' => 'Start with version:',
+							'align' => 'left',
+						]
+					),
+					new OOUI\FieldLayout(
+						new OOUI\MultilineTextInputWidget( [
+							'name' => 'patches',
+							'placeholder' => 'Gerrit changeset number or Change-Id, one per line',
+							'rows' => 4,
+						] ),
+						[
+							'label' => 'Then, apply patches:',
+							'align' => 'left',
+						]
+					),
+					new DetailsFieldLayout(
+						new OOUI\CheckboxMultiselectInputWidget( [
+							'name' => 'repos[]',
+							'options' => $repoOptions,
+							'value' => array_keys( $repoData ),
+						] ),
+						[
+							'label' => 'Choose extensions to enable (default: all):',
+							'align' => 'left',
+						]
+					),
+					new OOUI\FieldLayout(
+						new OOUI\ButtonInputWidget( [
+							'label' => 'Create demo',
+							'type' => 'submit',
+							// 'disabled' => true,
+							'flags' => [ 'progressive', 'primary' ]
+						] ),
+						[
+							'label' => ' ',
+							'align' => 'left',
+						]
+					),
+				]
+			] ),
+		]
+	] );
 
-$banner = banner_html();
-if ( $banner ) {
-	echo "<p class='banner'>$banner</p>";
+	$banner = banner_html();
+	if ( $banner ) {
+		echo "<p class='banner'>$banner</p>";
+	}
 }
 ?>
 <br/>
