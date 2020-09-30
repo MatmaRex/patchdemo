@@ -53,10 +53,15 @@ cat $PATCHDEMO/LocalSettings.txt >> $PATCHDEMO/wikis/$NAME/w/LocalSettings.php
 sleep 1 # Ensure edit appears after creation in history
 echo "$MAINPAGE" | php $PATCHDEMO/wikis/$NAME/w/maintenance/edit.php "Main_Page"
 
-for page in $(find $PATCHDEMO/pages -not -type d -printf '%P\n')
+# import XML dumps
+for page in $(find $PATCHDEMO/pages -name "*.xml" -not -type d -printf '%P\n')
 do
-	cat "$PATCHDEMO/pages/$page" | php $PATCHDEMO/wikis/$NAME/w/maintenance/edit.php "$page"
+	php $PATCHDEMO/wikis/$NAME/w/maintenance/importDump.php < $PATCHDEMO/pages/$page
 done
+
+# update caches after import
+php $PATCHDEMO/wikis/$NAME/w/maintenance/rebuildrecentchanges.php
+php $PATCHDEMO/wikis/$NAME/w/maintenance/initSiteStats.php
 
 # copy logo
 cp $PATCHDEMO/images/logo.svg $PATCHDEMO/wikis/$NAME/w/
