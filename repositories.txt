@@ -8,6 +8,7 @@ mediawiki/extensions/Citoid w/extensions/Citoid
 mediawiki/extensions/CodeEditor w/extensions/CodeEditor
 mediawiki/extensions/CodeMirror w/extensions/CodeMirror
 mediawiki/extensions/ConfirmEdit w/extensions/ConfirmEdit
+mediawiki/extensions/EventLogging w/extensions/EventLogging
 mediawiki/extensions/FlaggedRevs w/extensions/FlaggedRevs
 mediawiki/extensions/Gadgets w/extensions/Gadgets
 mediawiki/extensions/GlobalWatchlist w/extensions/GlobalWatchlist
