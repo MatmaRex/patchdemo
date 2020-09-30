@@ -1,0 +1,6 @@
+MediaWiki:Cite-tool-definition.json
+MediaWiki:Citoid-template-type-map.json
+Template:Cite_book
+Template:Cite_journal
+Template:Cite_news
+Template:Cite_web

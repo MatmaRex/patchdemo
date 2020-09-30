@@ -1,4 +1,127 @@
-{
+<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.11/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mediawiki.org/xml/export-0.11/ http://www.mediawiki.org/xml/export-0.11.xsd" version="0.11" xml:lang="en">
+  <siteinfo>
+    <sitename>Patch Demo (493494,25)</sitename>
+    <dbname>patchdemo_cbe37578751b8297c6f29ebdd4406bb7</dbname>
+    <base>http://patchdemo.wmflabs.org/wikis/cbe37578751b8297c6f29ebdd4406bb7/w/index.php/Main_Page</base>
+    <generator>MediaWiki 1.36.0-alpha</generator>
+    <case>first-letter</case>
+    <namespaces>
+      <namespace key="-2" case="first-letter">Media</namespace>
+      <namespace key="-1" case="first-letter">Special</namespace>
+      <namespace key="0" case="first-letter" />
+      <namespace key="1" case="first-letter">Talk</namespace>
+      <namespace key="2" case="first-letter">User</namespace>
+      <namespace key="3" case="first-letter">User talk</namespace>
+      <namespace key="4" case="first-letter">Project</namespace>
+      <namespace key="5" case="first-letter">Project talk</namespace>
+      <namespace key="6" case="first-letter">File</namespace>
+      <namespace key="7" case="first-letter">File talk</namespace>
+      <namespace key="8" case="first-letter">MediaWiki</namespace>
+      <namespace key="9" case="first-letter">MediaWiki talk</namespace>
+      <namespace key="10" case="first-letter">Template</namespace>
+      <namespace key="11" case="first-letter">Template talk</namespace>
+      <namespace key="12" case="first-letter">Help</namespace>
+      <namespace key="13" case="first-letter">Help talk</namespace>
+      <namespace key="14" case="first-letter">Category</namespace>
+      <namespace key="15" case="first-letter">Category talk</namespace>
+      <namespace key="710" case="first-letter">TimedText</namespace>
+      <namespace key="711" case="first-letter">TimedText talk</namespace>
+      <namespace key="828" case="first-letter">Module</namespace>
+      <namespace key="829" case="first-letter">Module talk</namespace>
+      <namespace key="2300" case="first-letter">Gadget</namespace>
+      <namespace key="2301" case="first-letter">Gadget talk</namespace>
+      <namespace key="2302" case="case-sensitive">Gadget definition</namespace>
+      <namespace key="2303" case="case-sensitive">Gadget definition talk</namespace>
+      <namespace key="2468" case="first-letter">ZObject</namespace>
+      <namespace key="2469" case="first-letter">ZObject talk</namespace>
+    </namespaces>
+  </siteinfo>
+  <page>
+    <title>MediaWiki:NewcomerTasks.json</title>
+    <ns>8</ns>
+    <id>3</id>
+    <revision>
+      <id>4</id>
+      <timestamp>2020-09-30T09:32:15Z</timestamp>
+      <contributor>
+        <username>Maintenance script</username>
+        <id>4</id>
+      </contributor>
+      <origin>4</origin>
+      <model>json</model>
+      <format>application/json</format>
+      <text bytes="1256" sha1="picnpjf2wf3ed48dm2z500bilyifw42" xml:space="preserve">{
+    "copyedit": {
+        "group": "easy",
+        "templates": [
+            "Who",
+            "Which",
+            "Whose",
+            "To whom?",
+            "From whom?",
+            "Like whom?",
+            "Compared to?",
+            "NPOV",
+            "Copy edit",
+            "Proofreader needed",
+            "Pronunciation needed",
+            "Romanization needed",
+            "Advert"
+        ],
+        "learnmore": "Wikipedia:Basic copyediting"
+    },
+    "references": {
+        "group": "medium",
+        "templates": [
+            "Citation needed",
+            "Unreferenced"
+        ],
+        "learnmore": "Wikipedia:Citing sources"
+    },
+    "update": {
+        "group": "medium",
+        "templates": [
+            "Update",
+            "Update inline"
+        ],
+        "learnmore": "Wikipedia:As of"
+    },
+    "expand": {
+        "group": "hard",
+        "templates": [
+            "Stub",
+            "Missing information",
+            "Expand section"
+        ],
+        "learnmore": "Wikipedia:Manual of Style/Layout"
+    },
+    "links": {
+        "group": "easy",
+        "templates": [
+            "Sections",
+            "Cleanup bare URLs"
+        ],
+        "learnmore": "Wikipedia:Manual of Style/Linking"
+    }
+}</text>
+      <sha1>picnpjf2wf3ed48dm2z500bilyifw42</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:NewcomerTopicsOres.json</title>
+    <ns>8</ns>
+    <id>7</id>
+    <revision>
+      <id>8</id>
+      <timestamp>2020-09-30T09:32:17Z</timestamp>
+      <contributor>
+        <username>Maintenance script</username>
+        <id>4</id>
+      </contributor>
+      <origin>8</origin>
+      <model>json</model>
+      <format>application/json</format>
+      <text bytes="6693" sha1="38qgwtebw6iq85w995yotdtajeepgi7" xml:space="preserve">{
     "topics": {
         "africa": {
             "group": "geography",
@@ -263,4 +386,45 @@
         "science-technology-and-math",
         "geography"
     ]
-}
+}</text>
+      <sha1>38qgwtebw6iq85w995yotdtajeepgi7</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Project:GrowthExperiments mentors</title>
+    <ns>4</ns>
+    <id>11</id>
+    <revision>
+      <id>12</id>
+      <timestamp>2020-09-30T09:32:18Z</timestamp>
+      <contributor>
+        <username>Maintenance script</username>
+        <id>4</id>
+      </contributor>
+      <origin>12</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="55" sha1="friygzzitdg301dsgao93b49qmc4pqc" xml:space="preserve">Mentor list for GrowthExperiments
+* [[User:Patch Demo]]</text>
+      <sha1>friygzzitdg301dsgao93b49qmc4pqc</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Talk:Main Page</title>
+    <ns>1</ns>
+    <id>9</id>
+    <revision>
+      <id>10</id>
+      <timestamp>2020-09-30T09:32:17Z</timestamp>
+      <contributor>
+        <username>Maintenance script</username>
+        <id>4</id>
+      </contributor>
+      <origin>10</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="128" sha1="lxxqy2l1po0tt2l4flperkncc44lpom" xml:space="preserve">Placeholder discussion page. Serves as the help desk for the GrowthExperiments help panel and homepage question asking features.</text>
+      <sha1>lxxqy2l1po0tt2l4flperkncc44lpom</sha1>
+    </revision>
+  </page>
+</mediawiki>
