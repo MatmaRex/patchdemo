@@ -121,111 +121,111 @@ if ( $user ) {
 }
 ?>
 <p><em>✓=Merged ✗=Abandoned</em></p>
-<table class="wikis">
-	<?php
+<?php
 
-	$dirs = array_filter( scandir( 'wikis' ), function ( $dir ) {
-		return substr( $dir, 0, 1 ) !== '.';
+$dirs = array_filter( scandir( 'wikis' ), function ( $dir ) {
+	return substr( $dir, 0, 1 ) !== '.';
+} );
+
+$usecache = false;
+$cache = load_wikicache();
+if ( $cache ) {
+	$wikis = json_decode( $cache, true );
+	$wikilist = array_keys( $wikis );
+	sort( $wikilist );
+	sort( $dirs );
+	if ( $wikilist === $dirs ) {
+		$usecache = true;
+	}
+}
+
+if ( !$usecache ) {
+	$wikis = [];
+	foreach ( $dirs as $dir ) {
+		if ( substr( $dir, 0, 1 ) !== '.' ) {
+			$title = '?';
+			$settings = get_if_file_exists( 'wikis/' . $dir . '/w/LocalSettings.php' );
+			if ( $settings ) {
+				preg_match( '`wgSitename = "(.*)";`', $settings, $matches );
+				$title = $matches[ 1 ];
+
+				preg_match( '`Patch Demo \((.*)\)`', $title, $matches );
+				if ( count( $matches ) ) {
+					preg_match_all( '`([0-9]+),([0-9]+)`', $matches[ 1 ], $matches );
+					$title = implode( '<br>', array_map( function ( $r, $p, $t ) {
+						$changeData = gerrit_query( "changes/$r" );
+						$status = 'UNKNOWN';
+						if ( $changeData ) {
+							$status = $changeData['status'];
+						}
+						$commitData = gerrit_query( "changes/$r/revisions/$p/commit" );
+						if ( $commitData ) {
+							$t = $t . ': ' . $commitData[ 'subject' ];
+						}
+						return '<a href="https://gerrit.wikimedia.org/r/c/' . $r . '/' . $p . '" title="' . htmlspecialchars( $t, ENT_QUOTES ) . '" class="status-' . $status . '">' .
+							htmlspecialchars( $t ) .
+						'</a>';
+					}, $matches[ 1 ], $matches[ 2 ], $matches[ 0 ] ) );
+				}
+
+			}
+			$creator = get_creator( $dir );
+			$created = get_created( $dir );
+
+			if ( !$created ) {
+				// Add created.txt to old wikis
+				$created = file_exists( 'wikis/' . $dir . '/w/LocalSettings.php' ) ?
+					filemtime( 'wikis/' . $dir . '/w/LocalSettings.php' ) :
+					filemtime( 'wikis/' . $dir );
+				file_put_contents( 'wikis/' . $dir . '/created.txt', $created );
+			}
+
+			$wikis[ $dir ] = [
+				'mtime' => $created,
+				'title' => $title,
+				'creator' => $creator
+			];
+		}
+	}
+	uksort( $wikis, function ( $a, $b ) use ( $wikis ) {
+		return $wikis[ $a ][ 'mtime' ] < $wikis[ $b ][ 'mtime' ];
 	} );
 
-	$usecache = false;
-	$cache = load_wikicache();
-	if ( $cache ) {
-		$wikis = json_decode( $cache, true );
-		$wikilist = array_keys( $wikis );
-		sort( $wikilist );
-		sort( $dirs );
-		if ( $wikilist === $dirs ) {
-			$usecache = true;
-		}
-	}
+	save_wikicache( $wikis );
+}
 
-	if ( !$usecache ) {
-		$wikis = [];
-		foreach ( $dirs as $dir ) {
-			if ( substr( $dir, 0, 1 ) !== '.' ) {
-				$title = '?';
-				$settings = get_if_file_exists( 'wikis/' . $dir . '/w/LocalSettings.php' );
-				if ( $settings ) {
-					preg_match( '`wgSitename = "(.*)";`', $settings, $matches );
-					$title = $matches[ 1 ];
+$rows = '';
+$anyCanDelete = false;
+foreach ( $wikis as $wiki => $data ) {
+	$title = $data[ 'title' ];
+	$creator = $data[ 'creator' ] ?? '';
+	$username = $user ? $user->username : null;
+	$canDelete = can_delete( $creator );
+	$anyCanDelete = $anyCanDelete || $canDelete;
+	$rows .= '<tr' . ( $creator !== $username ? ' class="other"' : '' ) . '>' .
+		'<td data-label="Patches" class="title">' . ( $title ?: '<em>No patches</em>' ) . '</td>' .
+		'<td data-label="Link"><a href="wikis/' . $wiki . '/w">' . $wiki . '</a></td>' .
+		'<td data-label="Time" class="date">' . date( 'c', $data[ 'mtime' ] ) . '</td>' .
+		( $useOAuth ? '<td data-label="Creator">' . ( $creator ? user_link( $creator ) : '?' ) . '</td>' : '' ) .
+		( $canDelete ?
+			'<td data-label="Actions"><a href="delete.php?wiki=' . $wiki . '">Delete</a></td>' :
+			''
+		) .
+	'</tr>';
+}
 
-					preg_match( '`Patch Demo \((.*)\)`', $title, $matches );
-					if ( count( $matches ) ) {
-						preg_match_all( '`([0-9]+),([0-9]+)`', $matches[ 1 ], $matches );
-						$title = implode( '<br>', array_map( function ( $r, $p, $t ) {
-							$changeData = gerrit_query( "changes/$r" );
-							$status = 'UNKNOWN';
-							if ( $changeData ) {
-								$status = $changeData['status'];
-							}
-							$commitData = gerrit_query( "changes/$r/revisions/$p/commit" );
-							if ( $commitData ) {
-								$t = $t . ': ' . $commitData[ 'subject' ];
-							}
-							return '<a href="https://gerrit.wikimedia.org/r/c/' . $r . '/' . $p . '" title="' . htmlspecialchars( $t, ENT_QUOTES ) . '" class="status-' . $status . '">' .
-								htmlspecialchars( $t ) .
-							'</a>';
-						}, $matches[ 1 ], $matches[ 2 ], $matches[ 0 ] ) );
-					}
+echo '<table class="wikis">' .
+	'<tr>' .
+		'<th>Patches</th>' .
+		'<th>Link</th>' .
+		'<th>Time</th>' .
+		( $useOAuth ? '<th>Creator</th>' : '' ) .
+		( $anyCanDelete ? '<th>Actions</th>' : '' ) .
+	'</tr>' .
+	$rows .
+'</table>';
 
-				}
-				$creator = get_creator( $dir );
-				$created = get_created( $dir );
-
-				if ( !$created ) {
-					// Add created.txt to old wikis
-					$created = file_exists( 'wikis/' . $dir . '/w/LocalSettings.php' ) ?
-						filemtime( 'wikis/' . $dir . '/w/LocalSettings.php' ) :
-						filemtime( 'wikis/' . $dir );
-					file_put_contents( 'wikis/' . $dir . '/created.txt', $created );
-				}
-
-				$wikis[ $dir ] = [
-					'mtime' => $created,
-					'title' => $title,
-					'creator' => $creator
-				];
-			}
-		}
-		uksort( $wikis, function ( $a, $b ) use ( $wikis ) {
-			return $wikis[ $a ][ 'mtime' ] < $wikis[ $b ][ 'mtime' ];
-		} );
-
-		save_wikicache( $wikis );
-	}
-
-	$rows = '';
-	$anyCanDelete = false;
-	foreach ( $wikis as $wiki => $data ) {
-		$title = $data[ 'title' ];
-		$creator = $data[ 'creator' ] ?? '';
-		$username = $user ? $user->username : null;
-		$canDelete = can_delete( $creator );
-		$anyCanDelete = $anyCanDelete || $canDelete;
-		$rows .= '<tr' . ( $creator !== $username ? ' class="other"' : '' ) . '>' .
-			'<td data-label="Patches" class="title">' . ( $title ?: '<em>No patches</em>' ) . '</td>' .
-			'<td data-label="Link"><a href="wikis/' . $wiki . '/w">' . $wiki . '</a></td>' .
-			'<td data-label="Time" class="date">' . date( 'c', $data[ 'mtime' ] ) . '</td>' .
-			( $useOAuth ? '<td data-label="Creator">' . ( $creator ? user_link( $creator ) : '?' ) . '</td>' : '' ) .
-			( $canDelete ?
-				'<td data-label="Actions"><a href="delete.php?wiki=' . $wiki . '">Delete</a></td>' :
-				''
-			) .
-		'</tr>';
-	}
-
-	echo '<tr>' .
-			'<th>Patches</th>' .
-			'<th>Link</th>' .
-			'<th>Time</th>' .
-			( $useOAuth ? '<th>Creator</th>' : '' ) .
-			( $anyCanDelete ? '<th>Actions</th>' : '' ) .
-		'</tr>' .
-		$rows;
-
-	?>
-</table>
+?>
 <script src="index.js"></script>
 <?php
 include "footer.html";
