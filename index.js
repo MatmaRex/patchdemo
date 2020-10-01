@@ -1,6 +1,7 @@
 ( function () {
 	// TODO: Use infuse to control OOUI widgets
-	var myWikis, wikisTable, branchSelect, form, submit;
+	var myWikis, closedWikis, branchSelect, form, submit,
+		wikisTable = document.getElementsByClassName( 'wikis' )[ 0 ];
 
 	function setDisabled( input, disabled ) {
 		input.disabled = disabled;
@@ -17,16 +18,27 @@
 		} );
 	}
 
+	function updateTableClasses() {
+		if ( myWikis.checked ) {
+			wikisTable.classList.add( 'hideOthers' );
+		} else {
+			wikisTable.classList.remove( 'hideOthers' );
+		}
+		if ( closedWikis.checked ) {
+			wikisTable.classList.add( 'hideOpen' );
+		} else {
+			wikisTable.classList.remove( 'hideOpen' );
+		}
+	}
+
 	myWikis = document.querySelector( '.myWikis > input' );
 	if ( myWikis ) {
-		wikisTable = document.getElementsByClassName( 'wikis' )[ 0 ];
-		myWikis.addEventListener( 'change', function () {
-			if ( myWikis.checked ) {
-				wikisTable.classList.add( 'hideOthers' );
-			} else {
-				wikisTable.classList.remove( 'hideOthers' );
-			}
-		} );
+		myWikis.addEventListener( 'change', updateTableClasses );
+	}
+
+	closedWikis = document.querySelector( '.closedWikis > input' );
+	if ( closedWikis ) {
+		closedWikis.addEventListener( 'change', updateTableClasses );
 	}
 
 	branchSelect = document.querySelector( 'select[name=branch]' );
