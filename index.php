@@ -217,7 +217,7 @@ function all_closed( $statuses ) {
 
 $rows = '';
 $anyCanDelete = false;
-$deletableWikis = 0;
+$closedWikis = 0;
 foreach ( $wikis as $wiki => $data ) {
 	$title = $data[ 'title' ];
 	$creator = $data[ 'creator' ] ?? '';
@@ -244,6 +244,17 @@ foreach ( $wikis as $wiki => $data ) {
 			''
 		) .
 	'</tr>';
+
+	if ( $username && $username === $creator && $closed ) {
+		$closedWikis++;
+	}
+}
+
+if ( $closedWikis ) {
+	echo '<p>' .
+		'You have created ' . $closedWikis . ' ' . ( $closedWikis > 1 ? 'wikis' : 'wiki' ) . ' where all the patches ' .
+		'have been merged or abandoned and therefore can be deleted. <a href="#" class="showClosed">Show</a>.' .
+	'</p>';
 }
 
 echo '<table class="wikis">' .

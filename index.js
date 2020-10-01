@@ -1,6 +1,6 @@
 ( function () {
 	// TODO: Use infuse to control OOUI widgets
-	var myWikis, closedWikis, branchSelect, form, submit,
+	var myWikis, closedWikis, branchSelect, form, submit, showClosed,
 		wikisTable = document.getElementsByClassName( 'wikis' )[ 0 ];
 
 	function setDisabled( input, disabled ) {
@@ -39,6 +39,16 @@
 	closedWikis = document.querySelector( '.closedWikis > input' );
 	if ( closedWikis ) {
 		closedWikis.addEventListener( 'change', updateTableClasses );
+	}
+
+	showClosed = document.querySelector( '.showClosed' );
+	if ( showClosed ) {
+		showClosed.addEventListener( 'click', function ( e ) {
+			myWikis.checked = true;
+			closedWikis.checked = true;
+			updateTableClasses();
+			e.preventDefault();
+		} );
 	}
 
 	branchSelect = document.querySelector( 'select[name=branch]' );
