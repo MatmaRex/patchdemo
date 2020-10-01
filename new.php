@@ -189,9 +189,8 @@ $wikiName = "Patch Demo (" . trim(
 
 $mainPage = "This wiki was generated on [$server$serverPath Patch Demo] at ~~~~~.
 
-Branch: $branchDesc
-
-Applied patches:";
+;Branch: $branchDesc
+;Applied patches:";
 
 if ( !$patchesApplied ) {
 	$mainPage .= " (none)";
@@ -211,15 +210,15 @@ foreach ( $patchesApplied as $patch ) {
 		}
 	}
 
-	$mainPage .= "\n* [https://gerrit.wikimedia.org/r/c/$r/$p <nowiki>$t</nowiki>]";
+	$mainPage .= "\n:* [https://gerrit.wikimedia.org/r/c/$r/$p <nowiki>$t</nowiki>]";
 }
 
-$mainPage .= "\n\nLinked tasks:";
+$mainPage .= "\n;Linked tasks:";
 if ( !$linkedTasks ) {
 	$mainPage .= " (none)";
 }
 foreach ( $linkedTasks as $task ) {
-	$mainPage .= "\n* [https://phabricator.wikimedia.org/T$task T$task]";
+	$mainPage .= "\n:* [https://phabricator.wikimedia.org/T$task T$task]";
 }
 
 // Choose repositories to enable
