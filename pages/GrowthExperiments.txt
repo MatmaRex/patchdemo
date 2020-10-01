@@ -1,4 +1,4 @@
 MediaWiki:NewcomerTasks.json
 MediaWiki:NewcomerTopicsOres.json
 Project:GrowthExperiments_mentors
-Talk:Main_Page
+Project:GrowthExperiments_help_desk
