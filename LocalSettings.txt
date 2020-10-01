@@ -39,6 +39,8 @@ $wgVirtualRestConfig['modules']['parsoid'] = [
 ];
 // VE NWE beta feature
 $wgVisualEditorEnableWikitextBetaFeature = true;
+// VE CollabPad test server
+$wgVisualEditorRebaserURL = 'https://visualeditor-realtime.wmflabs.org';
 
 // Citoid
 $wgCitoidFullRestbaseURL = 'https://www.mediawiki.org/api/rest_';
