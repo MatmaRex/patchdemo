@@ -39,10 +39,15 @@ header {
 	padding-top: 0.5em;
 	padding-bottom: 0.5em;
 	position: relative;
+	display: flex;
+	align-items: center;
 }
 
 .headerInner > h1 {
+	font-weight: normal;
 	margin: 0;
+	flex-grow: 1;
+	white-space: nowrap;
 }
 
 footer {
@@ -54,20 +59,22 @@ footer {
 	text-decoration: none;
 	color: inherit;
 	background: url( images/logo.svg ) no-repeat 0 0;
-	background-size: contain;
+	background-size: 2em;
 	line-height: 2em;
 	padding-left: 2.5em;
 }
 
 .logo:hover {
 	text-decoration: none;
+	color: #2a4b8d;
 }
 
 .user {
-	position: absolute;
-	right: 1em;
-	top: 0.5em;
-	line-height: 4em;
+	text-align: right;
+}
+
+.user a {
+	white-space: nowrap;
 }
 
 .signIn {
@@ -119,11 +126,11 @@ summary > .oo-ui-labelElement-label {
 	background: #eaecf0;
 }
 
-.wikis td {
+.wikis tr {
 	background: #f8f9fa;
 }
 
-.wikis tr:hover td {
+.wikis tr:hover {
 	background: #eaf3ff;
 }
 
@@ -136,6 +143,48 @@ summary > .oo-ui-labelElement-label {
 
 .wikis .date {
 	white-space: nowrap;
+}
+
+@media ( max-width: 720px ) {
+	.oo-ui-fieldLayout-align-left > .oo-ui-fieldLayout-body > .oo-ui-fieldLayout-header,
+	.oo-ui-fieldLayout-align-left > .oo-ui-fieldLayout-body > .oo-ui-fieldLayout-field {
+		/* stylelint-disable-next-line declaration-no-important */
+		width: 100% !important;
+	}
+
+	.wikis,
+	.wikis tr,
+	.wikis td,
+	.wikis tbody {
+		display: block;
+		box-sizing: border-box;
+	}
+
+	.wikis tr {
+		background: #f8f9fa;
+		border: 1px solid #a2a9b1;
+		margin-bottom: 5px;
+	}
+
+	.wikis tr:first-child {
+		display: none;
+	}
+
+	.wikis td {
+		background: none;
+		border: 0;
+		display: inline-block;
+	}
+
+	.wikis td[ data-label='Patches' ] {
+		display: block;
+	}
+
+	.wikis td:before {
+		content: attr( data-label );
+		font-size: 80%;
+		display: block;
+	}
 }
 
 /* Install page */
