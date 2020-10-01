@@ -115,6 +115,10 @@ summary > .oo-ui-labelElement-label {
 	display: none;
 }
 
+.wikis.hideOpen tr.open {
+	display: none;
+}
+
 .wikis th,
 .wikis td {
 	border: 1px solid #a2a9b1;

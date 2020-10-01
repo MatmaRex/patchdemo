@@ -118,6 +118,15 @@ if ( $user ) {
 			'label' => 'Show only my wikis',
 		]
 	);
+	echo new OOUI\FieldLayout(
+		new OOUI\CheckboxInputWidget( [
+			'classes' => [ 'closedWikis' ]
+		] ),
+		[
+			'align' => 'inline',
+			'label' => 'Show only wikis where all patches are merged or abandoned',
+		]
+	);
 }
 ?>
 <p><em>✓=Merged ✗=Abandoned</em></p>
@@ -143,6 +152,7 @@ if ( !$usecache ) {
 	$wikis = [];
 	foreach ( $dirs as $dir ) {
 		if ( substr( $dir, 0, 1 ) !== '.' ) {
+			$statuses = [];
 			$title = '?';
 			$settings = get_if_file_exists( 'wikis/' . $dir . '/w/LocalSettings.php' );
 			if ( $settings ) {
@@ -152,12 +162,13 @@ if ( !$usecache ) {
 				preg_match( '`Patch Demo \((.*)\)`', $title, $matches );
 				if ( count( $matches ) ) {
 					preg_match_all( '`([0-9]+),([0-9]+)`', $matches[ 1 ], $matches );
-					$title = implode( '<br>', array_map( function ( $r, $p, $t ) {
+					$title = implode( '<br>', array_map( function ( $r, $p, $t ) use ( &$statuses ) {
 						$changeData = gerrit_query( "changes/$r" );
 						$status = 'UNKNOWN';
 						if ( $changeData ) {
 							$status = $changeData['status'];
 						}
+						$statuses[] = $status;
 						$commitData = gerrit_query( "changes/$r/revisions/$p/commit" );
 						if ( $commitData ) {
 							$t = $t . ': ' . $commitData[ 'subject' ];
@@ -183,7 +194,8 @@ if ( !$usecache ) {
 			$wikis[ $dir ] = [
 				'mtime' => $created,
 				'title' => $title,
-				'creator' => $creator
+				'creator' => $creator,
+				'statuses' => $statuses,
 			];
 		}
 	}
@@ -194,15 +206,35 @@ if ( !$usecache ) {
 	save_wikicache( $wikis );
 }
 
+function all_closed( $statuses ) {
+	foreach ( $statuses as $status ) {
+		if ( $status !== 'MERGED' && $status !== 'ABANDONED' ) {
+			return false;
+		}
+	}
+	return true;
+}
+
 $rows = '';
 $anyCanDelete = false;
+$deletableWikis = 0;
 foreach ( $wikis as $wiki => $data ) {
 	$title = $data[ 'title' ];
 	$creator = $data[ 'creator' ] ?? '';
 	$username = $user ? $user->username : null;
 	$canDelete = can_delete( $creator );
 	$anyCanDelete = $anyCanDelete || $canDelete;
-	$rows .= '<tr' . ( $creator !== $username ? ' class="other"' : '' ) . '>' .
+	$closed = all_closed( $data['statuses'] );
+
+	$classes = [];
+	if ( $creator !== $username ) {
+		$classes[] = 'other';
+	}
+	if ( !$closed ) {
+		$classes[] = 'open';
+	}
+
+	$rows .= '<tr class="' . implode( ' ', $classes ) . '">' .
 		'<td data-label="Patches" class="title">' . ( $title ?: '<em>No patches</em>' ) . '</td>' .
 		'<td data-label="Link"><a href="wikis/' . $wiki . '/w">' . $wiki . '</a></td>' .
 		'<td data-label="Time" class="date">' . date( 'c', $data[ 'mtime' ] ) . '</td>' .
