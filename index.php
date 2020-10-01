@@ -204,12 +204,12 @@ if ( $user ) {
 		$canDelete = can_delete( $creator );
 		$anyCanDelete = $anyCanDelete || $canDelete;
 		$rows .= '<tr' . ( $creator !== $username ? ' class="other"' : '' ) . '>' .
-			'<td class="title">' . ( $title ?: '<em>No patches</em>' ) . '</td>' .
-			'<td><a href="wikis/' . $wiki . '/w">' . $wiki . '</a></td>' .
-			'<td class="date">' . date( 'c', $data[ 'mtime' ] ) . '</td>' .
-			( $useOAuth ? '<td>' . ( $creator ? user_link( $creator ) : '?' ) . '</td>' : '' ) .
+			'<td data-label="Patches" class="title">' . ( $title ?: '<em>No patches</em>' ) . '</td>' .
+			'<td data-label="Link"><a href="wikis/' . $wiki . '/w">' . $wiki . '</a></td>' .
+			'<td data-label="Time" class="date">' . date( 'c', $data[ 'mtime' ] ) . '</td>' .
+			( $useOAuth ? '<td data-label="Creator">' . ( $creator ? user_link( $creator ) : '?' ) . '</td>' : '' ) .
 			( $canDelete ?
-				'<td><a href="delete.php?wiki=' . $wiki . '">Delete</a></td>' :
+				'<td data-label="Actions"><a href="delete.php?wiki=' . $wiki . '">Delete</a></td>' :
 				''
 			) .
 		'</tr>';

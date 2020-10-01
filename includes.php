@@ -34,6 +34,7 @@ echo '<!DOCTYPE html>
 		<link rel="icon" type="image/png" sizes="16x16" href="' . $basePath . '/images/favicon-16x16.png">
 		<link rel="mask-icon" href="' . $basePath . '/images/safari-pinned-tab.svg" color="#006699">
 		<link rel="shortcut icon" href="' . $basePath . '/images/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>
 	<body>
 		<header>
