@@ -41,7 +41,7 @@ Wikis can not been named *within* Patch demo. Wikis are listed within Patch demo
 
 These will be considered on a case-by-case basis, but will generally be allowed as long as they don't interfere with other teams' ability to test in a production-like environment.
 
-**What if I don't like the above?**
+**What if I don't like the above restrictions?**
 
 You can run your own version of the entire Patch demo website. Get yourself a server and follow the [Setup](#setup) instructions above, or convince an engineer near you to do it.
 
