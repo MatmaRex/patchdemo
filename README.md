@@ -27,7 +27,7 @@ FAQ
 ----
 **Can you delete it when you are done with it?**
 
-Yes. For any wiki you create, you will see a `Delete` link in the `Action` column of this table: https://patchdemo.wmflabs.org/. We advise you to delete the wikis you create when you are finished with them and/or when the patch you created the wiki to test is merged.
+Yes. For any wiki you create, you will see a `Delete` link in the `Action` column of the table of previously generated wikis on the main page. We advise you to delete the wikis you create when you are finished with them and/or when the patch you created the wiki to test is merged.
 
 **How long do the Patch demo wiki instances last for?**
 
@@ -40,6 +40,12 @@ Wikis can not been named *within* Patch demo. Wikis are listed within Patch demo
 **Is it possible to add extensions that are in development?**
 
 These will be considered on a case-by-case basis, but will generally be allowed as long as they don't interfere with other teams' ability to test in a production-like environment.
+
+**What if I don't like the above?**
+
+You can run your own version of the entire Patch demo website. Get yourself a server and follow the [Setup](#setup) instructions above, or convince an engineer near you to do it.
+
+The public https://patchdemo.wmflabs.org/ website runs on a `m1.medium` instance at [Wikimedia Cloud VPS](https://wikitech.wikimedia.org/wiki/Portal:Cloud_VPS).
 
 **Is it possible to add patches for extension not just core? And skins?**
 
