@@ -51,6 +51,9 @@ $wgLocaltimezone = 'UTC';
 // InstantCommons
 $wgUseInstantCommons = true;
 
+// UploadWizard, Special:Upload
+$wgEnableUploads = true;
+
 // Logo
 $wgLogos = [
 	'svg' => "$wgResourceBasePath/logo.svg",
