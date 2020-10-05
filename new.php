@@ -11,6 +11,7 @@ if ( $useOAuth && !$user ) {
 
 $branch = trim( $_POST['branch'] );
 $patches = trim( $_POST['patches'] );
+$siteConfig = can_configure() ? trim( $_POST['siteConfig'] ) : '';
 
 $namePath = md5( $branch . $patches . time() );
 $server = ( isset( $_SERVER['HTTPS'] ) ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'];
@@ -263,6 +264,7 @@ $cmd = make_shell_command( $baseEnv + [
 	'WIKINAME' => $wikiName,
 	'CREATOR' => $user ? $user->username : '',
 	'MAINPAGE' => $mainPage,
+	'SITECONFIG' => $siteConfig,
 	'SERVER' => $server,
 	'SERVERPATH' => $serverPath,
 	'COMPOSER_HOME' => __DIR__ . '/composer',

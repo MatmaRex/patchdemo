@@ -12,6 +12,7 @@ include_once './vendor/autoload.php';
 include 'config.default.php';
 if ( file_exists( 'config.php' ) ) {
 	include 'config.php';
+	// TODO: Make this recursive
 	$config = array_merge( $config, $localConfig );
 }
 
@@ -150,8 +151,29 @@ function can_delete( $creator = null ) {
 	global $config, $user;
 	$username = $user ? $user->username : null;
 	$admins = $config[ 'oauth' ] ? $config[ 'oauth' ][ 'admins' ] : [];
-	return $config[ 'allowDelete' ] || ( $username && $username === $creator ) ||
+	return $config[ 'allowDelete' ] ||
+		( $username && $username === $creator ) ||
 		( $username && in_array( $username, $admins, true ) );
+}
+
+function can_configure() {
+	global $config, $user;
+	$username = $user ? $user->username : null;
+	$admins = $config[ 'oauth' ] ? $config[ 'oauth' ][ 'admins' ] : [];
+	$configurers = $config[ 'oauth' ] ? $config[ 'oauth' ][ 'configurers' ] : [];
+	if (
+		$config[ 'allowSiteConfig' ] ||
+		( $username && in_array( $username, $admins, true ) )
+	) {
+		return true;
+	}
+	$configurersMatch = $config[ 'oauth' ] ? $config[ 'oauth' ][ 'configurersMatch' ] : [];
+	foreach ( $configurersMatch as $pattern ) {
+		if ( preg_match( $pattern, $username ) ) {
+			return true;
+		}
+	}
+	return false;
 }
 
 function user_link( $username ) {

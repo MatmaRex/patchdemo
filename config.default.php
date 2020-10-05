@@ -4,6 +4,8 @@ $config = [
 	'banner' => '',
 	// Allow any user to delete wikis, e.g. on a private installation
 	'allowDelete' => false,
+	// Allow any user to add site config, e.g. on a private installation
+	'allowSiteConfig' => false,
 	// Require that patches are V+2 before building the wiki
 	'requireVerified' => true,
 	// OAuth config. When enabled only authenticated users can create
@@ -14,6 +16,11 @@ $config = [
 		'key' => null,
 		'secret' => null,
 		// OAuth admins can delete any wiki
-		'admins' => []
+		'admins' => [],
+		// These users can override site configs. This is the same level of trust as V+2,
+		// as those users can also execute arbitrary code.
+		'configurers' => [],
+		// Same as above, but regexes e.g. / \(WMF\)$/
+		'configurersMatch' => [],
 	]
 ];
