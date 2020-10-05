@@ -185,6 +185,10 @@ summary > .oo-ui-labelElement-label {
 		font-size: 80%;
 		display: block;
 	}
+
+	.wikis td:empty {
+		display: none;
+	}
 }
 
 /* Install page */
