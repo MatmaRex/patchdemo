@@ -49,7 +49,7 @@ if ( $useOAuth && !$user ) {
 		'items' => [
 			new OOUI\FieldsetLayout( [
 				'label' => null,
-				'items' => [
+				'items' => array_filter( [
 					new OOUI\FieldLayout(
 						new OOUI\DropdownInputWidget( [
 							'name' => 'branch',
@@ -71,6 +71,21 @@ if ( $useOAuth && !$user ) {
 							'align' => 'left',
 						]
 					),
+					$config['conduitApiKey'] ?
+						new OOUI\FieldLayout(
+							new OOUI\CheckboxInputWidget( [
+								'name' => 'announce',
+								'value' => 1,
+								'selected' => true
+							] ),
+							[
+								'label' => 'Announce wiki on Phabricator:',
+								'help' => 'Any tasks linked to from patches applied will get a comment announcing this wiki.',
+								'helpInline' => true,
+								'align' => 'left',
+							]
+						) :
+						null,
 					new DetailsFieldLayout(
 						new OOUI\CheckboxMultiselectInputWidget( [
 							'name' => 'repos[]',
@@ -94,7 +109,7 @@ if ( $useOAuth && !$user ) {
 							'align' => 'left',
 						]
 					),
-				]
+				] )
 			] ),
 		]
 	] );
