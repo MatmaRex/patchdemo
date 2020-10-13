@@ -15,5 +15,7 @@ $config = [
 		'secret' => null,
 		// OAuth admins can delete any wiki
 		'admins' => []
-	]
+	],
+	// Conduit API key for bot cross-posting to Phabricator
+	'conduitApiKey' => null,
 ];
