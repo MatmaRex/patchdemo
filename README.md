@@ -25,7 +25,7 @@ Tested on Ubuntu 18.04 and Debian 10.
 
 FAQ
 ----
-**Can you delete it when you are done with it?**
+**Can you delete a wiki when you are done with it?**
 
 Yes. For any wiki you create, you will see a `Delete` link in the `Action` column of the table of previously generated wikis on the main page. We advise you to delete the wikis you create when you are finished with them and/or when the patch you created the wiki to test is merged.
 
