@@ -11,6 +11,7 @@ if ( $useOAuth && !$user ) {
 
 $branch = trim( $_POST['branch'] );
 $patches = trim( $_POST['patches'] );
+$announce = !empty( $_POST['announce'] );
 
 $namePath = md5( $branch . $patches . time() );
 $server = ( isset( $_SERVER['HTTPS'] ) ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'];
@@ -293,7 +294,7 @@ if ( $error ) {
 	abandon( "Could not deduplicate." );
 }
 
-if ( count( $linkedTasks ) && $config['conduitApiKey'] ) {
+if ( $announce && count( $linkedTasks ) && $config['conduitApiKey'] ) {
 	set_progress( 95, 'Posting to Phabricator...' );
 	$api = new \Phabricator\Phabricator( 'https://phabricator.wikimedia.org', $config['conduitApiKey'] );
 
