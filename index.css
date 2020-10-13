@@ -97,7 +97,7 @@ summary > .oo-ui-labelElement-label {
 
 /* Wiki list */
 
-.status-ABANDONED {
+.status-ABANDONED:before {
 	content: '✗';
 }
 
