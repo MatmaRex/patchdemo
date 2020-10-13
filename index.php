@@ -253,7 +253,11 @@ foreach ( $wikis as $wiki => $data ) {
 if ( $closedWikis ) {
 	echo '<p>' .
 		'You have created ' . $closedWikis . ' ' . ( $closedWikis > 1 ? 'wikis' : 'wiki' ) . ' where all the patches ' .
-		'have been merged or abandoned and therefore can be deleted. <a href="#" class="showClosed">Show</a>.' .
+		'have been merged or abandoned and therefore can be deleted. ' .
+		new OOUI\ButtonWidget( [
+			'label' => 'Show',
+			'classes' => [ 'showClosed' ],
+		] ) .
 	'</p>';
 }
 
