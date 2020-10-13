@@ -293,6 +293,26 @@ if ( $error ) {
 	abandon( "Could not deduplicate." );
 }
 
+if ( count( $linkedTasks ) && $config['conduitApiKey'] ) {
+	set_progress( 95, 'Posting to Phabricator...' );
+	$api = new \Phabricator\Phabricator( 'https://phabricator.wikimedia.org', $config['conduitApiKey'] );
+
+	foreach ( $linkedTasks as $task ) {
+		$api->Maniphest( 'edit', [
+			'objectIdentifier' => 'T' . $task,
+			'transactions' => [
+				[
+					'type' => 'comment',
+					'value' =>
+						"Test wiki created on [[ $server$serverPath | Patch Demo ]]" . ( $user ? ' by ' . $user->username : '' ) . " using patch(es) linked to this task:\n" .
+						"\n" .
+						"$server$serverPath/wikis/$namePath/w/"
+				]
+			]
+		] );
+	}
+}
+
 set_progress( 100, 'All done!' );
 
 echo '</div>';
