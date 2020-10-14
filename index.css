@@ -97,6 +97,11 @@ summary > .oo-ui-labelElement-label {
 
 /* Wiki list */
 
+.showClosed {
+	float: right;
+	margin-top: -6px;
+}
+
 .status-ABANDONED:before {
 	content: '✗';
 }
