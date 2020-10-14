@@ -251,14 +251,17 @@ foreach ( $wikis as $wiki => $data ) {
 }
 
 if ( $closedWikis ) {
-	echo '<p>' .
-		'You have created ' . $closedWikis . ' ' . ( $closedWikis > 1 ? 'wikis' : 'wiki' ) . ' where all the patches ' .
-		'have been merged or abandoned and therefore can be deleted. ' .
-		new OOUI\ButtonWidget( [
-			'label' => 'Show',
-			'classes' => [ 'showClosed' ],
-		] ) .
-	'</p>';
+	echo new OOUI\MessageWidget( [
+		'type' => 'warning',
+		'label' => new OOUI\HtmlSnippet(
+			new OOUI\ButtonWidget( [
+				'label' => 'Show',
+				'classes' => [ 'showClosed' ],
+			] ) .
+			'You have created ' . $closedWikis . ' ' . ( $closedWikis > 1 ? 'wikis' : 'wiki' ) . ' where all the patches ' .
+			'have been merged or abandoned and therefore can be deleted.'
+		)
+	] );
 }
 
 echo '<table class="wikis">' .
