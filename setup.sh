@@ -28,6 +28,10 @@ GRANT ALL PRIVILEGES ON \`patchdemo\_%\`.* TO 'patchdemo'@'localhost';
 composer update --no-dev
 npm install --production
 
+# set session expiration to a month (default is 24 minutes???), cookie expiration too
+echo "session.gc_maxlifetime = 2592000
+session.cookie_lifetime = 2592000" > /etc/php/7.3/apache2/conf.d/patchdemo.ini
+
 # enable .htaccess files
 echo "<Directory /var/www/html>
 AllowOverride All
