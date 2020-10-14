@@ -47,6 +47,7 @@ $wgCitoidFullRestbaseURL = 'https://www.mediawiki.org/api/rest_';
 
 // DiscussionTools required configuration
 $wgLocaltimezone = 'UTC';
+$wgFragmentMode = [ 'html5', 'legacy' ];
 
 // InstantCommons
 $wgUseInstantCommons = true;
