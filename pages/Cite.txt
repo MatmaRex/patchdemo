@@ -1,0 +1,6 @@
+MediaWiki:Cite-tool-definition.json
+MediaWiki:Visualeditor-template-tools-definition.json
+Template:Citation_needed
+Template:Cn
+Project:Citation_needed
+Citation_needed_example

@@ -37,45 +37,6 @@
     </namespaces>
   </siteinfo>
   <page>
-    <title>MediaWiki:Cite-tool-definition.json</title>
-    <ns>8</ns>
-    <id>8</id>
-    <revision>
-      <id>9</id>
-      <timestamp>2020-09-30T09:32:17Z</timestamp>
-      <contributor>
-        <username>Maintenance script</username>
-        <id>4</id>
-      </contributor>
-      <origin>9</origin>
-      <model>json</model>
-      <format>application/json</format>
-      <text bytes="416" sha1="cjbaotfu25kd6pmlreui5ag6bk8jwqz" xml:space="preserve">[
-    {
-        "name": "web",
-        "icon": "ref-cite-web",
-        "template": "Cite web"
-    },
-    {
-        "name": "book",
-        "icon": "ref-cite-book",
-        "template": "Cite book"
-    },
-    {
-        "name": "news",
-        "icon": "ref-cite-news",
-        "template": "Cite news"
-    },
-    {
-        "name": "journal",
-        "icon": "ref-cite-journal",
-        "template": "Cite journal"
-    }
-]</text>
-      <sha1>cjbaotfu25kd6pmlreui5ag6bk8jwqz</sha1>
-    </revision>
-  </page>
-  <page>
     <title>MediaWiki:Citoid-template-type-map.json</title>
     <ns>8</ns>
     <id>6</id>
