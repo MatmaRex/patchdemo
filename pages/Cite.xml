@@ -1,0 +1,191 @@
+<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.11/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mediawiki.org/xml/export-0.11/ http://www.mediawiki.org/xml/export-0.11.xsd" version="0.11" xml:lang="en">
+  <siteinfo>
+    <sitename>Patch Demo (634700,2 634703,1)</sitename>
+    <dbname>patchdemo_48d6e6f76ccb9849b1570d8a32d8009e</dbname>
+    <base>http://patchdemo.wmflabs.org/wikis/48d6e6f76ccb9849b1570d8a32d8009e/w/index.php/Main_Page</base>
+    <generator>MediaWiki 1.36.0-alpha</generator>
+    <case>first-letter</case>
+    <namespaces>
+      <namespace key="-2" case="first-letter">Media</namespace>
+      <namespace key="-1" case="first-letter">Special</namespace>
+      <namespace key="0" case="first-letter" />
+      <namespace key="1" case="first-letter">Talk</namespace>
+      <namespace key="2" case="first-letter">User</namespace>
+      <namespace key="3" case="first-letter">User talk</namespace>
+      <namespace key="4" case="first-letter">Project</namespace>
+      <namespace key="5" case="first-letter">Project talk</namespace>
+      <namespace key="6" case="first-letter">File</namespace>
+      <namespace key="7" case="first-letter">File talk</namespace>
+      <namespace key="8" case="first-letter">MediaWiki</namespace>
+      <namespace key="9" case="first-letter">MediaWiki talk</namespace>
+      <namespace key="10" case="first-letter">Template</namespace>
+      <namespace key="11" case="first-letter">Template talk</namespace>
+      <namespace key="12" case="first-letter">Help</namespace>
+      <namespace key="13" case="first-letter">Help talk</namespace>
+      <namespace key="14" case="first-letter">Category</namespace>
+      <namespace key="15" case="first-letter">Category talk</namespace>
+      <namespace key="460" case="case-sensitive">Campaign</namespace>
+      <namespace key="461" case="case-sensitive">Campaign talk</namespace>
+      <namespace key="710" case="first-letter">TimedText</namespace>
+      <namespace key="711" case="first-letter">TimedText talk</namespace>
+      <namespace key="828" case="first-letter">Module</namespace>
+      <namespace key="829" case="first-letter">Module talk</namespace>
+      <namespace key="2300" case="first-letter">Gadget</namespace>
+      <namespace key="2301" case="first-letter">Gadget talk</namespace>
+      <namespace key="2302" case="case-sensitive">Gadget definition</namespace>
+      <namespace key="2303" case="case-sensitive">Gadget definition talk</namespace>
+      <namespace key="2468" case="first-letter">ZObject</namespace>
+      <namespace key="2469" case="first-letter">ZObject talk</namespace>
+    </namespaces>
+  </siteinfo>
+  <page>
+    <title>MediaWiki:Cite-tool-definition.json</title>
+    <ns>8</ns>
+    <id>2</id>
+    <revision>
+      <id>3</id>
+      <timestamp>2020-09-30T09:32:17Z</timestamp>
+      <contributor>
+        <username>Maintenance script</username>
+        <id>4</id>
+      </contributor>
+      <origin>3</origin>
+      <model>json</model>
+      <format>application/json</format>
+      <text bytes="416" sha1="cjbaotfu25kd6pmlreui5ag6bk8jwqz" xml:space="preserve">[
+    {
+        "name": "web",
+        "icon": "ref-cite-web",
+        "template": "Cite web"
+    },
+    {
+        "name": "book",
+        "icon": "ref-cite-book",
+        "template": "Cite book"
+    },
+    {
+        "name": "news",
+        "icon": "ref-cite-news",
+        "template": "Cite news"
+    },
+    {
+        "name": "journal",
+        "icon": "ref-cite-journal",
+        "template": "Cite journal"
+    }
+]</text>
+      <sha1>cjbaotfu25kd6pmlreui5ag6bk8jwqz</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Visualeditor-template-tools-definition.json</title>
+    <ns>8</ns>
+    <id>12</id>
+    <revision>
+      <id>13</id>
+      <timestamp>2020-10-17T13:19:39Z</timestamp>
+      <contributor>
+        <username>Patch Demo</username>
+        <id>1</id>
+      </contributor>
+      <comment>Create citationNeeded handler for [[phab:T211243]]</comment>
+      <origin>13</origin>
+      <model>json</model>
+      <format>application/json</format>
+      <text bytes="252" sha1="f2nrjr4jmfihrsivqoke2nedztapkcr" xml:space="preserve">{
+    "citationNeeded": [
+        {
+            "title": [
+                "Citation needed",
+                "Cn"
+            ],
+            "params": {
+                "reason": "reason",
+                "date": "date"
+            }
+        }
+    ]
+}</text>
+      <sha1>f2nrjr4jmfihrsivqoke2nedztapkcr</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Citation needed</title>
+    <ns>10</ns>
+    <id>17</id>
+    <revision>
+      <id>20</id>
+      <timestamp>2020-10-17T14:36:37Z</timestamp>
+      <contributor>
+        <username>Patch Demo</username>
+        <id>1</id>
+      </contributor>
+      <comment>Created page with "&lt;sup class="noprint Inline-Template Template-Fact" style="white-space:nowrap;"&gt;[''project:citation needed|&lt;span title="This claim needs references to reliable sources."&gt;cita..."</comment>
+      <origin>20</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="204" sha1="1yl1ceybv08iz4s1lqv3qm7jgug6h06" xml:space="preserve">&lt;sup class="noprint Inline-Template Template-Fact" style="white-space:nowrap;"&gt;[''[[project:citation needed|&lt;span title="This claim needs references to reliable sources."&gt;citation needed&lt;/span&gt;]]'']&lt;/sup&gt;</text>
+      <sha1>1yl1ceybv08iz4s1lqv3qm7jgug6h06</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Cn</title>
+    <ns>10</ns>
+    <id>15</id>
+    <redirect title="Template:Citation needed" />
+    <revision>
+      <id>16</id>
+      <timestamp>2020-10-17T13:47:57Z</timestamp>
+      <contributor>
+        <username>Patch Demo</username>
+        <id>1</id>
+      </contributor>
+      <comment>Redirected page to [[Template:Citation needed]]</comment>
+      <origin>16</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="38" sha1="3rea1trpk86lzozm4wyldvne8ynxo71" xml:space="preserve">#REDIRECT [[Template:Citation needed]]</text>
+      <sha1>3rea1trpk86lzozm4wyldvne8ynxo71</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Project:Citation needed</title>
+    <ns>4</ns>
+    <id>16</id>
+    <revision>
+      <id>17</id>
+      <timestamp>2020-10-17T14:25:39Z</timestamp>
+      <contributor>
+        <ip>172.16.0.164</ip>
+      </contributor>
+      <comment>Created page with "Information about what "citation needed" means. e.g. https://en.wikipedia.org/wiki/Wikipedia:Citation_needed"</comment>
+      <origin>17</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="108" sha1="rtz6kpg7tk9no124o4ucaukbdr7dpy1" xml:space="preserve">Information about what "citation needed" means. e.g. https://en.wikipedia.org/wiki/Wikipedia:Citation_needed</text>
+      <sha1>rtz6kpg7tk9no124o4ucaukbdr7dpy1</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Citation needed example</title>
+    <ns>0</ns>
+    <id>18</id>
+    <revision>
+      <id>21</id>
+      <timestamp>2020-10-17T14:39:18Z</timestamp>
+      <contributor>
+        <username>Patch Demo</username>
+        <id>1</id>
+      </contributor>
+      <comment>Created page with "This is an uncited fact{{cn}}. This is an another{{citation needed}}.  == Section == This is an uncited fact in the first section {{citation needed}}. This is an another{{cn}}."</comment>
+      <origin>21</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="176" sha1="q4hef6uq7z5f19bhbw1pgl7yk5udwj5" xml:space="preserve">This is an uncited fact{{cn}}. This is an another{{citation needed}}.
+
+== Section ==
+This is an uncited fact in the first section {{citation needed}}. This is an another{{cn}}.</text>
+      <sha1>q4hef6uq7z5f19bhbw1pgl7yk5udwj5</sha1>
+    </revision>
+  </page>
+</mediawiki>
