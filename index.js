@@ -1,6 +1,8 @@
+/* global OO, $ */
 ( function () {
 	// TODO: Use infuse to control OOUI widgets
 	var myWikis, closedWikis, branchSelect, form, submit, showClosed,
+		presetInput, reposField, reposInput, reposFieldLabel,
 		wikisTable = document.getElementsByClassName( 'wikis' )[ 0 ];
 
 	function setDisabled( input, disabled ) {
@@ -66,4 +68,50 @@
 		} );
 	}
 
+	presetInput = OO.ui.infuse( $( '#preset' ) );
+	reposInput = OO.ui.infuse( $( '#repos' ) );
+	reposField = OO.ui.infuse( $( '#repos-field' ) );
+
+	reposFieldLabel = reposField.getLabel();
+	reposField.setLabel( reposFieldLabel + ' (' + reposInput.getValue().length + '/' + reposInput.checkboxMultiselectWidget.items.length + ')' );
+
+	presetInput.on( 'change', OO.ui.debounce( function () {
+		var val = presetInput.getValue();
+		if ( val === 'custom' ) {
+			reposField.$body[ 0 ].open = true;
+		}
+		if ( val !== 'custom' ) {
+			reposInput.setValue( window.presets[ val ] );
+		}
+	} ) );
+	reposInput.on( 'change', OO.ui.debounce( function () {
+		var val, presetName, matchingPresetName, numSelected;
+
+		val = reposInput.getValue();
+		matchingPresetName = 'custom';
+		for ( presetName in window.presets ) {
+			if ( window.presets[ presetName ].sort().join( '|' ) === val.sort().join( '|' ) ) {
+				matchingPresetName = presetName;
+				break;
+			}
+		}
+		if ( presetInput.getValue() !== matchingPresetName ) {
+			presetInput.setValue( matchingPresetName );
+		}
+
+		numSelected = ' (' + val.length + '/' + reposInput.checkboxMultiselectWidget.items.length + ')';
+		reposField.setLabel( reposFieldLabel + numSelected );
+	} ) );
+
 }() );
+
+// Hack: The comparison in this method is wrong, and it goes into an infinite loop with our event handlers
+// https://gerrit.wikimedia.org/r/c/oojs/ui/+/636187
+OO.ui.CheckboxMultiselectInputWidget.prototype.getValue = function () {
+	var value = this.$element.find( '.oo-ui-checkboxInputWidget .oo-ui-inputWidget-input:checked' )
+		.toArray().map( function ( el ) { return el.value; } );
+	if ( !OO.compare( this.value, value ) ) {
+		this.setValue( value );
+	}
+	return this.value;
+};

@@ -30,6 +30,10 @@ echo '<!DOCTYPE html>
 		<title>Patch demo</title>
 		<link rel="stylesheet" href="' . $basePath . '/index.css">
 		<link rel="stylesheet" href="' . $basePath . '/node_modules/oojs-ui/dist/oojs-ui-wikimediaui.min.css">
+		<script src="' . $basePath . '/node_modules/jquery/dist/jquery.min.js"></script>
+		<script src="' . $basePath . '/node_modules/oojs/dist/oojs.jquery.min.js"></script>
+		<script src="' . $basePath . '/node_modules/oojs-ui/dist/oojs-ui.min.js"></script>
+		<script src="' . $basePath . '/node_modules/oojs-ui/dist/oojs-ui-wikimediaui.min.js"></script>
 		<link rel="icon" type="image/png" sizes="32x32" href="' . $basePath . '/images/favicon-32x32.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="' . $basePath . '/images/favicon-16x16.png">
 		<link rel="mask-icon" href="' . $basePath . '/images/safari-pinned-tab.svg" color="#006699">
@@ -180,4 +184,23 @@ function is_trusted_user( $email ) {
 	}
 
 	return false;
+}
+
+function get_repo_presets() {
+	$presets = [];
+
+	$presets['all'] = array_keys( get_repo_data() );
+
+	$presets['wikimedia'] = explode( "\n", trim(
+		file_get_contents( __DIR__ . '/repositories-preset-wikimedia.txt' )
+	) );
+
+	$presets['tarball'] = explode( "\n", trim(
+		file_get_contents( __DIR__ . '/repositories-preset-tarball.txt' )
+	) );
+
+	// Things don't work well without the default skin
+	$presets['minimal'] = [ 'mediawiki/core', 'mediawiki/skins/Vector' ];
+
+	return $presets;
 }
