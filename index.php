@@ -26,18 +26,24 @@ if ( $useOAuth && !$user ) {
 	$repoData = get_repo_data();
 	ksort( $repoData );
 	foreach ( $repoData as $repo => $path ) {
-		if ( $repo === 'mediawiki/core' ) {
-			continue;
-		}
 		$repoBranches[$repo] = get_branches( $repo );
 		$repo = htmlspecialchars( $repo );
 		$repoOptions[] = [
 			'data' => $repo,
 			'label' => $repo,
+			'disabled' => ( $repo === 'mediawiki/core' ),
 		];
 	}
 	$repoBranches = htmlspecialchars( json_encode( $repoBranches ), ENT_NOQUOTES );
 	echo "<script>window.repoBranches = $repoBranches;</script>\n";
+
+	$presets = get_repo_presets();
+	$reposValid = array_keys( $repoData );
+	foreach ( $presets as $name => $repos ) {
+		$presets[$name] = array_values( array_intersect( $repos, $reposValid ) );
+	}
+	$presets = htmlspecialchars( json_encode( $presets ), ENT_NOQUOTES );
+	echo "<script>window.presets = $presets;</script>\n";
 
 	include_once 'DetailsFieldLayout.php';
 
@@ -86,15 +92,51 @@ if ( $useOAuth && !$user ) {
 							]
 						) :
 						null,
-					new DetailsFieldLayout(
-						new OOUI\CheckboxMultiselectInputWidget( [
-							'name' => 'repos[]',
-							'options' => $repoOptions,
-							'value' => array_keys( $repoData ),
+					new OOUI\FieldLayout(
+						new OOUI\RadioSelectInputWidget( [
+							'id' => 'preset',
+							'name' => 'preset',
+							'options' => [
+								[
+									'data' => 'all',
+									'label' => 'All',
+								],
+								[
+									'data' => 'wikimedia',
+									'label' => new OOUI\HtmlSnippet( '<abbr title="Most skins and extensions installed on most Wikimedia wikis, based on MediaWiki.org">Wikimedia</abbr>' ),
+								],
+								[
+									'data' => 'tarball',
+									'label' => new OOUI\HtmlSnippet( '<abbr title="Skins and extensions included in the official MediaWiki release">Tarball</abbr>' ),
+								],
+								[
+									'data' => 'minimal',
+									'label' => new OOUI\HtmlSnippet( '<abbr title="Only MediaWiki and default skin">Minimal</abbr>' ),
+								],
+								[
+									'data' => 'custom',
+									'label' => 'Custom',
+								],
+							],
+							'value' => 'wikimedia',
 						] ),
 						[
-							'label' => 'Choose extensions to enable (default: all):',
+							'label' => 'Choose configuration preset:',
 							'align' => 'left',
+						]
+					),
+					new DetailsFieldLayout(
+						new OOUI\CheckboxMultiselectInputWidget( [
+							'id' => 'repos',
+							'name' => 'repos[]',
+							'options' => $repoOptions,
+							'value' => get_repo_presets()[ 'wikimedia' ],
+						] ),
+						[
+							'label' => 'Choose included repos:',
+							'helpInline' => true,
+							'align' => 'left',
+							'id' => 'repos-field',
 						]
 					),
 					new OOUI\FieldLayout(
@@ -311,6 +353,7 @@ echo '<table class="wikis">' .
 '</table>';
 
 ?>
+<script src="DetailsFieldLayout.js"></script>
 <script src="index.js"></script>
 <?php
 include "footer.html";

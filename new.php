@@ -82,10 +82,6 @@ echo new OOUI\FieldsetLayout( [
 	]
 ] );
 
-echo '<script src="' . $basePath . '/node_modules/jquery/dist/jquery.min.js"></script>';
-echo '<script src="' . $basePath . '/node_modules/oojs/dist/oojs.jquery.min.js"></script>';
-echo '<script src="' . $basePath . '/node_modules/oojs-ui/dist/oojs-ui.min.js"></script>';
-echo '<script src="' . $basePath . '/node_modules/oojs-ui/dist/oojs-ui-wikimediaui.min.js"></script>';
 echo '<script src="' . $basePath . '/new.js"></script>';
 
 echo '<div class="consoleLog">';
@@ -220,9 +216,15 @@ foreach ( $linkedTasks as $task ) {
 // Choose repositories to enable
 $repos = get_repo_data();
 
+if ( $_POST['preset'] === 'custom' ) {
+	$allowedRepos = $_POST['repos'];
+} else {
+	$allowedRepos = get_repo_presets()[ $_POST['preset'] ];
+}
+
 foreach ( array_keys( $repos ) as $repo ) {
 	// Unchecked the checkbox
-	if ( $repo !== 'mediawiki/core' && !in_array( $repo, $_POST["repos"] ) ) {
+	if ( $repo !== 'mediawiki/core' && !in_array( $repo, $allowedRepos ) ) {
 		unset( $repos[$repo] );
 	}
 	// This branch doesn't exist for this repo
