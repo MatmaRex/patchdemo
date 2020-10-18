@@ -58,6 +58,11 @@ cat $PATCHDEMO/LocalSettings.txt >> $PATCHDEMO/wikis/$NAME/w/LocalSettings.php
 sleep 1 # Ensure edit appears after creation in history
 echo "$MAINPAGE" | php $PATCHDEMO/wikis/$NAME/w/maintenance/edit.php "Main_Page"
 
+# grant FlaggedRevs editor rights to the default account
+if [ -d $PATCHDEMO/wikis/$NAME/w/extensions/FlaggedRevs ]; then
+	php $PATCHDEMO/wikis/$NAME/w/maintenance/createAndPromote.php "Patch Demo" --force --custom-groups editor
+fi
+
 # import XML dumps
 for page in $(find $PATCHDEMO/pages -name "*.xml" -not -type d -printf '%P\n')
 do
