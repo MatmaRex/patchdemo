@@ -24,7 +24,7 @@ function abandon( $err ) {
 			pd.installProgressField.fieldWidget.setDisabled( true );
 			pd.installProgressField.setErrors( [ $errJson ] );
 		</script>
-	EOT;
+EOT;
 	delete_wiki( $namePath );
 	die( $err );
 }
@@ -37,13 +37,13 @@ function set_progress( int $pc, string $label ) {
 			pd.installProgressField.fieldWidget.setProgress( $pc );
 			pd.installProgressField.setLabel( $labelJson );
 		</script>
-	EOT;
+EOT;
 	if ( $pc === 100 ) {
 		echo <<<EOT
 		<script>
 			pd.openWiki.setDisabled( false );
 		</script>
-	EOT;
+EOT;
 
 	}
 }
