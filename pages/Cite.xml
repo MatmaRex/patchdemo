@@ -92,7 +92,7 @@
       <origin>13</origin>
       <model>json</model>
       <format>application/json</format>
-      <text bytes="252" sha1="f2nrjr4jmfihrsivqoke2nedztapkcr" xml:space="preserve">{
+      <text bytes="559" sha1="4d5fq27pnauoprhgjq3dzoq83lvpuue" xml:space="preserve">{
     "citationNeeded": [
         {
             "title": [
@@ -103,10 +103,23 @@
                 "reason": "reason",
                 "date": "date"
             }
+        },
+        {
+            "title": [
+                "Citation needed span"
+            ],
+            "params": {
+                "encapsulate": [
+                    "1",
+                    "text"
+                ],
+                "reason": "reason",
+                "date": "date"
+            }
         }
     ]
 }</text>
-      <sha1>f2nrjr4jmfihrsivqoke2nedztapkcr</sha1>
+      <sha1>4d5fq27pnauoprhgjq3dzoq83lvpuue</sha1>
     </revision>
   </page>
   <page>
@@ -146,6 +159,25 @@
       <format>text/x-wiki</format>
       <text bytes="38" sha1="3rea1trpk86lzozm4wyldvne8ynxo71" xml:space="preserve">#REDIRECT [[Template:Citation needed]]</text>
       <sha1>3rea1trpk86lzozm4wyldvne8ynxo71</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Citation needed span</title>
+    <ns>10</ns>
+    <id>17</id>
+    <revision>
+      <id>20</id>
+      <timestamp>2020-10-19T19:55:39Z</timestamp>
+      <contributor>
+        <username>Patch Demo</username>
+        <id>1</id>
+      </contributor>
+      <comment>Created page with "{{{1|{{{text}}}}}}&lt;sup&gt;[[project:citation needed|[''citation needed'']]]&lt;/sup&gt;"</comment>
+      <origin>20</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="78" sha1="skodadoxg4w9xqjivhddc5o4kivg4rw" xml:space="preserve">{{{1|{{{text}}}}}}&lt;sup&gt;[[project:citation needed|[''citation needed'']]]&lt;/sup&gt;</text>
+      <sha1>skodadoxg4w9xqjivhddc5o4kivg4rw</sha1>
     </revision>
   </page>
   <page>
