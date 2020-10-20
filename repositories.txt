@@ -2,6 +2,7 @@ mediawiki/core w
 mediawiki/extensions/AbuseFilter w/extensions/AbuseFilter
 mediawiki/extensions/BetaFeatures w/extensions/BetaFeatures
 mediawiki/extensions/CategoryTree w/extensions/CategoryTree
+mediawiki/extensions/CharInsert w/extensions/CharInsert
 mediawiki/extensions/Cite w/extensions/Cite
 mediawiki/extensions/CiteThisPage w/extensions/CiteThisPage
 mediawiki/extensions/Citoid w/extensions/Citoid
