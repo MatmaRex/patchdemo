@@ -27,6 +27,11 @@ if [ -d $PATCHDEMO/wikis/$NAME/w/extensions/VisualEditor ]; then
 	git submodule update --init --recursive
 fi
 
+if [ -d $PATCHDEMO/wikis/$NAME/w/extensions/TemplateStyles ]; then
+	cd $PATCHDEMO/wikis/$NAME/w/extensions/TemplateStyles
+	composer update --no-dev
+fi
+
 # install
 cd $PATCHDEMO/wikis/$NAME/w
 php $PATCHDEMO/wikis/$NAME/w/maintenance/install.php \
