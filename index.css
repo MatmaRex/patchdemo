@@ -143,11 +143,19 @@ summary > .oo-ui-labelElement-label {
 	background: #eaf3ff;
 }
 
-.wikis .title {
+.wikis .patches,
+.wikis .linkedTasks {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
-	max-width: 30em;
+	max-width: 20em;
+}
+
+.wikis .wiki {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	max-width: 10em;
 }
 
 .wikis .date {
@@ -185,7 +193,8 @@ summary > .oo-ui-labelElement-label {
 		display: inline-block;
 	}
 
-	.wikis td[ data-label='Patches' ] {
+	.wikis .patches,
+	.wikis .linkedTasks {
 		display: block;
 	}
 

@@ -115,6 +115,16 @@ function gerrit_query( $url, $echo = false ) {
 	return $requestCache[$url];
 }
 
+function get_linked_tasks( $message, &$alreadyLinkedTasks = [] ) {
+	preg_match_all( '/^Bug: T([0-9]+)$/m', $message, $m );
+	foreach ( $m[1] as $task ) {
+		if ( !in_array( $task, $alreadyLinkedTasks, true ) ) {
+			$alreadyLinkedTasks[] = $task;
+		}
+	}
+	return $alreadyLinkedTasks;
+}
+
 function get_repo_data() {
 	$data = file_get_contents( __DIR__ . '/repositories.txt' );
 	$repos = [];

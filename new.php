@@ -203,12 +203,7 @@ foreach ( $patchesApplied as $patch ) {
 	$data = gerrit_query( "changes/$r/revisions/$p/commit", true );
 	if ( $data ) {
 		$t = $t . ': ' . $data[ 'subject' ];
-		preg_match_all( '/^Bug: T([0-9]+)$/m', $data['message'], $m );
-		foreach ( $m[1] as $task ) {
-			if ( !in_array( $task, $linkedTasks, true ) ) {
-				$linkedTasks[] = $task;
-			}
-		}
+		get_linked_tasks( $data['message'], $linkedTasks );
 	}
 
 	$mainPage .= "\n:* [https://gerrit.wikimedia.org/r/c/$r/$p <nowiki>$t</nowiki>]";

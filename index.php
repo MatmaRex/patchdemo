@@ -169,6 +169,7 @@ if ( !$usecache ) {
 		if ( substr( $dir, 0, 1 ) !== '.' ) {
 			$statuses = [];
 			$title = '?';
+			$linkedTasks = '';
 			$settings = get_if_file_exists( 'wikis/' . $dir . '/w/LocalSettings.php' );
 			if ( $settings ) {
 				preg_match( '`wgSitename = "(.*)";`', $settings, $matches );
@@ -176,8 +177,9 @@ if ( !$usecache ) {
 
 				preg_match( '`Patch Demo \((.*)\)`', $title, $matches );
 				if ( count( $matches ) ) {
+					$linkedTaskList = [];
 					preg_match_all( '`([0-9]+),([0-9]+)`', $matches[ 1 ], $matches );
-					$title = implode( '<br>', array_map( function ( $r, $p, $t ) use ( &$statuses ) {
+					$title = implode( '<br>', array_map( function ( $r, $p, $t ) use ( &$statuses, &$linkedTaskList ) {
 						$changeData = gerrit_query( "changes/$r" );
 						$status = 'UNKNOWN';
 						if ( $changeData ) {
@@ -187,11 +189,25 @@ if ( !$usecache ) {
 						$commitData = gerrit_query( "changes/$r/revisions/$p/commit" );
 						if ( $commitData ) {
 							$t = $t . ': ' . $commitData[ 'subject' ];
+							get_linked_tasks( $commitData[ 'message' ], $linkedTaskList );
 						}
 						return '<a href="https://gerrit.wikimedia.org/r/c/' . $r . '/' . $p . '" title="' . htmlspecialchars( $t, ENT_QUOTES ) . '" class="status-' . $status . '">' .
 							htmlspecialchars( $t ) .
 						'</a>';
 					}, $matches[ 1 ], $matches[ 2 ], $matches[ 0 ] ) );
+					$taskDescs = [];
+					foreach ( $linkedTaskList as $task ) {
+						$taskDesc = 'T' . $task;
+						if ( $config['conduitApiKey'] ) {
+							$api = new \Phabricator\Phabricator( 'https://phabricator.wikimedia.org', $config['conduitApiKey'] );
+							$taskDesc .= ': ' . htmlspecialchars( $api->Maniphest( 'info', [
+								'task_id' => $task
+							] )->getResult()['title'] );
+						}
+						$taskDesc = '<a href="https://phabricator.wikimedia.org/T' . $task . '">' . $taskDesc . '</a>';
+						$taskDescs[] = $taskDesc;
+					}
+					$linkedTasks = implode( '<br>', $taskDescs );
 				}
 
 			}
@@ -209,6 +225,7 @@ if ( !$usecache ) {
 			$wikis[ $dir ] = [
 				'mtime' => $created,
 				'title' => $title,
+				'linkedTasks' => $linkedTasks,
 				'creator' => $creator,
 				'statuses' => $statuses,
 			];
@@ -235,6 +252,7 @@ $anyCanDelete = false;
 $closedWikis = 0;
 foreach ( $wikis as $wiki => $data ) {
 	$title = $data[ 'title' ];
+	$linkedTasks = $data[ 'linkedTasks' ];
 	$creator = $data[ 'creator' ] ?? '';
 	$username = $user ? $user->username : null;
 	$canDelete = can_delete( $creator );
@@ -250,8 +268,9 @@ foreach ( $wikis as $wiki => $data ) {
 	}
 
 	$rows .= '<tr class="' . implode( ' ', $classes ) . '">' .
-		'<td data-label="Patches" class="title">' . ( $title ?: '<em>No patches</em>' ) . '</td>' .
-		'<td data-label="Link"><a href="wikis/' . $wiki . '/w">' . $wiki . '</a></td>' .
+		'<td data-label="Patches" class="patches">' . ( $title ?: '<em>No patches</em>' ) . '</td>' .
+		'<td data-label="Linked tasks" class="linkedTasks">' . ( $linkedTasks ?: '<em>No tasks</em>' ) . '</td>' .
+		'<td data-label="Link" class="wiki"><a href="wikis/' . $wiki . '/w">' . $wiki . '</a></td>' .
 		'<td data-label="Time" class="date">' . date( 'c', $data[ 'mtime' ] ) . '</td>' .
 		( $useOAuth ? '<td data-label="Creator">' . ( $creator ? user_link( $creator ) : '?' ) . '</td>' : '' ) .
 		( $canDelete ?
@@ -282,6 +301,7 @@ if ( $closedWikis ) {
 echo '<table class="wikis">' .
 	'<tr>' .
 		'<th>Patches</th>' .
+		'<th>Linked tasks</th>' .
 		'<th>Link</th>' .
 		'<th>Time</th>' .
 		( $useOAuth ? '<th>Creator</th>' : '' ) .
