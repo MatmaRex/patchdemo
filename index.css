@@ -204,6 +204,7 @@ summary > .oo-ui-labelElement-label {
 	.wikis .patches,
 	.wikis .linkedTasks {
 		display: block;
+		max-width: none;
 	}
 
 	.wikis td:before {
