@@ -68,40 +68,42 @@
 		} );
 	}
 
-	presetInput = OO.ui.infuse( $( '#preset' ) );
-	reposInput = OO.ui.infuse( $( '#repos' ) );
-	reposField = OO.ui.infuse( $( '#repos-field' ) );
+	if ( form ) {
+		presetInput = OO.ui.infuse( $( '#preset' ) );
+		reposInput = OO.ui.infuse( $( '#repos' ) );
+		reposField = OO.ui.infuse( $( '#repos-field' ) );
 
-	reposFieldLabel = reposField.getLabel();
-	reposField.setLabel( reposFieldLabel + ' (' + reposInput.getValue().length + '/' + reposInput.checkboxMultiselectWidget.items.length + ')' );
+		reposFieldLabel = reposField.getLabel();
+		reposField.setLabel( reposFieldLabel + ' (' + reposInput.getValue().length + '/' + reposInput.checkboxMultiselectWidget.items.length + ')' );
 
-	presetInput.on( 'change', OO.ui.debounce( function () {
-		var val = presetInput.getValue();
-		if ( val === 'custom' ) {
-			reposField.$body[ 0 ].open = true;
-		}
-		if ( val !== 'custom' ) {
-			reposInput.setValue( window.presets[ val ] );
-		}
-	} ) );
-	reposInput.on( 'change', OO.ui.debounce( function () {
-		var val, presetName, matchingPresetName, numSelected;
-
-		val = reposInput.getValue();
-		matchingPresetName = 'custom';
-		for ( presetName in window.presets ) {
-			if ( window.presets[ presetName ].sort().join( '|' ) === val.sort().join( '|' ) ) {
-				matchingPresetName = presetName;
-				break;
+		presetInput.on( 'change', OO.ui.debounce( function () {
+			var val = presetInput.getValue();
+			if ( val === 'custom' ) {
+				reposField.$body[ 0 ].open = true;
 			}
-		}
-		if ( presetInput.getValue() !== matchingPresetName ) {
-			presetInput.setValue( matchingPresetName );
-		}
+			if ( val !== 'custom' ) {
+				reposInput.setValue( window.presets[ val ] );
+			}
+		} ) );
+		reposInput.on( 'change', OO.ui.debounce( function () {
+			var val, presetName, matchingPresetName, numSelected;
 
-		numSelected = ' (' + val.length + '/' + reposInput.checkboxMultiselectWidget.items.length + ')';
-		reposField.setLabel( reposFieldLabel + numSelected );
-	} ) );
+			val = reposInput.getValue();
+			matchingPresetName = 'custom';
+			for ( presetName in window.presets ) {
+				if ( window.presets[ presetName ].sort().join( '|' ) === val.sort().join( '|' ) ) {
+					matchingPresetName = presetName;
+					break;
+				}
+			}
+			if ( presetInput.getValue() !== matchingPresetName ) {
+				presetInput.setValue( matchingPresetName );
+			}
+
+			numSelected = ' (' + val.length + '/' + reposInput.checkboxMultiselectWidget.items.length + ')';
+			reposField.setLabel( reposFieldLabel + numSelected );
+		} ) );
+	}
 
 }() );
 
