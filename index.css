@@ -95,10 +95,8 @@ summary > .oo-ui-labelElement-label {
 	display: inline !important;
 }
 
-/* stylelint-disable-next-line selector-max-id */
-#preset .oo-ui-fieldLayout,
-/* stylelint-disable-next-line selector-max-id */
-#preset .oo-ui-radioOptionWidget {
+.form-preset .oo-ui-fieldLayout,
+.form-preset .oo-ui-radioOptionWidget {
 	display: inline-block;
 	margin-right: 1em;
 }

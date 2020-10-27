@@ -1,77 +1,52 @@
 /* global OO, $ */
 ( function () {
-	// TODO: Use infuse to control OOUI widgets
 	var myWikis, closedWikis, branchSelect, form, submit, showClosed,
 		presetInput, reposField, reposInput, reposFieldLabel,
-		wikisTable = document.getElementsByClassName( 'wikis' )[ 0 ];
+		$wikisTable = $( '.wikis' );
 
-	function setDisabled( input, disabled ) {
-		input.disabled = disabled;
-		input.parentNode.classList.toggle( 'oo-ui-widget-disabled', !!disabled );
-		input.parentNode.classList.toggle( 'oo-ui-widget-enabled', !disabled );
+	function updateTableClasses() {
+		$wikisTable.toggleClass( 'hideOthers', !!myWikis.isSelected() );
+		$wikisTable.toggleClass( 'hideOpen', !!closedWikis.isSelected() );
 	}
 
 	form = document.getElementById( 'new-form' );
 	if ( form ) {
-		submit = form.querySelector( 'button[type=submit]' );
+		submit = OO.ui.infuse( $( '.form-submit' ) );
 		form.addEventListener( 'submit', function () {
-			setDisabled( submit, true );
+			submit.setDisabled( true );
 			return false;
 		} );
-	}
 
-	function updateTableClasses() {
-		if ( myWikis.checked ) {
-			wikisTable.classList.add( 'hideOthers' );
-		} else {
-			wikisTable.classList.remove( 'hideOthers' );
+		myWikis = OO.ui.infuse( $( '.myWikis' ) );
+		myWikis.on( 'change', updateTableClasses );
+
+		closedWikis = OO.ui.infuse( $( '.closedWikis' ) );
+		closedWikis.on( 'change', updateTableClasses );
+
+		if ( $( '.showClosed' ).length ) {
+			showClosed = OO.ui.infuse( $( '.showClosed' ) );
+			showClosed.on( 'click', function () {
+				myWikis.setSelected( true );
+				closedWikis.setSelected( true );
+				updateTableClasses();
+			} );
 		}
-		if ( closedWikis.checked ) {
-			wikisTable.classList.add( 'hideOpen' );
-		} else {
-			wikisTable.classList.remove( 'hideOpen' );
-		}
-	}
 
-	myWikis = document.querySelector( '.myWikis > input' );
-	if ( myWikis ) {
-		myWikis.addEventListener( 'change', updateTableClasses );
-	}
-
-	closedWikis = document.querySelector( '.closedWikis > input' );
-	if ( closedWikis ) {
-		closedWikis.addEventListener( 'change', updateTableClasses );
-	}
-
-	showClosed = document.querySelector( '.showClosed' );
-	if ( showClosed ) {
-		showClosed.addEventListener( 'click', function ( e ) {
-			myWikis.checked = true;
-			closedWikis.checked = true;
-			updateTableClasses();
-			e.preventDefault();
-		} );
-	}
-
-	branchSelect = document.querySelector( 'select[name=branch]' );
-	if ( branchSelect ) {
-		branchSelect.addEventListener( 'change', function () {
+		branchSelect = OO.ui.infuse( $( '.form-branch' ) );
+		branchSelect.on( 'change', function () {
 			var branch, repo, validBranch;
 			branch = branchSelect.value;
 			for ( repo in window.repoBranches ) {
 				validBranch = window.repoBranches[ repo ].indexOf( branch ) !== -1;
-				setDisabled(
-					document.querySelector( 'input[name="repos[]"][value="' + repo + '"]' ),
-					!validBranch || repo === 'mediawiki/core'
-				);
+				reposInput.checkboxMultiselectWidget
+					.findItemFromData( repo )
+					.setDisabled( !validBranch || repo === 'mediawiki/core' );
 			}
 		} );
-	}
 
-	if ( form ) {
-		presetInput = OO.ui.infuse( $( '#preset' ) );
-		reposInput = OO.ui.infuse( $( '#repos' ) );
-		reposField = OO.ui.infuse( $( '#repos-field' ) );
+		presetInput = OO.ui.infuse( $( '.form-preset' ) );
+		reposInput = OO.ui.infuse( $( '.form-repos' ) );
+		reposField = OO.ui.infuse( $( '.form-repos-field' ) );
 
 		reposFieldLabel = reposField.getLabel();
 		reposField.setLabel( reposFieldLabel + ' (' + reposInput.getValue().length + '/' + reposInput.checkboxMultiselectWidget.items.length + ')' );
