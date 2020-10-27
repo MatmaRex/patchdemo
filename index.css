@@ -141,6 +141,11 @@ summary > .oo-ui-labelElement-label {
 
 .wikis th {
 	background: #eaecf0;
+	position: sticky;
+	/* Adjust for <header> */
+	top: calc( 5em - 1px );
+	/* Simulate bottom border while floating */
+	box-shadow: inset 0 -1px 1px 0 #a2a9b1;
 }
 
 .wikis tr {
