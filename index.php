@@ -58,6 +58,7 @@ if ( $useOAuth && !$user ) {
 				'items' => array_filter( [
 					new OOUI\FieldLayout(
 						new OOUI\DropdownInputWidget( [
+							'classes' => [ 'form-branch' ],
 							'name' => 'branch',
 							'options' => $branchesOptions,
 						] ),
@@ -68,6 +69,7 @@ if ( $useOAuth && !$user ) {
 					),
 					new OOUI\FieldLayout(
 						new OOUI\MultilineTextInputWidget( [
+							'classes' => [ 'form-patches' ],
 							'name' => 'patches',
 							'placeholder' => 'Gerrit changeset number or Change-Id, one per line',
 							'rows' => 4,
@@ -94,7 +96,7 @@ if ( $useOAuth && !$user ) {
 						null,
 					new OOUI\FieldLayout(
 						new OOUI\RadioSelectInputWidget( [
-							'id' => 'preset',
+							'classes' => [ 'form-preset' ],
 							'name' => 'preset',
 							'options' => [
 								[
@@ -127,7 +129,7 @@ if ( $useOAuth && !$user ) {
 					),
 					new DetailsFieldLayout(
 						new OOUI\CheckboxMultiselectInputWidget( [
-							'id' => 'repos',
+							'classes' => [ 'form-repos' ],
 							'name' => 'repos[]',
 							'options' => $repoOptions,
 							'value' => get_repo_presets()[ 'wikimedia' ],
@@ -136,11 +138,12 @@ if ( $useOAuth && !$user ) {
 							'label' => 'Choose included repos:',
 							'helpInline' => true,
 							'align' => 'left',
-							'id' => 'repos-field',
+							'classes' => [ 'form-repos-field' ],
 						]
 					),
 					new OOUI\FieldLayout(
 						new OOUI\ButtonInputWidget( [
+							'classes' => [ 'form-submit' ],
 							'label' => 'Create demo',
 							'type' => 'submit',
 							// 'disabled' => true,
@@ -168,6 +171,7 @@ if ( $useOAuth && !$user ) {
 if ( $user ) {
 	echo new OOUI\FieldLayout(
 		new OOUI\CheckboxInputWidget( [
+			'infusable' => true,
 			'classes' => [ 'myWikis' ]
 		] ),
 		[
@@ -177,6 +181,7 @@ if ( $user ) {
 	);
 	echo new OOUI\FieldLayout(
 		new OOUI\CheckboxInputWidget( [
+			'infusable' => true,
 			'classes' => [ 'closedWikis' ]
 		] ),
 		[
@@ -331,6 +336,7 @@ if ( $closedWikis ) {
 		'type' => 'warning',
 		'label' => new OOUI\HtmlSnippet(
 			new OOUI\ButtonWidget( [
+				'infusable' => true,
 				'label' => 'Show',
 				'classes' => [ 'showClosed' ],
 			] ) .
