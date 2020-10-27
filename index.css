@@ -120,7 +120,10 @@ summary > .oo-ui-labelElement-label {
 
 .wikis {
 	width: 100%;
-	border-collapse: collapse;
+	border: 1px solid #a2a9b1;
+	border-width: 1px 1px 0 0;
+	border-collapse: separate;
+	border-spacing: 0;
 	margin-top: 1em;
 }
 
@@ -135,6 +138,7 @@ summary > .oo-ui-labelElement-label {
 .wikis th,
 .wikis td {
 	border: 1px solid #a2a9b1;
+	border-width: 0 0 1px 1px;
 	padding: 0.3em 0.6em;
 	vertical-align: top;
 }
@@ -144,8 +148,6 @@ summary > .oo-ui-labelElement-label {
 	position: sticky;
 	/* Adjust for <header> */
 	top: calc( 5em - 1px );
-	/* Simulate bottom border while floating */
-	box-shadow: inset 0 -1px 1px 0 #a2a9b1;
 }
 
 .wikis tr {
@@ -190,6 +192,12 @@ summary > .oo-ui-labelElement-label {
 		box-sizing: border-box;
 	}
 
+	.wikis,
+	.wikis th,
+	.wikis td {
+		border: 0;
+	}
+
 	.wikis tr {
 		background: #f8f9fa;
 		border: 1px solid #a2a9b1;
@@ -202,7 +210,6 @@ summary > .oo-ui-labelElement-label {
 
 	.wikis td {
 		background: none;
-		border: 0;
 		display: inline-block;
 	}
 
