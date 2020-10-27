@@ -69,11 +69,12 @@ if ( $useOAuth && !$user ) {
 					new OOUI\FieldLayout(
 						new OOUI\MultilineTextInputWidget( [
 							'name' => 'patches',
-							'placeholder' => 'Gerrit changeset number or Change-Id, one per line',
 							'rows' => 4,
 						] ),
 						[
 							'label' => 'Then, apply patches:',
+							'help' => 'Gerrit changeset number or Change-Id, one per line',
+							'helpInline' => true,
 							'align' => 'left',
 						]
 					),
