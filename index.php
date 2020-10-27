@@ -18,7 +18,10 @@ if ( $useOAuth && !$user ) {
 	array_unshift( $branches, array_pop( $branches ) );
 
 	$branchesOptions = array_map( function ( $branch ) {
-		return [ 'data' => $branch ];
+		return [
+			'label' => preg_replace( '/^origin\//', '', $branch ),
+			'data' => $branch,
+		];
 	}, $branches );
 
 	$repoBranches = [];
