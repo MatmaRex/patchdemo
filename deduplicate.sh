@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd $PATCHDEMO
+BASEDIR=$(dirname "$0")
 
 # Using hardlinks assumes that these files will never change,
 # as changing any of the deduplicated copies would affect all of them.
@@ -12,4 +12,4 @@ cd $PATCHDEMO
 # I'd have to figure out how to provision instances using XFS or something.
 # (Also, `rdfind` doesn't have an option for that, `rmlint` could be used.)
 
-rdfind -makehardlinks true -makeresultsfile false -checksum sha1 wikis
+sudo -u www-data rdfind -makehardlinks true -makeresultsfile false -checksum sha1 $BASEDIR/wikis
