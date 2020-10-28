@@ -42,6 +42,7 @@
 					.findItemFromData( repo )
 					.setDisabled( !validBranch || repo === 'mediawiki/core' );
 			}
+			reposInput.emit( 'change' );
 		} );
 
 		presetInput = OO.ui.infuse( $( '.form-preset' ) );
@@ -49,7 +50,6 @@
 		reposField = OO.ui.infuse( $( '.form-repos-field' ) );
 
 		reposFieldLabel = reposField.getLabel();
-		reposField.setLabel( reposFieldLabel + ' (' + reposInput.getValue().length + '/' + reposInput.checkboxMultiselectWidget.items.length + ')' );
 
 		presetInput.on( 'change', OO.ui.debounce( function () {
 			var val = presetInput.getValue();
@@ -61,7 +61,8 @@
 			}
 		} ) );
 		reposInput.on( 'change', OO.ui.debounce( function () {
-			var val, presetName, matchingPresetName, numSelected;
+			var selected = 0, enabled = 0,
+				val, presetName, matchingPresetName;
 
 			val = reposInput.getValue();
 			matchingPresetName = 'custom';
@@ -75,9 +76,19 @@
 				presetInput.setValue( matchingPresetName );
 			}
 
-			numSelected = ' (' + val.length + '/' + reposInput.checkboxMultiselectWidget.items.length + ')';
-			reposField.setLabel( reposFieldLabel + numSelected );
+			reposInput.checkboxMultiselectWidget.items.forEach( function ( option ) {
+				if ( !option.isDisabled() ) {
+					enabled++;
+					if ( option.isSelected() ) {
+						selected++;
+					}
+				}
+			} );
+
+			reposField.setLabel( reposFieldLabel + ' (' + selected + '/' + enabled + ')' );
 		} ) );
+
+		reposInput.emit( 'change' );
 	}
 
 }() );
