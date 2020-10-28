@@ -73,6 +73,7 @@ if ( $useOAuth && !$user ) {
 						new OOUI\MultilineTextInputWidget( [
 							'name' => 'patches',
 							'rows' => 4,
+							'placeholder' => "e.g. 456123",
 						] ),
 						[
 							'label' => 'Then, apply patches:',
