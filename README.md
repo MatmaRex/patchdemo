@@ -35,7 +35,7 @@ There is no definitive time after which wikis will automatically be deleted. Wit
 
 **Can Patch demo wikis be named?**
 
-Wikis can not been named *within* Patch demo. Wikis are listed within Patch demo by the creator and the list of patches (potentially multiple) used to create it. They are also assigned a random hash, which becomes part of the URL. 
+Wikis can not been named *within* Patch demo. Wikis are listed within Patch demo by the creator and the list of patches (potentially multiple) used to create it. They are also assigned a random hash, which becomes part of the URL.
 
 **Is it possible to add extensions that are in development?**
 
