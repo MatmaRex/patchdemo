@@ -28,7 +28,8 @@ composer update --no-dev
 npm install --production
 
 # setup daily cron job to deduplicate files
-echo $(readlink -f deduplicate.sh) > /etc/cron.daily/patchdemo-deduplicate
+echo "#!/bin/bash
+$(readlink -f deduplicate.sh)" > /etc/cron.daily/patchdemo-deduplicate
 chmod u+x /etc/cron.daily/patchdemo-deduplicate
 
 # set session expiration to a month (default is 24 minutes???), cookie expiration too
