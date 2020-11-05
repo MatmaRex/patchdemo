@@ -320,9 +320,9 @@ foreach ( $wikis as $wiki => $data ) {
 	}
 
 	$rows .= '<tr class="' . implode( ' ', $classes ) . '">' .
+		'<td data-label="Wiki" class="wiki"><a href="wikis/' . $wiki . '/w">' . $wiki . '</a></td>' .
 		'<td data-label="Patches" class="patches">' . ( $title ?: '<em>No patches</em>' ) . '</td>' .
 		'<td data-label="Linked tasks" class="linkedTasks">' . ( $linkedTasks ?: '<em>No tasks</em>' ) . '</td>' .
-		'<td data-label="Link" class="wiki"><a href="wikis/' . $wiki . '/w">' . $wiki . '</a></td>' .
 		'<td data-label="Time" class="date">' . date( 'c', $data[ 'mtime' ] ) . '</td>' .
 		( $useOAuth ? '<td data-label="Creator">' . ( $creator ? user_link( $creator ) : '?' ) . '</td>' : '' ) .
 		( $canDelete ?
@@ -353,9 +353,9 @@ if ( $closedWikis ) {
 
 echo '<table class="wikis">' .
 	'<tr>' .
+		'<th>Wiki</th>' .
 		'<th>Patches</th>' .
 		'<th>Linked tasks</th>' .
-		'<th>Link</th>' .
 		'<th>Time</th>' .
 		( $useOAuth ? '<th>Creator</th>' : '' ) .
 		( $anyCanDelete ? '<th>Actions</th>' : '' ) .
