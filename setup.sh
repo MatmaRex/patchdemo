@@ -31,6 +31,10 @@ npm install --production
 echo "#!/bin/bash
 $(readlink -f deduplicate.sh)" > /etc/cron.daily/patchdemo-deduplicate
 chmod u+x /etc/cron.daily/patchdemo-deduplicate
+# setup monthly cron job to optimize databases and free disk space
+echo "#!/bin/bash
+sudo mysqlcheck --optimize --all-databases -u root --password=''" > /etc/cron.monthly/patchdemo-optimize
+chmod u+x /etc/cron.monthly/patchdemo-optimize
 
 # set session expiration to a month (default is 24 minutes???), cookie expiration too
 echo "session.gc_maxlifetime = 2592000
