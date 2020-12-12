@@ -92,14 +92,3 @@
 	}
 
 }() );
-
-// Hack: The comparison in this method is wrong, and it goes into an infinite loop with our event handlers
-// https://gerrit.wikimedia.org/r/c/oojs/ui/+/636187
-OO.ui.CheckboxMultiselectInputWidget.prototype.getValue = function () {
-	var value = this.$element.find( '.oo-ui-checkboxInputWidget .oo-ui-inputWidget-input:checked' )
-		.toArray().map( function ( el ) { return el.value; } );
-	if ( !OO.compare( this.value, value ) ) {
-		this.setValue( value );
-	}
-	return this.value;
-};
