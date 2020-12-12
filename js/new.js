@@ -11,4 +11,18 @@
 	pd.openWiki = OO.ui.infuse(
 		document.getElementsByClassName( 'openWiki' )[ 0 ]
 	);
+
+	pd.notify = function ( message, body ) {
+		if ( 'Notification' in window && +sessionStorage.getItem( 'patchdemo-notifications' ) ) {
+			// eslint-disable-next-line no-new
+			new Notification(
+				message,
+				{
+					icon: './images/favicon-32x32.png',
+					body: body
+				}
+			);
+		}
+	};
+
 }() );

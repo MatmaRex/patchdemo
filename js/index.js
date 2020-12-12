@@ -110,6 +110,44 @@
 		reposInput.emit( 'change' );
 	}
 
+	if ( 'Notification' in window ) {
+		var notifField = OO.ui.infuse( document.getElementsByClassName( 'enableNotifications' )[ 0 ] );
+		// Enable placholder widget so field label isn't greyed out
+		notifField.fieldWidget.setDisabled( false );
+		var notifFieldLabel = notifField.getLabel();
+
+		var notifToggle = new OO.ui.ToggleButtonWidget( {
+			icon: 'bellOutline'
+		} );
+
+		var onRequestPermission = function ( permission ) {
+			notifToggle.setValue( permission === 'granted' );
+			if ( permission === 'granted' ) {
+				notifField.setLabel( 'You will get a browser notification when your wiki is ready' );
+			}
+			if ( permission === 'denied' ) {
+				notifField.setErrors( [ 'Permission denied' ] );
+			}
+		};
+
+		var onNotifChange = function ( value ) {
+			if ( !value ) {
+				sessionStorage.setItem( 'patchdemo-notifications', '0' );
+				notifField.setLabel( notifFieldLabel );
+			} else {
+				sessionStorage.setItem( 'patchdemo-notifications', '1' );
+				Notification.requestPermission().then( onRequestPermission );
+			}
+		};
+
+		notifToggle.on( 'change', onNotifChange );
+		if ( +sessionStorage.getItem( 'patchdemo-notifications' ) && Notification.permission ) {
+			onRequestPermission( Notification.permission );
+		}
+
+		notifField.$field.empty().append( notifToggle.$element );
+	}
+
 	var $lastMatch = $( [] );
 	$( window ).on( 'hashchange', function () {
 		if ( location.hash.match( /^#[0-9a-f]{10}$/ ) ) {
