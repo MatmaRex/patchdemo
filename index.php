@@ -178,6 +178,19 @@ if ( $useOAuth && !$user ) {
 						]
 					),
 					new OOUI\FieldLayout(
+						// Placeholder, will be replaced by a ToggleButtonWidget in JS
+						new OOUI\ButtonWidget( [
+							'icon' => 'bell',
+							'disabled' => 'true'
+						] ),
+						[
+							'align' => 'inline',
+							'classes' => [ 'enableNotifications' ],
+							'label' => 'Get a browser notification when your wikis are ready',
+							'infusable' => true,
+						]
+					),
+					new OOUI\FieldLayout(
 						new OOUI\ButtonInputWidget( [
 							'classes' => [ 'form-submit' ],
 							'label' => 'Create demo',
