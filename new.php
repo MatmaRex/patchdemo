@@ -45,8 +45,9 @@ EOT;
 			pd.openWiki.setDisabled( false );
 		</script>
 EOT;
-
 	}
+
+	ob_flush();
 }
 
 echo new OOUI\FieldsetLayout( [
