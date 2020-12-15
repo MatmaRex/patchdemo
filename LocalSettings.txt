@@ -42,6 +42,9 @@ $wgVisualEditorEnableWikitextBetaFeature = true;
 // VE CollabPad test server
 $wgVisualEditorRebaserURL = 'https://visualeditor-realtime.wmflabs.org';
 
+// Minerva
+$wgMinervaApplyKnownTemplateHacks = true;
+
 // Citoid
 $wgCitoidFullRestbaseURL = 'https://www.mediawiki.org/api/rest_';
 
