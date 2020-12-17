@@ -1,5 +1,7 @@
 <?php
 $config = [
+	'phabricatorUrl' => 'https://phabricator.wikimedia.org',
+	'gerritUrl' => 'https://gerrit.wikimedia.org',
 	// Message shown below the main form (allows HTML formatting)
 	'banner' => '',
 	// Allow any user to delete wikis, e.g. on a private installation
