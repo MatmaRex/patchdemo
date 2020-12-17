@@ -112,7 +112,7 @@ function gerrit_query( $url, $echo = false ) {
 		echo "<pre>$url</pre>";
 	}
 	if ( empty( $requestCache[$url] ) ) {
-		$url = 'https://gerrit.wikimedia.org/r/' . $url;
+		$url = $config['gerritUrl'] . '/r/' . $url;
 		$resp = file_get_contents( $url );
 		$requestCache[$url] = json_decode( substr( $resp, 4 ), true );
 	}

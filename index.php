@@ -243,7 +243,7 @@ if ( !$usecache ) {
 							$t = $t . ': ' . $commitData[ 'subject' ];
 							get_linked_tasks( $commitData[ 'message' ], $linkedTaskList );
 						}
-						return '<a href="https://gerrit.wikimedia.org/r/c/' . $r . '/' . $p . '" title="' . htmlspecialchars( $t ) . '" class="status-' . $status . '">' .
+						return '<a href="' . $config['gerritUrl'] . '/r/c/' . $r . '/' . $p . '" title="' . htmlspecialchars( $t ) . '" class="status-' . $status . '">' .
 							htmlspecialchars( $t ) .
 						'</a>';
 					}, $matches[ 1 ], $matches[ 2 ], $matches[ 0 ] ) );
@@ -251,12 +251,12 @@ if ( !$usecache ) {
 					foreach ( $linkedTaskList as $task ) {
 						$taskDesc = 'T' . $task;
 						if ( $config['conduitApiKey'] ) {
-							$api = new \Phabricator\Phabricator( 'https://phabricator.wikimedia.org', $config['conduitApiKey'] );
+							$api = new \Phabricator\Phabricator( $config['phabricatorUrl'], $config['conduitApiKey'] );
 							$taskDesc .= ': ' . htmlspecialchars( $api->Maniphest( 'info', [
 								'task_id' => $task
 							] )->getResult()['title'] );
 						}
-						$taskDesc = '<a href="https://phabricator.wikimedia.org/T' . $task . '" title="' . $taskDesc . '">' . $taskDesc . '</a>';
+						$taskDesc = '<a href="' . $config['phabricatorUrl'] . '/T' . $task . '" title="' . $taskDesc . '">' . $taskDesc . '</a>';
 						$taskDescs[] = $taskDesc;
 					}
 					$linkedTasks = implode( '<br>', $taskDescs );

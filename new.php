@@ -205,7 +205,7 @@ foreach ( $patchesApplied as $patch ) {
 		get_linked_tasks( $data['message'], $linkedTasks );
 	}
 
-	$mainPage .= "\n:* [https://gerrit.wikimedia.org/r/c/$r/$p <nowiki>$t</nowiki>]";
+	$mainPage .= "\n:* [{$config['gerritUrl']}/r/c/$r/$p <nowiki>$t</nowiki>]";
 }
 
 $mainPage .= "\n;Linked tasks:";
@@ -213,7 +213,7 @@ if ( !$linkedTasks ) {
 	$mainPage .= " (none)";
 }
 foreach ( $linkedTasks as $task ) {
-	$mainPage .= "\n:* [https://phabricator.wikimedia.org/T$task T$task]";
+	$mainPage .= "\n:* [{$config['phabricatorUrl']}/T$task T$task]";
 }
 
 // Choose repositories to enable
@@ -287,7 +287,7 @@ foreach ( $commands as $i => $command ) {
 
 if ( $announce && count( $linkedTasks ) && $config['conduitApiKey'] ) {
 	set_progress( 95, 'Posting to Phabricator...' );
-	$api = new \Phabricator\Phabricator( 'https://phabricator.wikimedia.org', $config['conduitApiKey'] );
+	$api = new \Phabricator\Phabricator( $config['phabricatorUrl'], $config['conduitApiKey'] );
 
 	foreach ( $linkedTasks as $task ) {
 		$api->Maniphest( 'edit', [
