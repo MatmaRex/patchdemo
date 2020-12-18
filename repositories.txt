@@ -9,6 +9,7 @@ mediawiki/extensions/Citoid w/extensions/Citoid
 mediawiki/extensions/CodeEditor w/extensions/CodeEditor
 mediawiki/extensions/CodeMirror w/extensions/CodeMirror
 mediawiki/extensions/ConfirmEdit w/extensions/ConfirmEdit
+mediawiki/extensions/Echo w/extensions/Echo
 mediawiki/extensions/EventLogging w/extensions/EventLogging
 mediawiki/extensions/EventStreamConfig w/extensions/EventStreamConfig
 mediawiki/extensions/FlaggedRevs w/extensions/FlaggedRevs
