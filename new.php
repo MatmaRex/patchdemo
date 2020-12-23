@@ -23,6 +23,7 @@ function abandon( $err ) {
 	echo <<<EOT
 		<script>
 			pd.installProgressField.fieldWidget.setDisabled( true );
+			pd.installProgressField.fieldWidget.popPending();
 			pd.installProgressField.setErrors( [ $errJson ] );
 		</script>
 EOT;
@@ -42,6 +43,7 @@ EOT;
 	if ( $pc === 100 ) {
 		echo <<<EOT
 		<script>
+			pd.installProgressField.fieldWidget.popPending();
 			pd.openWiki.setDisabled( false );
 		</script>
 EOT;

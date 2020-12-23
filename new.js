@@ -6,6 +6,8 @@
 		document.getElementsByClassName( 'installProgressField' )[ 0 ]
 	);
 
+	pd.installProgressField.fieldWidget.pushPending();
+
 	pd.openWiki = OO.ui.infuse(
 		document.getElementsByClassName( 'openWiki' )[ 0 ]
 	);
