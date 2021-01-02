@@ -1,7 +1,7 @@
 <?php
 $config = [
-	// Message shown below the main form (allows HTML formatting)
-	'banner' => '',
+	// Warning shown below the new wiki form (allows HTML formatting)
+	'newWikiWarning' => '',
 	// Allow any user to delete wikis, e.g. on a private installation
 	'allowDelete' => false,
 	// Require that patches are V+2 before building the wiki
