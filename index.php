@@ -243,7 +243,7 @@ if ( !$usecache ) {
 							$t = $t . ': ' . $commitData[ 'subject' ];
 							get_linked_tasks( $commitData[ 'message' ], $linkedTaskList );
 						}
-						return '<a href="https://gerrit.wikimedia.org/r/c/' . $r . '/' . $p . '" title="' . htmlspecialchars( $t, ENT_QUOTES ) . '" class="status-' . $status . '">' .
+						return '<a href="https://gerrit.wikimedia.org/r/c/' . $r . '/' . $p . '" title="' . htmlspecialchars( $t ) . '" class="status-' . $status . '">' .
 							htmlspecialchars( $t ) .
 						'</a>';
 					}, $matches[ 1 ], $matches[ 2 ], $matches[ 0 ] ) );
@@ -256,7 +256,7 @@ if ( !$usecache ) {
 								'task_id' => $task
 							] )->getResult()['title'] );
 						}
-						$taskDesc = '<a href="https://phabricator.wikimedia.org/T' . $task . '">' . $taskDesc . '</a>';
+						$taskDesc = '<a href="https://phabricator.wikimedia.org/T' . $task . '" title="' . $taskDesc . '">' . $taskDesc . '</a>';
 						$taskDescs[] = $taskDesc;
 					}
 					$linkedTasks = implode( '<br>', $taskDescs );
@@ -320,7 +320,7 @@ foreach ( $wikis as $wiki => $data ) {
 	}
 
 	$rows .= '<tr class="' . implode( ' ', $classes ) . '">' .
-		'<td data-label="Wiki" class="wiki"><a href="wikis/' . $wiki . '/w">' . $wiki . '</a></td>' .
+		'<td data-label="Wiki" class="wiki"><a href="wikis/' . $wiki . '/w" title="' . $wiki . '">' . $wiki . '</a></td>' .
 		'<td data-label="Patches" class="patches">' . ( $title ?: '<em>No patches</em>' ) . '</td>' .
 		'<td data-label="Linked tasks" class="linkedTasks">' . ( $linkedTasks ?: '<em>No tasks</em>' ) . '</td>' .
 		'<td data-label="Time" class="date">' . date( 'c', $data[ 'mtime' ] ) . '</td>' .
