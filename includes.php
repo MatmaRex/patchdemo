@@ -107,7 +107,7 @@ function remove_from_wikicache( $wiki ) {
 $requestCache = [];
 
 function gerrit_query( $url, $echo = false ) {
-	global $requestCache;
+	global $config, $requestCache;
 	if ( $echo ) {
 		echo "<pre>$url</pre>";
 	}

@@ -232,6 +232,7 @@ if ( !$usecache ) {
 					$linkedTaskList = [];
 					preg_match_all( '`([0-9]+),([0-9]+)`', $matches[ 1 ], $matches );
 					$title = implode( '<br>', array_map( function ( $r, $p, $t ) use ( &$statuses, &$linkedTaskList ) {
+						global $config;
 						$changeData = gerrit_query( "changes/$r" );
 						$status = 'UNKNOWN';
 						if ( $changeData ) {
