@@ -42,6 +42,7 @@ session.cookie_lifetime = 2592000" > /etc/php/7.3/apache2/conf.d/patchdemo.ini
 
 # enable .htaccess files
 echo "<Directory /var/www/html>
+Options -Indexes
 AllowOverride All
 </Directory>" > /etc/apache2/sites-available/patchdemo.conf
 
