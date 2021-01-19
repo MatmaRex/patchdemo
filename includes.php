@@ -43,14 +43,23 @@ echo '<!DOCTYPE html>
 	<body>
 		<header>
 			<div class="headerInner">
-				<h1><a class="logo" href="' . $basePath . '/.">Patch demo</a></h1>';
+				<h1><a class="logo" href="' . $basePath . '/.">Patch demo</a></h1>
+				<div class="sourceAndUser">';
 
 include_once 'oauth.php';
 
 if ( $user ) {
 	echo "<div class='user'>Logged in as <b>{$user->username}</b> [<a href='?logout'>Log out</a>]</div>";
 }
-echo '</div></header><main>';
+echo '
+					<div class="source">
+						<a href="https://github.com/MatmaRex/patchdemo">Source code</a> &bullet;
+						<a href="https://github.com/MatmaRex/patchdemo/issues">Issues</a>
+					</div>
+				</div>
+			</div>
+		</header>
+		<main>';
 
 function make_shell_command( $env, $cmd ) {
 	$prefix = '';

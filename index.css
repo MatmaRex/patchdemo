@@ -20,8 +20,7 @@ a:hover {
 }
 
 main,
-.headerInner,
-footer {
+.headerInner {
 	max-width: 1100px;
 	margin: 0 auto;
 	padding: 1em;
@@ -50,10 +49,6 @@ header {
 	white-space: nowrap;
 }
 
-footer {
-	text-align: right;
-}
-
 .logo {
 	display: inline-block;
 	text-decoration: none;
@@ -69,11 +64,11 @@ footer {
 	color: #2a4b8d;
 }
 
-.user {
+.sourceAndUser {
 	text-align: right;
 }
 
-.user a {
+.sourceAndUser a {
 	white-space: nowrap;
 }
 
