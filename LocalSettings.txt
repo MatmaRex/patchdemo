@@ -69,6 +69,10 @@ $wgLogos = [
 ];
 $wgFavicon = "$wgResourceBasePath/favicon.ico";
 
+// SecurePoll
+$wgGroupPermissions['electionadmin'] = $wgGroupPermissions['sysop'];
+$wgGroupPermissions['sysop']['securepoll-create-poll'] = true;
+
 // PageViewInfo
 $wgPageViewInfoWikimediaDomain = 'en.wikipedia.org';
 
