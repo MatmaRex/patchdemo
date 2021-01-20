@@ -70,7 +70,7 @@ $wgLogos = [
 $wgFavicon = "$wgResourceBasePath/favicon.ico";
 
 // SecurePoll
-$wgGroupPermissions['electionadmin'] = $wgGroupPermissions['sysop'];
+$wgGroupPermissions['electionadmin'] = [];
 $wgGroupPermissions['sysop']['securepoll-create-poll'] = true;
 
 // PageViewInfo

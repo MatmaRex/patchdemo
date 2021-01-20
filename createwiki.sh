@@ -66,6 +66,10 @@ if [ -d $PATCHDEMO/wikis/$NAME/w/extensions/FlaggedRevs ]; then
 	php $PATCHDEMO/wikis/$NAME/w/maintenance/createAndPromote.php "Patch Demo" --force --custom-groups editor
 fi
 
+if [ -d $PATCHDEMO/wikis/$NAME/w/extensions/SecurePoll ]; then
+	php $PATCHDEMO/wikis/$NAME/w/maintenance/createAndPromote.php "Patch Demo" --force --custom-groups electionadmin
+fi
+
 # import XML dumps
 for page in $(find $PATCHDEMO/pages -name "*.xml" -not -type d -printf '%P\n')
 do
