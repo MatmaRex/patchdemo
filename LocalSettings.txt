@@ -83,3 +83,13 @@ $wgGENewcomerTasksTopicType = 'ores';
 $wgWelcomeSurveyExperimentalGroups['exp2_target_specialpage']['range'] = '0-9';
 $wgGEHomepageMentorsList = 'Project:GrowthExperiments_mentors';
 $wgGEHelpPanelHelpDeskTitle = 'Project:GrowthExperiments_help_desk';
+
+// Unintrusive anti-spam CAPTCHA
+if ( file_exists( 'extensions/ConfirmEdit/QuestyCaptcha/extension.json' ) ) {
+	wfLoadExtension( 'ConfirmEdit/QuestyCaptcha' );
+	$wgCaptchaQuestions = [
+		"Type 'patchdemo' here as an anti-spam measure. Good thing spam bots can't read yet!" => 'patchdemo',
+	];
+	$wgCaptchaTriggers['edit'] = true;
+	$wgCaptchaTriggers['createaccount'] = true;
+}
