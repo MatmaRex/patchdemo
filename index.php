@@ -199,98 +199,6 @@ if ( $user ) {
 <p><em>✓=Merged ✗=Abandoned</em></p>
 <?php
 
-$dirs = array_filter( scandir( 'wikis' ), function ( $dir ) {
-	return substr( $dir, 0, 1 ) !== '.';
-} );
-
-$usecache = false;
-$cache = load_wikicache();
-if ( $cache ) {
-	$wikis = json_decode( $cache, true );
-	$wikilist = array_keys( $wikis );
-	sort( $wikilist );
-	sort( $dirs );
-	if ( $wikilist === $dirs ) {
-		$usecache = true;
-	}
-}
-
-if ( !$usecache ) {
-	$wikis = [];
-	foreach ( $dirs as $dir ) {
-		if ( substr( $dir, 0, 1 ) !== '.' ) {
-			$statuses = [];
-			$title = '?';
-			$linkedTasks = '';
-			$settings = get_if_file_exists( 'wikis/' . $dir . '/w/LocalSettings.php' );
-			if ( $settings ) {
-				preg_match( '`wgSitename = "(.*)";`', $settings, $matches );
-				$title = $matches[ 1 ];
-
-				preg_match( '`Patch Demo \((.*)\)`', $title, $matches );
-				if ( count( $matches ) ) {
-					$linkedTaskList = [];
-					preg_match_all( '`([0-9]+),([0-9]+)`', $matches[ 1 ], $matches );
-					$title = implode( '<br>', array_map( function ( $r, $p, $t ) use ( &$statuses, &$linkedTaskList ) {
-						global $config;
-						$changeData = gerrit_query( "changes/$r" );
-						$status = 'UNKNOWN';
-						if ( $changeData ) {
-							$status = $changeData['status'];
-						}
-						$statuses[] = $status;
-						$commitData = gerrit_query( "changes/$r/revisions/$p/commit" );
-						if ( $commitData ) {
-							$t = $t . ': ' . $commitData[ 'subject' ];
-							get_linked_tasks( $commitData[ 'message' ], $linkedTaskList );
-						}
-						return '<a href="' . $config['gerritUrl'] . '/r/c/' . $r . '/' . $p . '" title="' . htmlspecialchars( $t ) . '" class="status-' . $status . '">' .
-							htmlspecialchars( $t ) .
-						'</a>';
-					}, $matches[ 1 ], $matches[ 2 ], $matches[ 0 ] ) );
-					$taskDescs = [];
-					foreach ( $linkedTaskList as $task ) {
-						$taskDesc = 'T' . $task;
-						if ( $config['conduitApiKey'] ) {
-							$api = new \Phabricator\Phabricator( $config['phabricatorUrl'], $config['conduitApiKey'] );
-							$taskDesc .= ': ' . htmlspecialchars( $api->Maniphest( 'info', [
-								'task_id' => $task
-							] )->getResult()['title'] );
-						}
-						$taskDesc = '<a href="' . $config['phabricatorUrl'] . '/T' . $task . '" title="' . $taskDesc . '">' . $taskDesc . '</a>';
-						$taskDescs[] = $taskDesc;
-					}
-					$linkedTasks = implode( '<br>', $taskDescs );
-				}
-
-			}
-			$creator = get_creator( $dir );
-			$created = get_created( $dir );
-
-			if ( !$created ) {
-				// Add created.txt to old wikis
-				$created = file_exists( 'wikis/' . $dir . '/w/LocalSettings.php' ) ?
-					filemtime( 'wikis/' . $dir . '/w/LocalSettings.php' ) :
-					filemtime( 'wikis/' . $dir );
-				file_put_contents( 'wikis/' . $dir . '/created.txt', $created );
-			}
-
-			$wikis[ $dir ] = [
-				'mtime' => $created,
-				'title' => $title,
-				'linkedTasks' => $linkedTasks,
-				'creator' => $creator,
-				'statuses' => $statuses,
-			];
-		}
-	}
-	uksort( $wikis, function ( $a, $b ) use ( $wikis ) {
-		return $wikis[ $a ][ 'mtime' ] < $wikis[ $b ][ 'mtime' ];
-	} );
-
-	save_wikicache( $wikis );
-}
-
 function all_closed( $statuses ) {
 	foreach ( $statuses as $status ) {
 		if ( $status !== 'MERGED' && $status !== 'ABANDONED' ) {
@@ -303,14 +211,40 @@ function all_closed( $statuses ) {
 $rows = '';
 $anyCanDelete = false;
 $closedWikis = 0;
-foreach ( $wikis as $wiki => $data ) {
-	$title = $data[ 'title' ];
-	$linkedTasks = $data[ 'linkedTasks' ];
-	$creator = $data[ 'creator' ] ?? '';
+
+$results = $mysqli->query( 'SELECT wiki FROM wikis ORDER BY created DESC' );
+if ( !$results ) {
+	die( $mysqli->error );
+}
+while ( $data = $results->fetch_assoc() ) {
+	$wiki = $data['wiki'];
+	$wikiData = get_wiki_data( $wiki );
+	$statuses = [];
+	$patches = '?';
+	$linkedTasks = '';
+
+	$patches = implode( '<br>', array_map( function ( $patchData ) use ( &$statuses, &$linkedTaskList ) {
+		global $config;
+		$statuses[] = $patchData['status'];
+		$title = $patchData['patch'] . ': ' . $patchData[ 'subject' ];
+
+		return '<a href="' . $config['gerritUrl'] . '/r/c/' . $patchData['r'] . '/' . $patchData['p'] . '" title="' . htmlspecialchars( $title ) . '" class="status-' . $patchData['status'] . '">' .
+			htmlspecialchars( $title ) .
+		'</a>';
+	}, $wikiData['patchList'] ) );
+
+	$taskDescs = [];
+	foreach ( $wikiData['linkedTaskList'] as $task => $taskData ) {
+		$taskTitle = $taskData['id'] . ': ' . htmlspecialchars( $taskData['title'] );
+		$taskDescs[] = '<a href="' . $config['phabricatorUrl'] . '/' . $taskData['id'] . '" title="' . $taskTitle . '">' . $taskTitle . '</a>';
+	}
+	$linkedTasks = implode( '<br>', $taskDescs );
+
+	$creator = $wikiData[ 'creator' ] ?? '';
 	$username = $user ? $user->username : null;
 	$canDelete = can_delete( $creator );
 	$anyCanDelete = $anyCanDelete || $canDelete;
-	$closed = all_closed( $data['statuses'] );
+	$closed = all_closed( $statuses );
 
 	$classes = [];
 	if ( $creator !== $username ) {
@@ -322,9 +256,9 @@ foreach ( $wikis as $wiki => $data ) {
 
 	$rows .= '<tr class="' . implode( ' ', $classes ) . '">' .
 		'<td data-label="Wiki" class="wiki"><a href="wikis/' . $wiki . '/w" title="' . $wiki . '">' . $wiki . '</a></td>' .
-		'<td data-label="Patches" class="patches">' . ( $title ?: '<em>No patches</em>' ) . '</td>' .
+		'<td data-label="Patches" class="patches">' . ( $patches ?: '<em>No patches</em>' ) . '</td>' .
 		'<td data-label="Linked tasks" class="linkedTasks">' . ( $linkedTasks ?: '<em>No tasks</em>' ) . '</td>' .
-		'<td data-label="Time" class="date">' . date( 'Y-m-d H:i:s', $data[ 'mtime' ] ) . '</td>' .
+		'<td data-label="Time" class="date">' . date( 'Y-m-d H:i:s', $wikiData[ 'created' ] ) . '</td>' .
 		( $useOAuth ? '<td data-label="Creator">' . ( $creator ? user_link( $creator ) : '?' ) . '</td>' : '' ) .
 		( $canDelete ?
 			'<td data-label="Actions"><a href="delete.php?wiki=' . $wiki . '">Delete</a></td>' :

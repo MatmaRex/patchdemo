@@ -4,5 +4,4 @@ repositories
 composer
 composer.lock
 vendor
-wikicache.json
 node_modules

@@ -17,11 +17,11 @@ sudo -u www-data mkdir composer
 # Create folder for wikis
 sudo -u www-data mkdir wikis
 
-# create a database user that is allowed to create databases for each wiki
-sudo mysql -u root --password='' -e "
-CREATE USER 'patchdemo'@'localhost' IDENTIFIED BY 'patchdemo';
-GRANT ALL PRIVILEGES ON \`patchdemo\_%\`.* TO 'patchdemo'@'localhost';
-"
+# Create a database user that is allowed to create databases for each wiki,
+# and the central patchdemo database
+sudo mysql -u root --password='' < sql/user.sql
+# Create the central patchdemo database
+sudo mysql -u patchdemo --password='patchdemo' < sql/patchdemo.sql
 
 # dependencies for the website
 composer update --no-dev

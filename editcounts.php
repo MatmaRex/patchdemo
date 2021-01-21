@@ -9,9 +9,6 @@ if ( !can_admin() ) {
 	return;
 }
 
-$cache = load_wikicache();
-$wikis = json_decode( $cache, true );
-
 $short_fields = [
 	'ss_total_edits' => 'Edits',
 	'ss_good_articles' => 'Articles',
@@ -21,13 +18,15 @@ $short_fields = [
 	'ss_images' => 'Images',
 ];
 
-$mysqli = new mysqli( 'localhost', 'patchdemo', 'patchdemo' );
-if ( $mysqli->connect_error ) {
-	die( $mysqli->connect_error );
+$results = $mysqli->query( 'SELECT wiki FROM wikis ORDER BY created DESC' );
+if ( !$results ) {
+	die( $mysqli->error );
 }
-
-foreach ( $wikis as $wiki => $data ) {
-	foreach ( $mysqli->query( "select * from patchdemo_$wiki.site_stats limit 1" ) as $row ) {
+$wikis = [];
+while ( $data = $results->fetch_assoc() ) {
+	$wiki = $data['wiki'];
+	$wikis[$wiki] = $data;
+	foreach ( $mysqli->query( "SELECT * FROM patchdemo_$wiki.site_stats LIMIT 1" ) as $row ) {
 		$wikis[$wiki] += $row;
 	}
 	if ( $mysqli->error ) {

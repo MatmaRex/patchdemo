@@ -3,10 +3,9 @@
 require_once "includes.php";
 
 $wiki = $_GET[ 'wiki' ];
+$wikiData = get_wiki_data( $wiki );
 
-$creator = get_creator( $wiki );
-
-if ( !can_delete( $creator ) ) {
+if ( !can_delete( $wikiData['creator'] ) ) {
 	die( '<p>You are not allowed to delete this wiki.</p>' );
 }
 
