@@ -17,6 +17,13 @@ $namePath = md5( $branch . $patches . time() );
 $server = detectProtocol() . '://' . $_SERVER['HTTP_HOST'];
 $serverPath = preg_replace( '`/[^/]*$`', '', $_SERVER['REQUEST_URI'] );
 
+$creator = $user ? $user->username : '';
+$created = time();
+
+// Create an entry for the wiki before we have resolved patches.
+// Will be updated later.
+insert_wiki_data( $namePath, $creator, $created );
+
 function abandon( string $errHtml ) {
 	global $namePath;
 	$errJson = json_encode( $errHtml );
@@ -190,6 +197,9 @@ $wikiName = "Patch Demo (" . trim(
 	implode( ' ', $patchesApplied )
 ) . ")";
 
+// Update DB record with patches applied
+insert_wiki_data( $namePath, $creator, $created, $patchesApplied );
+
 $mainPage = "This wiki was generated on [$server$serverPath Patch Demo] at ~~~~~.
 
 ;Branch: $branchDesc
@@ -267,7 +277,6 @@ $cmd = make_shell_command( $baseEnv + [
 	'NAME' => $namePath,
 	'BRANCH' => $branch,
 	'WIKINAME' => $wikiName,
-	'CREATOR' => $user ? $user->username : '',
 	'MAINPAGE' => $mainPage,
 	'SERVER' => $server,
 	'SERVERPATH' => $serverPath,
@@ -308,6 +317,7 @@ if ( $announce && count( $linkedTasks ) && $config['conduitApiKey'] ) {
 			]
 		] );
 	}
+	wiki_add_announced_tasks( $namePath, $linkedTasks );
 }
 
 set_progress( 100, 'All done!' );

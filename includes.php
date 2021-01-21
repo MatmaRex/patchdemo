@@ -66,6 +66,191 @@ echo '
 		</header>
 		<main>';
 
+$mysqli = new mysqli( 'localhost', 'patchdemo', 'patchdemo', 'patchdemo' );
+if ( $mysqli->connect_error ) {
+	die( $mysqli->connect_error );
+}
+
+function insert_wiki_data( string $wiki, string $creator, int $created, array $patches = [] ) {
+	global $mysqli;
+	$stmt = $mysqli->prepare( '
+		INSERT INTO wikis
+		(wiki, creator, created, patches)
+		VALUES(?, ?, FROM_UNIXTIME(?), ?)
+		ON DUPLICATE KEY UPDATE
+		patches = ?
+	' );
+	if ( !$stmt ) {
+		echo $mysqli->error;
+	}
+	$patches = json_encode( $patches );
+	$stmt->bind_param( 'ssiss', $wiki, $creator, $created, $patches, $patches );
+	$stmt->execute();
+	$stmt->close();
+}
+
+function wiki_add_announced_tasks( string $wiki, array $announcedTasks ) {
+	global $mysqli;
+	$stmt = $mysqli->prepare( 'UPDATE wikis SET announcedTasks = ? WHERE wiki = ?' );
+	$announcedTasks = json_encode( $announcedTasks );
+	$stmt->bind_param( 'ss', $accouncedTasks, $wiki );
+	$stmt->execute();
+	$stmt->close();
+}
+
+function get_wiki_data( string $wiki ) {
+	global $mysqli;
+
+	$stmt = $mysqli->prepare( '
+		SELECT wiki, creator, UNIX_TIMESTAMP( created ) created, patches, announcedTasks
+		FROM wikis WHERE wiki = ?
+	' );
+	if ( !$stmt ) {
+		echo $mysqli->error;
+	}
+	$stmt->bind_param( 's', $wiki );
+	$stmt->execute();
+	$res = $stmt->get_result();
+	$data = $res->fetch_assoc();
+	$stmt->close();
+
+	if ( !$data ) {
+		throw new Error( 'Wiki not found: ' . $wiki );
+	}
+
+	// Decode JSON
+	$data['patches'] = json_decode( $data['patches'] ) ?: [];
+	$data['announcedTasks'] = json_decode( $data['announcedTasks'] ) ?: [];
+
+	// Populate patch list
+	$patchList = [];
+	$linkedTasks = [];
+	if ( $data['patches'] ) {
+		foreach ( $data['patches'] as $patch ) {
+			[ $r, $p ] = explode( ',', $patch );
+			$patchData = get_patch_data( $r, $p );
+			$patchList[$patch] = $patchData;
+
+			get_linked_tasks( $patchData[ 'message' ], $linkedTasks );
+		}
+	}
+	$data['patchList'] = $patchList;
+
+	// Populate task list
+	$linkedTaskList = [];
+	foreach ( $linkedTasks as $task ) {
+		$linkedTaskList[$task] = get_task_data( $task );
+	}
+	$data['linkedTaskList'] = $linkedTaskList;
+
+	return $data;
+}
+
+function get_patch_data( $r, $p ) {
+	global $mysqli;
+
+	$patch = $r . ',' . $p;
+
+	$stmt = $mysqli->prepare( '
+		SELECT patch, status, subject, message, UNIX_TIMESTAMP( updated ) updated
+		FROM patches WHERE patch = ?' );
+	$stmt->bind_param( 's', $patch );
+	$stmt->execute();
+	$res = $stmt->get_result();
+	$data = $res->fetch_assoc();
+	$stmt->close();
+
+	// Patch status can change (if not merged), so re-fetch every 24 hours
+	if (
+		!$data || (
+			$data['status'] !== 'MERGED' &&
+			( time() - $data['updated'] > 24 * 60 * 60 )
+		)
+	) {
+		$changeData = gerrit_query( "changes/$r" );
+		$status = 'UNKNOWN';
+		if ( $changeData ) {
+			$status = $changeData['status'];
+		}
+		$subject = '';
+		$message = '';
+		$commitData = gerrit_query( "changes/$r/revisions/$p/commit" );
+		if ( $commitData ) {
+			$subject = $commitData[ 'subject' ];
+			$message = $commitData[ 'message' ];
+		}
+
+		// Update cache
+		$stmt = $mysqli->prepare( '
+			INSERT INTO patches
+			(patch, status, subject, message, updated)
+			VALUES(?, ?, ?, ?, NOW())
+			ON DUPLICATE KEY UPDATE
+			status = ?, updated = NOW()
+		' );
+		$stmt->bind_param( 'sssss', $patch, $status, $subject, $message, $status );
+		$stmt->execute();
+		$stmt->close();
+
+		$data = [
+			'patch' => $patch,
+			'status' => $status,
+			'subject' => $subject,
+			'message' => $message,
+			'updated' => time(),
+		];
+	}
+	$data['r'] = $r;
+	$data['p'] = $p;
+
+	return $data;
+}
+
+function get_task_data( int $task ) {
+	global $config, $mysqli;
+
+	$stmt = $mysqli->prepare( '
+		SELECT task, title, UNIX_TIMESTAMP(updated) updated
+		FROM tasks WHERE task = ?
+	' );
+	$stmt->bind_param( 'i', $task );
+	$stmt->execute();
+	$res = $stmt->get_result();
+	$data = $res->fetch_assoc();
+	$stmt->close();
+
+	// Task titles can change, so re-fetch every 24 hours
+	if ( !$data || ( time() - $data['updated'] > 24 * 60 * 60 ) ) {
+		$title = '';
+		if ( $config['conduitApiKey'] ) {
+			$api = new \Phabricator\Phabricator( $config['phabricatorUrl'], $config['conduitApiKey'] );
+			$title = $api->Maniphest( 'info', [
+				'task_id' => $task
+			] )->getResult()['title'];
+		}
+
+		// Update cache
+		$stmt = $mysqli->prepare( '
+			INSERT INTO tasks (task, title, updated)
+			VALUES(?, ?, NOW())
+			ON DUPLICATE KEY UPDATE
+			title = ?, updated = NOW()
+		' );
+		$stmt->bind_param( 'iss', $task, $title, $title );
+		$stmt->execute();
+		$stmt->close();
+
+		$data = [
+			'task' => $task,
+			'title' => $title,
+			'updated' => time(),
+		];
+	}
+	$data['id'] = 'T' . $data['task'];
+
+	return $data;
+}
+
 function make_shell_command( $env, $cmd ) {
 	$prefix = '';
 	foreach ( $env as $key => $value ) {
@@ -96,33 +281,20 @@ function shell( $cmd ) {
 }
 
 function delete_wiki( $wiki ) {
+	global $mysqli;
+
 	$cmd = make_shell_command( [
 		'PATCHDEMO' => __DIR__,
 		'WIKI' => $wiki
 	], __DIR__ . '/deletewiki.sh' );
 	$error = shell_echo( $cmd );
 
-	// Remove wiki from the cache to avoid a full rebuild
-	remove_from_wikicache( $wiki );
+	$stmt = $mysqli->prepare( 'DELETE FROM wikis WHERE wiki = ?' );
+	$stmt->bind_param( 's', $wiki );
+	$stmt->execute();
+	$stmt->close();
 
 	return $error;
-}
-
-function load_wikicache() {
-	return get_if_file_exists( 'wikicache.json' );
-}
-
-function save_wikicache( $wikis ) {
-	file_put_contents( 'wikicache.json', json_encode( $wikis, JSON_PRETTY_PRINT ) );
-}
-
-function remove_from_wikicache( $wiki ) {
-	$cache = load_wikicache();
-	if ( $cache ) {
-		$wikis = json_decode( $cache, true );
-		unset( $wikis[$wiki] );
-		save_wikicache( $wikis );
-	}
 }
 
 $requestCache = [];
@@ -167,18 +339,6 @@ function get_branches( $repo ) {
 	// basically `git branch -r`, but without the silly parts
 	$branches = explode( "\n", shell_exec( "$gitcmd for-each-ref refs/remotes/origin/ --format='%(refname:short)'" ) );
 	return $branches;
-}
-
-function get_if_file_exists( $file ) {
-	return file_exists( $file ) ? file_get_contents( $file ) : null;
-}
-
-function get_creator( $wiki ) {
-	return trim( get_if_file_exists( 'wikis/' . $wiki . '/creator.txt' ) ?? '' );
-}
-
-function get_created( $wiki ) {
-	return trim( get_if_file_exists( 'wikis/' . $wiki . '/created.txt' ) ?? false );
 }
 
 function can_delete( $creator = null ) {
