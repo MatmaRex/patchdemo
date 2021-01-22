@@ -301,23 +301,16 @@ foreach ( $commands as $i => $command ) {
 	}
 }
 
-if ( $announce && count( $linkedTasks ) && $config['conduitApiKey'] ) {
+if ( $announce && count( $linkedTasks ) ) {
 	set_progress( 95, 'Posting to Phabricator...' );
-	$api = new \Phabricator\Phabricator( $config['phabricatorUrl'], $config['conduitApiKey'] );
 
 	foreach ( $linkedTasks as $task ) {
-		$api->Maniphest( 'edit', [
-			'objectIdentifier' => 'T' . $task,
-			'transactions' => [
-				[
-					'type' => 'comment',
-					'value' =>
-						"Test wiki created on [[ $server$serverPath | Patch Demo ]]" . ( $user ? ' by ' . $user->username : '' ) . " using patch(es) linked to this task:\n" .
-						"\n" .
-						"$server$serverPath/wikis/$namePath/w/"
-				]
-			]
-		] );
+		post_phab_comment(
+			'T' . $task,
+			"Test wiki **created** on [[ $server$serverPath | Patch Demo ]]" . ( $creator ? ' by ' . $creator : '' ) . " using patch(es) linked to this task:\n" .
+			"\n" .
+			"$server$serverPath/wikis/$namePath/w/"
+		);
 	}
 	wiki_add_announced_tasks( $namePath, $linkedTasks );
 }
