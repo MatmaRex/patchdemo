@@ -324,7 +324,7 @@ foreach ( $wikis as $wiki => $data ) {
 		'<td data-label="Wiki" class="wiki"><a href="wikis/' . $wiki . '/w" title="' . $wiki . '">' . $wiki . '</a></td>' .
 		'<td data-label="Patches" class="patches">' . ( $title ?: '<em>No patches</em>' ) . '</td>' .
 		'<td data-label="Linked tasks" class="linkedTasks">' . ( $linkedTasks ?: '<em>No tasks</em>' ) . '</td>' .
-		'<td data-label="Time" class="date">' . date( 'c', $data[ 'mtime' ] ) . '</td>' .
+		'<td data-label="Time" class="date">' . date( 'Y-m-d H:i:s', $data[ 'mtime' ] ) . '</td>' .
 		( $useOAuth ? '<td data-label="Creator">' . ( $creator ? user_link( $creator ) : '?' ) . '</td>' : '' ) .
 		( $canDelete ?
 			'<td data-label="Actions"><a href="delete.php?wiki=' . $wiki . '">Delete</a></td>' :
