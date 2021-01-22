@@ -291,11 +291,27 @@ function shell( $cmd ) {
 function delete_wiki( $wiki ) {
 	global $mysqli;
 
+	$wikiData = get_wiki_data( $wiki );
+
 	$cmd = make_shell_command( [
 		'PATCHDEMO' => __DIR__,
 		'WIKI' => $wiki
 	], __DIR__ . '/deletewiki.sh' );
 	$error = shell_echo( $cmd );
+
+	foreach ( $wikiData['announcedTasks'] as $task ) {
+		// TODO: Deduplicate server/serverPath with variables in new.php
+		$server = detectProtocol() . '://' . $_SERVER['HTTP_HOST'];
+		$serverPath = preg_replace( '`/[^/]*$`', '', $_SERVER['REQUEST_URI'] );
+
+		$creator = $wikiData['creator'];
+		post_phab_comment(
+			'T' . $task,
+			"Test wiki on [[ $server$serverPath | Patch Demo ]] " . ( $creator ? ' by ' . $creator : '' ) . " using patch(es) linked to this task was **deleted**:\n" .
+			"\n" .
+			"~~[[ $server$serverPath/wikis/$wiki/w/ ]]~~"
+		);
+	}
 
 	$stmt = $mysqli->prepare( 'DELETE FROM wikis WHERE wiki = ?' );
 	$stmt->bind_param( 's', $wiki );
@@ -393,6 +409,22 @@ function is_trusted_user( $email ) {
 	}
 
 	return false;
+}
+
+function post_phab_comment( $id, $comment ) {
+	global $config;
+	if ( $config['conduitApiKey'] ) {
+		$api = new \Phabricator\Phabricator( $config['phabricatorUrl'], $config['conduitApiKey'] );
+		$api->Maniphest( 'edit', [
+			'objectIdentifier' => $id,
+			'transactions' => [
+				[
+					'type' => 'comment',
+					'value' => $comment,
+				]
+			]
+		] );
+	}
 }
 
 function get_repo_presets() {
