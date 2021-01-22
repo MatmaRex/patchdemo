@@ -98,11 +98,19 @@ function wiki_add_announced_tasks( string $wiki, array $announcedTasks ) {
 	$stmt->close();
 }
 
+function wiki_set_time_to_create( string $wiki, int $timeToCreate ) {
+	global $mysqli;
+	$stmt = $mysqli->prepare( 'UPDATE wikis SET timeToCreate = ? WHERE wiki = ?' );
+	$stmt->bind_param( 'is', $timeToCreate, $wiki );
+	$stmt->execute();
+	$stmt->close();
+}
+
 function get_wiki_data( string $wiki ) {
 	global $mysqli;
 
 	$stmt = $mysqli->prepare( '
-		SELECT wiki, creator, UNIX_TIMESTAMP( created ) created, patches, announcedTasks
+		SELECT wiki, creator, UNIX_TIMESTAMP( created ) created, patches, announcedTasks, timeToCreate
 		FROM wikis WHERE wiki = ?
 	' );
 	if ( !$stmt ) {

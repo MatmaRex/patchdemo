@@ -9,6 +9,8 @@ if ( $useOAuth && !$user ) {
 	die();
 }
 
+$startTime = time();
+
 $branch = trim( $_POST['branch'] );
 $patches = trim( $_POST['patches'] );
 $announce = !empty( $_POST['announce'] );
@@ -320,6 +322,9 @@ if ( $announce && count( $linkedTasks ) && $config['conduitApiKey'] ) {
 	wiki_add_announced_tasks( $namePath, $linkedTasks );
 }
 
-set_progress( 100, 'All done!' );
+$timeToCreate = time() - $startTime;
+wiki_set_time_to_create( $namePath, $timeToCreate );
+
+set_progress( 100, 'All done! Wiki created in ' . $timeToCreate . 's.' );
 
 echo '</div>';

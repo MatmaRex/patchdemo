@@ -243,6 +243,7 @@ while ( $data = $results->fetch_assoc() ) {
 	$creator = $wikiData[ 'creator' ] ?? '';
 	$username = $user ? $user->username : null;
 	$canDelete = can_delete( $creator );
+	$canAdmin = can_admin();
 	$anyCanDelete = $anyCanDelete || $canDelete;
 	$closed = all_closed( $statuses );
 
@@ -260,9 +261,10 @@ while ( $data = $results->fetch_assoc() ) {
 		'<td data-label="Linked tasks" class="linkedTasks">' . ( $linkedTasks ?: '<em>No tasks</em>' ) . '</td>' .
 		'<td data-label="Time" class="date">' . date( 'Y-m-d H:i:s', $wikiData[ 'created' ] ) . '</td>' .
 		( $useOAuth ? '<td data-label="Creator">' . ( $creator ? user_link( $creator ) : '?' ) . '</td>' : '' ) .
+		( $canAdmin ? '<td data-label="Time to create">' . ( $wikiData['timeToCreate'] ? $wikiData['timeToCreate'] . 's' : '' ) . '</td>' : '' ) .
 		( $canDelete ?
 			'<td data-label="Actions"><a href="delete.php?wiki=' . $wiki . '">Delete</a></td>' :
-			''
+			( $anyCanDelete ? '<td></td>' : '' )
 		) .
 	'</tr>';
 
@@ -293,6 +295,7 @@ echo '<table class="wikis">' .
 		'<th>Linked tasks</th>' .
 		'<th>Time</th>' .
 		( $useOAuth ? '<th>Creator</th>' : '' ) .
+		( $canAdmin ? '<th><abbr title="Time to create">TTC</th>' : '' ) .
 		( $anyCanDelete ? '<th>Actions</th>' : '' ) .
 	'</tr>' .
 	$rows .
