@@ -173,8 +173,18 @@ function can_delete( $creator = null ) {
 	global $config, $user;
 	$username = $user ? $user->username : null;
 	$admins = $config[ 'oauth' ] ? $config[ 'oauth' ][ 'admins' ] : [];
-	return $config[ 'allowDelete' ] || ( $username && $username === $creator ) ||
-		( $username && in_array( $username, $admins, true ) );
+	return $config[ 'allowDelete' ] || ( $username && $username === $creator ) || can_admin();
+}
+
+function can_admin() {
+	global $config, $user;
+	if ( $config[ 'oauth'] ) {
+		$username = $user ? $user->username : null;
+		$admins = $config[ 'oauth' ] ? $config[ 'oauth' ][ 'admins' ] : [];
+		return $username && in_array( $username, $admins, true );
+	}
+	// Unauthenticated site, anyone can admin
+	return true;
 }
 
 function user_link( $username ) {
