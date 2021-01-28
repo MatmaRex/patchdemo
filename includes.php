@@ -53,9 +53,14 @@ if ( $user ) {
 }
 echo '
 					<div class="source">
-						<a href="https://github.com/MatmaRex/patchdemo">Source code</a> &bullet;
-						<a href="https://github.com/MatmaRex/patchdemo/issues">Issues</a>
-					</div>
+						<a href="https://github.com/MatmaRex/patchdemo">Source code</a>
+						&bullet;
+						<a href="https://github.com/MatmaRex/patchdemo/issues">Issues</a>' .
+						( can_admin() ?
+							' &bullet; <a href="editcounts.php">Edit counts</a>' :
+							''
+							) .
+					'</div>
 				</div>
 			</div>
 		</header>
@@ -81,6 +86,13 @@ function shell_echo( $cmd ) {
 	} );
 	echo '</pre>';
 	return $error;
+}
+
+function shell( $cmd ) {
+	$process = Process::fromShellCommandline( $cmd );
+	$process->setTimeout( null );
+	$error = $process->run();
+	return $error ? null : $process->getOutput();
 }
 
 function delete_wiki( $wiki ) {
