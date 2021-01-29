@@ -245,3 +245,18 @@ function get_repo_presets() {
 
 	return $presets;
 }
+
+function detectProtocol() {
+	// Copied from MediaWiki's WebRequest::detectProtocol
+	if (
+		( !empty( $_SERVER['HTTPS'] ) && $_SERVER['HTTPS'] !== 'off' ) ||
+		(
+			isset( $_SERVER['HTTP_X_FORWARDED_PROTO'] ) &&
+			$_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https'
+		)
+	) {
+		return 'https';
+	} else {
+		return 'http';
+	}
+}

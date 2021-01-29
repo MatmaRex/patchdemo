@@ -14,7 +14,7 @@ $patches = trim( $_POST['patches'] );
 $announce = !empty( $_POST['announce'] );
 
 $namePath = md5( $branch . $patches . time() );
-$server = ( isset( $_SERVER['HTTPS'] ) ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'];
+$server = detectProtocol() . '://' . $_SERVER['HTTP_HOST'];
 $serverPath = preg_replace( '`/[^/]*$`', '', $_SERVER['REQUEST_URI'] );
 
 function abandon( $err ) {
