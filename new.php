@@ -205,6 +205,8 @@ foreach ( $patchesApplied as $patch ) {
 		get_linked_tasks( $data['message'], $linkedTasks );
 	}
 
+	$t = htmlentities( $t );
+
 	$mainPage .= "\n:* [{$config['gerritUrl']}/r/c/$r/$p <nowiki>$t</nowiki>]";
 }
 
