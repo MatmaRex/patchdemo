@@ -12,37 +12,31 @@ if ( !can_admin() ) {
 $cache = load_wikicache();
 $wikis = json_decode( $cache, true );
 
-$fields = [
-	'total_edits' => 'Total edits',
-	'good_articles' => 'Number of articles',
-	'total_pages' => 'Total pages',
-	'users' => 'Number of users',
-	'active_users' => 'Active users',
-	'images' => 'Number of images',
+$short_fields = [
+	'ss_total_edits' => 'Edits',
+	'ss_good_articles' => 'Articles',
+	'ss_total_pages' => 'Pges',
+	'ss_users' => 'Users',
+	'ss_active_users' => 'Active users',
+	'ss_images' => 'Images',
 ];
 
-$short_fields = [
-	'total_edits' => 'Edits',
-	'good_articles' => 'Articles',
-	'total_pages' => 'Pges',
-	'users' => 'Users',
-	'active_users' => 'Active users',
-	'images' => 'Images',
-];
+$mysqli = new mysqli( 'localhost', 'patchdemo', 'patchdemo' );
+if ( $mysqli->connect_error ) {
+	die( $mysqli->connect_error );
+}
 
 foreach ( $wikis as $wiki => $data ) {
-	$cmd = 'php wikis/' . $wiki . '/w/maintenance/showSiteStats.php';
-	$stats = shell( $cmd );
-	if ( $stats ) {
-		foreach ( $fields as $field => $label ) {
-			preg_match( '/' . $label . ' *: *([0-9]+)/', $stats, $matches );
-			$wikis[$wiki][$field] = $matches[1];
-		}
+	foreach ( $mysqli->query( "select * from patchdemo_$wiki.site_stats limit 1" ) as $row ) {
+		$wikis[$wiki] += $row;
+	}
+	if ( $mysqli->error ) {
+		die( $mysqli->error );
 	}
 }
 
 uksort( $wikis, function ( $a, $b ) use ( $wikis ) {
-	return ( $wikis[ $a ][ 'total_edits' ] ?? -1 ) < ( $wikis[ $b ][ 'total_edits' ] ?? -1 );
+	return ( $wikis[ $a ][ 'ss_total_edits' ] ?? -1 ) < ( $wikis[ $b ][ 'ss_total_edits' ] ?? -1 );
 } );
 
 echo '<table class="wikis"><tr><th>Wiki</th>';
