@@ -14,7 +14,7 @@ $patches = trim( $_POST['patches'] );
 $announce = !empty( $_POST['announce'] );
 
 $namePath = md5( $branch . $patches . time() );
-$server = detectProtocol() . '://' . $_SERVER['HTTP_HOST'];
+$server = '//' . $_SERVER['HTTP_HOST'];
 $serverPath = preg_replace( '`/[^/]*$`', '', $_SERVER['REQUEST_URI'] );
 
 function abandon( $err ) {
@@ -287,6 +287,7 @@ foreach ( $commands as $i => $command ) {
 	}
 }
 
+$protocol = detectProtocol();
 if ( $announce && count( $linkedTasks ) && $config['conduitApiKey'] ) {
 	set_progress( 95, 'Posting to Phabricator...' );
 	$api = new \Phabricator\Phabricator( $config['phabricatorUrl'], $config['conduitApiKey'] );
@@ -298,9 +299,9 @@ if ( $announce && count( $linkedTasks ) && $config['conduitApiKey'] ) {
 				[
 					'type' => 'comment',
 					'value' =>
-						"Test wiki created on [[ $server$serverPath | Patch Demo ]]" . ( $user ? ' by ' . $user->username : '' ) . " using patch(es) linked to this task:\n" .
+						"Test wiki created on [[ $protocol$server$serverPath | Patch Demo ]]" . ( $user ? ' by ' . $user->username : '' ) . " using patch(es) linked to this task:\n" .
 						"\n" .
-						"$server$serverPath/wikis/$namePath/w/"
+						"$protocol$server$serverPath/wikis/$namePath/w/"
 				]
 			]
 		] );
