@@ -238,3 +238,11 @@ summary > .oo-ui-labelElement-label {
 	padding: 1em;
 	overflow-x: auto;
 }
+
+.consoleLog :first-child {
+	margin-top: 0;
+}
+
+.consoleLog :last-child {
+	margin-bottom: 0;
+}

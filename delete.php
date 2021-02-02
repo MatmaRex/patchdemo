@@ -26,9 +26,11 @@ if ( !isset( $_POST['confirm' ] ) ) {
 
 ob_implicit_flush( true );
 
+echo '<div class="consoleLog">';
 $error = delete_wiki( $wiki );
 if ( $error ) {
-	die( "Wiki not cleanly deleted, may have not been fully setup." );
+	die( 'Wiki not cleanly deleted, may have not been fully setup.' );
 }
+echo '</div>';
 
-echo "Wiki deleted.";
+echo '<p>Wiki deleted.</p>';
