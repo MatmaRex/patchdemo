@@ -17,18 +17,18 @@ $namePath = md5( $branch . $patches . time() );
 $server = detectProtocol() . '://' . $_SERVER['HTTP_HOST'];
 $serverPath = preg_replace( '`/[^/]*$`', '', $_SERVER['REQUEST_URI'] );
 
-function abandon( $err ) {
+function abandon( string $errHtml ) {
 	global $namePath;
-	$errJson = json_encode( $err );
+	$errJson = json_encode( $errHtml );
 	echo <<<EOT
 		<script>
 			pd.installProgressField.fieldWidget.setDisabled( true );
 			pd.installProgressField.fieldWidget.popPending();
-			pd.installProgressField.setErrors( [ $errJson ] );
+			pd.installProgressField.setErrors( [ new OO.ui.HtmlSnippet( $errJson ) ] );
 		</script>
 EOT;
 	delete_wiki( $namePath );
-	die( $err );
+	die( $errHtml );
 }
 
 function set_progress( int $pc, string $label ) {
@@ -107,10 +107,12 @@ foreach ( $patches as &$patch ) {
 	$data = gerrit_query( "changes/?q=change:$patchSafe&o=LABELS&o=CURRENT_REVISION", true );
 
 	if ( count( $data ) === 0 ) {
-		abandon( "Could not find patch $patchSafe" );
+		$patchSafe = htmlentities( $patchSafe );
+		abandon( "Could not find patch <em>$patchSafe</em>" );
 	}
 	if ( count( $data ) !== 1 ) {
-		abandon( "Ambiguous query $patchSafe" );
+		$patchSafe = htmlentities( $patchSafe );
+		abandon( "Ambiguous query <em>$patchSafe</em>" );
 	}
 
 	// get the info
@@ -122,7 +124,8 @@ foreach ( $patches as &$patch ) {
 
 	$repos = get_repo_data();
 	if ( !isset( $repos[ $repo ] ) ) {
-		abandon( "Repository $repo not supported" );
+		$repo = htmlentities( $repo );
+		abandon( "Repository <em>$repo</em> not supported" );
 	}
 	$path = $repos[ $repo ];
 
