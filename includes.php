@@ -93,7 +93,7 @@ function wiki_add_announced_tasks( string $wiki, array $announcedTasks ) {
 	global $mysqli;
 	$stmt = $mysqli->prepare( 'UPDATE wikis SET announcedTasks = ? WHERE wiki = ?' );
 	$announcedTasks = json_encode( $announcedTasks );
-	$stmt->bind_param( 'ss', $accouncedTasks, $wiki );
+	$stmt->bind_param( 'ss', $announcedTasks, $wiki );
 	$stmt->execute();
 	$stmt->close();
 }
