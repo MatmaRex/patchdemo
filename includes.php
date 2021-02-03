@@ -217,6 +217,17 @@ function get_patch_data( $r, $p ) {
 function get_task_data( int $task ) {
 	global $config, $mysqli;
 
+	if ( !$config['conduitApiKey'] ) {
+		// No API access means no task metadata
+		return [
+			'id' => 'T' . $task,
+			'task' => $task,
+			'title' => '',
+			'status' => '',
+			'updated' => time(),
+		];
+	}
+
 	$stmt = $mysqli->prepare( '
 		SELECT task, title, status, UNIX_TIMESTAMP(updated) updated
 		FROM tasks WHERE task = ?
@@ -230,14 +241,12 @@ function get_task_data( int $task ) {
 	// Task titles & statuses can change, so re-fetch every 24 hours
 	if ( !$data || ( time() - $data['updated'] > 24 * 60 * 60 ) || !$data['status'] ) {
 		$title = '';
-		if ( $config['conduitApiKey'] ) {
-			$api = new \Phabricator\Phabricator( $config['phabricatorUrl'], $config['conduitApiKey'] );
-			$maniphestData = $api->Maniphest( 'info', [
-				'task_id' => $task
-			] )->getResult();
-			$title = $maniphestData['title'];
-			$status = $maniphestData['status'];
-		}
+		$api = new \Phabricator\Phabricator( $config['phabricatorUrl'], $config['conduitApiKey'] );
+		$maniphestData = $api->Maniphest( 'info', [
+			'task_id' => $task
+		] )->getResult();
+		$title = $maniphestData['title'];
+		$status = $maniphestData['status'];
 
 		// Update cache
 		$stmt = $mysqli->prepare( '

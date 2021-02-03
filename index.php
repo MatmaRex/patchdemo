@@ -235,7 +235,7 @@ while ( $data = $results->fetch_assoc() ) {
 
 	$taskDescs = [];
 	foreach ( $wikiData['linkedTaskList'] as $task => $taskData ) {
-		$taskTitle = $taskData['id'] . ': ' . htmlspecialchars( $taskData['title'] );
+		$taskTitle = $taskData['id'] . ( $taskData['title'] ? ': ' . htmlspecialchars( $taskData['title'] ) : '' );
 		$taskDescs[] = '<a href="' . $config['phabricatorUrl'] . '/' . $taskData['id'] . '" title="' . $taskTitle . '" class="status-' . $taskData['status'] . '">' . $taskTitle . '</a>';
 	}
 	$linkedTasks = implode( '<br>', $taskDescs );
