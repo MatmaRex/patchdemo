@@ -218,7 +218,7 @@ function get_task_data( int $task ) {
 	global $config, $mysqli;
 
 	$stmt = $mysqli->prepare( '
-		SELECT task, title, UNIX_TIMESTAMP(updated) updated
+		SELECT task, title, status, UNIX_TIMESTAMP(updated) updated
 		FROM tasks WHERE task = ?
 	' );
 	$stmt->bind_param( 'i', $task );
@@ -227,30 +227,33 @@ function get_task_data( int $task ) {
 	$data = $res->fetch_assoc();
 	$stmt->close();
 
-	// Task titles can change, so re-fetch every 24 hours
-	if ( !$data || ( time() - $data['updated'] > 24 * 60 * 60 ) ) {
+	// Task titles & statuses can change, so re-fetch every 24 hours
+	if ( !$data || ( time() - $data['updated'] > 24 * 60 * 60 ) || !$data['status'] ) {
 		$title = '';
 		if ( $config['conduitApiKey'] ) {
 			$api = new \Phabricator\Phabricator( $config['phabricatorUrl'], $config['conduitApiKey'] );
-			$title = $api->Maniphest( 'info', [
+			$maniphestData = $api->Maniphest( 'info', [
 				'task_id' => $task
-			] )->getResult()['title'];
+			] )->getResult();
+			$title = $maniphestData['title'];
+			$status = $maniphestData['status'];
 		}
 
 		// Update cache
 		$stmt = $mysqli->prepare( '
-			INSERT INTO tasks (task, title, updated)
-			VALUES(?, ?, NOW())
+			INSERT INTO tasks (task, title, status, updated)
+			VALUES(?, ?, ?, NOW())
 			ON DUPLICATE KEY UPDATE
-			title = ?, updated = NOW()
+			title = ?, status = ?, updated = NOW()
 		' );
-		$stmt->bind_param( 'iss', $task, $title, $title );
+		$stmt->bind_param( 'issss', $task, $title, $status, $title, $status );
 		$stmt->execute();
 		$stmt->close();
 
 		$data = [
 			'task' => $task,
 			'title' => $title,
+			'status' => $status,
 			'updated' => time(),
 		];
 	}

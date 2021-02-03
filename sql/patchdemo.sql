@@ -33,3 +33,6 @@ ALTER TABLE `wikis`
 
 ALTER TABLE `wikis`
 	ADD INDEX IF NOT EXISTS `created` (`created`);
+
+ALTER TABLE `tasks`
+	ADD COLUMN IF NOT EXISTS `status` VARCHAR(16) NOT NULL AFTER `title`;
