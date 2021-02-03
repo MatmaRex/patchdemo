@@ -196,7 +196,6 @@ if ( $user ) {
 	);
 }
 ?>
-<p><em>✓=Merged ✗=Abandoned</em></p>
 <?php
 
 function all_closed( $statuses ) {
@@ -237,7 +236,7 @@ while ( $data = $results->fetch_assoc() ) {
 	$taskDescs = [];
 	foreach ( $wikiData['linkedTaskList'] as $task => $taskData ) {
 		$taskTitle = $taskData['id'] . ': ' . htmlspecialchars( $taskData['title'] );
-		$taskDescs[] = '<a href="' . $config['phabricatorUrl'] . '/' . $taskData['id'] . '" title="' . $taskTitle . '">' . $taskTitle . '</a>';
+		$taskDescs[] = '<a href="' . $config['phabricatorUrl'] . '/' . $taskData['id'] . '" title="' . $taskTitle . '" class="status-' . $taskData['status'] . '">' . $taskTitle . '</a>';
 	}
 	$linkedTasks = implode( '<br>', $taskDescs );
 
@@ -291,8 +290,8 @@ if ( $closedWikis ) {
 echo '<table class="wikis">' .
 	'<tr>' .
 		'<th>Wiki</th>' .
-		'<th>Patches</th>' .
-		'<th>Linked tasks</th>' .
+		'<th>Patches<br /><em>✓=Merged ✗=Abandoned</em></th>' .
+		'<th>Linked tasks<br /><em>✓=Resolved ✗=Declined/Invalid</em></th>' .
 		'<th>Time</th>' .
 		( $useOAuth ? '<th>Creator</th>' : '' ) .
 		( $canAdmin ? '<th><abbr title="Time to create">TTC</th>' : '' ) .

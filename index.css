@@ -111,6 +111,15 @@ summary > .oo-ui-labelElement-label {
 	content: '✓';
 }
 
+.status-declined:before,
+.status-invalid:before {
+	content: '✗';
+}
+
+.status-resolved:before {
+	content: '✓';
+}
+
 .wikis {
 	width: 100%;
 	border: 1px solid #a2a9b1;
@@ -141,6 +150,11 @@ summary > .oo-ui-labelElement-label {
 	position: sticky;
 	/* Adjust for <header> */
 	top: calc( 5em - 1px );
+}
+
+.wikis th em {
+	font-weight: normal;
+	font-size: 90%;
 }
 
 .wikis tr {
