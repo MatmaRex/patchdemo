@@ -211,6 +211,7 @@ function all_closed( $statuses ) {
 $rows = '';
 $anyCanDelete = false;
 $closedWikis = 0;
+$canAdmin = can_admin();
 
 $results = $mysqli->query( 'SELECT wiki FROM wikis ORDER BY created DESC' );
 if ( !$results ) {
@@ -243,7 +244,6 @@ while ( $data = $results->fetch_assoc() ) {
 	$creator = $wikiData[ 'creator' ] ?? '';
 	$username = $user ? $user->username : null;
 	$canDelete = can_delete( $creator );
-	$canAdmin = can_admin();
 	$anyCanDelete = $anyCanDelete || $canDelete;
 	$closed = all_closed( $statuses );
 
