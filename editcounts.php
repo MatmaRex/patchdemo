@@ -29,9 +29,6 @@ while ( $data = $results->fetch_assoc() ) {
 	foreach ( $mysqli->query( "SELECT * FROM patchdemo_$wiki.site_stats LIMIT 1" ) as $row ) {
 		$wikis[$wiki] += $row;
 	}
-	if ( $mysqli->error ) {
-		die( $mysqli->error );
-	}
 }
 
 uksort( $wikis, function ( $a, $b ) use ( $wikis ) {
