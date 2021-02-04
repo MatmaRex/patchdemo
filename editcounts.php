@@ -10,12 +10,32 @@ if ( !can_admin() ) {
 }
 
 $short_fields = [
-	'ss_total_edits' => 'Edits',
-	'ss_good_articles' => 'Articles',
-	'ss_total_pages' => 'Pages',
-	'ss_users' => 'Users',
-	'ss_active_users' => 'Active users',
-	'ss_images' => 'Images',
+	'ss_total_edits' => [
+		'label' => 'Edits',
+		'link' => 'Special:RecentChanges?days=90',
+	],
+	'ss_good_articles' => [
+		'label' => 'Articles',
+		'link' => 'Special:AllPages',
+	],
+	'ss_total_pages' => [
+		'label' => 'Pages',
+		// Doesn't appear to be a list of all pages anywhere
+		'link' => 'Special:AllPages',
+	],
+	'ss_users' => [
+		'label' => 'Users',
+		'link' => 'Special:ListUsers',
+	],
+	'ss_active_users' => [
+		'label' => 'Active users',
+		'link' => 'Special:ActiveUsers',
+	],
+	'ss_images' => [
+		'label' => 'Images',
+		// Or Special:MediaStatistics?
+		'link' => 'Special:ListFiles',
+	],
 ];
 
 $results = $mysqli->query( 'SELECT wiki FROM wikis WHERE !deleted ORDER BY created DESC' );
@@ -36,15 +56,19 @@ uksort( $wikis, function ( $a, $b ) use ( $wikis ) {
 } );
 
 echo '<table class="wikis"><tr><th>Wiki</th>';
-foreach ( $short_fields as $field => $label ) {
-	echo '<th>' . $label . '</th>';
+foreach ( $short_fields as $field => $fieldMeta ) {
+	echo '<th>' . $fieldMeta['label'] . '</th>';
 }
 foreach ( $wikis as $wiki => $data ) {
 	echo '<tr>' .
-		'<td data-label="Wikis"><a href="wikis/' . $wiki . '/w/index.php/Special:RecentChanges" title="' . $wiki . '">' . $wiki . '</a></td>';
+		'<td data-label="Wikis"><a href="wikis/' . $wiki . '/w/index.php" title="' . $wiki . '">' . $wiki . '</a></td>';
 
-	foreach ( $short_fields as $field => $label ) {
-		echo '<td data-label="' . $label . '">' . ( isset( $data[$field] ) ? $data[$field] : '<em>?</em>' ) . '</td>';
+	foreach ( $short_fields as $field => $fieldMeta ) {
+		echo '<td data-label="' . $fieldMeta['label'] . '">' .
+			'<a href="wikis/' . $wiki . '/w/index.php/' . $fieldMeta['link'] . '">' .
+				( isset( $data[$field] ) ? $data[$field] : '<em>?</em>' ) .
+			'</a>' .
+		'</td>';
 	}
 	echo '</tr>';
 }
