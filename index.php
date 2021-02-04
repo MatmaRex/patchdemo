@@ -294,7 +294,7 @@ echo '<table class="wikis">' .
 		'<th>Linked tasks<br /><em>✓=Resolved ✗=Declined/Invalid</em></th>' .
 		'<th>Time</th>' .
 		( $useOAuth ? '<th>Creator</th>' : '' ) .
-		( $canAdmin ? '<th><abbr title="Time to create">TTC</th>' : '' ) .
+		( $canAdmin ? '<th><abbr title="Time to create">TTC</abbr></th>' : '' ) .
 		( $anyCanDelete ? '<th>Actions</th>' : '' ) .
 	'</tr>' .
 	$rows .

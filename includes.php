@@ -24,7 +24,7 @@ if ( $basePath === '/' ) {
 $is404 = basename( $_SERVER['SCRIPT_NAME'] ) === '404.php';
 
 echo '<!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<title>Patch demo</title>
