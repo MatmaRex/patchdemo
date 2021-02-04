@@ -34,5 +34,8 @@ ALTER TABLE `wikis`
 ALTER TABLE `wikis`
 	ADD INDEX IF NOT EXISTS `created` (`created`);
 
+ALTER TABLE `wikis`
+	ADD COLUMN IF NOT EXISTS `deleted` BIT NOT NULL DEFAULT 0 AFTER `timeToCreate`;
+
 ALTER TABLE `tasks`
 	ADD COLUMN IF NOT EXISTS `status` VARCHAR(16) NOT NULL AFTER `title`;

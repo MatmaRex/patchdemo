@@ -110,7 +110,7 @@ function get_wiki_data( string $wiki ) {
 	global $mysqli;
 
 	$stmt = $mysqli->prepare( '
-		SELECT wiki, creator, UNIX_TIMESTAMP( created ) created, patches, announcedTasks, timeToCreate
+		SELECT wiki, creator, UNIX_TIMESTAMP( created ) created, patches, announcedTasks, timeToCreate, deleted
 		FROM wikis WHERE wiki = ?
 	' );
 	if ( !$stmt ) {
@@ -305,6 +305,10 @@ function delete_wiki( $wiki ) {
 
 	$wikiData = get_wiki_data( $wiki );
 
+	if ( $wikiData['deleted'] ) {
+		return 'Wiki already deleted.';
+	}
+
 	$cmd = make_shell_command( [
 		'PATCHDEMO' => __DIR__,
 		'WIKI' => $wiki
@@ -325,7 +329,11 @@ function delete_wiki( $wiki ) {
 		);
 	}
 
-	$stmt = $mysqli->prepare( 'DELETE FROM wikis WHERE wiki = ?' );
+	$stmt = $mysqli->prepare( '
+		UPDATE wikis
+		SET deleted = 1
+		WHERE wiki = ?
+	' );
 	$stmt->bind_param( 's', $wiki );
 	$stmt->execute();
 	$stmt->close();

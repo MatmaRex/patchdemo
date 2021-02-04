@@ -212,7 +212,7 @@ $anyCanDelete = false;
 $closedWikis = 0;
 $canAdmin = can_admin();
 
-$results = $mysqli->query( 'SELECT wiki FROM wikis ORDER BY created DESC' );
+$results = $mysqli->query( 'SELECT wiki FROM wikis WHERE !deleted ORDER BY created DESC' );
 if ( !$results ) {
 	die( $mysqli->error );
 }

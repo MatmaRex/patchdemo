@@ -253,6 +253,10 @@ summary > .oo-ui-labelElement-label {
 	overflow-x: auto;
 }
 
+.consoleLog:empty {
+	padding: 0;
+}
+
 .consoleLog :first-child {
 	margin-top: 0;
 }
