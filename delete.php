@@ -27,9 +27,10 @@ ob_implicit_flush( true );
 
 echo '<div class="consoleLog">';
 $error = delete_wiki( $wiki );
-if ( $error ) {
-	die( 'Wiki not cleanly deleted, may have not been fully setup.' );
-}
 echo '</div>';
 
-echo '<p>Wiki deleted.</p>';
+if ( $error ) {
+	die( '<p>Error deleting wiki:<br>' . htmlentities( $error ) . '</p>' );
+} else {
+	echo '<p>Wiki deleted.</p>';
+}
