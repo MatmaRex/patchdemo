@@ -19,12 +19,14 @@ $namePath = md5( $branch . $patches . time() );
 $server = detectProtocol() . '://' . $_SERVER['HTTP_HOST'];
 $serverPath = preg_replace( '`/[^/]*$`', '', $_SERVER['REQUEST_URI'] );
 
+$branchDesc = preg_replace( '/^origin\//', '', $branch );
+
 $creator = $user ? $user->username : '';
 $created = time();
 
 // Create an entry for the wiki before we have resolved patches.
 // Will be updated later.
-insert_wiki_data( $namePath, $creator, $created );
+insert_wiki_data( $namePath, $creator, $created, $branchDesc );
 
 function abandon( string $errHtml ) {
 	global $namePath;
@@ -190,8 +192,6 @@ foreach ( $patches as &$patch ) {
 	}
 }
 
-$branchDesc = preg_replace( '/^origin\//', '', $branch );
-
 $wikiName = "Patch Demo (" . trim(
 	// Add branch name if it's not master, or if there are no patches
 	( $branchDesc !== 'master' || !$patchesApplied ? $branchDesc : '' ) . ' ' .
@@ -200,7 +200,7 @@ $wikiName = "Patch Demo (" . trim(
 ) . ")";
 
 // Update DB record with patches applied
-insert_wiki_data( $namePath, $creator, $created, $patchesApplied );
+wiki_add_patches( $namePath, $patchesApplied );
 
 $mainPage = "This wiki was generated on [$server$serverPath Patch Demo] at ~~~~~.
 

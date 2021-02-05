@@ -71,20 +71,26 @@ if ( $mysqli->connect_error ) {
 	die( $mysqli->connect_error );
 }
 
-function insert_wiki_data( string $wiki, string $creator, int $created, array $patches = [] ) {
+function insert_wiki_data( string $wiki, string $creator, int $created, string $branch ) {
 	global $mysqli;
 	$stmt = $mysqli->prepare( '
 		INSERT INTO wikis
-		(wiki, creator, created, patches)
+		(wiki, creator, created, branch)
 		VALUES(?, ?, FROM_UNIXTIME(?), ?)
-		ON DUPLICATE KEY UPDATE
-		patches = ?
 	' );
 	if ( !$stmt ) {
 		echo $mysqli->error;
 	}
+	$stmt->bind_param( 'ssis', $wiki, $creator, $created, $branch );
+	$stmt->execute();
+	$stmt->close();
+}
+
+function wiki_add_patches( string $wiki, array $patches ) {
+	global $mysqli;
+	$stmt = $mysqli->prepare( 'UPDATE wikis SET patches = ? WHERE wiki = ?' );
 	$patches = json_encode( $patches );
-	$stmt->bind_param( 'ssiss', $wiki, $creator, $created, $patches, $patches );
+	$stmt->bind_param( 'ss', $patches, $wiki );
 	$stmt->execute();
 	$stmt->close();
 }
@@ -110,7 +116,7 @@ function get_wiki_data( string $wiki ) {
 	global $mysqli;
 
 	$stmt = $mysqli->prepare( '
-		SELECT wiki, creator, UNIX_TIMESTAMP( created ) created, patches, announcedTasks, timeToCreate, deleted
+		SELECT wiki, creator, UNIX_TIMESTAMP( created ) created, patches, branch, announcedTasks, timeToCreate, deleted
 		FROM wikis WHERE wiki = ?
 	' );
 	if ( !$stmt ) {
