@@ -256,7 +256,10 @@ while ( $data = $results->fetch_assoc() ) {
 
 	$rows .= '<tr class="' . implode( ' ', $classes ) . '">' .
 		'<td data-label="Wiki" class="wiki"><a href="wikis/' . $wiki . '/w" title="' . $wiki . '">' . $wiki . '</a></td>' .
-		'<td data-label="Patches" class="patches">' . ( $patches ?: '<em>No patches</em>' ) . '</td>' .
+		'<td data-label="Patches" class="patches">' .
+			( $patches ?: '<em>No patches</em>' ) .
+			( $wikiData['branch'] && $wikiData['branch'] !== 'master' ? '<br>Branch: ' . $wikiData['branch'] : '' ) .
+		'</td>' .
 		'<td data-label="Linked tasks" class="linkedTasks">' . ( $linkedTasks ?: '<em>No tasks</em>' ) . '</td>' .
 		'<td data-label="Time" class="date">' . date( 'Y-m-d H:i:s', $wikiData[ 'created' ] ) . '</td>' .
 		( $useOAuth ? '<td data-label="Creator">' . ( $creator ? user_link( $creator ) : '?' ) . '</td>' : '' ) .
