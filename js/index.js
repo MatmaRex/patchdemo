@@ -8,9 +8,22 @@
 		var patchesInput = OO.ui.infuse( $( '.form-patches' ) );
 		var patchesLayout = OO.ui.infuse( $( '.form-patches-layout' ) );
 
-		form.addEventListener( 'submit', function () {
+		form.addEventListener( 'submit', function ( e ) {
 			// Blur is not fired on patchesInput, so call manually
 			patchesInput.doInputEnter();
+
+			if ( !patchesInput.getValue().length ) {
+				OO.ui.confirm(
+					'Are you sure you want to create a demo with no patches applied?'
+				).then( function ( confirmed ) {
+					if ( confirmed ) {
+						form.submit();
+					}
+				} );
+				e.preventDefault();
+				return;
+			}
+
 			submit.setDisabled( true );
 			return false;
 		} );
