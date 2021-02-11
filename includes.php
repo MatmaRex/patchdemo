@@ -392,21 +392,25 @@ function get_branches( $repo ) {
 }
 
 function can_delete( $creator = null ) {
-	global $config, $user;
+	global $config, $user, $useOAuth;
+	if ( !$useOAuth ) {
+		// Unauthenticated site
+		return true;
+	}
 	$username = $user ? $user->username : null;
-	$admins = $config[ 'oauth' ] ? $config[ 'oauth' ][ 'admins' ] : [];
-	return $config[ 'allowDelete' ] || ( $username && $username === $creator ) || can_admin();
+	$admins = $useOAuth ? $config[ 'oauth' ][ 'admins' ] : [];
+	return ( $username && $username === $creator ) || can_admin();
 }
 
 function can_admin() {
-	global $config, $user;
-	if ( $config[ 'oauth'] ) {
-		$username = $user ? $user->username : null;
-		$admins = $config[ 'oauth' ] ? $config[ 'oauth' ][ 'admins' ] : [];
-		return $username && in_array( $username, $admins, true );
+	global $config, $user, $useOAuth;
+	if ( !$useOAuth ) {
+		// Unauthenticated site
+		return true;
 	}
-	// Unauthenticated site, anyone can admin
-	return true;
+	$username = $user ? $user->username : null;
+	$admins = $config[ 'oauth' ][ 'admins' ];
+	return $username && in_array( $username, $admins, true );
 }
 
 function user_link( $username ) {

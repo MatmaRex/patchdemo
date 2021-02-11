@@ -4,8 +4,6 @@ $config = [
 	'gerritUrl' => 'https://gerrit.wikimedia.org',
 	// Message shown below the main form (allows HTML formatting)
 	'banner' => '',
-	// Allow any user to delete wikis, e.g. on a private installation
-	'allowDelete' => false,
 	// Require that patches are V+2 before building the wiki
 	'requireVerified' => true,
 	// OAuth config. When enabled only authenticated users can create
