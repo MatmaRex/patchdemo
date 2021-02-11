@@ -392,13 +392,12 @@ function get_branches( $repo ) {
 }
 
 function can_delete( $creator = null ) {
-	global $config, $user, $useOAuth;
+	global $user, $useOAuth;
 	if ( !$useOAuth ) {
 		// Unauthenticated site
 		return true;
 	}
 	$username = $user ? $user->username : null;
-	$admins = $useOAuth ? $config[ 'oauth' ][ 'admins' ] : [];
 	return ( $username && $username === $creator ) || can_admin();
 }
 
