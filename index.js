@@ -17,19 +17,21 @@
 			return false;
 		} );
 
-		myWikis = OO.ui.infuse( $( '.myWikis' ) );
-		myWikis.on( 'change', updateTableClasses );
+		if ( $( '.myWikis' ).length ) {
+			myWikis = OO.ui.infuse( $( '.myWikis' ) );
+			myWikis.on( 'change', updateTableClasses );
 
-		closedWikis = OO.ui.infuse( $( '.closedWikis' ) );
-		closedWikis.on( 'change', updateTableClasses );
+			closedWikis = OO.ui.infuse( $( '.closedWikis' ) );
+			closedWikis.on( 'change', updateTableClasses );
 
-		if ( $( '.showClosed' ).length ) {
-			showClosed = OO.ui.infuse( $( '.showClosed' ) );
-			showClosed.on( 'click', function () {
-				myWikis.setSelected( true );
-				closedWikis.setSelected( true );
-				updateTableClasses();
-			} );
+			if ( $( '.showClosed' ).length ) {
+				showClosed = OO.ui.infuse( $( '.showClosed' ) );
+				showClosed.on( 'click', function () {
+					myWikis.setSelected( true );
+					closedWikis.setSelected( true );
+					updateTableClasses();
+				} );
+			}
 		}
 
 		branchSelect = OO.ui.infuse( $( '.form-branch' ) );
