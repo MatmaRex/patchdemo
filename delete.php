@@ -10,8 +10,29 @@ if ( !can_delete( $wikiData['creator'] ) ) {
 }
 
 if ( !isset( $_POST['confirm' ] ) ) {
+	$patches = format_patch_list( $wikiData['patchList'], $wikiData['branch'] );
+	$linkedTasks = format_linked_tasks( $wikiData['linkedTaskList'] );
+	$creator = $wikiData[ 'creator' ] ?? '';
+
+	echo '<table class="wikis">' .
+		'<tr>' .
+			'<th>Wiki</th>' .
+			'<th>Patches<br /><em>✓=Merged ✗=Abandoned</em></th>' .
+			'<th>Linked tasks<br /><em>✓=Resolved ✗=Declined/Invalid</em></th>' .
+			'<th>Time</th>' .
+			( $useOAuth ? '<th>Creator</th>' : '' ) .
+		'</tr>' .
+		'<tr>' .
+			'<td data-label="Wiki" class="wiki"><a href="wikis/' . $wiki . '/w" title="' . $wiki . '">' . $wiki . '</a></td>' .
+			'<td data-label="Patches" class="patches">' . $patches . '</td>' .
+			'<td data-label="Linked tasks" class="linkedTasks">' . $linkedTasks . '</td>' .
+			'<td data-label="Time" class="date">' . date( 'Y-m-d H:i:s', $wikiData[ 'created' ] ) . '</td>' .
+			( $useOAuth ? '<td data-label="Creator">' . ( $creator ? user_link( $creator ) : '?' ) . '</td>' : '' ) .
+		'</tr>' .
+	'</table>';
+
 	echo '<form method="POST">' .
-		'<p>Are you sure you want to delete this wiki: <a href="wikis/' . $wiki . '/w">' . $wiki . '</a>?</p>' .
+		'<p>Are you sure you want to delete this wiki?</p>' .
 		'<p>This cannot be undone.</p>' .
 		new OOUI\ButtonInputWidget( [
 			'type' => 'submit',

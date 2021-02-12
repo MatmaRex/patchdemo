@@ -277,6 +277,44 @@ function get_task_data( int $task ) {
 	return $data;
 }
 
+function all_closed( $statuses ) {
+	foreach ( $statuses as $status ) {
+		if ( $status !== 'MERGED' && $status !== 'ABANDONED' ) {
+			return false;
+		}
+	}
+	return true;
+}
+
+function format_patch_list( array $patchList, ?string $branch, bool &$closed = false ) : string {
+	$statuses = [];
+	$patches = implode( '<br>', array_map( function ( $patchData ) use ( &$statuses, &$linkedTaskList ) {
+		global $config;
+		$statuses[] = $patchData['status'];
+		$title = $patchData['patch'] . ': ' . $patchData[ 'subject' ];
+
+		return '<a href="' . $config['gerritUrl'] . '/r/c/' . $patchData['r'] . '/' . $patchData['p'] . '" title="' . htmlspecialchars( $title ) . '" class="status-' . $patchData['status'] . '">' .
+			htmlspecialchars( $title ) .
+		'</a>';
+	}, $patchList ) );
+
+	$closed = all_closed( $statuses );
+
+	return ( $patches ?: '<em>No patches</em>' ) .
+			( $branch && $branch !== 'master' ? '<br>Branch: ' . $branch : '' );
+}
+
+function format_linked_tasks( array $linkedTasks ) : string {
+	global $config;
+	$taskDescs = [];
+	foreach ( $linkedTasks as $task => $taskData ) {
+		$taskTitle = $taskData['id'] . ( $taskData['title'] ? ': ' . htmlspecialchars( $taskData['title'] ) : '' );
+		$taskDescs[] = '<a href="' . $config['phabricatorUrl'] . '/' . $taskData['id'] . '" title="' . $taskTitle . '" class="status-' . $taskData['status'] . '">' . $taskTitle . '</a>';
+	}
+	$linkedTasks = implode( '<br>', $taskDescs );
+	return $linkedTasks ?: '<em>No tasks</em>';
+}
+
 function make_shell_command( $env, $cmd ) {
 	$prefix = '';
 	foreach ( $env as $key => $value ) {
