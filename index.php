@@ -198,15 +198,6 @@ if ( $user ) {
 ?>
 <?php
 
-function all_closed( $statuses ) {
-	foreach ( $statuses as $status ) {
-		if ( $status !== 'MERGED' && $status !== 'ABANDONED' ) {
-			return false;
-		}
-	}
-	return true;
-}
-
 $rows = '';
 $anyCanDelete = false;
 $closedWikis = 0;
@@ -219,32 +210,15 @@ if ( !$results ) {
 while ( $data = $results->fetch_assoc() ) {
 	$wiki = $data['wiki'];
 	$wikiData = get_wiki_data( $wiki );
-	$statuses = [];
-	$patches = '?';
-	$linkedTasks = '';
 
-	$patches = implode( '<br>', array_map( function ( $patchData ) use ( &$statuses, &$linkedTaskList ) {
-		global $config;
-		$statuses[] = $patchData['status'];
-		$title = $patchData['patch'] . ': ' . $patchData[ 'subject' ];
-
-		return '<a href="' . $config['gerritUrl'] . '/r/c/' . $patchData['r'] . '/' . $patchData['p'] . '" title="' . htmlspecialchars( $title ) . '" class="status-' . $patchData['status'] . '">' .
-			htmlspecialchars( $title ) .
-		'</a>';
-	}, $wikiData['patchList'] ) );
-
-	$taskDescs = [];
-	foreach ( $wikiData['linkedTaskList'] as $task => $taskData ) {
-		$taskTitle = $taskData['id'] . ( $taskData['title'] ? ': ' . htmlspecialchars( $taskData['title'] ) : '' );
-		$taskDescs[] = '<a href="' . $config['phabricatorUrl'] . '/' . $taskData['id'] . '" title="' . $taskTitle . '" class="status-' . $taskData['status'] . '">' . $taskTitle . '</a>';
-	}
-	$linkedTasks = implode( '<br>', $taskDescs );
+	$closed = false;
+	$patches = format_patch_list( $wikiData['patchList'], $wikiData['branch'], $closed );
+	$linkedTasks = format_linked_tasks( $wikiData['linkedTaskList'] );
 
 	$creator = $wikiData[ 'creator' ] ?? '';
 	$username = $user ? $user->username : null;
 	$canDelete = can_delete( $creator );
 	$anyCanDelete = $anyCanDelete || $canDelete;
-	$closed = all_closed( $statuses );
 
 	$classes = [];
 	if ( $creator !== $username ) {
@@ -256,11 +230,8 @@ while ( $data = $results->fetch_assoc() ) {
 
 	$rows .= '<tr class="' . implode( ' ', $classes ) . '">' .
 		'<td data-label="Wiki" class="wiki"><a href="wikis/' . $wiki . '/w" title="' . $wiki . '">' . $wiki . '</a></td>' .
-		'<td data-label="Patches" class="patches">' .
-			( $patches ?: '<em>No patches</em>' ) .
-			( $wikiData['branch'] && $wikiData['branch'] !== 'master' ? '<br>Branch: ' . $wikiData['branch'] : '' ) .
-		'</td>' .
-		'<td data-label="Linked tasks" class="linkedTasks">' . ( $linkedTasks ?: '<em>No tasks</em>' ) . '</td>' .
+		'<td data-label="Patches" class="patches">' . $patches . '</td>' .
+		'<td data-label="Linked tasks" class="linkedTasks">' . $linkedTasks . '</td>' .
 		'<td data-label="Time" class="date">' . date( 'Y-m-d H:i:s', $wikiData[ 'created' ] ) . '</td>' .
 		( $useOAuth ? '<td data-label="Creator">' . ( $creator ? user_link( $creator ) : '?' ) . '</td>' : '' ) .
 		( $canAdmin ? '<td data-label="Time to create">' . ( $wikiData['timeToCreate'] ? $wikiData['timeToCreate'] . 's' : '' ) . '</td>' : '' ) .
