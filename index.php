@@ -147,6 +147,19 @@ if ( $useOAuth && !$user ) {
 						]
 					),
 					new OOUI\FieldLayout(
+						new OOUI\CheckboxInputWidget( [
+							'name' => 'proxy',
+							'value' => 1,
+							'selected' => false
+						] ),
+						[
+							'label' => 'Proxy articles from en.wikipedia.org',
+							'help' => 'Any articles not local to the wiki will be pulled from English Wikipedia.',
+							'helpInline' => true,
+							'align' => 'left',
+						]
+					),
+					new OOUI\FieldLayout(
 						new OOUI\ButtonInputWidget( [
 							'classes' => [ 'form-submit' ],
 							'label' => 'Create demo',
