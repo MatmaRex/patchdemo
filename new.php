@@ -248,10 +248,18 @@ foreach ( $linkedTasks as $task ) {
 // Choose repositories to enable
 $repos = get_repo_data();
 
+$useProxy = (int)$_POST['proxy'];
+
 if ( $_POST['preset'] === 'custom' ) {
 	$allowedRepos = $_POST['repos'];
 } else {
 	$allowedRepos = get_repo_presets()[ $_POST['preset'] ];
+}
+
+// When proxying, always enable MobileFrontend
+if ( $useProxy ) {
+	// Doesn't matter if this appears twice
+	$allowedRepos[] = 'mediawiki/extensions/MobileFrontend';
 }
 
 foreach ( array_keys( $repos ) as $repo ) {
@@ -338,6 +346,7 @@ set_progress( 90, 'Setting up wiki content...' );
 
 $cmd = make_shell_command( $baseEnv + [
 	'MAINPAGE' => $mainPage,
+	'USE_PROXY' => $useProxy,
 ], __DIR__ . '/new/postinstall.sh' );
 
 $error = shell_echo( $cmd );

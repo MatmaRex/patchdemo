@@ -32,6 +32,16 @@ do
 	php $PATCHDEMO/wikis/$NAME/w/maintenance/importDump.php < $PATCHDEMO/pages/$page
 done
 
+# Add the proxy if selected
+if [ "${USE_PROXY}" = "1" ]; then
+	cat $PATCHDEMO/LocalSettings-proxy.txt >> $PATCHDEMO/wikis/$NAME/w/LocalSettings.php
+	# Import custom Common.js for fetching CSS from the wiki
+	for page in $(find $PATCHDEMO/pages-proxy -name "*.xml" -not -type d -printf '%P\n')
+	do
+		php $PATCHDEMO/wikis/$NAME/w/maintenance/importDump.php < $PATCHDEMO/pages-proxy/$page
+	done
+fi
+
 # update caches after import
 php $PATCHDEMO/wikis/$NAME/w/maintenance/rebuildrecentchanges.php
 php $PATCHDEMO/wikis/$NAME/w/maintenance/initSiteStats.php
