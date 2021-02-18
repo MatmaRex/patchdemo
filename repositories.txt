@@ -30,6 +30,7 @@ mediawiki/extensions/PageImages w/extensions/PageImages
 mediawiki/extensions/ParserFunctions w/extensions/ParserFunctions
 mediawiki/extensions/PageViewInfo w/extensions/PageViewInfo
 mediawiki/extensions/PdfHandler w/extensions/PdfHandler
+mediawiki/extensions/Popups w/extensions/Popups
 mediawiki/extensions/Poem w/extensions/Poem
 mediawiki/extensions/Renameuser w/extensions/Renameuser
 mediawiki/extensions/ReplaceText w/extensions/ReplaceText
