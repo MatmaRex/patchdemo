@@ -8,6 +8,15 @@ echo "$MAINPAGE" | php $PATCHDEMO/wikis/$NAME/w/maintenance/edit.php "Main_Page"
 # run update script (#166, #244)
 php $PATCHDEMO/wikis/$NAME/w/maintenance/update.php --quick
 
+# create additional accounts
+# generic accounts alice/bob e.g. for messaging tests
+php $PATCHDEMO/wikis/$NAME/w/maintenance/createAndPromote.php Alice patchdemo1
+php $PATCHDEMO/wikis/$NAME/w/maintenance/createAndPromote.php Bob patchdemo1
+# blocked account
+php $PATCHDEMO/wikis/$NAME/w/maintenance/createAndPromote.php Mallory patchdemo1
+# This command may fail as --disable-autoblock was only added in 1.36, so suppress errors
+echo "Mallory" | php $PATCHDEMO/wikis/$NAME/w/maintenance/blockUsers.php --reason "Blocking account for testing" --disable-autoblock || echo "Can't block Mallory"
+
 # grant FlaggedRevs editor rights to the default account
 if [ -d $PATCHDEMO/wikis/$NAME/w/extensions/FlaggedRevs ]; then
 	php $PATCHDEMO/wikis/$NAME/w/maintenance/createAndPromote.php "Patch Demo" --force --custom-groups editor

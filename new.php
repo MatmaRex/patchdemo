@@ -93,7 +93,15 @@ echo new OOUI\FieldsetLayout( [
 				'align' => 'inline',
 				'classes' => [ 'openWikiField' ],
 				'label' => "When complete, use this button to open your wiki ($namePath)",
-				'help' => "You can log in as user 'Patch Demo', password 'patchdemo1'.",
+				'help' => new OOUI\HtmlSnippet( <<<EOT
+					You can log in as the following users using the password <code>patchdemo1</code>
+					<ul class="userList">
+						<li><code>Patch Demo</code> <em>(admin)</em></li>
+						<li><code>Alice</code></li>
+						<li><code>Bob</code></li>
+						<li><code>Mallory</code> <em>(blocked)</em></li>
+					</ul>
+				EOT ),
 				'helpInline' => true,
 			]
 		),
