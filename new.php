@@ -279,7 +279,6 @@ $cmd = make_shell_command( $baseEnv + [
 	'NAME' => $namePath,
 	'BRANCH' => $branch,
 	'WIKINAME' => $wikiName,
-	'MAINPAGE' => $mainPage,
 	'SERVER' => $server,
 	'SERVERPATH' => $serverPath,
 	'COMPOSER_HOME' => __DIR__ . '/composer',
@@ -299,6 +298,18 @@ foreach ( $commands as $i => $command ) {
 	if ( $error ) {
 		abandon( "Could not apply patch $i." );
 	}
+}
+
+set_progress( 85, 'Setup wiki content...' );
+
+$cmd = make_shell_command( $baseEnv + [
+	'NAME' => $namePath,
+	'MAINPAGE' => $mainPage,
+], __DIR__ . '/postinstall.sh' );
+
+$error = shell_echo( $cmd );
+if ( $error ) {
+	abandon( "Could not setup wiki content." );
 }
 
 if ( $announce && count( $linkedTasks ) ) {
