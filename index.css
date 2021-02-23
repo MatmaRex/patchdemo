@@ -245,6 +245,10 @@ summary > .oo-ui-labelElement-label {
 	margin: 2em auto !important;
 }
 
+.userList {
+	margin: 0.5em 0;
+}
+
 .consoleLog {
 	font-size: 90%;
 	background: #222;
