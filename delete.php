@@ -40,8 +40,16 @@ if ( !isset( $_POST['confirm' ] ) ) {
 			'label' => 'Delete',
 			'flags' => [ 'primary', 'destructive' ]
 		] ) .
+		new OOUI\HiddenInputWidget( [
+			'name' => 'csrf_token',
+			'value' => get_csrf_token(),
+		] ) .
 	'</form>';
 	die();
+}
+
+if ( !isset( $_POST['csrf_token'] ) || !check_csrf_token( $_POST['csrf_token'] ) ) {
+	die( "Invalid session." );
 }
 
 ob_implicit_flush( true );
