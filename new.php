@@ -279,7 +279,7 @@ set_progress( 25, 'Updating repositories...' );
 $cmd = make_shell_command( [
 	'PATCHDEMO' => __DIR__,
 	'REPOSITORIES' => $reposString,
-], __DIR__ . '/updaterepos.sh' );
+], __DIR__ . '/new/updaterepos.sh' );
 
 $error = shell_echo( $cmd );
 if ( $error ) {
@@ -296,7 +296,7 @@ $cmd = make_shell_command( $baseEnv + [
 	'SERVERPATH' => $serverPath,
 	'COMPOSER_HOME' => __DIR__ . '/composer',
 	'REPOSITORIES' => $reposString,
-], __DIR__ . '/createwiki.sh' );
+], __DIR__ . '/new/createwiki.sh' );
 
 $error = shell_echo( $cmd );
 if ( $error ) {
@@ -318,7 +318,7 @@ set_progress( 85, 'Setup wiki content...' );
 $cmd = make_shell_command( $baseEnv + [
 	'NAME' => $namePath,
 	'MAINPAGE' => $mainPage,
-], __DIR__ . '/postinstall.sh' );
+], __DIR__ . '/new/postinstall.sh' );
 
 $error = shell_echo( $cmd );
 if ( $error ) {
