@@ -274,7 +274,7 @@ $baseEnv = [
 	'NAME' => $namePath,
 ];
 
-set_progress( 25, 'Updating repositories...' );
+set_progress( 5, 'Updating repositories...' );
 
 $cmd = make_shell_command( [
 	'PATCHDEMO' => __DIR__,
@@ -286,7 +286,7 @@ if ( $error ) {
 	abandon( "Could not update repositories." );
 }
 
-set_progress( 50, 'Creating your wiki...' );
+set_progress( 40, 'Creating your wiki...' );
 
 $cmd = make_shell_command( $baseEnv + [
 	'NAME' => $namePath,
@@ -303,7 +303,7 @@ if ( $error ) {
 	abandon( "Could not install the wiki." );
 }
 
-set_progress( 75, 'Fetching and applying patches...' );
+set_progress( 80, 'Fetching and applying patches...' );
 
 foreach ( $commands as $i => $command ) {
 	$cmd = make_shell_command( $baseEnv + $command[0], $command[1] );
@@ -313,7 +313,7 @@ foreach ( $commands as $i => $command ) {
 	}
 }
 
-set_progress( 85, 'Setup wiki content...' );
+set_progress( 90, 'Setup wiki content...' );
 
 $cmd = make_shell_command( $baseEnv + [
 	'NAME' => $namePath,
