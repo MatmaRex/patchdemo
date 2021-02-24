@@ -291,7 +291,7 @@ foreach ( $repos as $source => $target ) {
 	set_progress( $repoProgress, 'Updating repositories...' );
 }
 
-set_progress( 40, 'Creating your wiki...' );
+set_progress( 40, 'Checking out your wiki...' );
 
 $reposString = implode( "\n", array_map( function ( $k, $v ) {
 	return "$k $v";
@@ -300,16 +300,31 @@ $reposString = implode( "\n", array_map( function ( $k, $v ) {
 $cmd = make_shell_command( $baseEnv + [
 	'NAME' => $namePath,
 	'BRANCH' => $branch,
-	'WIKINAME' => $wikiName,
-	'SERVER' => $server,
-	'SERVERPATH' => $serverPath,
 	'COMPOSER_HOME' => __DIR__ . '/composer',
 	'REPOSITORIES' => $reposString,
-], __DIR__ . '/new/createwiki.sh' );
+], __DIR__ . '/new/checkout.sh' );
 
 $error = shell_echo( $cmd );
 if ( $error ) {
-	abandon( "Could not install the wiki." );
+	abandon( "Could not check out wiki." );
+}
+
+set_progress( 60, 'Installing your wiki...' );
+
+$reposString = implode( "\n", array_map( function ( $k, $v ) {
+	return "$k $v";
+}, array_keys( $repos ), array_values( $repos ) ) );
+
+$cmd = make_shell_command( $baseEnv + [
+	'NAME' => $namePath,
+	'WIKINAME' => $wikiName,
+	'SERVER' => $server,
+	'SERVERPATH' => $serverPath,
+], __DIR__ . '/new/install.sh' );
+
+$error = shell_echo( $cmd );
+if ( $error ) {
+	abandon( "Could not install wiki." );
 }
 
 set_progress( 80, 'Fetching and applying patches...' );
@@ -322,7 +337,7 @@ foreach ( $commands as $i => $command ) {
 	}
 }
 
-set_progress( 90, 'Setup wiki content...' );
+set_progress( 90, 'Setting up wiki content...' );
 
 $cmd = make_shell_command( $baseEnv + [
 	'NAME' => $namePath,
