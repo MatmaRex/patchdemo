@@ -9,6 +9,10 @@ if ( $useOAuth && !$user ) {
 	die();
 }
 
+if ( !isset( $_POST['csrf_token'] ) || !check_csrf_token( $_POST['csrf_token'] ) ) {
+	die( "Invalid session." );
+}
+
 $startTime = time();
 
 $branch = trim( $_POST['branch'] );
