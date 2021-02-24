@@ -159,6 +159,12 @@ if ( $useOAuth && !$user ) {
 							'align' => 'left',
 						]
 					),
+					new OOUI\FieldLayout(
+						new OOUI\HiddenInputWidget( [
+							'name' => 'csrf_token',
+							'value' => get_csrf_token(),
+						] )
+					),
 				] )
 			] ),
 		]

@@ -527,3 +527,25 @@ function detectProtocol() {
 		return 'http';
 	}
 }
+
+function get_csrf_token() {
+	global $useOAuth;
+	if ( !$useOAuth ) {
+		return '';
+	}
+	if ( empty( $_SESSION['csrf_token'] ) ) {
+		$_SESSION['csrf_token'] = bin2hex( random_bytes( 32 ) );
+	}
+	return $_SESSION['csrf_token'];
+}
+
+function check_csrf_token( $token ) {
+	global $useOAuth;
+	if ( !$useOAuth ) {
+		return true;
+	}
+	if ( empty( $_SESSION['csrf_token'] ) ) {
+		return false;
+	}
+	return $_SESSION['csrf_token'] === $token;
+}
