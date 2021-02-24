@@ -46,7 +46,7 @@ EOT;
 	die( $errHtml );
 }
 
-function set_progress( int $pc, string $label ) {
+function set_progress( float $pc, string $label ) {
 	echo '<p>' . htmlspecialchars( $label ) . '</p>';
 	$labelJson = json_encode( $label );
 	echo <<<EOT
@@ -265,10 +265,6 @@ foreach ( array_keys( $repos ) as $repo ) {
 	}
 }
 
-$reposString = implode( "\n", array_map( function ( $k, $v ) {
-	return "$k $v";
-}, array_keys( $repos ), array_values( $repos ) ) );
-
 $baseEnv = [
 	'PATCHDEMO' => __DIR__,
 	'NAME' => $namePath,
@@ -276,17 +272,30 @@ $baseEnv = [
 
 set_progress( 5, 'Updating repositories...' );
 
-$cmd = make_shell_command( [
-	'PATCHDEMO' => __DIR__,
-	'REPOSITORIES' => $reposString,
-], __DIR__ . '/new/updaterepos.sh' );
+$start = 5;
+$end = 40;
+$repoProgress = $start;
 
-$error = shell_echo( $cmd );
-if ( $error ) {
-	abandon( "Could not update repositories." );
+foreach ( $repos as $source => $target ) {
+	$cmd = make_shell_command( [
+		'PATCHDEMO' => __DIR__,
+		'REPOSITORIES' => "$source $target",
+	], __DIR__ . '/new/updaterepos.sh' );
+
+	$error = shell_echo( $cmd );
+	if ( $error ) {
+		abandon( "Could not update repository <em>$source</em>" );
+	}
+
+	$repoProgress += ( 40 - 5 ) / count( $repos );
+	set_progress( $repoProgress, 'Updating repositories...' );
 }
 
 set_progress( 40, 'Creating your wiki...' );
+
+$reposString = implode( "\n", array_map( function ( $k, $v ) {
+	return "$k $v";
+}, array_keys( $repos ), array_values( $repos ) ) );
 
 $cmd = make_shell_command( $baseEnv + [
 	'NAME' => $namePath,
