@@ -278,6 +278,7 @@ set_progress( 25, 'Updating repositories...' );
 
 $cmd = make_shell_command( [
 	'PATCHDEMO' => __DIR__,
+	'REPOSITORIES' => $reposString,
 ], __DIR__ . '/updaterepos.sh' );
 
 $error = shell_echo( $cmd );
