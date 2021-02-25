@@ -287,7 +287,7 @@ foreach ( $repos as $source => $target ) {
 		abandon( "Could not update repository <em>$source</em>" );
 	}
 
-	$repoProgress += ( 40 - 5 ) / count( $repos );
+	$repoProgress += ( $end - $start ) / count( $repos );
 	set_progress( $repoProgress, 'Updating repositories...' );
 }
 
