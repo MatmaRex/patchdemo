@@ -277,8 +277,7 @@ $end = 40;
 $repoProgress = $start;
 
 foreach ( $repos as $source => $target ) {
-	$cmd = make_shell_command( [
-		'PATCHDEMO' => __DIR__,
+	$cmd = make_shell_command( $baseEnv + [
 		'REPOSITORIES' => "$source $target",
 	], __DIR__ . '/new/updaterepos.sh' );
 
@@ -298,7 +297,6 @@ $reposString = implode( "\n", array_map( function ( $k, $v ) {
 }, array_keys( $repos ), array_values( $repos ) ) );
 
 $cmd = make_shell_command( $baseEnv + [
-	'NAME' => $namePath,
 	'BRANCH' => $branch,
 	'COMPOSER_HOME' => __DIR__ . '/composer',
 	'REPOSITORIES' => $reposString,
@@ -316,7 +314,6 @@ $reposString = implode( "\n", array_map( function ( $k, $v ) {
 }, array_keys( $repos ), array_values( $repos ) ) );
 
 $cmd = make_shell_command( $baseEnv + [
-	'NAME' => $namePath,
 	'WIKINAME' => $wikiName,
 	'SERVER' => $server,
 	'SERVERPATH' => $serverPath,
@@ -340,7 +337,6 @@ foreach ( $commands as $i => $command ) {
 set_progress( 90, 'Setting up wiki content...' );
 
 $cmd = make_shell_command( $baseEnv + [
-	'NAME' => $namePath,
 	'MAINPAGE' => $mainPage,
 ], __DIR__ . '/new/postinstall.sh' );
 
