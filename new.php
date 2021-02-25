@@ -55,7 +55,7 @@ function set_progress( float $pc, string $label ) {
 			pd.installProgressField.setLabel( $labelJson );
 		</script>
 EOT;
-	if ( $pc === 100 ) {
+	if ( (int)$pc === 100 ) {
 		echo <<<EOT
 		<script>
 			pd.installProgressField.fieldWidget.popPending();
