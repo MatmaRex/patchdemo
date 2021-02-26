@@ -17,6 +17,12 @@ php $PATCHDEMO/wikis/$NAME/w/maintenance/createAndPromote.php Mallory patchdemo1
 # This command may fail as --disable-autoblock was only added in 1.36, so suppress errors
 echo "Mallory" | php $PATCHDEMO/wikis/$NAME/w/maintenance/blockUsers.php --reason "Blocking account for testing" --disable-autoblock || echo "Can't block Mallory"
 
+# set dummy email addresses, in case Inbox is being used (#254)
+php $PATCHDEMO/wikis/$NAME/w/maintenance/resetUserEmail.php --no-reset-password "Patch Demo" Patch_Demo@localhost
+php $PATCHDEMO/wikis/$NAME/w/maintenance/resetUserEmail.php --no-reset-password "Alice" Alice@localhost
+php $PATCHDEMO/wikis/$NAME/w/maintenance/resetUserEmail.php --no-reset-password "Bob" Bob@localhost
+php $PATCHDEMO/wikis/$NAME/w/maintenance/resetUserEmail.php --no-reset-password "Mallory" Mallory@localhost
+
 # grant FlaggedRevs editor rights to the default account
 if [ -d $PATCHDEMO/wikis/$NAME/w/extensions/FlaggedRevs ]; then
 	php $PATCHDEMO/wikis/$NAME/w/maintenance/createAndPromote.php "Patch Demo" --force --custom-groups editor
