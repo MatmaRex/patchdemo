@@ -27,11 +27,11 @@ mediawiki/extensions/MultimediaViewer w/extensions/MultimediaViewer
 mediawiki/extensions/Nuke w/extensions/Nuke
 mediawiki/extensions/OATHAuth w/extensions/OATHAuth
 mediawiki/extensions/PageImages w/extensions/PageImages
-mediawiki/extensions/ParserFunctions w/extensions/ParserFunctions
 mediawiki/extensions/PageViewInfo w/extensions/PageViewInfo
+mediawiki/extensions/ParserFunctions w/extensions/ParserFunctions
 mediawiki/extensions/PdfHandler w/extensions/PdfHandler
-mediawiki/extensions/Popups w/extensions/Popups
 mediawiki/extensions/Poem w/extensions/Poem
+mediawiki/extensions/Popups w/extensions/Popups
 mediawiki/extensions/Renameuser w/extensions/Renameuser
 mediawiki/extensions/ReplaceText w/extensions/ReplaceText
 mediawiki/extensions/Scribunto w/extensions/Scribunto
