@@ -72,6 +72,9 @@ $wgLogos = [
 ];
 $wgFavicon = "$wgResourceBasePath/favicon.ico";
 
+// Email settings
+$wgAllowHTMLEmail = true;
+
 // SecurePoll
 $wgGroupPermissions['electionadmin'] = [];
 $wgGroupPermissions['sysop']['securepoll-create-poll'] = true;
