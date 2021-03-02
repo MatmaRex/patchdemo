@@ -96,6 +96,9 @@ $wgWelcomeSurveyExperimentalGroups['exp2_target_specialpage']['range'] = '0-9';
 $wgGEHomepageMentorsList = 'Project:GrowthExperiments_mentors';
 $wgGEHelpPanelHelpDeskTitle = 'Project:GrowthExperiments_help_desk';
 
+// Interwiki
+$wgGroupPermissions['sysop']['interwiki'] = true;
+
 // Unintrusive anti-spam CAPTCHA
 if ( file_exists( 'extensions/ConfirmEdit/QuestyCaptcha/extension.json' ) ) {
 	wfLoadExtension( 'ConfirmEdit/QuestyCaptcha' );
