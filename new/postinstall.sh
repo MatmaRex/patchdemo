@@ -48,6 +48,9 @@ if [ "${USE_PROXY}" = "1" ]; then
 	done
 fi
 
+# populate interwiki table from en.wiki
+php $PATCHDEMO/wikis/$NAME/w/maintenance/populateInterwiki.php
+
 # update caches after import
 php $PATCHDEMO/wikis/$NAME/w/maintenance/rebuildrecentchanges.php
 php $PATCHDEMO/wikis/$NAME/w/maintenance/initSiteStats.php
