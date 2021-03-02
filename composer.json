@@ -3,7 +3,7 @@
 		"mediawiki/oauthclient": "1.1.0",
 		"symfony/process": "^5.1",
 		"symfony/yaml": "^5.1",
-		"oojs/oojs-ui": "0.41.0",
+		"oojs/oojs-ui": "0.41.1",
 		"zolli/phabricator-php-api": "^2.0"
 	},
 	"require-dev": {
