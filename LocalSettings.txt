@@ -8,11 +8,14 @@ $wgShowDBErrorBacktrace = true;
 $wgShowExceptionDetails = true;
 $wgDebugComments = true;
 
+// Slice off the '/w' from the end
+$basePath = substr( $wgScriptPath, 0, -2 );
+
 // Don't share cookies across wikis (#78)
-$wgCookiePath = $wgScriptPath;
+$wgCookiePath = $basePath;
 
 // Short URLs
-$wgArticlePath = $wgScriptPath . "iki/$1";
+$wgArticlePath = $basePath . "/wiki/$1";
 
 // Disable ResourceLoader's localStorage cache as this will
 // fill up quickly when domains host multiple wikis (#35)
