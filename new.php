@@ -248,7 +248,7 @@ foreach ( $linkedTasks as $task ) {
 // Choose repositories to enable
 $repos = get_repo_data();
 
-$useProxy = (int)$_POST['proxy'];
+$useProxy = !empty( $_POST['proxy'] );
 
 if ( $_POST['preset'] === 'custom' ) {
 	$allowedRepos = $_POST['repos'];
