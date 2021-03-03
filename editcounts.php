@@ -1,6 +1,8 @@
 <?php
 require_once "includes.php";
 
+include "header.php";
+
 if ( !can_admin() ) {
 	echo 'Access denied.';
 	if ( $useOAuth && !$user ) {

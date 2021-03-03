@@ -2,6 +2,8 @@
 
 require_once "includes.php";
 
+include "header.php";
+
 ob_implicit_flush( true );
 
 if ( $useOAuth && !$user ) {
