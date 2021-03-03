@@ -115,7 +115,7 @@ echo '<script src="' . $basePath . '/js/new.js"></script>';
 echo '<div class="consoleLog">';
 
 if ( $patches ) {
-	$patches = array_map( 'trim', explode( "\n", $patches ) );
+	$patches = array_map( 'trim', preg_split( "/\n|\|/", $patches ) );
 } else {
 	$patches = [];
 }

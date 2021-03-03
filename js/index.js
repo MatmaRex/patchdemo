@@ -1,7 +1,7 @@
 /* global OO, $ */
 ( function () {
 	var myWikis, closedWikis, branchSelect, form, submit, showClosed,
-		presetInput, reposField, reposInput, reposFieldLabel,
+		patchesInput, presetInput, reposField, reposInput, reposFieldLabel,
 		$wikisTable = $( '.wikis' );
 
 	function updateTableClasses() {
@@ -13,9 +13,13 @@
 	if ( form ) {
 		submit = OO.ui.infuse( $( '.form-submit' ) );
 		form.addEventListener( 'submit', function () {
+			// Blur is not fired on patchesInput, so call manually
+			patchesInput.doInputEnter();
 			submit.setDisabled( true );
 			return false;
 		} );
+
+		patchesInput = OO.ui.infuse( $( '.form-patches' ) );
 
 		if ( $( '.myWikis' ).length ) {
 			myWikis = OO.ui.infuse( $( '.myWikis' ) );
