@@ -1,6 +1,8 @@
 <?php
 require_once "includes.php";
 
+include "header.php";
+
 if ( $useOAuth && !$user ) {
 	echo oauth_signin_prompt();
 } else {

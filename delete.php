@@ -2,6 +2,8 @@
 
 require_once "includes.php";
 
+include "header.php";
+
 $wiki = $_GET[ 'wiki' ];
 $wikiData = get_wiki_data( $wiki );
 

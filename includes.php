@@ -15,56 +15,13 @@ if ( file_exists( 'config.php' ) ) {
 	$config = array_merge( $config, $localConfig );
 }
 
-OOUI\Theme::setSingleton( new OOUI\WikimediaUITheme() );
-
 $basePath = dirname( $_SERVER['SCRIPT_NAME'] );
 if ( $basePath === '/' ) {
 	$basePath = '';
 }
 $is404 = basename( $_SERVER['SCRIPT_NAME'] ) === '404.php';
 
-echo '<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>Patch demo</title>
-		<link rel="stylesheet" href="' . $basePath . '/index.css">
-		<link rel="stylesheet" href="' . $basePath . '/node_modules/oojs-ui/dist/oojs-ui-wikimediaui.min.css">
-		<script src="' . $basePath . '/node_modules/jquery/dist/jquery.min.js"></script>
-		<script src="' . $basePath . '/node_modules/oojs/dist/oojs.jquery.min.js"></script>
-		<script src="' . $basePath . '/node_modules/oojs-ui/dist/oojs-ui.min.js"></script>
-		<script src="' . $basePath . '/node_modules/oojs-ui/dist/oojs-ui-wikimediaui.min.js"></script>
-		<link rel="icon" type="image/png" sizes="32x32" href="' . $basePath . '/images/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="' . $basePath . '/images/favicon-16x16.png">
-		<link rel="mask-icon" href="' . $basePath . '/images/safari-pinned-tab.svg" color="#006699">
-		<link rel="shortcut icon" href="' . $basePath . '/images/favicon.ico">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-	</head>
-	<body>
-		<header>
-			<div class="headerInner">
-				<h1><a class="logo" href="' . $basePath . '/.">Patch demo</a></h1>
-				<div class="sourceAndUser">';
-
 include_once 'oauth.php';
-
-if ( $user ) {
-	echo "<div class='user'>Logged in as <b>{$user->username}</b> [<a href='?logout'>Log out</a>]</div>";
-}
-echo '
-					<div class="source">
-						<a href="https://github.com/MatmaRex/patchdemo">Source code</a>
-						&bullet;
-						<a href="https://github.com/MatmaRex/patchdemo/issues">Issues</a>' .
-						( can_admin() ?
-							' &bullet; <a href="editcounts.php">Edit counts</a>' :
-							''
-							) .
-					'</div>
-				</div>
-			</div>
-		</header>
-		<main>';
 
 $mysqli = new mysqli( 'localhost', 'patchdemo', 'patchdemo', 'patchdemo' );
 if ( $mysqli->connect_error ) {
