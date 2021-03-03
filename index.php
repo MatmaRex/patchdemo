@@ -51,6 +51,7 @@ if ( $useOAuth && !$user ) {
 	echo "<script>window.presets = $presets;</script>\n";
 
 	include_once 'DetailsFieldLayout.php';
+	include_once 'PatchSelectWidget.php';
 
 	echo new OOUI\FormLayout( [
 		'infusable' => true,
@@ -73,10 +74,10 @@ if ( $useOAuth && !$user ) {
 						]
 					),
 					new OOUI\FieldLayout(
-						new OOUI\MultilineTextInputWidget( [
+						new PatchSelectWidget( [
 							'classes' => [ 'form-patches' ],
 							'name' => 'patches',
-							'rows' => 4,
+							'rows' => 2,
 							'placeholder' => "e.g. 456123",
 						] ),
 						[
@@ -297,6 +298,7 @@ echo '<table class="wikis">' .
 
 ?>
 <script src="js/DetailsFieldLayout.js"></script>
+<script src="js/PatchSelectWidget.js"></script>
 <script src="js/index.js"></script>
 <?php
 include "footer.html";
