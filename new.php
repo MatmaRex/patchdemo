@@ -128,16 +128,19 @@ $commands = [];
 
 // Iterate by reference, so that we can modify the $patches array to add new entries
 foreach ( $patches as &$patch ) {
-	$patchSafe = preg_replace( '/(?!^I)[^0-9a-f]/', '', $patch );
-	$data = gerrit_query( "changes/?q=change:$patchSafe&o=LABELS&o=CURRENT_REVISION", true );
+	if ( !preg_match( '/^(I[0-9a-f]+|[0-9]+)$/', $patch ) ) {
+		$patch = htmlentities( $patch );
+		abandon( "Invalid patch number <em>$patch</em>" );
+	}
+	$data = gerrit_query( "changes/?q=change:$patch&o=LABELS&o=CURRENT_REVISION", true );
 
 	if ( count( $data ) === 0 ) {
-		$patchSafe = htmlentities( $patchSafe );
-		abandon( "Could not find patch <em>$patchSafe</em>" );
+		$patch = htmlentities( $patch );
+		abandon( "Could not find patch <em>$patch</em>" );
 	}
 	if ( count( $data ) !== 1 ) {
-		$patchSafe = htmlentities( $patchSafe );
-		abandon( "Ambiguous query <em>$patchSafe</em>" );
+		$patch = htmlentities( $patch );
+		abandon( "Ambiguous query <em>$patch</em>" );
 	}
 
 	// get the info
