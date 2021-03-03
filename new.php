@@ -128,7 +128,7 @@ $commands = [];
 
 // Iterate by reference, so that we can modify the $patches array to add new entries
 foreach ( $patches as &$patch ) {
-	$patchSafe = preg_replace( '/^I?[^0-9a-f]$/', '', $patch );
+	$patchSafe = preg_replace( '/(?!^I)[^0-9a-f]/', '', $patch );
 	$data = gerrit_query( "changes/?q=change:$patchSafe&o=LABELS&o=CURRENT_REVISION", true );
 
 	if ( count( $data ) === 0 ) {
