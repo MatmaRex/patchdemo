@@ -128,11 +128,19 @@ $commands = [];
 
 // Iterate by reference, so that we can modify the $patches array to add new entries
 foreach ( $patches as &$patch ) {
-	if ( !preg_match( '/^(I[0-9a-f]+|[0-9]+)$/', $patch ) ) {
+	preg_match( '/^(I[0-9a-f]+|(?<r>[0-9]+)(,(?<p>[0-9]+))?)$/', $patch, $matches );
+	if ( !$matches ) {
 		$patch = htmlentities( $patch );
 		abandon( "Invalid patch number <em>$patch</em>" );
 	}
-	$data = gerrit_query( "changes/?q=change:$patch&o=LABELS&o=CURRENT_REVISION", true );
+	if ( isset( $matches['p'] ) ) {
+		$query = $matches['r'];
+		$o = 'ALL_REVISIONS';
+	} else {
+		$query = $patch;
+		$o = 'CURRENT_REVISION';
+	}
+	$data = gerrit_query( "changes/?q=change:$query&o=LABELS&o=$o", true );
 
 	if ( count( $data ) === 0 ) {
 		$patch = htmlentities( $patch );
@@ -146,7 +154,21 @@ foreach ( $patches as &$patch ) {
 	// get the info
 	$repo = $data[0]['project'];
 	$base = 'origin/' . $data[0]['branch'];
-	$revision = $data[0]['current_revision'];
+	$revision = null;
+	if ( isset( $matches['p'] ) ) {
+		foreach ( $data[0]['revisions'] as $k => $v ) {
+			if ( $v['_number'] === (int)$matches['p'] ) {
+				$revision = $k;
+				break;
+			}
+		}
+	} else {
+		$revision = $data[0]['current_revision'];
+	}
+	if ( !$revision ) {
+		$patch = htmlentities( $patch );
+		abandon( "Could not find patch <em>$patch</em>" );
+	}
 	$ref = $data[0]['revisions'][$revision]['ref'];
 	$id = $data[0]['id'];
 
