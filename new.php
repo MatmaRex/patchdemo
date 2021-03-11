@@ -21,7 +21,7 @@ $branch = trim( $_POST['branch'] );
 $patches = trim( $_POST['patches'] );
 $announce = !empty( $_POST['announce'] );
 
-$namePath = md5( $branch . $patches . time() );
+$namePath = substr( md5( $branch . $patches . time() ), 0, 10 );
 $server = detectProtocol() . '://' . $_SERVER['HTTP_HOST'];
 $serverPath = preg_replace( '`/[^/]*$`', '', $_SERVER['REQUEST_URI'] );
 
