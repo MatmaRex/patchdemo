@@ -7,7 +7,7 @@ echo '<!DOCTYPE html>
 	<head>
 		<meta charset="utf-8">
 		<title>Patch demo</title>
-		<link rel="stylesheet" href="' . $basePath . '/index.css">
+		<link rel="stylesheet" href="' . $basePath . '/css/common.css">
 		<link rel="stylesheet" href="' . $basePath . '/node_modules/oojs-ui/dist/oojs-ui-wikimediaui.min.css">
 		<script src="' . $basePath . '/node_modules/jquery/dist/jquery.min.js"></script>
 		<script src="' . $basePath . '/node_modules/oojs/dist/oojs.jquery.min.js"></script>

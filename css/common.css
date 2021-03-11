@@ -53,7 +53,7 @@ header {
 	display: inline-block;
 	text-decoration: none;
 	color: inherit;
-	background: url( images/logo.svg ) no-repeat 0 0;
+	background: url( ../images/logo.svg ) no-repeat 0 0;
 	background-size: 2em;
 	line-height: 2em;
 	padding-left: 2.5em;

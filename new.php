@@ -110,7 +110,7 @@ echo new OOUI\FieldsetLayout( [
 	]
 ] );
 
-echo '<script src="' . $basePath . '/new.js"></script>';
+echo '<script src="' . $basePath . '/js/new.js"></script>';
 
 echo '<div class="consoleLog">';
 

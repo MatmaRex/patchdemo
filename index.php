@@ -296,7 +296,7 @@ echo '<table class="wikis">' .
 '</table>';
 
 ?>
-<script src="DetailsFieldLayout.js"></script>
-<script src="index.js"></script>
+<script src="js/DetailsFieldLayout.js"></script>
+<script src="js/index.js"></script>
 <?php
 include "footer.html";
