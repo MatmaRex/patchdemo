@@ -250,7 +250,7 @@ while ( $data = $results->fetch_assoc() ) {
 	}
 
 	$rows .= '<tr class="' . implode( ' ', $classes ) . '">' .
-		'<td data-label="Wiki" class="wiki"><a href="wikis/' . $wiki . '/w" title="' . $wiki . '">' . $wiki . '</a></td>' .
+		'<td data-label="Wiki" class="wiki"><a href="wikis/' . $wiki . '/w" title="' . $wiki . '">' . substr( $wiki, 0, 10 ) . '</a></td>' .
 		'<td data-label="Patches" class="patches">' . $patches . '</td>' .
 		'<td data-label="Linked tasks" class="linkedTasks">' . $linkedTasks . '</td>' .
 		'<td data-label="Time" class="date">' . date( 'Y-m-d H:i:s', $wikiData[ 'created' ] ) . '</td>' .

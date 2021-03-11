@@ -63,7 +63,7 @@ foreach ( $short_fields as $field => $fieldMeta ) {
 }
 foreach ( $wikis as $wiki => $data ) {
 	echo '<tr>' .
-		'<td data-label="Wikis"><a href="wikis/' . $wiki . '/w/index.php" title="' . $wiki . '">' . $wiki . '</a></td>';
+		'<td data-label="Wikis" class="wiki"><a href="wikis/' . $wiki . '/w/index.php" title="' . $wiki . '">' . substr( $wiki, 0, 10 ) . '</a></td>';
 
 	foreach ( $short_fields as $field => $fieldMeta ) {
 		echo '<td data-label="' . $fieldMeta['label'] . '">' .

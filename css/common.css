@@ -174,10 +174,7 @@ summary > .oo-ui-labelElement-label {
 }
 
 .wikis .wiki {
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	max-width: 10em;
+	font-family: monospace, monospace;
 }
 
 .wikis .date {
