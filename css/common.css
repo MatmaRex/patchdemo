@@ -98,6 +98,10 @@ summary > .oo-ui-labelElement-label {
 
 /* Wiki list */
 
+.oo-ui-messageWidget.oo-ui-messageWidget-block.oo-ui-flaggedElement-warning {
+	margin-top: 16px;
+}
+
 .showClosed {
 	float: right;
 	margin-top: -6px;
