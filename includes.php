@@ -344,7 +344,7 @@ function delete_wiki( string $wiki ) : int {
 
 $requestCache = [];
 
-function gerrit_query( string $url, $echo = false ) : array {
+function gerrit_query( string $url, $echo = false ) : ?array {
 	global $config, $requestCache;
 	if ( $echo ) {
 		echo "<pre>$url</pre>";
