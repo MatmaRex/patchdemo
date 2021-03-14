@@ -351,7 +351,9 @@ function gerrit_query( string $url, $echo = false ) : ?array {
 	}
 	if ( empty( $requestCache[$url] ) ) {
 		$url = $config['gerritUrl'] . '/r/' . $url;
-		$resp = file_get_contents( $url );
+		// Suppress warning if request fails
+		// phpcs:ignore
+		$resp = @file_get_contents( $url );
 		$requestCache[$url] = json_decode( substr( $resp, 4 ), true );
 	}
 	return $requestCache[$url];
