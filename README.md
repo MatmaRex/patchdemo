@@ -45,7 +45,7 @@ These will be considered on a case-by-case basis, but will generally be allowed 
 
 You can run your own version of the entire Patch demo website. Get yourself a server and follow the [Setup](#setup) instructions above, or convince an engineer near you to do it.
 
-The public https://patchdemo.wmflabs.org/ website runs on an `m1.medium` instance at [Wikimedia Cloud VPS](https://wikitech.wikimedia.org/wiki/Portal:Cloud_VPS).
+The public https://patchdemo.wmflabs.org/ website runs on an `g2.cores8.ram16.disk160` instance at [Wikimedia Cloud VPS](https://wikitech.wikimedia.org/wiki/Portal:Cloud_VPS).
 
 **Is it possible to add patches for extension not just core? And skins?**
 
