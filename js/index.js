@@ -1,8 +1,10 @@
 /* global OO, $ */
 ( function () {
 	var myWikis, closedWikis, branchSelect, form, submit, showClosed,
-		patchesInput, presetInput, reposField, reposInput, reposFieldLabel,
+		patchesInput, patchesLayout, presetInput, reposField, reposInput, reposFieldLabel,
 		$wikisTable = $( '.wikis' );
+
+	window.pd = window.pd || {};
 
 	function updateTableClasses() {
 		$wikisTable.toggleClass( 'hideOthers', !!myWikis.isSelected() );
@@ -20,6 +22,19 @@
 		} );
 
 		patchesInput = OO.ui.infuse( $( '.form-patches' ) );
+		patchesLayout = OO.ui.infuse( $( '.form-patches-layout' ) );
+
+		patchesInput.on( 'matchWikis', function ( wikis ) {
+			patchesLayout.setWarnings(
+				( wikis || [] ).map( function ( wiki ) {
+					wiki = wiki.slice( 0, 10 );
+					return $( '<span>' ).append(
+						document.createTextNode( 'A wiki with these patches already exists: ' ),
+						$( '<a>' ).addClass( 'wiki' ).attr( 'href', '#' + wiki ).text( wiki )
+					);
+				} )
+			);
+		} );
 
 		if ( $( '.myWikis' ).length ) {
 			myWikis = OO.ui.infuse( $( '.myWikis' ) );
@@ -96,5 +111,16 @@
 
 		reposInput.emit( 'change' );
 	}
+
+	// eslint-disable-next-line one-var, vars-on-top
+	var $lastMatch = $( [] );
+	$( window ).on( 'hashchange', function () {
+		if ( location.hash.match( /^#[0-9a-f]{10}$/ ) ) {
+			$lastMatch.removeClass( 'highlight' );
+			$lastMatch = $( location.hash ).closest( 'tr' );
+			$lastMatch.addClass( 'highlight' );
+		}
+	} );
+	$( window ).trigger( 'hashchange' );
 
 }() );

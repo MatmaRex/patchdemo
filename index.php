@@ -81,6 +81,8 @@ if ( $useOAuth && !$user ) {
 							'placeholder' => "e.g. 456123",
 						] ),
 						[
+							'classes' => [ 'form-patches-layout' ],
+							'infusable' => true,
 							'label' => 'Then, apply patches:',
 							'help' => 'Gerrit changeset number or Change-Id, one per line',
 							'helpInline' => true,
@@ -224,6 +226,7 @@ $rows = '';
 $anyCanDelete = false;
 $closedWikis = 0;
 $canAdmin = can_admin();
+$wikiPatches = [];
 
 $results = $mysqli->query( '
 	SELECT wiki, creator, UNIX_TIMESTAMP( created ) created, patches, branch, announcedTasks, timeToCreate, deleted
@@ -237,6 +240,8 @@ if ( !$results ) {
 while ( $data = $results->fetch_assoc() ) {
 	$wikiData = get_wiki_data_from_row( $data );
 	$wiki = $data['wiki'];
+
+	$wikiPatches[$wiki] = json_decode( $data['patches'] );
 
 	$closed = false;
 	$patches = format_patch_list( $wikiData['patchList'], $wikiData['branch'], $closed );
@@ -256,7 +261,10 @@ while ( $data = $results->fetch_assoc() ) {
 	}
 
 	$rows .= '<tr class="' . implode( ' ', $classes ) . '">' .
-		'<td data-label="Wiki" class="wiki"><a href="wikis/' . $wiki . '/w" title="' . $wiki . '">' . substr( $wiki, 0, 10 ) . '</a></td>' .
+		'<td data-label="Wiki" class="wiki">' .
+			'<span class="wikiAnchor" id="' . substr( $wiki, 0, 10 ) . '"></span>' .
+			'<a href="wikis/' . $wiki . '/w" title="' . $wiki . '">' . substr( $wiki, 0, 10 ) . '</a>' .
+		'</td>' .
 		'<td data-label="Patches" class="patches">' . $patches . '</td>' .
 		'<td data-label="Linked tasks" class="linkedTasks">' . $linkedTasks . '</td>' .
 		'<td data-label="Time" class="date">' . date( 'Y-m-d H:i:s', $wikiData[ 'created' ] ) . '</td>' .
@@ -306,4 +314,5 @@ echo '<table class="wikis">' .
 <script src="js/PatchSelectWidget.js"></script>
 <script src="js/index.js"></script>
 <?php
+echo '<script> pd.wikiPatches = ' . json_encode( $wikiPatches ) . '; </script>';
 include "footer.html";

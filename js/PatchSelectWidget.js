@@ -1,4 +1,20 @@
-/* global OO, $ */
+/* global OO, $, pd */
+
+$( function () {
+	var wiki, patchKey;
+
+	pd.patchIndex = {};
+
+	// Sort patches for comparison later. It doesn't matter
+	// that Array#sort is lexicographical.
+	for ( wiki in pd.wikiPatches ) {
+		patchKey = pd.wikiPatches[ wiki ].sort().join( '|' );
+		if ( patchKey ) {
+			pd.patchIndex[ patchKey ] = pd.patchIndex[ patchKey ] || [];
+			pd.patchIndex[ patchKey ].push( wiki );
+		}
+	}
+} );
 
 window.PatchSelectWidget = function PatchSelectWidget( config ) {
 	var widget = this;
@@ -121,6 +137,8 @@ window.PatchSelectWidget.prototype.createTagItemWidget = function () {
 };
 
 window.PatchSelectWidget.prototype.onChangeTags = function () {
+	var patchKey;
+
 	window.PatchSelectWidget.super.prototype.onChangeTags.apply( this, arguments );
 
 	this.$formInput.val(
@@ -133,6 +151,12 @@ window.PatchSelectWidget.prototype.onChangeTags = function () {
 				data.input;
 		} ).join( '|' )
 	);
+
+	patchKey = this.items.map( function ( item ) {
+		var data = item.getData();
+		return data.r + ',' + data.p;
+	} ).sort().join( '|' );
+	this.emit( 'matchWikis', pd.patchIndex[ patchKey ] );
 };
 
 // Like the parent method, but works with outline, and uses getData instead of getLabel

@@ -165,6 +165,10 @@ summary > .oo-ui-labelElement-label {
 	background: #eaf3ff;
 }
 
+.wikis tr.highlight {
+	background: #fef6e7;
+}
+
 .wikis .patches,
 .wikis .linkedTasks {
 	overflow: hidden;
@@ -173,8 +177,13 @@ summary > .oo-ui-labelElement-label {
 	max-width: 20em;
 }
 
-.wikis .wiki {
+.wiki {
 	font-family: monospace, monospace;
+}
+
+.wikis .wikiAnchor {
+	position: relative;
+	top: -130px;
 }
 
 .wikis .date {
