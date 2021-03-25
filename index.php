@@ -225,13 +225,18 @@ $anyCanDelete = false;
 $closedWikis = 0;
 $canAdmin = can_admin();
 
-$results = $mysqli->query( 'SELECT wiki FROM wikis WHERE !deleted ORDER BY created DESC' );
+$results = $mysqli->query( '
+	SELECT wiki, creator, UNIX_TIMESTAMP( created ) created, patches, branch, announcedTasks, timeToCreate, deleted
+	FROM wikis
+	WHERE !deleted
+	ORDER BY created DESC
+' );
 if ( !$results ) {
 	die( $mysqli->error );
 }
 while ( $data = $results->fetch_assoc() ) {
+	$wikiData = get_wiki_data_from_row( $data );
 	$wiki = $data['wiki'];
-	$wikiData = get_wiki_data( $wiki );
 
 	$closed = false;
 	$patches = format_patch_list( $wikiData['patchList'], $wikiData['branch'], $closed );
