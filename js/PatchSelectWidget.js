@@ -73,6 +73,7 @@ window.PatchSelectWidget.prototype.createTagItemWidget = function () {
 	}
 
 	item.setLabel( patch + ': …' );
+	item.setData( { input: patch } );
 
 	patchCache[ patch ] = patchCache[ patch ] || (
 		patch.match( /^(I[0-9a-f]+|[0-9]+(,[0-9+])?)$/ ) ?
@@ -80,22 +81,28 @@ window.PatchSelectWidget.prototype.createTagItemWidget = function () {
 			$.Deferred().reject( 'Invalid patch number' ).promise()
 	);
 	patchCache[ patch ].then( function ( response ) {
+		var data = { input: patch };
 		if ( !response.length ) {
 			return $.Deferred().reject( 'Could not find patch' ).promise();
 		} else if ( response.length > 1 ) {
 			return $.Deferred().reject( 'Ambiguous query' ).promise();
 		}
+		data.r = response[ 0 ].r ||
+			// eslint-disable-next-line no-underscore-dangle
+			( patch.indexOf( 'I' ) === 0 ? response[ 0 ]._number : patch );
+		data.p = response[ 0 ].p ||
+			// eslint-disable-next-line no-underscore-dangle
+			response[ 0 ].revisions[ response[ 0 ].current_revision ]._number;
+
 		item.setFlags( [] );
-		// Normalize ID
-		// eslint-disable-next-line no-underscore-dangle
-		item.setData( patch.indexOf( 'I' ) === 0 ? response[ 0 ]._number : patch );
+		item.setData( data );
 		item.setLabel(
 			$( '<span>' ).append(
-				document.createTextNode( item.getData() + ': ' ),
+				document.createTextNode( data.r + ',' + data.p + ': ' ),
 				$( '<a>' )
 					.attr( {
 						target: '_blank',
-						href: 'https://gerrit.wikimedia.org/r/' + item.getData()
+						href: 'https://gerrit.wikimedia.org/r/' + data.r
 					} )
 					.text( response[ 0 ].subject )
 					.on( 'click', linkClick )
@@ -105,7 +112,7 @@ window.PatchSelectWidget.prototype.createTagItemWidget = function () {
 		widget.onChangeTags();
 		widget.updateInputSize();
 	} ).then( null, function ( err ) {
-		item.setLabel( item.getData() + ': ' + err );
+		item.setLabel( item.getData().input + ': ' + err );
 		item.toggleValid( false );
 		widget.updateInputSize();
 	} );
@@ -119,7 +126,11 @@ window.PatchSelectWidget.prototype.onChangeTags = function () {
 	this.$formInput.val(
 		// Join items with a pipe as the hidden input is single line
 		this.items.map( function ( item ) {
-			return item.getData();
+			var data = item.getData();
+			return data.r ?
+				// 'latest' means the user didn't specify a patchset, and so wants the latest one.
+				( data.latest ? data.r : data.r + ',' + data.p ) :
+				data.input;
 		} ).join( '|' )
 	);
 };
@@ -142,7 +153,7 @@ window.PatchSelectWidget.prototype.doInputBackspace = function ( e, withMetaKey 
 			// If Ctrl/Cmd was pressed, delete item entirely.
 			// Otherwise put it into the text field for editing.
 			if ( !withMetaKey ) {
-				this.input.setValue( item.getData() );
+				this.input.setValue( item.getData().input );
 			}
 		}
 
@@ -156,7 +167,7 @@ window.PatchSelectWidget.prototype.onTagSelect = function ( item ) {
 			this.addTagFromInput();
 		}
 		// 1. Get the label of the tag into the input
-		this.input.setValue( item.getData() );
+		this.input.setValue( item.getData().input );
 		// 2. Remove the tag
 		this.removeItems( [ item ] );
 		// 3. Focus the input
