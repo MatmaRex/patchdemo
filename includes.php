@@ -89,6 +89,10 @@ function get_wiki_data( string $wiki ) : array {
 		throw new Error( 'Wiki not found: ' . $wiki );
 	}
 
+	return get_wiki_data_from_row( $data );
+}
+
+function get_wiki_data_from_row( array $data ) : array {
 	// Decode JSON
 	$data['patches'] = json_decode( $data['patches'] ) ?: [];
 	$data['announcedTasks'] = json_decode( $data['announcedTasks'] ) ?: [];
