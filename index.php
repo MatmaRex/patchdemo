@@ -283,12 +283,13 @@ while ( $data = $results->fetch_assoc() ) {
 
 if ( $closedWikis ) {
 	echo new OOUI\MessageWidget( [
+		'classes' => [ 'showClosed' ],
 		'type' => 'warning',
 		'label' => new OOUI\HtmlSnippet(
 			new OOUI\ButtonWidget( [
 				'infusable' => true,
 				'label' => 'Show',
-				'classes' => [ 'showClosed' ],
+				'classes' => [ 'showClosedButton' ],
 			] ) .
 			'You have created ' . $closedWikis . ' ' . ( $closedWikis > 1 ? 'wikis' : 'wiki' ) . ' where all the patches ' .
 			'have been merged or abandoned and therefore can be deleted.'
