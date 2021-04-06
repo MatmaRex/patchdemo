@@ -85,7 +85,6 @@ mediawiki/extensions/SecureLinkFixer
 mediawiki/extensions/SecurePoll
 mediawiki/extensions/SiteMatrix
 mediawiki/extensions/SpamBlacklist
-mediawiki/extensions/StopForumSpam
 mediawiki/extensions/SyntaxHighlight_GeSHi
 mediawiki/extensions/TemplateData
 mediawiki/extensions/TemplateSandbox
