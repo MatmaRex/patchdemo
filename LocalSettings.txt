@@ -99,6 +99,9 @@ $wgGEHelpPanelHelpDeskTitle = 'Project:GrowthExperiments_help_desk';
 // Interwiki
 $wgGroupPermissions['sysop']['interwiki'] = true;
 
+// Wikispeech
+$wgWikispeechSpeechoidUrl = 'https://wikispeech-tts-dev.wmflabs.org/';
+
 // Unintrusive anti-spam CAPTCHA
 if ( file_exists( 'extensions/ConfirmEdit/QuestyCaptcha/extension.json' ) ) {
 	wfLoadExtension( 'ConfirmEdit/QuestyCaptcha' );
