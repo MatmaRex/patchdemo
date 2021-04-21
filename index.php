@@ -241,7 +241,7 @@ while ( $data = $results->fetch_assoc() ) {
 	$wikiData = get_wiki_data_from_row( $data );
 	$wiki = $data['wiki'];
 
-	$wikiPatches[$wiki] = json_decode( $data['patches'] );
+	$wikiPatches[$wiki] = $wikiData['patches'];
 
 	$closed = false;
 	$patches = format_patch_list( $wikiData['patchList'], $wikiData['branch'], $closed );
