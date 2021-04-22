@@ -58,6 +58,9 @@ $wgCitoidFullRestbaseURL = 'https://www.mediawiki.org/api/rest_';
 $wgLocaltimezone = 'UTC';
 $wgFragmentMode = [ 'html5', 'legacy' ];
 
+// Echo
+$wgEchoPerUserBlacklist = true;
+
 // GlobalWatchlist
 $wgGlobalWatchlistDevMode = true;
 
