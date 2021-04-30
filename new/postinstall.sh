@@ -54,6 +54,11 @@ if [ "${USE_PROXY}" = "1" ]; then
 	done
 fi
 
+# Enable instantCommons if selected
+if [ "${USE_INSTANT_COMMONS}" = "1" ]; then
+	cat $PATCHDEMO/LocalSettings-instantCommons.txt >> $PATCHDEMO/wikis/$NAME/w/LocalSettings.php
+fi
+
 # populate interwiki table from en.wiki
 php $PATCHDEMO/wikis/$NAME/w/maintenance/populateInterwiki.php
 

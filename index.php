@@ -153,6 +153,19 @@ if ( $useOAuth && !$user ) {
 					),
 					new OOUI\FieldLayout(
 						new OOUI\CheckboxInputWidget( [
+							'name' => 'instantCommons',
+							'value' => 1,
+							'selected' => true
+						] ),
+						[
+							'label' => 'Load images from Commons',
+							'help' => 'Any images not local to the wiki will be pulled from Wikimedia Commons.',
+							'helpInline' => true,
+							'align' => 'left',
+						]
+					),
+					new OOUI\FieldLayout(
+						new OOUI\CheckboxInputWidget( [
 							'name' => 'proxy',
 							'value' => 1,
 							'selected' => false
