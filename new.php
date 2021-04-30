@@ -276,6 +276,7 @@ foreach ( $linkedTasks as $task ) {
 $repos = get_repo_data();
 
 $useProxy = !empty( $_POST['proxy'] );
+$useInstantCommons = !empty( $_POST['instantCommons' ] );
 
 if ( $_POST['preset'] === 'custom' ) {
 	$allowedRepos = $_POST['repos'];
@@ -374,6 +375,7 @@ set_progress( 90, 'Setting up wiki content...' );
 $cmd = make_shell_command( $baseEnv + [
 	'MAINPAGE' => $mainPage,
 	'USE_PROXY' => $useProxy,
+	'USE_INSTANT_COMMONS' => $useInstantCommons,
 ], __DIR__ . '/new/postinstall.sh' );
 
 $error = shell_echo( $cmd );

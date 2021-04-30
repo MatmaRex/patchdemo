@@ -1,0 +1,2 @@
+// InstantCommons
+$wgUseInstantCommons = true;

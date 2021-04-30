@@ -64,9 +64,6 @@ $wgEchoPerUserBlacklist = true;
 // GlobalWatchlist
 $wgGlobalWatchlistDevMode = true;
 
-// InstantCommons
-$wgUseInstantCommons = true;
-
 // UploadWizard, Special:Upload
 $wgEnableUploads = true;
 
