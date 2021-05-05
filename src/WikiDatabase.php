@@ -1,5 +1,7 @@
 <?php
 
+// phpcs:disable MediaWiki.Files.ClassMatchesFilename.NotMatch
+
 /**
  * Manager interactions with the `wiki` table
  *
