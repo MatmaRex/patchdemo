@@ -366,7 +366,7 @@ foreach ( $commands as $i => $command ) {
 	$cmd = make_shell_command( $baseEnv + $command[0], $command[1] );
 	$error = shell_echo( $cmd );
 	if ( $error ) {
-		abandon( "Could not apply patch $i." );
+		abandon( "Could not apply patch {$patchesApplied[$i]}." );
 	}
 }
 
