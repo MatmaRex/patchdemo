@@ -1,28 +1,19 @@
 /* global OO, $ */
 ( function () {
-	var myWikis, closedWikis, branchSelect, form, submit, showClosedButton,
-		patchesInput, patchesLayout, presetInput, reposField, reposInput, reposFieldLabel,
-		$wikisTable = $( '.wikis' );
-
 	window.pd = window.pd || {};
 
-	function updateTableClasses() {
-		$wikisTable.toggleClass( 'hideOthers', !!myWikis.isSelected() );
-		$wikisTable.toggleClass( 'hideOpen', !!closedWikis.isSelected() );
-	}
-
-	form = document.getElementById( 'new-form' );
+	var form = document.getElementById( 'new-form' );
 	if ( form ) {
-		submit = OO.ui.infuse( $( '.form-submit' ) );
+		var submit = OO.ui.infuse( $( '.form-submit' ) );
+		var patchesInput = OO.ui.infuse( $( '.form-patches' ) );
+		var patchesLayout = OO.ui.infuse( $( '.form-patches-layout' ) );
+
 		form.addEventListener( 'submit', function () {
 			// Blur is not fired on patchesInput, so call manually
 			patchesInput.doInputEnter();
 			submit.setDisabled( true );
 			return false;
 		} );
-
-		patchesInput = OO.ui.infuse( $( '.form-patches' ) );
-		patchesLayout = OO.ui.infuse( $( '.form-patches-layout' ) );
 
 		patchesInput.on( 'matchWikis', function ( wikis ) {
 			patchesLayout.setWarnings(
@@ -37,14 +28,21 @@
 		} );
 
 		if ( $( '.myWikis' ).length ) {
-			myWikis = OO.ui.infuse( $( '.myWikis' ) );
-			myWikis.on( 'change', updateTableClasses );
+			var $wikisTable = $( '.wikis' );
+			var myWikis = OO.ui.infuse( $( '.myWikis' ) );
+			var closedWikis = OO.ui.infuse( $( '.closedWikis' ) );
 
-			closedWikis = OO.ui.infuse( $( '.closedWikis' ) );
+			// eslint-disable-next-line no-inner-declarations
+			function updateTableClasses() {
+				$wikisTable.toggleClass( 'hideOthers', !!myWikis.isSelected() );
+				$wikisTable.toggleClass( 'hideOpen', !!closedWikis.isSelected() );
+			}
+
+			myWikis.on( 'change', updateTableClasses );
 			closedWikis.on( 'change', updateTableClasses );
 
 			if ( $( '.showClosedButton' ).length ) {
-				showClosedButton = OO.ui.infuse( $( '.showClosedButton' ) );
+				var showClosedButton = OO.ui.infuse( $( '.showClosedButton' ) );
 				showClosedButton.on( 'click', function () {
 					myWikis.setSelected( true );
 					closedWikis.setSelected( true );
@@ -53,7 +51,11 @@
 			}
 		}
 
-		branchSelect = OO.ui.infuse( $( '.form-branch' ) );
+		var presetInput = OO.ui.infuse( $( '.form-preset' ) );
+		var reposInput = OO.ui.infuse( $( '.form-repos' ) );
+		var reposField = OO.ui.infuse( $( '.form-repos-field' ) );
+		var branchSelect = OO.ui.infuse( $( '.form-branch' ) );
+
 		branchSelect.on( 'change', function () {
 			var branch, repo, validBranch;
 			branch = branchSelect.value;
@@ -66,11 +68,7 @@
 			reposInput.emit( 'change' );
 		} );
 
-		presetInput = OO.ui.infuse( $( '.form-preset' ) );
-		reposInput = OO.ui.infuse( $( '.form-repos' ) );
-		reposField = OO.ui.infuse( $( '.form-repos-field' ) );
-
-		reposFieldLabel = reposField.getLabel();
+		var reposFieldLabel = reposField.getLabel();
 
 		presetInput.on( 'change', OO.ui.debounce( function () {
 			var val = presetInput.getValue();
@@ -112,7 +110,6 @@
 		reposInput.emit( 'change' );
 	}
 
-	// eslint-disable-next-line one-var, vars-on-top
 	var $lastMatch = $( [] );
 	$( window ).on( 'hashchange', function () {
 		if ( location.hash.match( /^#[0-9a-f]{10}$/ ) ) {
