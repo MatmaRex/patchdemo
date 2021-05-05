@@ -1,0 +1,4 @@
+// NWE beta feature
+$wgVisualEditorEnableWikitextBetaFeature = true;
+// CollabPad test server
+$wgVisualEditorRebaserURL = 'https://visualeditor-realtime.wmflabs.org';

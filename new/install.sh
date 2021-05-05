@@ -15,7 +15,18 @@ php $PATCHDEMO/wikis/$NAME/w/maintenance/install.php \
 "$WIKINAME" "Patch Demo"
 
 # apply our default settings
-cat $PATCHDEMO/LocalSettings.txt >> $PATCHDEMO/wikis/$NAME/w/LocalSettings.php
+cat $PATCHDEMO/localsettings/core.txt >> $PATCHDEMO/wikis/$NAME/w/LocalSettings.php
+
+# apply extension/skin/service-sepcific setings
+while IFS=' ' read -r repo dir; do
+	filename=$(echo $repo | sed "s/\//-/g" | sed "s/^mediawiki-//")
+	if [ -f $PATCHDEMO/localsettings/$filename.txt ]; then
+		if [ -d $PATCHDEMO/wikis/$NAME/$dir ]; then
+			echo -e "\n// $repo" >> $PATCHDEMO/wikis/$NAME/w/LocalSettings.php
+			cat $PATCHDEMO/localsettings/$filename.txt >> $PATCHDEMO/wikis/$NAME/w/LocalSettings.php
+		fi
+	fi
+done < $PATCHDEMO/repositories.txt
 
 # create htaccess
 echo "RewriteEngine On
