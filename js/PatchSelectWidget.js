@@ -1,14 +1,12 @@
 /* global OO, $, pd */
 
 $( function () {
-	var wiki, patchKey;
-
 	pd.patchIndex = {};
 
 	// Sort patches for comparison later. It doesn't matter
 	// that Array#sort is lexicographical.
-	for ( wiki in pd.wikiPatches ) {
-		patchKey = pd.wikiPatches[ wiki ].sort().join( '|' );
+	for ( var wiki in pd.wikiPatches ) {
+		var patchKey = pd.wikiPatches[ wiki ].sort().join( '|' );
 		if ( patchKey ) {
 			pd.patchIndex[ patchKey ] = pd.patchIndex[ patchKey ] || [];
 			pd.patchIndex[ patchKey ].push( wiki );
@@ -58,11 +56,10 @@ window.PatchSelectWidget.prototype.afterPaste = function () {
 };
 
 window.PatchSelectWidget.prototype.onInputKeyPress = function ( e ) {
-	var stopOrContinue,
-		withMetaKey = e.metaKey || e.ctrlKey;
-
 	if ( !this.isDisabled() ) {
+		var stopOrContinue;
 		if ( e.which === OO.ui.Keys.SPACE ) {
+			var withMetaKey = e.metaKey || e.ctrlKey;
 			stopOrContinue = this.doInputEnter( e, withMetaKey );
 		}
 
@@ -137,8 +134,6 @@ window.PatchSelectWidget.prototype.createTagItemWidget = function () {
 };
 
 window.PatchSelectWidget.prototype.onChangeTags = function () {
-	var patchKey;
-
 	window.PatchSelectWidget.super.prototype.onChangeTags.apply( this, arguments );
 
 	this.$formInput.val(
@@ -152,7 +147,7 @@ window.PatchSelectWidget.prototype.onChangeTags = function () {
 		} ).join( '|' )
 	);
 
-	patchKey = this.items.map( function ( item ) {
+	var patchKey = this.items.map( function ( item ) {
 		var data = item.getData();
 		return data.r + ',' + data.p;
 	} ).sort().join( '|' );
@@ -161,16 +156,14 @@ window.PatchSelectWidget.prototype.onChangeTags = function () {
 
 // Like the parent method, but works with outline, and uses getData instead of getLabel
 window.PatchSelectWidget.prototype.doInputBackspace = function ( e, withMetaKey ) {
-	var items, item;
-
 	if (
 		this.inputPosition === 'inline' &&
 		this.input.getValue() === '' &&
 		!this.isEmpty()
 	) {
 		// Delete the last item
-		items = this.getItems();
-		item = items[ items.length - 1 ];
+		var items = this.getItems();
+		var item = items[ items.length - 1 ];
 
 		if ( !item.isDisabled() && !item.isFixed() ) {
 			this.removeItems( [ item ] );
