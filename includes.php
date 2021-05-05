@@ -22,7 +22,7 @@ if ( $basePath === '/' ) {
 $is404 = basename( $_SERVER['SCRIPT_NAME'] ) === '404.php';
 
 include_once 'oauth.php';
-require_once( './src/WikiDatabase.php' );
+require_once './src/WikiDatabase.php';
 
 $mysqli = new mysqli( 'localhost', 'patchdemo', 'patchdemo', 'patchdemo' );
 if ( $mysqli->connect_error ) {
