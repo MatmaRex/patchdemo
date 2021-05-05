@@ -22,6 +22,7 @@ if ( $basePath === '/' ) {
 $is404 = basename( $_SERVER['SCRIPT_NAME'] ) === '404.php';
 
 include_once 'oauth.php';
+require_once( './src/WikiDatabase.php' );
 
 $mysqli = new mysqli( 'localhost', 'patchdemo', 'patchdemo', 'patchdemo' );
 if ( $mysqli->connect_error ) {
@@ -30,43 +31,30 @@ if ( $mysqli->connect_error ) {
 
 function insert_wiki_data( string $wiki, string $creator, int $created, string $branch ) {
 	global $mysqli;
-	$stmt = $mysqli->prepare( '
-		INSERT INTO wikis
-		(wiki, creator, created, branch)
-		VALUES(?, ?, FROM_UNIXTIME(?), ?)
-	' );
-	if ( !$stmt ) {
-		echo $mysqli->error;
+	$wikiDatabase = new PatchDemoWikiDatabase( $mysqli );
+	$result = $wikiDatabase->insertNewWiki( $wiki, $creator, $created, $branch );
+	if ( $result !== true ) {
+		// Error message
+		echo $result;
 	}
-	$stmt->bind_param( 'ssis', $wiki, $creator, $created, $branch );
-	$stmt->execute();
-	$stmt->close();
 }
 
 function wiki_add_patches( string $wiki, array $patches ) {
 	global $mysqli;
-	$stmt = $mysqli->prepare( 'UPDATE wikis SET patches = ? WHERE wiki = ?' );
-	$patches = json_encode( $patches );
-	$stmt->bind_param( 'ss', $patches, $wiki );
-	$stmt->execute();
-	$stmt->close();
+	$wikiDatabase = new PatchDemoWikiDatabase( $mysqli );
+	$wikiDatabase->setWikiPatches( $wiki, $patches );
 }
 
 function wiki_add_announced_tasks( string $wiki, array $announcedTasks ) {
 	global $mysqli;
-	$stmt = $mysqli->prepare( 'UPDATE wikis SET announcedTasks = ? WHERE wiki = ?' );
-	$announcedTasks = json_encode( $announcedTasks );
-	$stmt->bind_param( 'ss', $announcedTasks, $wiki );
-	$stmt->execute();
-	$stmt->close();
+	$wikiDatabase = new PatchDemoWikiDatabase( $mysqli );
+	$wikiDatabase->setWikiAnnouncedTasks( $wiki, $announcedTasks );
 }
 
 function wiki_set_time_to_create( string $wiki, int $timeToCreate ) {
 	global $mysqli;
-	$stmt = $mysqli->prepare( 'UPDATE wikis SET timeToCreate = ? WHERE wiki = ?' );
-	$stmt->bind_param( 'is', $timeToCreate, $wiki );
-	$stmt->execute();
-	$stmt->close();
+	$wikiDatabase = new PatchDemoWikiDatabase( $mysqli );
+	$wikiDatabase->setWikiTimeToCreate( $wiki, $timeToCreate );
 }
 
 function get_wiki_data( string $wiki ) : array {
