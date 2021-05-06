@@ -61,3 +61,4 @@ mediawiki/extensions/DiscussionTools w/extensions/DiscussionTools
 mediawiki/extensions/MobileFrontend w/extensions/MobileFrontend
 mediawiki/skins/MinervaNeue w/skins/MinervaNeue
 mediawiki/extensions/WikiLambda w/extensions/WikiLambda
+mediawiki/extensions/Wikisource w/extensions/Wikisource
