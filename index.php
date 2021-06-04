@@ -182,7 +182,6 @@ if ( $useOAuth && !$user ) {
 							'classes' => [ 'form-submit' ],
 							'label' => 'Create demo',
 							'type' => 'submit',
-							// 'disabled' => true,
 							'flags' => [ 'progressive', 'primary' ]
 						] ),
 						[

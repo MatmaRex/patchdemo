@@ -4,4 +4,5 @@ repositories
 composer
 composer.lock
 vendor
+redirects.txt
 node_modules
