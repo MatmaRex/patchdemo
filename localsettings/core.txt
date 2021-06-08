@@ -49,4 +49,4 @@ $wgFragmentMode = [ 'html5', 'legacy' ];
 $wgLocaltimezone = 'UTC';
 
 // Enable watchlist expiry feature
-$wgWatchlistExpiry = false;
+$wgWatchlistExpiry = true;
