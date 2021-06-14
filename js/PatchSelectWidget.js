@@ -1,4 +1,4 @@
-/* global OO, $, pd */
+/* global OO, pd */
 
 $( function () {
 	pd.patchIndex = {};

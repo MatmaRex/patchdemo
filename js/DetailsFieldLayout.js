@@ -1,4 +1,4 @@
-/* global OO, $ */
+/* global OO */
 window.DetailsFieldLayout = function DetailsFieldLayout( fieldWidget, config ) {
 	// Allow passing positional parameters inside the config object
 	if ( OO.isPlainObject( fieldWidget ) && config === undefined ) {

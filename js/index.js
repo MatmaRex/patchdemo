@@ -1,4 +1,7 @@
-/* global OO, $ */
+/* global OO */
+
+/* eslint-disable no-jquery/no-global-selector */
+
 ( function () {
 	window.pd = window.pd || {};
 
