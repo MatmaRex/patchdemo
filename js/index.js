@@ -70,10 +70,9 @@
 		var branchSelect = OO.ui.infuse( $( '.form-branch' ) );
 
 		branchSelect.on( 'change', function () {
-			var branch, repo, validBranch;
-			branch = branchSelect.value;
-			for ( repo in window.repoBranches ) {
-				validBranch = window.repoBranches[ repo ].indexOf( branch ) !== -1;
+			var branch = branchSelect.value;
+			for ( var repo in window.repoBranches ) {
+				var validBranch = window.repoBranches[ repo ].indexOf( branch ) !== -1;
 				reposInput.checkboxMultiselectWidget
 					.findItemFromData( repo )
 					.setDisabled( !validBranch || repo === 'mediawiki/core' );
@@ -93,12 +92,9 @@
 			}
 		} ) );
 		reposInput.on( 'change', OO.ui.debounce( function () {
-			var selected = 0, enabled = 0,
-				val, presetName, matchingPresetName;
-
-			val = reposInput.getValue();
-			matchingPresetName = 'custom';
-			for ( presetName in window.presets ) {
+			var val = reposInput.getValue();
+			var matchingPresetName = 'custom';
+			for ( var presetName in window.presets ) {
 				if ( window.presets[ presetName ].sort().join( '|' ) === val.sort().join( '|' ) ) {
 					matchingPresetName = presetName;
 					break;
@@ -108,6 +104,7 @@
 				presetInput.setValue( matchingPresetName );
 			}
 
+			var selected = 0, enabled = 0;
 			reposInput.checkboxMultiselectWidget.items.forEach( function ( option ) {
 				if ( !option.isDisabled() ) {
 					enabled++;
