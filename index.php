@@ -297,7 +297,7 @@ while ( $data = $results->fetch_assoc() ) {
 		( $useOAuth ? '<td data-label="Creator">' . ( $creator ? user_link( $creator ) : '?' ) . '</td>' : '' ) .
 		( $canAdmin ? '<td data-label="Time to create">' . ( $wikiData['timeToCreate'] ? $wikiData['timeToCreate'] . 's' : '' ) . '</td>' : '' ) .
 		( $canDelete ?
-			'<td data-label="Actions"><a href="delete.php?wiki=' . $wiki . '">Delete</a></td>' :
+			'<td data-label="Actions"><a href="update.php?wiki=' . $wiki . '">Update</a> <a href="delete.php?wiki=' . $wiki . '">Delete</a></td>' :
 			( $anyCanDelete ? '<td></td>' : '' )
 		) .
 	'</tr>';

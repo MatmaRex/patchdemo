@@ -3,6 +3,8 @@ set -ex
 
 cd $PATCHDEMO/wikis/$NAME/$REPO
 
+git reset --hard origin/master
+
 git fetch origin $REF
 
 # Apply $HASH and its parent commits up to $BASE on top of current HEAD.
