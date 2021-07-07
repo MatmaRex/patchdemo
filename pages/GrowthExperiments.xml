@@ -1,56 +1,56 @@
 <mediawiki xmlns="http://www.mediawiki.org/xml/export-0.11/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mediawiki.org/xml/export-0.11/ http://www.mediawiki.org/xml/export-0.11.xsd" version="0.11" xml:lang="en">
-  <siteinfo>
-    <sitename>Patch Demo (493494,25)</sitename>
-    <dbname>patchdemo_cbe37578751b8297c6f29ebdd4406bb7</dbname>
-    <base>http://patchdemo.wmflabs.org/wikis/cbe37578751b8297c6f29ebdd4406bb7/w/index.php/Main_Page</base>
-    <generator>MediaWiki 1.36.0-alpha</generator>
-    <case>first-letter</case>
-    <namespaces>
-      <namespace key="-2" case="first-letter">Media</namespace>
-      <namespace key="-1" case="first-letter">Special</namespace>
-      <namespace key="0" case="first-letter" />
-      <namespace key="1" case="first-letter">Talk</namespace>
-      <namespace key="2" case="first-letter">User</namespace>
-      <namespace key="3" case="first-letter">User talk</namespace>
-      <namespace key="4" case="first-letter">Project</namespace>
-      <namespace key="5" case="first-letter">Project talk</namespace>
-      <namespace key="6" case="first-letter">File</namespace>
-      <namespace key="7" case="first-letter">File talk</namespace>
-      <namespace key="8" case="first-letter">MediaWiki</namespace>
-      <namespace key="9" case="first-letter">MediaWiki talk</namespace>
-      <namespace key="10" case="first-letter">Template</namespace>
-      <namespace key="11" case="first-letter">Template talk</namespace>
-      <namespace key="12" case="first-letter">Help</namespace>
-      <namespace key="13" case="first-letter">Help talk</namespace>
-      <namespace key="14" case="first-letter">Category</namespace>
-      <namespace key="15" case="first-letter">Category talk</namespace>
-      <namespace key="710" case="first-letter">TimedText</namespace>
-      <namespace key="711" case="first-letter">TimedText talk</namespace>
-      <namespace key="828" case="first-letter">Module</namespace>
-      <namespace key="829" case="first-letter">Module talk</namespace>
-      <namespace key="2300" case="first-letter">Gadget</namespace>
-      <namespace key="2301" case="first-letter">Gadget talk</namespace>
-      <namespace key="2302" case="case-sensitive">Gadget definition</namespace>
-      <namespace key="2303" case="case-sensitive">Gadget definition talk</namespace>
-      <namespace key="2468" case="first-letter">ZObject</namespace>
-      <namespace key="2469" case="first-letter">ZObject talk</namespace>
-    </namespaces>
-  </siteinfo>
-  <page>
-    <title>MediaWiki:NewcomerTasks.json</title>
-    <ns>8</ns>
-    <id>3</id>
-    <revision>
-      <id>4</id>
-      <timestamp>2020-09-30T09:32:15Z</timestamp>
-      <contributor>
-        <username>Maintenance script</username>
-        <id>4</id>
-      </contributor>
-      <origin>4</origin>
-      <model>json</model>
-      <format>application/json</format>
-      <text bytes="1256" sha1="picnpjf2wf3ed48dm2z500bilyifw42" xml:space="preserve">{
+    <siteinfo>
+        <sitename>Patch Demo (493494,25)</sitename>
+        <dbname>patchdemo_cbe37578751b8297c6f29ebdd4406bb7</dbname>
+        <base>http://patchdemo.wmflabs.org/wikis/cbe37578751b8297c6f29ebdd4406bb7/w/index.php/Main_Page</base>
+        <generator>MediaWiki 1.36.0-alpha</generator>
+        <case>first-letter</case>
+        <namespaces>
+            <namespace key="-2" case="first-letter">Media</namespace>
+            <namespace key="-1" case="first-letter">Special</namespace>
+            <namespace key="0" case="first-letter" />
+            <namespace key="1" case="first-letter">Talk</namespace>
+            <namespace key="2" case="first-letter">User</namespace>
+            <namespace key="3" case="first-letter">User talk</namespace>
+            <namespace key="4" case="first-letter">Project</namespace>
+            <namespace key="5" case="first-letter">Project talk</namespace>
+            <namespace key="6" case="first-letter">File</namespace>
+            <namespace key="7" case="first-letter">File talk</namespace>
+            <namespace key="8" case="first-letter">MediaWiki</namespace>
+            <namespace key="9" case="first-letter">MediaWiki talk</namespace>
+            <namespace key="10" case="first-letter">Template</namespace>
+            <namespace key="11" case="first-letter">Template talk</namespace>
+            <namespace key="12" case="first-letter">Help</namespace>
+            <namespace key="13" case="first-letter">Help talk</namespace>
+            <namespace key="14" case="first-letter">Category</namespace>
+            <namespace key="15" case="first-letter">Category talk</namespace>
+            <namespace key="710" case="first-letter">TimedText</namespace>
+            <namespace key="711" case="first-letter">TimedText talk</namespace>
+            <namespace key="828" case="first-letter">Module</namespace>
+            <namespace key="829" case="first-letter">Module talk</namespace>
+            <namespace key="2300" case="first-letter">Gadget</namespace>
+            <namespace key="2301" case="first-letter">Gadget talk</namespace>
+            <namespace key="2302" case="case-sensitive">Gadget definition</namespace>
+            <namespace key="2303" case="case-sensitive">Gadget definition talk</namespace>
+            <namespace key="2468" case="first-letter">ZObject</namespace>
+            <namespace key="2469" case="first-letter">ZObject talk</namespace>
+        </namespaces>
+    </siteinfo>
+    <page>
+        <title>MediaWiki:NewcomerTasks.json</title>
+        <ns>8</ns>
+        <id>3</id>
+        <revision>
+            <id>4</id>
+            <timestamp>2020-09-30T09:32:15Z</timestamp>
+            <contributor>
+                <username>Maintenance script</username>
+                <id>4</id>
+            </contributor>
+            <origin>4</origin>
+            <model>json</model>
+            <format>application/json</format>
+            <text bytes="1256" sha1="picnpjf2wf3ed48dm2z500bilyifw42" xml:space="preserve">{
     "copyedit": {
         "group": "easy",
         "templates": [
@@ -95,6 +95,10 @@
         ],
         "learnmore": "Wikipedia:Manual of Style/Layout"
     },
+    "link-recommendation": {
+		"group": "easy",
+		"type": "link-recommendation"
+	},
     "links": {
         "group": "easy",
         "templates": [
@@ -104,24 +108,24 @@
         "learnmore": "Wikipedia:Manual of Style/Linking"
     }
 }</text>
-      <sha1>picnpjf2wf3ed48dm2z500bilyifw42</sha1>
-    </revision>
-  </page>
-  <page>
-    <title>MediaWiki:NewcomerTopicsOres.json</title>
-    <ns>8</ns>
-    <id>7</id>
-    <revision>
-      <id>8</id>
-      <timestamp>2020-09-30T09:32:17Z</timestamp>
-      <contributor>
-        <username>Maintenance script</username>
-        <id>4</id>
-      </contributor>
-      <origin>8</origin>
-      <model>json</model>
-      <format>application/json</format>
-      <text bytes="6693" sha1="38qgwtebw6iq85w995yotdtajeepgi7" xml:space="preserve">{
+            <sha1>picnpjf2wf3ed48dm2z500bilyifw42</sha1>
+        </revision>
+    </page>
+    <page>
+        <title>MediaWiki:NewcomerTopicsOres.json</title>
+        <ns>8</ns>
+        <id>7</id>
+        <revision>
+            <id>8</id>
+            <timestamp>2020-09-30T09:32:17Z</timestamp>
+            <contributor>
+                <username>Maintenance script</username>
+                <id>4</id>
+            </contributor>
+            <origin>8</origin>
+            <model>json</model>
+            <format>application/json</format>
+            <text bytes="6693" sha1="38qgwtebw6iq85w995yotdtajeepgi7" xml:space="preserve">{
     "topics": {
         "africa": {
             "group": "geography",
@@ -387,44 +391,997 @@
         "geography"
     ]
 }</text>
-      <sha1>38qgwtebw6iq85w995yotdtajeepgi7</sha1>
-    </revision>
-  </page>
-  <page>
-    <title>Project:GrowthExperiments mentors</title>
-    <ns>4</ns>
-    <id>11</id>
-    <revision>
-      <id>12</id>
-      <timestamp>2020-09-30T09:32:18Z</timestamp>
-      <contributor>
-        <username>Maintenance script</username>
-        <id>4</id>
-      </contributor>
-      <origin>12</origin>
-      <model>wikitext</model>
-      <format>text/x-wiki</format>
-      <text bytes="55" sha1="friygzzitdg301dsgao93b49qmc4pqc" xml:space="preserve">Mentor list for GrowthExperiments
+            <sha1>38qgwtebw6iq85w995yotdtajeepgi7</sha1>
+        </revision>
+    </page>
+    <page>
+        <title>Project:GrowthExperiments mentors</title>
+        <ns>4</ns>
+        <id>11</id>
+        <revision>
+            <id>12</id>
+            <timestamp>2020-09-30T09:32:18Z</timestamp>
+            <contributor>
+                <username>Maintenance script</username>
+                <id>4</id>
+            </contributor>
+            <origin>12</origin>
+            <model>wikitext</model>
+            <format>text/x-wiki</format>
+            <text bytes="55" sha1="friygzzitdg301dsgao93b49qmc4pqc" xml:space="preserve">Mentor list for GrowthExperiments
 * [[User:Patch Demo]]</text>
-      <sha1>friygzzitdg301dsgao93b49qmc4pqc</sha1>
-    </revision>
-  </page>
-  <page>
-    <title>Project:GrowthExperiments_help_desk</title>
-    <ns>4</ns>
-    <id>9</id>
-    <revision>
-      <id>10</id>
-      <timestamp>2020-09-30T09:32:17Z</timestamp>
-      <contributor>
-        <username>Maintenance script</username>
-        <id>4</id>
-      </contributor>
-      <origin>10</origin>
-      <model>wikitext</model>
-      <format>text/x-wiki</format>
-      <text bytes="128" sha1="lxxqy2l1po0tt2l4flperkncc44lpom" xml:space="preserve">Placeholder discussion page. Serves as the help desk for the GrowthExperiments help panel and homepage question asking features.</text>
-      <sha1>lxxqy2l1po0tt2l4flperkncc44lpom</sha1>
-    </revision>
-  </page>
+            <sha1>friygzzitdg301dsgao93b49qmc4pqc</sha1>
+        </revision>
+    </page>
+    <page>
+        <title>Project:GrowthExperiments_help_desk</title>
+        <ns>4</ns>
+        <id>9</id>
+        <revision>
+            <id>10</id>
+            <timestamp>2020-09-30T09:32:17Z</timestamp>
+            <contributor>
+                <username>Maintenance script</username>
+                <id>4</id>
+            </contributor>
+            <origin>10</origin>
+            <model>wikitext</model>
+            <format>text/x-wiki</format>
+            <text bytes="128" sha1="lxxqy2l1po0tt2l4flperkncc44lpom" xml:space="preserve">Placeholder discussion page. Serves as the help desk for the GrowthExperiments help panel and homepage question asking features.</text>
+            <sha1>lxxqy2l1po0tt2l4flperkncc44lpom</sha1>
+        </revision>
+    </page>
+    <page>
+        <title>The Hitchhiker's Guide to the Galaxy</title>
+        <ns>0</ns>
+        <id>31353</id>
+        <revision>
+            <id>1027190743</id>
+            <parentid>1027189766</parentid>
+            <timestamp>2021-06-06T16:40:57Z</timestamp>
+            <contributor>
+                <username>Sasquatch</username>
+                <id>107200</id>
+            </contributor>
+            <minor/>
+            <comment>Reverted edits by [[Special:Contribs/99.243.206.76|99.243.206.76]] ([[User talk:99.243.206.76|talk]]) to last version by Red dwarf</comment>
+            <model>wikitext</model>
+            <format>text/x-wiki</format>
+            <text bytes="97361" xml:space="preserve">{{short description|Science fiction series}}
+{{other uses|The Hitchhiker's Guide to the Galaxy (disambiguation)|Hitchhiker's Guide (disambiguation)}}
+{{italic title}}
+{{Use British English|date=June 2011}}
+{{Use dmy dates|date=March 2018}}
+&lt;!-- This article uses BRITISH ENGLISH. Please do not change to American spellings!  --&gt;
+&lt;!-- Do *not* change spelling of "Hitchhiker's"; see talk page for details --&gt;
+{{Infobox media franchise
+| title   = ''The Hitchhiker's Guide to the Galaxy''
+| image   = H2G2 UK front cover.jpg
+| caption = First edition cover of the [[The Hitchhiker's Guide to the Galaxy (novel)|eponymous 1979 novel]].
+| creator = [[Douglas Adams]]
+| origin  = ''[[The Hitchhiker's Guide to the Galaxy Primary and Secondary Phases]]'' (1978–1980)
+| books   = {{ubl|''[[The Hitchhiker's Guide to the Galaxy: The Original Radio Scripts]]'' (1985)}}
+| novels  = {{ubl|''[[The Hitchhiker's Guide to the Galaxy (novel)|The Hitchhiker's Guide to the Galaxy]]'' (1979)|''[[The Restaurant at the End of the Universe]]'' (1980)|''[[Life, the Universe and Everything]]'' (1982)|''[[So Long, and Thanks for All the Fish]]'' (1984)|''[[Mostly Harmless]]'' (1992)|''[[And Another Thing... (novel)|And Another Thing...]]'' (2009)}}
+| comics  =
+| films   = ''[[The Hitchhiker's Guide to the Galaxy (film)|The Hitchhiker's Guide to the Galaxy]]'' (2005)
+| tv      = ''[[The Hitchhiker's Guide to the Galaxy (TV series)|The Hitchhiker's Guide to the Galaxy]]'' (1981)
+| plays   =
+| vgs     =  ''[[The Hitchhiker's Guide to the Galaxy (video game)|The Hitchhiker's Guide to the Galaxy]]'' (1984)&lt;br /&gt;''[[Starship Titanic]]'' (1997)
+| radio   = {{ubl|''[[The Hitchhiker's Guide to the Galaxy Primary and Secondary Phases]]'' (1978–1980)|''[[The Hitchhiker's Guide to the Galaxy Tertiary to Quintessential Phases]]'' (2004–05)|''The Hitchhiker's Guide to the Galaxy Hexagonal Phase'' (2018)}}
+}}
+
+'''''The Hitchhiker's Guide to the Galaxy'''''{{NoteTag|While spelled variously across early and different editions, this article consistently renders the title [[Spelling of Hitchhiker's Guide|as Adams preferred]].}} (sometimes referred to as '''''HG2G''''',&lt;ref&gt;{{cite news |url = https://www.bbc.co.uk/ariel/26485860 |title = Jo Kent saves cult hg2g game from scrapheap |access-date = 2014-06-24 |newspaper = Ariel |date = 2014-03-12 }}&lt;/ref&gt; '''''HHGTTG''''',&lt;ref&gt;{{cite web |url = http://www.douglasadams.com/creations/hhgg.html |title = The Hitchhiker's Guide to the Galaxy |website = Douglasadams.com |access-date = 2014-06-24 }}&lt;/ref&gt; '''''H2G2''''',&lt;ref&gt;{{cite book |last = Gaiman |first = Neil |title = Don't Panic: Douglas Adams and the "Hitchhiker's Guide to the Galaxy" |publisher = Titan Books |year = 2003 |isbn = 978-1-84023-742-9 |pages = 144–145 |author-link = Neil Gaiman }}&lt;/ref&gt; or '''''tHGttG''''') is a [[comic science fiction|comedy science fiction]] franchise created by [[Douglas Adams]]. Originally [[The Hitchhiker's Guide to the Galaxy (radio series)|a 1978 radio comedy]] broadcast on [[BBC Radio 4]], it was later adapted to other formats, including stage shows, novels, comic books, a [[The Hitchhiker's Guide to the Galaxy (TV series)|1981 TV series]], a [[The Hitchhiker's Guide to the Galaxy (video game)|1984 video game]], and [[The Hitchhiker's Guide to the Galaxy (film)|2005 feature film]].
+
+''The Hitchhiker's Guide to the Galaxy'' has become an international multi-media phenomenon; the novels are the most widely distributed, having been translated into more than 30 languages by 2005.&lt;ref&gt;{{cite book | author=Simpson, M. J. | title=The Pocket Essential Hitchhiker's Guide | edition=Second | publisher=Pocket Essentials | year=2005|isbn=978-1-904048-46-6|page = 120}}&lt;/ref&gt;&lt;ref&gt;{{cite news|title=The Ultimate Reference Guide to British Popular Culture|url=https://www.oxford-royale.co.uk/articles/the-ultimate-reference-guide-to-british-popular-culture.html|agency=Oxford Royale|date=23 November 2016}}&lt;/ref&gt; The first novel, ''[[The Hitchhiker's Guide to the Galaxy (novel)|The Hitchhiker's Guide to the Galaxy]]'' (1979), was ranked fourth on the [[BBC]]’s [[The Big Read]] poll.&lt;ref&gt;[https://www.bbc.co.uk/arts/bigread/top100.shtml "BBC&amp;nbsp;– The Big Read"]. BBC. April 2003. Retrieved 7 September 2019&lt;/ref&gt; The sixth novel, ''[[And Another Thing... (novel)|And Another Thing]]'', was written by [[Eoin Colfer]] with additional unpublished material by Douglas Adams. In 2017, [[BBC Radio 4]] announced a 40th-anniversary celebration with [[Dirk Maggs]], one of the original producers, in charge.&lt;ref&gt;[https://www.bbc.co.uk/mediacentre/latestnews/2017/hitchhikers-and-quanderhorn "The Hitchhiker’s Guide to the Galaxy to land back on Radio 4"]. ''BBC mediacentre'', 13 December 2017.&lt;/ref&gt; The first of six new episodes was broadcast on 8 March 2018.&lt;ref&gt;[https://www.bbc.co.uk/programmes/b09vm093 "The Hitchhiker’s Guide to the Galaxy: Hexagonal Phase"]. ''BBC online'', 28 February 2018.&lt;/ref&gt;
+
+The broad narrative of ''Hitchhiker'' follows the misadventures of the last surviving man, [[Arthur Dent]], following the demolition of the Earth by a [[Vogon]] constructor fleet to make way for a hyperspace bypass. Dent is rescued from Earth's destruction by [[Ford Prefect (character)|Ford Prefect]]—a human-like alien writer for the eccentric, electronic [[travel guide]] [[The Hitchhiker's Guide to the Galaxy (fictional)|''The Hitchhiker's Guide to the Galaxy'']]—by hitchhiking onto a passing Vogon spacecraft. Following his rescue, Dent explores the galaxy with Prefect and encounters [[Trillian (character)|Trillian]], another human who had been taken from Earth (prior to its destruction) by the two-headed President of the Galaxy [[Zaphod Beeblebrox]] and the depressed [[Marvin, the Paranoid Android]]. Certain narrative details were changed among the various adaptations.
+
+{{TOC limit|3}}
+
+==Spelling==
+The different versions of the series spell the title differently−thus ''Hitch-Hiker's Guide'', ''Hitch Hiker's Guide'' and ''Hitchhiker's Guide'' are used in different editions (UK or US), formats ([[Sound recording and reproduction|audio]] or [[printing|print]]) and compilations of the book, with some omitting the apostrophe. Some editions used different spellings on the [[Bookbinding|spine]] and [[title page]]. The [[h2g2]]'s ''English Usage in Approved Entries'' claims that ''Hitchhiker's Guide'' is the spelling Adams preferred.&lt;ref name="h2g2_page"&gt;[https://www.bbc.co.uk/dna/h2g2/SubEditors-Style#back3 Style page at h2g2], with their own justification for using ''Hitchhiker's Guide''.&lt;/ref&gt; At least two reference works make note of the inconsistency in the titles. Both, however, repeat the statement that Adams decided in 2000 that "everyone should spell it the same way [one word, no [[hyphen]]] from then on."&lt;ref name="2005_simpson"&gt;{{cite book | last=Simpson | first=M. J. | title=The Pocket Essential Hitchhiker's Guide | edition=Second | publisher=Pocket Essentials | year=2005 | isbn=978-1-904048-46-6}}&lt;/ref&gt;&lt;ref name="2003_adams"&gt;{{cite book | author-link = Douglas Adams | last=Adams | first=Douglas | editor= Geoffrey Perkins | others=Additional Material by M. J. Simpson | title=The Hitchhiker's Guide to the Galaxy: The Original Radio Scripts | edition=25th Anniversary | publisher=Pan Books | year=2003 | isbn=978-0-330-41957-4| title-link=The Hitchhiker's Guide to the Galaxy: The Original Radio Scripts }}&lt;/ref&gt;
+
+== Synopsis ==
+The various versions follow the same basic plot but they are in many places mutually contradictory, as Adams rewrote the story substantially for each new adaptation.&lt;ref&gt;See for example "Introduction: A Guide to the Guide - some unhelpful remarks by the author" by Adams p.vi-xi in the compilation "The Ultimate Hitchhiker's Guide" {{ISBN|0-517-14925-7}}&lt;/ref&gt; Throughout all versions, the series follows the adventures of [[Arthur Dent]], a hapless [[English people|Englishman]], following the destruction of the Earth by the [[Vogon]]s (a race of unpleasant and bureaucratic aliens) to make way for an intergalactic bypass. Dent's adventures intersect with several other characters: [[Ford Prefect (character)|Ford Prefect]] (an [[Extraterrestrial life in popular culture|alien]] and researcher for the [[:wikt:eponym|eponym]]ous guidebook who rescues Dent from Earth's destruction), [[Zaphod Beeblebrox]] (Ford's eccentric semi-cousin and the Galactic President who has stolen the ''Heart of Gold'' — a spacecraft equipped with Infinite Improbability Drive), the depressed [[robot]] [[Marvin the Paranoid Android]], and [[Trillian (character)|Trillian]] (formerly known as Tricia McMillan) who is a woman Arthur once met at a party in Islington and who — thanks to Beeblebrox's intervention — is the only other human survivor of Earth's destruction.
+
+In their travels, Arthur comes to learn that the Earth was actually a giant supercomputer, created by another supercomputer, Deep Thought. Deep Thought had been built by its creators to give the answer to the "Ultimate Question of Life, the Universe, and Everything", which, after eons of calculations, was given simply as "[[Answer to the Ultimate Question of Life, the Universe, and Everything|42]]". Deep Thought was then instructed to design the Earth supercomputer to determine what the Question actually is. The Earth was subsequently destroyed by the Vogons moments before its calculations were completed, and Arthur becomes the target of the descendants of the Deep Thought creators, believing his mind must hold the Question. With his friends' help, Arthur escapes and they decide to have lunch at The Restaurant at the End of the Universe, before embarking on further adventures.
+
+==Background==
+[[File:Douglas adams portrait cropped.jpg|thumb|right|Douglas Adams]]
+The first radio series comes from a proposal called "The Ends of the Earth": six self-contained episodes, all ending with Earth being destroyed in a different way. While writing the first episode, Adams realized that he needed someone on the planet who was an alien to provide some context, and that this alien needed a reason to be there. Adams finally settled on making the alien a roving researcher for a "wholly remarkable book" named ''The Hitchhiker's Guide to the Galaxy''. As the first radio episode's writing progressed, the ''Guide'' became the centre of his story, and he decided to focus the series on it, with the destruction of Earth being the only hold-over.&lt;ref&gt;{{cite book | author=Webb, Nick | title=Wish You Were Here: The Official Biography of Douglas Adams | url=https://archive.org/details/wishyouwerehereo00webb | url-access=registration | edition=First US hardcover | publisher=Ballantine Books | year=2005 | page = [https://archive.org/details/wishyouwerehereo00webb/page/100 100] | isbn=978-0-345-47650-0 }}&lt;/ref&gt;
+
+Adams claimed that the title came from a 1971 incident while he was [[hitchhiking]] around Europe as a young man with a copy of the ''[[Hitch-hiker's Guide to Europe]]'' book: while lying drunk in a field near [[Innsbruck]] with a copy of the book and looking up at the stars, he thought it would be a good idea for someone to write a hitchhiker's guide to the galaxy as well. However, he later claimed that he had forgotten the incident itself, and only knew of it because he'd told the story of it so many times. His friends are quoted as saying that Adams mentioned the idea of "hitch-hiking around the galaxy" to them while on holiday in Greece in 1973.&lt;ref&gt;{{cite book | author=Simpson, M. J. | title=Hitchhiker: A Biography of Douglas Adams | edition=First US | publisher=Justin Charles &amp; Co. | year=2003 | isbn=978-1-932112-17-7 | page = 340}}&lt;/ref&gt;
+
+Adams's fictional ''Guide'' is an electronic guidebook to the entire universe, originally published by Megadodo Publications, one of the great publishing houses of Ursa Minor Beta. The narrative of the various versions of the story is frequently punctuated with excerpts from the ''Guide''. The voice of the ''Guide'' ([[Peter Jones (actor)|Peter Jones]] in the first two radio series and TV versions, later [[William Franklyn]] in the third, fourth and fifth radio series, and [[Stephen Fry]] in the movie version), also provides general narration.
+
+== Radio ==
+{{More citations needed section|date=March 2020}}
+
+===Overview===
+{{Series overview
+
+| color1     = #FF5F5F
+| link1      = &lt;includeonly&gt;The Hitchhiker’s Guide to the Galaxy&lt;/includeonly&gt;#Original radio series
+| episodes1  = 6
+| start1     = {{Start date|1978|03|08|df=y}}
+| end1       = {{End date|1978|04|12|df=y}}
+
+| color2     = #0000FF
+| link2      = &lt;includeonly&gt;The Hitchhiker’s Guide to the Galaxy&lt;/includeonly&gt;#Original radio series
+| episodes2  = 6
+| start2     = {{Start date|1978|12|24|df=y}}
+| end2       = {{End date|1980|01|25|df=y}}
+
+| color3     = #7400E9
+| link3      = &lt;includeonly&gt;The Hitchhiker’s Guide to the Galaxy&lt;/includeonly&gt;#Radio series 3-5
+| episodes3  = 6
+| start3     = {{Start date|2004|09|21|df=y}}
+| end3       = {{End date|2004|10|26|df=y}}
+
+| color4     = #00FF00
+| link4      = &lt;includeonly&gt;The Hitchhiker’s Guide to the Galaxy&lt;/includeonly&gt;#Radio series 3-5
+| episodes4  = 4
+| start4     = {{Start date|2005|05|03|df=y}}
+| end4       = {{End date|2005|05|24|df=y}}
+
+| color5     = #FF9933
+| link5      = &lt;includeonly&gt;The Hitchhiker’s Guide to the Galaxy&lt;/includeonly&gt;#Radio series 3-5
+| episodes5  = 4
+| start5     = {{Start date|2005|05|31|df=y}}
+| end5       = {{End date|2005|06|21|df=y}}
+
+| color6     = #00AE3A
+| link6      = &lt;includeonly&gt;The Hitchhiker’s Guide to the Galaxy&lt;/includeonly&gt;#Radio series 6
+| episodes6  = 6
+| start6     = {{Start date|2018|03|08|df=y}}
+| end6       = {{End date|2018|04|12|df=y}}
+
+}}
+
+===Original radio series===
+{{Main|The Hitchhiker's Guide to the Galaxy (radio series)|The Hitchhiker's Guide to the Galaxy Primary and Secondary Phases}}
+
+The [[The Primary Phase|first radio series]] of six episodes (called "Fits" after the names of the sections of [[Lewis Carroll]]'s nonsense poem "[[The Hunting of the Snark]]")&lt;ref&gt;[https://www.merriam-webster.com/dictionary/fit Merriam-Webster Online definition of 'fit'].&lt;/ref&gt; was broadcast in 1978 on [[BBC Radio 4]]. Despite a low-key launch of the series (the first episode was broadcast at 10:30&amp;nbsp;pm on Wednesday, 8 March 1978), it received generally good reviews and a tremendous audience reaction for radio.&lt;ref&gt;{{cite book | author=Simpson, M. J. | title=The Pocket Essential Hitchhiker's Guide | edition=Second | publisher=Pocket Essentials | year=2005 | isbn=978-1-904048-46-6 | page =33}}&lt;/ref&gt; A one-off episode (a "Christmas special") was broadcast later in the year. The BBC had a practice at the time of commissioning "Christmas Special" episodes for popular radio series, and while an early draft of this episode of ''The Hitchhiker's Guide'' had a Christmas-related plotline, it was decided to be "in slightly poor taste" and the episode as transmitted served as a bridge between the two series.&lt;ref&gt;{{cite book | author=Adams, Douglas | editor = Geoffrey Perkins |others=additional material by M. J. Simpson. | title=The Hitchhiker's Guide to the Galaxy: The Original Radio Scripts | edition=25th Anniversary | publisher=Pan Books | year=2003|isbn=978-0-330-41957-4|page =147| title-link = The Hitchhiker's Guide to the Galaxy: The Original Radio Scripts }}&lt;/ref&gt; This episode was released as part of the second radio series and, later, ''[[The Hitchhiker's Guide to the Galaxy Primary and Secondary Phases#The Secondary Phase|The Secondary Phase]]'' on cassettes and CDs. The Primary and Secondary Phases were aired, in a slightly edited version, in the United States on ''[[NPR Playhouse]]''.
+
+The first series was repeated twice in 1978 alone and many more times in the next few years. This led to an [[#LP album adaptations|LP re-recording]], produced independently of the BBC for sale, and a further adaptation of the series as a book. A second radio series, which consisted of a further five episodes, and bringing the total number of episodes to 12, was broadcast in 1980.
+
+The radio series (and the LP and TV versions) were narrated by comedy actor [[Peter Jones (actor)|Peter Jones]] as The Book. Jones was cast after a three-month-long casting search and after at least three actors (including [[Michael Palin]]) turning down the role.&lt;ref&gt;{{cite book|last1=Adams|first1=Douglas|title=The Hitchhiker's Guide to the Galaxy: The Original Radio Scripts|publisher=Geoffrey Perkins|isbn=978-1-447-20488-6|edition=25th Anniversary|url=https://books.google.com/books?id=6LgGIvmSce0C&amp;q=hitchhiker%27s+guide+to+the+galaxy+peter+jonesy&amp;pg=PT41|access-date=24 January 2017|date=2012-07-26}}&lt;/ref&gt;
+
+The series was also notable for its use of sound, being the first comedy series to be produced in stereo.&lt;ref&gt;{{cite web|title=The Hitchhiker's Guide To The Galaxy |url=https://www.bbc.co.uk/comedy/hitchhikersguide |website=bbc.co.uk |access-date=22 January 2018 |language=en-gb}}&lt;/ref&gt; Adams said that he wanted the programme's production to be comparable to that of a modern rock album. Much of the programme's budget was spent on sound effects, which were largely the work of [[Paddy Kingsland]] (for the pilot episode and the complete second series) at the [[BBC Radiophonic Workshop]] and [[Dick Mills]] and Harry Parker (for the remaining episodes (2–6) of the first series). The fact that they were at the forefront of modern radio production in 1978 and 1980 was reflected when the three new series of ''Hitchhiker's'' became some of the first radio shows to be mixed into four-channel [[Dolby Surround]]. This mix was also featured on DVD releases of the third radio series.
+
+The theme tune used for the radio, television, LP and film versions is "[[Journey of the Sorcerer]]", an [[instrumental]] piece composed by [[Bernie Leadon]] and recorded by [[Eagles (band)|the Eagles]] on their 1975 album ''[[One of These Nights]]''. Only the transmitted radio series used the original recording; a sound-alike cover by [[Tim Souster]] was used for the LP and TV series, another arrangement by [[Joby Talbot]] was used for the 2005 film, and still another arrangement, this time by [[Philip Pope]], was recorded to be released with the CDs of the last three radio series. Apparently, Adams chose this song for its futuristic-sounding nature, but also for the fact that it had a [[banjo]] in it, which, as [[Geoffrey Perkins]] recalls, Adams said would give an "on the road, hitch-hiking feel" to it.&lt;ref&gt;{{cite book | author=Adams, Douglas | editor = Geoffrey Perkins |others=additional material by M. J. Simpson. | title=The Hitchhiker's Guide to the Galaxy: The Original Radio Scripts | edition=25th Anniversary | publisher=Pan Books | year=2003|isbn=978-0-330-41957-4|page=32| title-link = The Hitchhiker's Guide to the Galaxy: The Original Radio Scripts }}&lt;/ref&gt;
+
+The twelve episodes were released (in a slightly edited form, removing the Pink Floyd music and two other tunes "hummed" by Marvin when the team land on Magrathea) on CD and [[Compact audio cassette|cassette]] in 1988, becoming the first CD release in the [[BBC Radio Collection]]. They were re-released in 1992, and at this time Adams suggested that they could retitle Fits the First to Sixth as "The Primary Phase" and Fits the Seventh to Twelfth as "The Secondary Phase" instead of just "the first series" and "the second series".&lt;ref&gt;{{cite book | author=Adams, Douglas | editor = Geoffrey Perkins |others=additional material by M. J. Simpson. | title=The Hitchhiker's Guide to the Galaxy: The Original Radio Scripts | edition=25th Anniversary | publisher=Pan Books | year=2003|isbn=978-0-330-41957-4|page= 253| title-link = The Hitchhiker's Guide to the Galaxy: The Original Radio Scripts }}&lt;/ref&gt; It was at about this time that a "Tertiary Phase" was first discussed with Dirk Maggs, adapting ''Life, the Universe and Everything'', but this series would not be recorded for another ten years.&lt;ref&gt;{{cite book|author=Adams, Douglas.|editor = [[Dirk Maggs]] | title=The Hitchhiker's Guide to the Galaxy Radio Scripts: The Tertiary, Quandary and Quintessential Phases | publisher=Pan Books | year=2005 | isbn=978-0-330-43510-9 |page=xiv|no-pp=true}}&lt;/ref&gt;
+
+=== Radio series 3–5 ===
+{{Main|The Hitchhiker's Guide to the Galaxy Tertiary to Quintessential Phases}}
+
+On 21 June 2004, the BBC announced in a press release&lt;ref&gt;[https://www.bbc.co.uk/pressoffice/pressreleases/stories/2004/06_june/21/radio4.shtml BBC Press Office release], announcing a new series (the third) to be transmitted on BBC Radio 4 beginning in September 2004.&lt;/ref&gt; that a new series of ''Hitchhiker's'' based on the third novel would be broadcast as part of its autumn schedule, produced by [[Above the Title Productions]] Ltd. The episodes were recorded in late 2003, but actual transmission was delayed while an agreement was reached with [[The Walt Disney Company]] over Internet re-broadcasts, as Disney had begun pre-production on the film.&lt;ref&gt;Webb, page 324.&lt;/ref&gt; This was followed by news that further series would be produced based on the fourth and fifth novels.
+
+The third series was broadcast in September and October 2004. The fourth and fifth were broadcast in May and June 2005, with the fifth series following immediately after the fourth. CD releases accompanied the transmission of the final episode in each series.
+
+The adaptation of the third novel followed the book very closely, which caused major structural issues in meshing with the preceding radio series in comparison to the second novel. Because many events from the radio series were omitted from the second novel, and those that did occur happened in a different order, the two series split in completely different directions. The last two adaptations vary somewhat—some events in ''Mostly Harmless'' are now foreshadowed in the adaptation of ''So Long and Thanks For All The Fish'', while both include some additional material that builds on incidents in the third series to tie all five (and their divergent plotlines) together, most especially including the character Zaphod more prominently in the final chapters and addressing his altered reality to include the events of the Secondary Phase. While ''Mostly Harmless'' originally contained a rather bleak ending, Dirk Maggs created a different ending for the transmitted radio version, ending it on a much more upbeat note, reuniting the cast one last time.
+
+The core cast for the third to fifth radio series remained the same, except for the replacement of Peter Jones by [[William Franklyn]] as the Book, and Richard Vernon by [[Richard Griffiths]] as Slartibartfast, since both had died. (Homage to Jones' iconic portrayal of the Book was paid twice: the gradual shift of voices to a "new" version in episode 13, launching the new productions, and a blend of Jones and Franklyn's voices at the end of the final episode, the first part of Maggs' alternative ending.) Sandra Dickinson, who played Trillian in the TV series, here played Tricia McMillan, an English-born, American-accented alternate-universe version of Trillian, while David Dixon, the television series' Ford Prefect, made a cameo appearance as the "Ecological Man". [[Jane Horrocks]] appeared in the new semi-regular role of Fenchurch, Arthur's girlfriend, and Samantha Béart joined in the final series as Arthur and Trillian's daughter, Random Dent. Also reprising their roles from the original radio series were [[Jonathan Pryce]] as Zarniwoop (here blended with a character from the final novel to become [[Zarniwoop|Zarniwoop Vann Harl]]), [[Rula Lenska]] as Lintilla and her clones (and also as the Voice of the Bird), and [[Roy Hudd]] as Milliways compere Max Quordlepleen, as well as the original radio series' announcer, John Marsh.
+
+The series also featured guest appearances by such noted personalities as [[Joanna Lumley]] as the Sydney Opera House Woman, [[Jackie Mason]] as the East River Creature, [[Miriam Margolyes]] as the Smelly Photocopier Woman, BBC Radio cricket legends [[Henry Blofeld]] and [[Fred Trueman]] as themselves, [[June Whitfield]] as the Raffle Woman, [[Leslie Phillips]] as Hactar, [[Saeed Jaffrey]] as the Man on the Pole, Sir Patrick Moore as himself, and [[Christian Slater]] as Wonko the Sane. Finally, Adams himself played the role of Agrajag, a performance adapted from his book-on-tape reading of the third novel, and edited into the series created some time after the author's death.
+
+=== Radio series 6 ===
+
+The first of six episodes in a sixth series, the ''Hexagonal Phase'', was broadcast on BBC Radio 4 on 8 March 2018&lt;ref&gt;https://www.bbc.co.uk/programmes/b09vm093 BBC Radio 4 schedule&lt;/ref&gt; and featured Professor [[Stephen Hawking]] introducing himself as the voice of ''The Hitchhiker’s Guide to the Galaxy Mk II'' by saying: "I have been quite popular in my time. Some even read my books."
+
+== Novels ==
+The novels are described as "a trilogy in five parts", having been described as a trilogy on the release of the third book, and then a "trilogy in four parts" on the release of the fourth book. The US edition of the fifth book was originally released with the legend "The fifth book in the increasingly inaccurately named Hitchhiker's Trilogy" on the cover. Subsequent re-releases of the other novels bore the legend "The [first, second, third, fourth] book in the increasingly inaccurately named Hitchhiker's Trilogy". In addition, the blurb on the fifth book describes it as "the book that gives a whole new meaning to the word 'trilogy{{' "}}.
+
+The plots of the television and radio series are more or less the same as that of the first two novels, though some of the events occur in a different order and many of the details are changed. Much of parts five and six of the radio series were written by [[John Lloyd (producer)|John Lloyd]], but his material did not make it into the other versions of the story and is not included here. Many consider the books' version of events to be definitive because they are the most readily accessible and widely distributed version of the story. However, they are not the final version that Adams produced.
+
+Before his death from a heart attack on 11 May 2001, Adams was considering writing a sixth novel in the Hitchhiker's series. He was working on a third [[Dirk Gently]] novel, under the working title ''[[The Salmon of Doubt]]'', but felt that the book was not working and abandoned it. In an interview, he said some of the ideas in the book might fit better in the Hitchhiker's series, and suggested he might rework those ideas into a sixth book in that series. He described ''Mostly Harmless'' as "a very bleak book" and said he "would love to finish ''Hitchhiker'' on a slightly more upbeat note". Adams also remarked that if he were to write a sixth instalment&lt;!--"instalment" (one 'l') is a British spelling, please do not change it--&gt;, he would at least start with all the characters in the same place.&lt;ref&gt;{{cite book|author=Adams, Douglas| editor =[[Peter Guzzardi]] | title=The Salmon of Doubt: Hitchhiking the Galaxy One Last Time | edition=First UK | publisher=Macmillan | year=2002 | page = 198 | isbn=978-0-333-76657-6| title-link =The Salmon of Doubt }}&lt;/ref&gt; Eoin Colfer, who wrote the sixth book in the Hitchhiker's series in 2008–09, used this latter concept but none of the plot ideas from ''The Salmon of Doubt''.{{citation needed|date=December 2011}}
+
+=== ''The Hitchhiker's Guide to the Galaxy'' ===
+{{Main|The Hitchhiker's Guide to the Galaxy (novel)}}
+The first book was adapted from the first four radio episodes (the Primary Phase), with Arthur being rescued from Earth's destruction by Ford, meeting Zaphod and Trillian, coming to the planet of Magrathea to discover the true purpose of Earth, and ending with the group preparing to go to the Restaurant at the End of the Universe. It was first published in 1979, initially in paperback, by [[Pan Books]], after [[BBC Publishing]] had turned down the offer of publishing a novelization, an action they would later regret.&lt;ref&gt;{{cite book | author=Simpson, M. J. | title=Hitchhiker: A Biography of Douglas Adams | edition=First US | publisher=Justin Charles &amp; Co. | year=2003|page = 131|isbn=978-1-932112-17-7}}&lt;/ref&gt; The book reached number one on the book charts in only its second week, and sold over 250,000 copies within three months of its release. A hardback edition was published by Harmony Books, a division of [[Random House]] in the United States in October 1980, and the 1981 US paperback edition was promoted by the give-away of 3,000 free copies in the magazine ''[[Rolling Stone]]'' to build [[word of mouth]]. In 2005, Del Rey Books re-released the Hitchhiker series with new covers for the release of the 2005 movie. To date, it has sold over 14&amp;nbsp;million copies.&lt;ref&gt;[http://contemporarylit.about.com/od/memoir/fr/dontPanic.htm Review of] [[Neil Gaiman]]'s ''[[Don't Panic: The Official Hitchhiker's Guide to the Galaxy Companion|Don't Panic]]''&lt;/ref&gt;
+
+A [[The Hitchhiker's Guide to the Galaxy (novel)#Illustrated edition|photo-illustrated edition]] of the first novel appeared in 1994.
+
+=== ''The Restaurant at the End of the Universe'' ===
+{{Main|The Restaurant at the End of the Universe}}
+
+In ''The Restaurant at the End of the Universe'' (published in 1980), Zaphod is separated from the others and finds he is part of a [[Cabal|conspiracy]] to uncover who really runs the Universe. Zaphod meets [[Minor characters from The Hitchhiker's Guide to the Galaxy#Zarniwoop %5bVann Harl%5d|Zarniwoop]], a conspirator and editor for ''The Guide'', who knows where to find the secret ruler. Zaphod becomes briefly reunited with the others for a trip to Milliways, the restaurant of the title. Zaphod and Ford decide to steal a ship from there, which turns out to be a stunt ship pre-programmed to plunge into a star as a special effect in a stage show. Unable to change course, the main characters get Marvin to run the teleporter they find in the ship, which is working other than having no automatic control (someone must remain behind to operate it), and Marvin seemingly sacrifices himself. Zaphod and Trillian discover that the Universe is in the safe hands of a simple man living on a remote planet in a wooden shack with his cat.
+
+Ford and Arthur, meanwhile, end up on a spacecraft full of the outcasts of the Golgafrinchan civilization. The ship crashes on [[Prehistory|prehistoric]] Earth; Ford and Arthur are stranded, and it becomes clear that the inept Golgafrinchans are the ancestors of modern humans, having displaced the Earth's indigenous hominids. This has disrupted the Earth's programming so that when Ford and Arthur manage to extract the final readout from Arthur's subconscious mind by pulling lettered tiles from a [[Scrabble]] set, it is "What do you get if you multiply six by nine?" Arthur then comments, "I've always said there was something fundamentally wrong with the universe."
+&lt;!-- Please DO ''not'' change the above to "six by seven". "Six by nine" is the actual phrase used in the book, and is not a typo. --&gt;
+
+The book was adapted from the remaining material in the radio series—covering from the fifth episode to the twelfth episode, although the ordering was greatly changed (in particular, the events of [[The Hitchhiker's Guide to the Galaxy Primary and Secondary Phases#Fit the Sixth|Fit the Sixth]], with Ford and Arthur being stranded on pre-historic Earth, end the book, and their rescue in [[The Hitchhiker's Guide to the Galaxy Primary and Secondary Phases#Fit the Seventh|Fit the Seventh]] is deleted), and most of the Brontitall incident was omitted, instead of the Haggunenon sequence, co-written by John Loyd, the [[Minor characters from The Hitchhiker's Guide to the Galaxy#Hotblack Desiato|Disaster Area]] stunt ship was substituted—this having first been introduced in the [[#LP album adaptations|LP version]]. Adams himself considered ''Restaurant'' to be his best novel of the five.&lt;ref&gt;Gaiman, Neil: ''[[Don't Panic: The Official Hitchhiker's Guide to the Galaxy Companion]]'', Chapter 14. Titan Books Ltd. 1987–1993&lt;/ref&gt;
+
+=== ''Life, the Universe and Everything'' ===
+{{Main|Life, the Universe and Everything}}
+
+In ''Life, the Universe and Everything'' (published in 1982), Ford and Arthur travel through the space-time continuum from prehistoric Earth to [[Lord's Cricket Ground]]. There they run into Slartibartfast, who enlists their aid in preventing galactic war. Long ago, the people of Krikkit attempted to wipe out all life in the Universe, but they were stopped and imprisoned on their home planet; now they are poised to escape. With the help of Marvin, Zaphod, and Trillian, our heroes prevent the destruction of life in the Universe and go their separate ways.
+
+This was the first Hitchhiker's book originally written as a book and not adapted from radio. Its story was based on a treatment Adams had written for a ''[[Doctor Who]]'' theatrical release,&lt;ref&gt;Gaiman, Appendix V: Doctor Who and the Krikkitmen&lt;/ref&gt; with the Doctor role being split between Slartibartfast (to begin with), and later Trillian and Arthur.
+
+[[File:Ultimate Hitchhikers Guide front.jpg|thumb|upright|The front cover of ''The Ultimate Hitchhiker's Guide'', a collection of the five books in the series written before Adams's death, a leatherbound volume published in the United States by Portland House, a division of Random House, in 1997]]
+
+In 2004, it was adapted for radio as the [[The Hitchhiker's Guide to the Galaxy Tertiary to Quintessential Phases#The Tertiary Phase|Tertiary Phase]] of the radio series.
+
+=== ''So Long, and Thanks for All the Fish'' ===
+{{Main|So Long, and Thanks for All the Fish}}
+{{unreferenced section|date=March 2018}}
+In ''So Long, and Thanks for All the Fish'' (published in 1984), Arthur returns home to Earth, rather surprisingly since it was destroyed when he left. He meets and falls in love with a girl named [[Minor characters from The Hitchhiker's Guide to the Galaxy#Fenchurch|Fenchurch]], and discovers this Earth is a replacement provided by the dolphins in their Save the Humans campaign. Eventually, he rejoins Ford, who claims to have saved the Universe in the meantime, to hitch-hike one last time and see God's Final Message to His Creation. Along the way, they are joined by Marvin, the Paranoid Android, who, although 37 times older than the universe itself (what with time travel and all), has just enough power left in his failing body to read the message and feel better about it all before expiring.
+
+This was the first ''Hitchhiker's'' novel which was not an adaptation of any previously written story or script. In 2005 it was adapted for radio as the [[The Hitchhiker's Guide to the Galaxy Tertiary to Quintessential Phases#The Quandary Phase|Quandary Phase]] of the radio series.
+
+=== ''Mostly Harmless'' ===
+{{Main|Mostly Harmless}}
+
+Finally, in ''Mostly Harmless'' (published in 1992), Vogons take over ''The Hitchhiker's Guide'' (under the name of InfiniDim Enterprises), to finish, once and for all, the task of obliterating the Earth. After abruptly losing Fenchurch and travelling around the galaxy despondently, Arthur's spaceship crashes on the planet Lamuella, where he settles in happily as the official sandwich-maker for a small village of simple, peaceful people. Meanwhile, Ford Prefect breaks into ''The Guide's'' offices, gets himself an infinite expense account from the computer system, and then meets ''The Hitchhiker's Guide to the Galaxy, Mark II'', an artificially intelligent, multi-dimensional guide with vast power and a hidden purpose. After he declines this dangerously powerful machine's aid (which he receives anyway), he sends it to Arthur Dent for safety ("Oh yes, whose?"—Arthur).
+
+Trillian uses DNA that Arthur donated for travelling money to have a daughter, and when she goes to cover a war, she leaves her daughter [[Minor characters from The Hitchhiker's Guide to the Galaxy#Random Dent|Random Frequent Flyer Dent]] with Arthur. Random, a more than typically troubled teenager, steals ''The Guide Mark II'' and uses it to get to Earth. Arthur, Ford, Trillian, and Tricia McMillan (Trillian in this alternate universe) follow her to a crowded club, where an anguished Random becomes startled by a noise and inadvertently fires her gun at Arthur. The shot misses Arthur and kills a man (the ever-unfortunate [[Agrajag]]). Immediately afterwards, ''The Guide Mark II'' causes the removal of all possible Earths from probability. All of the main characters, save Zaphod, were on Earth at the time and are apparently killed, bringing a good deal of satisfaction to the Vogons.
+
+In 2005 it was adapted for radio as the [[The Hitchhiker's Guide to the Galaxy Tertiary to Quintessential Phases#The Quintessential Phase|Quintessential Phase]] of the radio series, with the final episode first transmitted on 21 June 2005.
+
+=== ''And Another Thing...'' ===
+{{Main|And Another Thing... (novel)}}
+It was announced in September 2008 that [[Eoin Colfer]], author of ''[[Artemis Fowl (series)|Artemis Fowl]],'' had been commissioned to write the sixth instalment&lt;!--"instalment" (one 'l') is a British spelling, please do not change it.--&gt; entitled ''And Another Thing...'' with the support of Jane Belson, Adams's widow.&lt;ref name="book6"&gt;{{cite news|url=http://news.bbc.co.uk/1/hi/entertainment/7619828.stm|title=New Hitchhiker's author announced|date=16 September 2008|access-date=17 September 2008|publisher=BBC News |work=Entertainment/Arts}}&lt;/ref&gt;&lt;ref name="reuters_book6"&gt;{{cite news | url=https://www.reuters.com/article/oddlyEnoughNews/idUSLH9268320080917?feedType=RSS&amp;feedName=oddlyEnoughNews&amp;rpc=69 | title=Hitchhiker's Guide series to ride again | publisher=[[Thomson Reuters]] | date=17 September 2008 | access-date=17 September 2008 | last=Griffiths | first=Peter}}&lt;/ref&gt; The book was published by [[Penguin Books]] in the UK and [[Hyperion (publisher)|Hyperion]] in the US in October 2009.&lt;ref name="book6" /&gt;&lt;ref&gt;{{cite news|url=https://www.theguardian.com/books/2008/sep/17/douglasadams|title=Eoin Colfer to write sixth Hitchhiker's Guide book|date=17 September 2008|access-date=17 September 2008|work=Culture – Books |location=UK|author=Flood, Alison}}&lt;/ref&gt;
+
+The story begins as death rays bear down on Earth, and the characters awaken from a virtual reality. Zaphod picks them up shortly before they are killed, but completely fails to escape the death beams. They are then saved by [[Wowbagger|Bowerick Wowbagger]], the Infinitely Prolonged, whom they agree to help kill. Zaphod travels to Asgard to get [[Thor (The Hitchhiker's Guide to the Galaxy)|Thor]]'s help. In the meantime, the Vogons are heading to destroy a colony of people who also escaped Earth's destruction, on the planet Nano. Arthur, Wowbagger, Trillian and Random head to Nano to try to stop the Vogons, and on the journey, Wowbagger and Trillian fall in love, making Wowbagger question whether or not he wants to be killed. Zaphod arrives with Thor, who then signs up to be the planet's God. With Random's help, Thor almost kills Wowbagger. Wowbagger, who merely loses his immortality, then marries Trillian.
+
+Thor then stops the first Vogon attack and apparently dies. Meanwhile, Constant Mown, son of Prostetnic Jeltz, convinces his father that the people on the planet are not citizens of Earth, but are, in fact, citizens of Nano, which means that it would be illegal to kill them. As the book draws to a close, Arthur is on his way to check out a possible university for Random, when, during a hyperspace jump, he is flung across alternate universes, has a brief encounter with Fenchurch, and ends up exactly where he would want to be. And then the Vogons turn up again.
+
+In 2017 it was adapted for radio as the ''[[The Hitchhiker's Guide to the Galaxy Tertiary to Hexagonal Phases#The Hexagonal Phase|Hexagonal Phase]]'' of the radio series, with its premiere episode first transmitted on 8 March 2018&lt;ref&gt;{{cite web | url=https://www.bbc.co.uk/programmes/p05l1s3f | title=BBC Radio 4 - Funny in Four, the Hitchhiker's Guide to the Galaxy: Hexagonal Phase}}&lt;/ref&gt;&lt;ref&gt;{{cite web | url=https://www.bbc.co.uk/programmes/b03v379k | title=BBC Radio 4 - the Hitchhiker's Guide to the Galaxy}}&lt;/ref&gt; (exactly forty years, to the day, from the first episode of the first series, the Primary Phase&lt;ref&gt;{{cite web | url=https://arstechnica.com/gaming/2018/03/the-hitchhikers-guide-to-the-galaxy-returns-with-the-original-cast/ | title=The Hitchhikers Guide to the Galaxy returns—with the original cast| year=2018}}&lt;/ref&gt;).
+
+=== Omnibus editions ===
+Two omnibus editions were created by Douglas Adams to combine the Hitchhiker series novels and to "set the record straight".&lt;ref name="tmtchg"&gt;"Introduction: A Guide to the Guide - Some unhelpful remarks from the author" by Adams p.vi-xi in the omnibus edition "The More Than Complete Hitchhiker's Guide" {{ISBN|0-681-40322-5}}&lt;/ref&gt; The stories came in so many different formats that Adams stated that every time he told it he would contradict himself. Therefore, he stated in the introduction of ''The More Than Complete Hitchhiker's Guide'' that "anything I put down wrong here is, as far as I'm concerned, wrong for good."&lt;ref name="tmtchg" /&gt; The two omnibus editions were ''The More Than Complete Hitchhiker's Guide, Complete and Unabridged'' (published in 1987) and ''The Ultimate Hitchhiker's Guide, Complete and Unabridged'' (published in 1997).
+
+====''The More Than Complete Hitchhiker's Guide''====
+Published in 1987, this 624-page leatherbound omnibus edition contains "wrong for good"&lt;ref name="tmtchg" /&gt; versions of the four ''Hitchhiker'' series novels at the time, and also includes one short story:
+* ''[[The Hitchhiker's Guide to the Galaxy (book)|The Hitchhiker's Guide to the Galaxy]]''
+* ''[[The Restaurant at the End of the Universe]]''
+* ''[[Life, the Universe and Everything]]''
+* ''[[So Long, and Thanks for All the Fish]]''
+* "[[Young Zaphod Plays it Safe]]"
+
+====''The Ultimate Hitchhiker's Guide''====
+Published in 1997, this 832-page leatherbound final omnibus edition contains five ''Hitchhiker'' series novels and one short story:
+* ''[[The Hitchhiker's Guide to the Galaxy (book)|The Hitchhiker's Guide to the Galaxy]]''
+* ''[[The Restaurant at the End of the Universe]]''
+* ''[[Life, the Universe and Everything]]''
+* ''[[So Long, and Thanks for All the Fish]]''
+* ''[[Mostly Harmless]]''
+* "[[Young Zaphod Plays it Safe]]"
+Also appearing in ''The Ultimate Hitchhiker's Guide'', at the end of Adams's introduction, is a list of instructions on "How to Leave the Planet", providing a humorous explanation of how one might replicate Arthur and Ford's feat at the beginning of ''Hitchhiker's''.
+
+== Television series ==
+===1981 series===
+{{Main|The Hitchhiker's Guide to the Galaxy (TV series)}}
+
+The popularity of the radio series gave rise to a six-episode television series, directed and produced by [[Alan J. W. Bell]], which first aired on [[BBC Two|BBC 2]] in January and February 1981. It employed many of the actors from the radio series and was based mainly on the radio versions of Fits the First to Sixth. A second series was at one point planned, with a storyline, according to Alan Bell and Mark Wing-Davey that would have come from Adams's abandoned ''Doctor Who and the Krikkitmen'' project (instead of simply making a TV version of the second radio series). However, Adams got into disputes with the BBC (accounts differ: problems with budget, scripts, and having Alan Bell involved are all offered as causes), and the second series was never made. Elements of ''Doctor Who and the Krikkitmen'' were instead used in the third novel, ''Life, the Universe and Everything''.
+
+The main cast was the same as the [[#Original radio series|original radio series]], except for [[David Dixon]] as Ford Prefect instead of McGivern, and [[Sandra Dickinson]] as Trillian instead of Sheridan. &amp;nbsp;&lt;ref&gt;{{cite web|url=https://www.londontheatre1.com/interviews/interview-with-sandra-dickinson-and-jonathan-chambers/ |title=Interview with Sandra Dickinson and Jonathan Chambers|publisher=LondonTheatre1.com |access-date=2 June 2018|date=June 2018 }} (Interview with Sandra Dickinson on 1 June 2018, where she talks about The Hitchhiker's Guide to the Galaxy.)&lt;/ref&gt;
+
+===2022 series===
+A new television series for [[Hulu]] was announced in July 2019. [[Carlton Cuse]] was named as the showrunner alongside [[Jason Fuchs]], who will also be writing for the show. The show will be produced by [[ABC Signature]] and Genre Arts.&lt;ref&gt;{{cite web | url = https://deadline.com/2019/07/the-hitchhikers-guide-to-the-galaxy-tv-series-in-works-at-hulu-from-carlton-cuse-jason-fuchs-1202652440/ | title = 'The Hitchhiker's Guide to the Galaxy' TV Series In Works At Hulu From Carlton Cuse &amp; Jason Fuchs | first = Nellie | last = Andreeva | date = 24 July 2019 | access-date = 24 July 2019 | work = [[Deadline Hollywood]]  }}&lt;/ref&gt; The series is set to premiere in 2021. Production was slated to begin in the summer of 2020 and air on [[Fox Broadcasting Company|Fox]] in international markets.&lt;ref&gt;{{cite web|url=https://thegww.com/exclusive-hulus-hitchhikers-guide-to-the-galaxy-series-premieres-2021-imitation-games-morten-tyldum-set-to-direct/|title=EXCLUSIVE: HULU'S 'HITCHHIKER'S GUIDE TO THE GALAXY' SERIES PREMIERES 2021; 'IMITATION GAME'S MORTEN TYLDUM SET TO DIRECT|website=Geeks World Wide|last=Kaya|first=Emre|date=January 6, 2020}}&lt;/ref&gt; The series has reportedly been renewed for a second season. Due to the [[COVID-19 pandemic]], the series will most likely air in 2022 instead.&lt;ref&gt;{{cite web|url=https://www.thecinemaspot.com/2020/08/01/exclusive-the-hitchhikers-guide-to-the-galaxy-hulu-show-renewed-for-second-season/|title=Exclusive: Hulu's 'Hitchhiker's Guide to the Galaxy' Lands Early Season 2 Renewal|website=The Cinema Spot|last=Kaya|first=Emre|date=August 1, 2020}}&lt;/ref&gt;
+
+=== Other television appearances ===
+Segments of several of the books were adapted as part of the [[BBC]]'s ''[[The Big Read]]'' survey and programme, broadcast in late 2003. The film, directed by [[Deep Sehgal]], starred [[Sanjeev Bhaskar]] as Arthur Dent, alongside [[Spencer Brown (comedian)|Spencer Brown]] as Ford Prefect, [[Nigel Planer]] as the voice of Marvin, [[Stephen Hawking]] as the voice of Deep Thought, [[Patrick Moore]] as the voice of the Guide, [[Roger Lloyd-Pack]] as Slartibartfast, and [[Adam Buxton]] and [[Joe Cornish (filmmaker)|Joe Cornish]] as Loonquawl and Phouchg.
+
+== Film ==
+{{More citations needed section|date=March 2020}}
+{{Main|The Hitchhiker's Guide to the Galaxy (film)}}
+
+After several years of setbacks and renewed efforts to start production and a quarter of a century after the first book was published, the big-screen adaptation of ''The Hitchhiker's Guide to the Galaxy'' was finally shot. Pre-production began in 2003, filming began on 19 April 2004 and post-production began in early September 2004.&lt;ref&gt;{{cite book | editor=[[Robbie Stamp|Stamp, Robbie]] | title=The Making of The Hitchhiker's Guide to the Galaxy: The Filming of the Douglas Adams Classic | publisher=Boxtree | year=2005|page = 12|isbn=978-0-7522-2585-2}}&lt;/ref&gt; Adams died during the film's production but had still helped with early screenplays and concepts introduced with the film.&lt;ref&gt;{{cite news | url = http://news.bbc.co.uk/2/hi/entertainment/4455723.stm | title= A guide to the Hitchhiker's Guide | first=  Caroline | last = Westbrook | date = 28 April 2005 | accessdate = 8 February 2021 | publisher = [[BBC]] }}&lt;/ref&gt;
+
+After a London premiere on 20 April 2005, it was released on 28 April in the UK and Australia and on 29 April in the United States and Canada. The movie stars [[Martin Freeman]] as Arthur, [[Mos Def]] as Ford, [[Sam Rockwell]] as President of the Galaxy Zaphod Beeblebrox and [[Zooey Deschanel]] as Trillian, with [[Alan Rickman]] providing the voice of Marvin the Paranoid Android (and [[Warwick Davis]] acting in Marvin's costume), and Stephen Fry as the voice of the Guide/Narrator.
+
+The plot of the film adaptation of ''Hitchhiker's Guide'' differs widely from that of the radio show, book and television series. The romantic triangle between Arthur, Zaphod, and Trillian is more prominent in the film; and visits to Vogsphere, the homeworld of the Vogons (which, in the books, was already abandoned), and Viltvodle VI are inserted. The film covers roughly events in the first four radio episodes, and ends with the characters en route to the Restaurant at the End of the Universe, leaving the opportunity for a sequel open. A unique appearance is made by the Point-of-View Gun, a device specifically created by Adams himself for the movie.
+
+Commercially the film was a modest success, taking $21&amp;nbsp;million in its opening weekend in the United States, and nearly £3.3&amp;nbsp;million in its opening weekend in the United Kingdom.&lt;ref&gt;[https://us.imdb.com/title/tt0371724/business Box office data page], including opening weekends for the US and UK releases of the 2005 movie.&lt;/ref&gt;
+
+The film was released on DVD (Region 2, PAL) in the UK on 5 September 2005. Both a standard double-disc edition and a UK-exclusive numbered limited edition "Giftpack" were released on this date. The "Giftpack" edition includes a copy of the novel with a "movie tie-in" cover, and collectible prints from the film, packaged in a replica of the film's version of the ''Hitchhiker's Guide'' prop. A single-disc widescreen or full-screen edition (Region 1, NTSC) were made available in the United States and Canada on 13 September 2005. Single-disc releases in the [[Blu-ray]] format and [[Universal Media Disc|UMD]] format for the [[PlayStation Portable]] were also released on the respective dates in these three countries.
+
+== Stage shows ==
+[[File:HHGTHG 1979 ICA Stage Production Flyer.jpg|thumb|Flyer for the 1979 stage production at the ICA of The Hitchhiker's Guide To The Galaxy]]
+[[File:Adam Pope Zaphod Beeblebrox.JPG|thumb|Adam Pope playing Zaphod in an amateur production of HHGTTG by Prudhoe's Really Youthful Theatre Company]]
+
+There have been multiple professional and amateur stage adaptations of ''The Hitchhiker's Guide to the Galaxy''. Three early professional productions were staged in 1979 and 1980.&lt;ref&gt;Gaiman, page 61–66.&lt;/ref&gt;&lt;ref&gt;{{cite book | author=Simpson, M. J. | title=The Pocket Essential Hitchhiker's Guide | edition=Second | pages = 48–57 | publisher=Pocket Essentials | year=2005 | isbn=978-1-904048-46-6}}&lt;/ref&gt;
+
+The first of these was performed at the [[Institute of Contemporary Arts]] in London, between 1 and 19 May 1979, starring [[Chris Langham]] as Arthur Dent (Langham later returned to ''Hitchhiker's'' as [[Minor characters from The Hitchhiker's Guide to the Galaxy#Prak|Prak]] in the final episode of 2004's Tertiary Phase) and [[Richard Hope (actor)|Richard Hope]] as Ford Prefect. This show was adapted from the first series' scripts and was directed by [[Ken Campbell (actor)|Ken Campbell]], who went on to perform a character in the final episode of the second radio series. The show ran 90 minutes, but had an audience limited to eighty people per night. Actors performed on a variety of ledges and platforms, and the audience was pushed around in a hovercar, 1/2000th of an inch above the floor. This was the first time that Zaphod was represented by having two actors in one large costume. The narration of "The Book" was split between two usherettes, an adaptation that has appeared in no other version of ''H2G2''. One of these usherettes, [[Cindy Oswin]], went on to voice Trillian for the LP adaptation.
+
+The second stage show was performed throughout Wales between 15 January and 23 February 1980. This was a production of [[Theatr Clwyd]], and was directed by Jonathan Petherbridge. The company performed adaptations of complete radio episodes, at times doing two episodes in a night, and at other times doing all six episodes of the first series in single three-hour sessions. This adaptation was performed again at the Oxford Playhouse in December 1981, the Bristol Hippodrome, Plymouth's Theatre Royal in May–June 1982, the [[Belgrade Theatre]], [[Coventry]], in July 1983 and [[La Boite Theatre Company|La Boite]] in [[Brisbane]], November 1983.&lt;ref&gt;https://archive.laboite.com.au/1980/the-hitch-hikers-guide-to-the-galaxy&lt;/ref&gt;
+
+The third and least successful stage show was held at the [[Rainbow Theatre]] in London, in July 1980. This was the second production directed by Ken Campbell. The Rainbow Theatre had been adapted for stagings of rock operas in the 1970s, and both reference books mentioned in footnotes indicate that this, coupled with incidental music throughout the performance, caused some reviewers to label it as a "musical". This was the first adaptation for which Adams wrote the "Dish of the Day" sequence. The production ran for over three hours, and was widely panned for this, as well as for the music, laser effects, and the acting. Despite attempts to shorten the script, and make other changes, it closed three or four weeks early (accounts differ), and lost a lot of money. Despite the bad reviews, there were at least two stand-out performances: [[Michael Cule]] and [[David Learner]] both went on from this production to appearances in the TV adaptation.
+
+In December 2011 a new stage production was announced to begin touring in June 2012. This included members of the original radio and TV casts such as Simon Jones, [[Geoffrey McGivern|Geoff McGivern]], [[Susan Sheridan]], [[Mark Wing-Davey]] and [[Stephen Moore (actor)|Stephen Moore]] with VIP guests playing the role of the Book. It was produced in the form of a radio show which could be downloaded when the tour was completed.&lt;ref&gt;{{cite news |title=Hitchhiker's Guide to the Galaxy set for stage return |url=https://www.bbc.co.uk/news/entertainment-arts-16299949 |publisher=BBC |access-date=23 December 2011 |date=22 December 2011}}&lt;/ref&gt;&lt;ref&gt;{{cite web |title=Original cast confirmed for Hitchhiker's Guide to the Galaxy stage play |url=http://www.radiotimes.com/news/2011-12-22/original-cast-confirmed-for-hitchhiker%27s-guide-to-the-galaxy-stage-play |publisher=BBC |access-date=23 December 2011 |date=22 December 2011}}&lt;/ref&gt; This production was based on the first four Fits in the first act, with the second act covering material from the rest of the series. The show also featured a band, who performed the songs "[[Share and Enjoy]]", the Krikkit song "Under the Ink Black Sky", Marvin's song "How I Hate The Night", and "[[Marvin the Paranoid Android#"Marvin"|Marvin]]", which was a minor hit in 1981.
+
+The production featured a series of "VIP guests" as the voice of The Book including [[Billy Boyd (actor)|Billy Boyd]],&lt;ref name="sfx-02-june-2012"&gt;{{cite news|url=http://www.sfx.co.uk/2012/06/02/hitchhikers-live-simon-jones-interview/|title=Hitchhiker's Live Tour: Simon Jones Interview|author=Dave Golder|newspaper=[[SFX (magazine)|SFX]]|publisher=[[Future Publishing]]|date=2 June 2012|access-date=2 July 2012}}&lt;/ref&gt; [[Phill Jupitus]], [[Rory McGrath]], [[Roger McGough]],&lt;ref name="blackpoolgazette-19june2012"&gt;{{cite news|url=http://www.blackpoolgazette.co.uk/lifestyle/entertainment/duke-s-diary/boldly-going-where-few-us-understood-anyway-1-4658080|title=Boldly going where few us understood anyway|author=Robin Duke|newspaper=[[Blackpool Gazette]]|publisher=[[Johnston Press]]|date=19 June 2012|access-date=2 July 2012}}&lt;/ref&gt; [[Jon Culshaw]],&lt;ref name="sfx-02-june-2012"/&gt; [[Christopher Timothy]],&lt;ref name="nottinghampost-23june2012"&gt;{{cite news|url=http://www.thisisnottingham.co.uk/Review-Hitchhiker-s-Guide-Glaxy-Royal-Concert/story-16438888-detail/story.html|title=Review: The Hitchhiker's Guide to the Glaxy, Royal Concert Hall|newspaper=[[Nottingham Post]]|publisher=[[Northcliffe Newspapers Group]]|date=23 June 2012|access-date=2 July 2012|url-status=dead|archive-url=https://archive.is/20130505142528/http://www.thisisnottingham.co.uk/Review-Hitchhiker-s-Guide-Glaxy-Royal-Concert/story-16438888-detail/story.html|archive-date=5 May 2013|df=dmy-all}}&lt;/ref&gt; [[Andrew Sachs]],&lt;ref name="bromleynewsshopper-20june2012"&gt;{{cite news|url=http://www.newsshopper.co.uk/leisure/latest/9772442.Hitchhiker_s_Guide_to_the_Galaxy_radio_show_comes_to_The_Churchill_Theatre__Bromley/|title=Hitchhiker's Guide to the Galaxy radio show comes to The Churchill Theatre, Bromley
+|newspaper=[[Bromley News Shopper]]|publisher =[[Newsquest]]|author=Nikki Jarvis|date=20 June 2012|access-date=29 June 2012}}&lt;/ref&gt; [[John Challis]],&lt;ref name="thestage-29june2012"&gt;{{cite news|url=http://www.thestage.co.uk/reviews/review.php/36657/the-hitchhikers-guide-to-the-galaxy-radio|title=The Hitchhiker's Guide To The Galaxy Radio Show Live!
+|author=Paul Vale|newspaper=[[The Stage]]|publisher=The Stage Newspaper Limited|date=29 June 2012|access-date=2 July 2012}}&lt;/ref&gt; [[Hugh Dennis]],&lt;ref name="sfx-02-june-2012"/&gt; [[John Lloyd (writer)|John Lloyd]],&lt;ref name="sfx-02-june-2012"/&gt; [[Terry Jones]] and [[Neil Gaiman]].&lt;ref name="sfx-02-june-2012"/&gt; The tour started on 8 June 2012 at the Theatre Royal, Glasgow and continued through the summer until 21 July when the final performance was at Playhouse Theatre, Edinburgh.&lt;ref&gt;{{cite web|url=http://www.hitchhikerslive.com/|title=The Hitchhiker's Guide to the Galaxy Radio Show LIVE!|publisher=Hitchhiker's Live Website}}&lt;/ref&gt; The production started touring again in September 2013,&lt;ref&gt;{{cite web|url=http://www.hitchhikerslive.com/tour-dates.html|title=The Hitchhiker's Guide to the Galaxy Radio Show LIVE! Tour Dates|publisher=Hitchhiker's Live Website|url-status=dead|archive-url=https://web.archive.org/web/20130729152210/http://www.hitchhikerslive.com/tour-dates.html|archive-date=29 July 2013|df=dmy-all}}&lt;/ref&gt;&lt;ref&gt;{{cite web|url=http://www.audiogo.com/uk/dirk-maggs-interview|title=Interview with Dirk Maggs|publisher=AudioGO BBC Audiobooks website}}&lt;/ref&gt; but the remaining dates of the tour were cancelled due to poor ticket sales.&lt;ref&gt;{{cite web|url=http://www.chortle.co.uk/news/2013/10/21/18908/hitchhikers_guide_tour_cancelled|title=Hitchhikers Guide tour cancelled|date=21 October 2013 |work=chortle.co.uk}}&lt;/ref&gt;
+
+==Other adaptations==
+=== Vinyl LPs ===
+{{More citations needed section|date=March 2020}}
+The first four radio episodes were adapted for a double LP, also entitled ''The Hitchhiker's Guide to the Galaxy'' (appended with "Part One" for the subsequent Canadian release), first by mail-order only, and later into stores. The double LP and its sequel were originally released by [[Original Records]] in the United Kingdom in 1979 and 1980, with the catalogue numbers ORA042 and ORA054 respectively. They were first released by [[Hannibal Records]] in 1982 (as HNBL 2301 and HNBL 1307, respectively) in the United States and Canada, and later re-released in a slightly abridged edition by Simon &amp; Schuster's Audioworks in the mid-1980s. Both were produced by Geoffrey Perkins and featured cover artwork by [[Hipgnosis]].
+
+The script in the first double LP very closely follows the first four radio episodes, although further cuts had to be made for reasons of timing. Despite this, other lines of dialogue that were indicated as having been cut when the original scripts from the radio series were eventually published can be heard in the LP version. The Simon &amp; Schuster cassettes omit the Veet Voojagig narration, the cheerleader's speech as Deep Thought concludes its seven-and-one-half-million-year programme, and a few other lines from both sides of the second LP of the set.
+
+{{Listen|filename=Hitch Hikers Theme Original Records Version.ogg
+| title = Hitchhiker's theme, ''Journey of the Sorcerer'', Original Records version excerpt}}
+Most of the original cast returned, except for Susan Sheridan, who was recording a voice for the character of [[Princess Eilonwy]] in ''[[The Black Cauldron (film)|The Black Cauldron]]'' for [[Walt Disney Pictures]]. Cindy Oswin voiced Trillian on all three LPs in her place. Other casting changes in the first double LP included Stephen Moore taking on the additional role of the barman, and [[Valentine Dyall]] as the voice of Deep Thought. Adams's voice can be heard making the public address announcements on Magrathea.
+
+Because of copyright issues, the music used during the first radio series was either replaced, or in the case of the title it was re-recorded in a new arrangement. Composer Tim Souster did both duties (with Paddy Kingsland contributing music as well), and Souster's version of the theme was the version also used for the eventual television series.&lt;ref&gt;Simpson, MJ, ''Hitchhiker'', page 143&lt;/ref&gt;
+
+The sequel LP was released, singly, as ''The Hitchhiker's Guide to the Galaxy Part Two: The Restaurant at the End of the Universe'' in the UK, and simply as ''The Restaurant at the End of the Universe'' in the USA. The script here mostly follows Fit the Fifth and Fit the Sixth, but includes a song by the backup band in the restaurant ("Reg Nullify and his Cataclysmic Combo"), and changes the Haggunenon sequence to "Disaster Area".
+
+{{Listen|filename=Reg Nullify.ogg
+| title = Reg Nullify and his Cataclysmic Combo excerpt}}
+
+As the result of a misunderstanding, the second record was released before being cut down in a final edit that Douglas Adams and Geoffrey Perkins had both intended to make. Perkins has said, "[I]t is far too long on each side. It's just a rough cut. [...] I felt it was flabby, and I wanted to speed it up."&lt;ref&gt;Gaiman, Pages 72–73.&lt;/ref&gt; The Simon &amp; Schuster Audioworks re-release of this LP was also abridged slightly from its original release. The scene with Ford Prefect and Hotblack Desiato's bodyguard is omitted.
+
+Sales for the first double-LP release were primarily through mail order. Total sales reached over 60,000 units, with half of those being mail order, and the other half through retail outlets.&lt;ref name="Simpson2003"&gt;{{cite book | author=Simpson, M. J. | title=Hitchhiker: A Biography of Douglas Adams | edition=First US | publisher=Justin Charles &amp; Co. | year=2003 | page =145 | isbn=978-1-932112-17-7}}&lt;/ref&gt; This is in spite of the facts that Original Records' warehouse ordered and stocked more copies than they were actually selling for quite some time, and that [[Paul Neil Milne Johnstone]] complained about his name and then-current address being included in the recording.&lt;ref&gt;{{cite book | author=Simpson, M. J. | title=Hitchhiker: A Biography of Douglas Adams | edition=First US | publisher=Justin Charles &amp; Co. | year=2003 | page =144 | isbn=978-1-932112-17-7}}&lt;/ref&gt; This was corrected for a later pressing of the double-LP by "cut[ting] up that part of the master tape and reassembl[ing] it in the wrong order".&lt;ref&gt;{{cite book | author=Simpson, M. J. | title=The Pocket Essential Hitchhiker's Guide | edition=Second | page = 76 | publisher=Pocket Essentials | year=2005 | isbn=978-1-904048-46-6}}&lt;/ref&gt; The second LP release ("Part Two") also only sold a total of 60,000 units in the UK.&lt;ref name="Simpson2003" /&gt; The distribution deals for the United States and Canada with Hannibal Records and Simon and Schuster were later negotiated by Douglas Adams and his agent, [[Ed Victor]], after gaining full rights to the recordings from Original Records, which went bankrupt.&lt;ref&gt;{{cite book | author=Simpson, M. J. | title=Hitchhiker: A Biography of Douglas Adams | edition=First US | publisher=Justin Charles &amp; Co. | year=2003|page = 148|isbn=978-1-932112-17-7}}&lt;/ref&gt;
+
+All five phases were released on LP in 2018 by Demon Records, and for its 42nd anniversary, the original ''Hitchhiker's Guide'' and ''Restaurant at the End of the Universe'' were combined into a three-record set that was released in August 2020 for [[Record Store Day]], also by Demon Records. It is available in three versions: Translucent Vogon Green, Translucent Magrathean Blue and Translucent Pan-Galactic Purple.
+
+=== Audiobooks ===
+There have been three audiobook recordings of the novel. The first was an abridged edition ({{ISBN|0-671-62964-6}}), recorded in the mid-1980s for the [[EMI]] label [[Music for Pleasure (record label)|Music For Pleasure]] by Stephen Moore, best known for playing the voice of Marvin the Paranoid Android in the radio series and in the TV series. In 1990, Adams himself recorded an unabridged edition for Dove Audiobooks ({{ISBN|1-55800-273-1}}), later re-released by New Millennium Audio ({{ISBN|1-59007-257-X}}) in the United States and available from BBC Audiobooks in the United Kingdom. Also by arrangement with Dove, ISIS Publishing Ltd produced a numbered exclusive edition signed by Douglas Adams ({{ISBN|1-85695-028-X}}) in 1994. To tie-in with the 2005 film, actor Stephen Fry, the film's voice of the Guide, recorded a second unabridged edition ({{ISBN|0-7393-2220-6}}).
+
+In addition, unabridged versions of books 2-5 of the series were recorded by Martin Freeman for Random House Audio. Freeman plays Arthur in the 2005 film adaptation. Audiobooks 2-5 follow in order and include: ''The Restaurant at the End of the Universe'' ({{ISBN|9780739332085}}); ''Life, the Universe, and Everything'' ({{ISBN|9780739332108}}); ''So Long, and Thanks for All the Fish'' ({{ISBN|9780739332122}}); and ''Mostly Harmless'' ({{ISBN|9780739332146}}).
+
+=== Video games ===
+{{Main|The Hitchhiker's Guide to the Galaxy (video game)}}
+
+Sometime between 1982 and 1984 (accounts differ), the British company [[Supersoft]] published a text-based [[adventure game]] based on the book, which was released in versions for the [[Commodore PET]] and [[Commodore 64]]. One account states that there was a dispute as to whether valid permission for publication had been granted, and following legal action the game was withdrawn and all remaining copies were destroyed. Another account states that the programmer, Bob Chappell, rewrote the game to remove all ''Hitchhiker's'' references, and republished it as "Cosmic Capers".&lt;ref&gt;[http://www.inform-fiction.org/manual/html/s47.html#p376 Design Manual] for the [[Interactive Fiction]] language [[Inform]]. Accessed 2 August 2006. See also [http://www.inform-fiction.org/manual/html/cited.html their works cited] under "Hitchhiker-64".&lt;/ref&gt;
+
+Officially, the TV series was followed in 1984 by a best-selling "[[interactive fiction]]", or text-based adventure game, distributed by [[Infocom]]. It was designed by Adams and Infocom regular [[Steve Meretzky]]&lt;ref&gt;{{cite web|title=Hitchhiker's Guide|url=http://www.infocom-if.org/games/hhgttg/hhgttg.html|publisher=infocom-if.org|access-date=2011-08-30}}&lt;/ref&gt; and was one of Infocom's most successful games.&lt;ref&gt;{{cite web|title=The Hitch Hiker's Guide to the Galaxy – The Adventure Game|url=http://www.douglasadams.com/creations/infocom.html|publisher=douglasadams.com|access-date=2011-08-30}}&lt;/ref&gt; As with many Infocom games, the box contained a number of "[[feelies]]" including a "Don't panic" badge, some "pocket fluff", a pair of peril-sensitive sunglasses (made of cardboard), an order for the destruction of the Earth, a small, clear plastic bag containing "a microscopic battle fleet" and an order for the destruction of Arthur Dent's house (signed by Adams and Meretzky).&lt;ref&gt;{{cite web|title=The Hitchhiker's Guide to the Galaxy|url=http://www.mobygames.com/game/hitchhikers-guide-to-the-galaxy/|publisher=mobygames.com|access-date=2011-08-30}}&lt;/ref&gt;
+
+In September 2004, it was revived by the BBC on the ''Hitchhiker's'' section of the Radio 4 website for the initial broadcast of the Tertiary Phase, and is still available to play online.&lt;ref&gt;[https://www.bbc.co.uk/radio4/hitchhikers/ BBC Radio 4's ''Hitchhiker's Guide'' homepage].&lt;/ref&gt;&lt;ref&gt;[https://www.bbc.co.uk/radio4/hitchhikers/game.shtml New online version] of the 1984 ''Hitchhiker's Guide'' computer game, by Steve Meretzky and Douglas Adams.&lt;/ref&gt; This new version uses an original Infocom datafile with a custom-written interpreter, by Sean Sollé, and Flash programming by Shimon Young, both of whom used to work at [[The Digital Village]] (TDV). The new version includes illustrations by [[Rod Lord]], who was head of [[Pearce Animation Studios]] in 1980, which produced the guide graphics for the TV series. On 2 March 2005 it won the [[BAFTA Interactive Awards|Interactive BAFTA]] in the "best online entertainment" category.&lt;ref&gt;{{cite web|url=http://www.bafta.org/awards-database.html?year=2004&amp;category=Interactive&amp;award=Online+Entertainment |title=BAFTA Official Awards Database |publisher=Bafta.org |access-date=14 September 2010}}&lt;/ref&gt;&lt;ref&gt;{{cite news|url=http://news.bbc.co.uk/1/hi/technology/4312683.stm |title=reports interactive Bafta wins |work=BBC News |date=2 March 2005 |access-date=14 September 2010}}&lt;/ref&gt;
+
+A sequel to the original Infocom game was never made. An all-new, fully graphical game was designed and developed by a joint venture between The Digital Village and [[PAN Interactive]] (no connection to Pan Books&amp;nbsp;/ Pan MacMillan).&lt;ref&gt;In late 2000 the TDV/Pan venture was spun off as a [http://tdv.com/phase3/ separate company, Phase 3 Studios]&lt;/ref&gt;&lt;ref&gt;{{cite web|url=http://tdv.com/html/news/19990920-1-n.html |title=1999 TDV Press Release about the graphical 'Hitchhiker's Guide' game |publisher=Tdv.com |date=20 September 1999 |access-date=14 September 2010}}&lt;/ref&gt; This new game was planned and developed between 1998 and 2002, but like the sequel to the Infocom game, it also never materialised.&lt;ref&gt;[https://web.archive.org/web/20060419095154/http://www.planetmagrathea.com/gameindex.html Internet Archive Wayback Machine] copy of information about the aborted ''Hitchhiker's Guide'' graphical PC game, originally posted on MJ Simpson's PlanetMagrathea.com site&lt;/ref&gt; In April 2005, [[Starwave]] Mobile released two mobile games to accompany the release of the film adaptation. The first, developed by Atatio, was called ''The Hitchhiker's Guide to the Galaxy: Vogon Planet Destructor''.&lt;ref&gt;[http://wireless.ign.com/articles/608/608605p1.html Webpage about the "Vogon Planet Destructor"] {{webarchive|url=https://web.archive.org/web/20050501161434/http://wireless.ign.com/articles/608/608605p1.html |date=1 May 2005 }} game hosted at ign.com.&lt;/ref&gt; It was a typical top-down shooter and except for the title had little to do with the actual story. The second game, developed by [[TKO Software]], was a graphical adventure game named ''The Hitchhiker's Guide to the Galaxy: Adventure Game''.&lt;ref&gt;[http://wireless.ign.com/articles/608/608604p1.html Webpage about ''The Hitchhiker's Guide to the Galaxy'': Adventure Game] {{webarchive|url=https://web.archive.org/web/20050501161430/http://wireless.ign.com/articles/608/608604p1.html |date=1 May 2005 }} hosted at ign.com.&lt;/ref&gt; Despite its name, the newly designed puzzles by TKO Software's Ireland studio were different from the Infocom ones, and the game followed the movie's script closely and included the new characters and places. The ''Adventure Game'' won the [[IGN]]'s "Editors' Choice Award" in May 2005.
+
+On 25 May 2011, [[Hothead Games]] announced they were working on a new edition of The Guide.&lt;ref&gt;{{cite web|url=http://www.hotheadgames.com/blog/?p=241 | title=DON'T PANIC! |publisher=Hothead Games |access-date=25 May 2011}}&lt;/ref&gt; Along with the announcement, Hothead Games launched a teaser web site made to look like an announcement from Megadodo Publications that [[The Hitchhiker's Guide to the Galaxy (fictional)|The Guide]] will soon be available on [[Earth]].&lt;ref&gt;{{cite web |url=http://thenewhitchhikersguide.com |title=The New Hitchhiker's Guide to the Galaxy |publisher=Thenewhitchhikersguide.com |access-date=2014-07-05 |url-status=dead |archive-url=https://web.archive.org/web/20141007163157/http://www.thenewhitchhikersguide.com/ |archive-date=7 October 2014 |df=dmy-all }}&lt;/ref&gt; It has since been revealed that they are developing an [[iOS (Apple)|iOS]] app in the style of the fictional Guide.&lt;ref&gt;{{cite news| url=https://www.wired.com/geekdad/2011/08/simon-jones-the-original-arthur-dent-discusses-the-new-hitchhikers-ios-app/ | work=Wired | first=Matt | last=Blum | title=Simon Jones, the Original Arthur Dent, Discusses the Upcoming Hitchhiker's iOS App! | date=4 August 2011}}&lt;/ref&gt;
+
+=== Comic books ===
+[[File:H2G2 first comic front cover.jpg|thumb|upright|The front cover of the [[DC Comics]] adaptation of the first book]]
+
+In 1993, DC Comics, in conjunction with [[Byron Preiss]] Visual Publications, published a three-part comic book adaptation of the novelisation of ''The Hitchhiker's Guide to the Galaxy''. This was followed up with three-part adaptations of ''The Restaurant at the End of the Universe'' in 1994, and ''Life, the Universe and Everything'' in 1996. There was also a series of collectors' cards with art from and inspired by the comic adaptations of the first book, and a graphic novelisation (or "collected edition") combining the three individual comic books from 1993, itself released in May 1997. Douglas Adams was deeply opposed to the use of American English spellings and idioms in what he felt was a very British story, and had to be talked into it by the American publishers, although he remained very unhappy with the compromise.{{citation needed|date=September 2019}}
+
+The adaptations were scripted by [[John Carnell]]. [[Steve Leialoha]] provided the art for ''Hitchhiker's'' and the layouts for ''Restaurant''. [[Shepherd Hendrix]] did the finished art for ''Restaurant''. [[Neil Vokes]] and [[John Nyberg (comics)|John Nyberg]] did the finished artwork for ''Life'', based on breakdowns by [[Paris Cullins]] (Book 1) and [[Christopher Schenck]] (Books 2–3). The miniseries were edited by [[Howard Zimmerman]] and [[Ken Grobe]].{{citation needed|date=September 2019}}
+
+===Live radio===
+&lt;ref&gt;{{Cite document|title=BBC Radio 4 - Character Invasion|website=BBC|language=en-GB}}&lt;/ref&gt; On Saturday 29 March 2014, Radio 4 broadcast an adaptation in front of a live audience, featuring many members of the original cast including Stephen Moore, Susan Sheridan, Mark Wing-Davey, Simon Jones and Geoff McGivern, with John Lloyd as the book.&lt;ref&gt;{{cite web |last=Daily |first=Western |url=http://www.westerndailypress.co.uk/Hitchhiker-s-Guide-Galaxy-cast-reunite-ahead/story-20879402-detail/story.html |title=Hitchhiker's Guide to the Galaxy cast reunite ahead of Radio 4 broadcast |publisher=Western Daily Press |date=2014-03-29 |access-date=2014-07-05 |url-status=dead |archive-url=https://web.archive.org/web/20140714151046/http://www.westerndailypress.co.uk/Hitchhiker-s-Guide-Galaxy-cast-reunite-ahead/story-20879402-detail/story.html |archive-date=14 July 2014 |df=dmy-all }}&lt;/ref&gt;
+
+The adaptation was adapted by Dirk Maggs primarily from Fit the First, including material from the books and later radio Fits as well as some new jokes. It formed part of Radio 4's ''Character Invasion'' series.&lt;ref&gt;{{Cite web|url=https://www.bbc.co.uk/programmes/p01pfnlq|title=BBC Radio 4 - Character Invasion|website=BBC|language=en-GB|access-date=2020-01-29}}&lt;/ref&gt;
+
+== Legacy ==
+{{see also|Phrases from The Hitchhiker's Guide to the Galaxy}}
+
+=== Future predictions ===
+While Adams' writing in ''The Hitchhiker's Guide'' was mostly to poke fun at scientific advance, such as through the artificial personalities built into the work's robots, Adams had predicted some concepts that have since come to be reality. The Guide itself, described as a small book-sized object that held a great volume of information, predated computer laptops and is comparable to [[tablet computer]]s. The idea of being able to instantaneously translate between any language, a function provided by the Babel Fish, has since become possible with several software products that work in near real-time.&lt;ref&gt;{{cite web | url = https://www.nature.com/articles/d41586-019-02969-8 | title =The Hitchhiker's Guide to the Galaxy: 40 years of parody and predictions | first = Shamini | last = Bundell | date = 2 October 2019 | access-date = 29 January 2020  | work = [[Nature (journal)|Nature]] }}&lt;/ref&gt; In the Hitchhiker's Guide to the Galaxy, Adams also mentions computers being controlled by voice, touch and gesture, a reality for us today.
+
+=== "Hitch-Hikeriana" ===
+[[File:Don't Panic towel.jpg|thumb|left|250px|Don't Panic towel]]
+Many merchandising and spin-off items (or "Hitch-Hikeriana") were produced in the early 1980s, including towels in different colours, all bearing the Guide entry for towels. Later runs of towels include those made for promotions by Pan Books, Touchstone Pictures&amp;nbsp;/ Disney for the 2005 movie, and different towels made for ZZ9 Plural Z Alpha, the official ''Hitchhiker's'' Appreciation society.&lt;ref name="Kentfield"&gt;[http://www.towel.org.uk/ A wiki devoted to the history of H2G2 themed towels].&lt;/ref&gt; Other items that first appeared in the mid-1980s were T-shirts, including those made for Infocom (such as one bearing the legend "I got the Babel Fish" for successfully completing one of that game's most difficult puzzles), and a Disaster Area tour T-shirt. Other official items have included "Beeblebears" (teddy bears with an extra head and arm, named after ''Hitchhiker's'' character Zaphod Beeblebrox, sold by the official Appreciation Society), an assortment of pin-on buttons and a number of novelty singles. Many of the above items are displayed throughout the 2004 "25th Anniversary Illustrated Edition" of the novel, which used items from the personal collections of fans of the series.{{citation needed|date=September 2019}}
+
+Stephen Moore recorded two novelty singles in character as Marvin, the Paranoid Android: "Marvin"/"[[Marvin the Paranoid Android|Metal Man]]" and "Reasons To Be Miserable"/"[[Marvin the Paranoid Android|Marvin I Love You]]". The last song has appeared on a [[Dr. Demento]] compilation. Another single featured the re-recorded "Journey of the Sorcerer" (arranged by Tim Souster) backed with "Reg Nullify In Concert" by Reg Nullify, and "Only the End of the World Again" by Disaster Area (including Douglas Adams on bass guitar) {{Audio|Disaster-Area---Only-The-End-Of-The-World-Again.ogg|listen}}. These discs have since become collector's items.{{citation needed|date=September 2019}}
+
+The 2005 movie also added quite a few collectibles, mostly through the [[National Entertainment Collectibles Association]]. These included three prop replicas of objects seen on the Vogon ship and homeworld (a mug, a pen and a stapler), sets of "[[action figure]]s" with a height of either 3 or 6&amp;nbsp;inches (76&amp;nbsp;or 150&amp;nbsp;mm), a gun—based on a prop used by Marvin, the Paranoid Android, that shoots foam darts—a crystal cube, shot glasses, a ten-inch (254&amp;nbsp;mm) high version of Marvin with eyes that light up green, and "yarn doll" versions of Arthur Dent, Ford Prefect, Trillian, Marvin and Zaphod Beeblebrox. Also, various audio tracks were released to coincide with the movie, notably re-recordings of "Marvin" and "Reasons To Be Miserable", sung by Stephen Fry, along with some of the "Guide Entries", newly written material read in-character by Fry.{{citation needed|date=September 2019}}
+
+===Towel Day===
+Celebrated on 25 May, [[Towel Day]] is a fan-created event in which they carry a towel with them throughout the day, in reference to the importance of towels as a tool of a galactic hitchhiker described in the work. The annual event was started in 2001 two weeks after Adams' death.&lt;ref&gt;{{Cite news| last = Kornblum | first = Janet | title = Hitchhiker, grab your towel and don't panic! | work = [[USA Today]] | date = 24 May 2001 | url = https://www.usatoday.com/tech/news/2001-05-24-ebrief.htm | access-date = 26 February 2008}}&lt;/ref&gt;
+
+===42, or The Answer to the Ultimate Question of Life, The Universe, and Everything ===
+{{see also|Phrases from The Hitchhiker's Guide to the Galaxy#The Answer to the Ultimate Question of Life, the Universe, and Everything is 42}}
+In the works, the number 42 is given as The Answer to the Ultimate Question of Life, The Universe, and Everything by the computer Deep Thought. The absurdly simple answer to a complex philosophical question became a frequent reference in popular culture in homage to ''The Hitchhiker's Guide'', particularly within works of science fiction and in video games, such as in ''[[Doctor Who]]'', ''[[Lost (TV series)|Lost]]'', ''[[Star Trek]]'' and ''[[The X-Files]]''.&lt;ref&gt;{{cite web | url = https://www.wired.com/2012/05/42-in-pop-culture/ | title = Towel Day: 42 Occurrences of The Number 42 in Pop Culture | first = Sophie | last =Brown | date = 25 May 2012 | access-date = 29 January 2020  |work = [[Wired (magazine)|Wired]] }}&lt;/ref&gt;&lt;ref name="bbca popculture"&gt;{{cite web| url = http://www.bbcamerica.com/anglophenia/2016/07/10-hitchhikers-guide-references-in-pop-culture | title= 10 'Hitchhiker's Guide' References in Pop Culture | first=  Frasier | last =McAlpine | date = July 2016 | access-date = 29 January 2020 | work = [[BBC America]] }}&lt;/ref&gt;
+
+2020 was the 42nd anniversary of HG2G appearing on Radio 4. The book ''Hitchhiking: Cultural Inroads'' was dedicated to the memory of British actor [[Stephen Moore (actor)|Stephen V. Moore]] who died in Oct 2019 and played the voice of Marvin the Paranoid Android in the original BBC Radio and  Television Series.&lt;ref&gt;{{Cite book|last=Laviolette|first=Patrick|url=http://link.springer.com/10.1007/978-3-030-48248-0|title=Hitchhiking: Cultural Inroads|date=2020|publisher=Springer International Publishing|isbn=978-3-030-48247-3|location=Cham|language=en|doi=10.1007/978-3-030-48248-0}}&lt;/ref&gt;
+
+===Other references in popular culture===
+[[File:Elon_Musk%27s_Tesla_Roadster_(40110298232).jpg|thumb|right|"Don't Panic" appears on the dashboard of the space-bound Tesla Roadster launched by Elon Musk's SpaceX.]]
+Two asteroids, ''[[18610 Arthurdent]]''&lt;ref name="The-Guardian"&gt;{{cite news |title=Planetary tribute to Hitch Hiker author as Arthurdent named |author=Tim Radford |newspaper=[[The Guardian]] |date=16 May 2001 |url=https://www.theguardian.com/uk/2001/may/16/books.spaceexploration |access-date=7 April 2016}}&lt;/ref&gt; and ''[[25924 Douglasadams]]''&lt;ref name="MPC-object"&gt;{{cite web |title=25924 Douglasadams (2001 DA42) |work=Minor Planet Center |url=https://www.minorplanetcenter.net/db_search/show_object?object_id=25924 |access-date=24 September 2017}}&lt;/ref&gt; were named after Arthur Dent and Douglas Adams, as both had been discovered shortly after Adams' death in 2001. The fish species ''[[Bidenichthys beeblebroxi]]'' and moth species ''[[Erechthias beeblebroxi]]'' were both named after the character of Zaphod Beeblebrox.&lt;ref name="bbca popculture"/&gt;
+
+[[Radiohead]]'s song "[[Paranoid Android]]" was named after the character of Marvin the Paranoid Android. The band's singer [[Thom Yorke]] used the character's name jokingly, as the song was not about depression, but Yorke knew many of his fans felt that he should seem to be depressed.&lt;ref&gt;[[John Sakamoto|Sakamoto, John]] (2 June 1997). "Radiohead talk about their new video". [[Jam!]]. Accessed 20 October 2008.&lt;!--http://www.greenplastic.com/coldstorage/articles/jam6297.html--&gt;&lt;/ref&gt; The album ''[[OK Computer]]'' which "Paranoid Android" appears on is also taken from ''The Hitchhiker's Guide'', referencing how Zaphod would address the Heart of Gold's onboard computer Eddie, and was selected by the band after listening to the radio plays while traveling on tour.&lt;ref name="Rhapsody in Gloom"&gt;{{citation |first=Andy |last=Greene |title=Radiohead's Rhapsody in Gloom: 'OK Computer' 20 Years Later |url=https://www.rollingstone.com/music/features/exclusive-thom-yorke-and-radiohead-on-ok-computer-w484570 |date=31 May 2017 |magazine=[[Rolling Stone]] |archive-url=https://web.archive.org/web/20170531145331/http://www.rollingstone.com/music/features/exclusive-thom-yorke-and-radiohead-on-ok-computer-w484570 |archive-date=31 May 2017 | url-status = live}}&lt;/ref&gt;
+
+[[SpaceX]] CEO [[Elon Musk]] has stated that ''The Hitchhikers's Guide'' is one of his favorite works, his "favorite philosopher is Douglas Adams" and his favorite spaceship ever is in ''The Hitchhikers's Guide''.&lt;ref&gt;{{cite web |url=https://www.readthistwice.com/person/elon-musk |title=50 books Elon Musk recommended'}}&lt;/ref&gt; Musk said the attitude that Adams presented through ''The Hitchhiker's Guide'' had influenced the vision behind both SpaceX and [[Tesla Motors]].&lt;ref&gt;{{cite web |url=https://www.cnbc.com/2019/07/23/why-hitchhikers-guide-author-is-elon-musks-favorite-philosopher.html |title=Why a science fiction writer is Elon Musk's 'favorite philosopher' |first=Catheline |last=Clifford |date=23 July 2019 |access-date=29 January 2020 |work=[[CNBC]]}}&lt;/ref&gt; When Musk launched [[Elon Musk's Tesla Roadster|his Tesla Roadster]] into an [[Elliptic orbit|elliptical]] [[heliocentric orbit]] as part of the initial test launch of the [[Falcon Heavy]], he had a copy of [[Douglas Adams]]' novel ''[[The Hitchhiker's Guide to the Galaxy (novel)|The Hitchhiker's Guide to the Galaxy]]'' in the glovebox, along with references to the book in the form of a [[Phrases from The Hitchhiker's Guide to the Galaxy#Knowing where one's towel is|towel]] and a sign on the dashboard that reads "[[Phrases from The Hitchhiker's Guide to the Galaxy#Don't Panic|DON'T PANIC!]]", as a nod to the Hitchhiker's Guide.&lt;ref&gt;{{cite news |url=http://www.cbc.ca/news/technology/spacex-starman-1.4524624 |title=SpaceX's 'Starman' misses Mars orbit, heads to asteroid belt &amp;#124; CBC News}}&lt;/ref&gt;
+
+&lt;!--
+References to the series can be seen on websites, within TV and radio programmes, songs, and in console and computer games. Examples include borrowing Adams's characters' names, or references to the number 42, or other catchphrases, or even reusing "The Hitchhiker's Guide to ..." to title other books and articles (which Adams himself had borrowed from [[Ken Welsh (author)|Ken Welsh]]'s ''[[Hitch-hiker's Guide to Europe]]''). ''Hitchhiker's'' references have also appeared in several series and episodes of another famous British science fiction series with which Adams was once affiliated: ''[[Doctor Who]]''.
+* The online [[Babel Fish (website)|Babel Fish]] translation service was also named in honour of a fictional creature that Adams created for the ''Hitchhiker's'' series.
+* The 1980s British Pop band [[Level 42]] attribute their name to the ultimate answer.
+* The rock group [[Radiohead]] named the album ''[[OK Computer]]'' after Zaphod Beeblebrox's typical hail to Eddie the Computer on the [[Infinite Improbability Drive]] [[starship]] ''[[Heart of Gold]]''; a hit single from the album was named after [[Paranoid Android|Marvin the paranoid android]], .
+* The instant message program [[Trillian (instant messaging client)|Trillian]] is also named after a lead ''Hitchhiker's'' character.
+* The massive online game ''RuneScape'' has a small area named "Mos Le'Harmless" (which sounds like Mostly Harmless). Mostly Harmless was the body of the initially published, severely edited version of Ford's expanded entry for Earth (also used as the title of the fifth book).
+* Internet search engines Google and MSN offer "42" as the answer to the search criteria "What is the answer to life the universe and everything?"
+* In the ''[[Foster's Home for Imaginary Friends]]'' episode "Bus the Two of Us", Bloo picks up a hitchhiker holding a sign reading "Magrathea".
+* In ''[[AdventureQuest|Adventure Quest]]'', there is a door that says 42 on it. If clicked on it will say "This room contains the answers to the universe. It is locked, bolted, and duct taped shut", or "A tiny sign on the door reads 'Beware of LepardZard{{' "}}.
+* In the comic strip ''[[Get Fuzzy]]'', Rob frequently wears a 6 times 9 = 42 shirt, and a strip paid tribute to Douglas Adams soon after his passing.
+* Coldplay named a song "[[Don't Panic (song)|Don't Panic]]": "the opening track to Parachutes and is a guitar-based song. It was originally called 'Panic' and was one of six songs played at Coldplay's first concert in 1998. Eventually, the title became 'Don't Panic', taken from Douglas Adams's ''The Hitchhiker's Guide to the Galaxy''." Also on their album ''Viva La Vida'' there is a song called "42".
+* The video game ''[[Fallout]]'', the pre-rendered scenery in one location features a dead whale and a broken flowerpot, parodying a scene from [[The Hitchhiker's Guide to the Galaxy (book)|the first book]].
+* In the video game ''[[Spore]]'', at the center of the universe the player may receive a [[Project Genesis|Genesis Device]] known as the "Staff of Life". The device has 42 charges as well as an icon which reads "42."
+* The rock band [[Perpetual Groove]] has an album entitled ''All This Everything'' in which many of the tracks are related to ''The Hitchhiker's Guide to the Galaxy''. The first track is entitled "Life," the eighth "The Universe," and the last "And Everything". Other ''Hitchhiker's''-related titles include "53 More Things to Do in Zero Gravity" and "Andromeda."
+--&gt;
+
+== Other ''Hitchhiker's''-related books and stories ==
+{{More citations needed section|date=March 2020}}
+
+=== Related stories ===
+A short story by Adams, "[[Young Zaphod Plays It Safe]]", first appeared in 1986, in ''[[The Utterly Utterly Merry Comic Relief Christmas Book]]'', a special large-print compilation of different stories and pictures that raised money for the then-new [[Comic Relief (charity)|Comic Relief]] charity in the UK. The story also appears in some of the omnibus editions of the trilogy, and in ''The Salmon of Doubt''. There are two versions of this story, one of which is slightly more explicit in its political commentary.
+
+A novel, ''[[Douglas Adams' Starship Titanic: A Novel]]'', written by [[Terry Jones]], is based on Adams's computer game of the same name, ''[[Douglas Adams's Starship Titanic]]'', which in turn is based on an idea from ''Life, the Universe and Everything''. The idea concerns a luxury passenger starship that suffers "sudden and gratuitous total existence failure" on its maiden voyage.
+
+Wowbagger the Infinitely Prolonged, a character from ''Life, the Universe and Everything'', also appears in a short story by Adams titled "The Private Life of [[Genghis Temüjin Khan|Genghis Khan]]" which appears in some early editions of ''The Salmon of Doubt''.
+
+=== Published radio scripts ===
+Douglas Adams and Geoffrey Perkins collaborated on ''[[The Hitchhiker's Guide to the Galaxy: The Original Radio Scripts]]'', first published in the United Kingdom and United States in 1985. A tenth-anniversary (of the script book publication) edition was printed in 1995, and a twenty-fifth-anniversary (of the first radio series broadcast) edition was printed in 2003.
+
+The 2004 series was produced by Above The Title Productions and the scripts were published in July 2005, with production notes for each episode. This second radio script book is entitled ''The Hitchhiker's Guide to the Galaxy Radio Scripts: The Tertiary, Quandary and Quintessential Phases''. Douglas Adams gets the primary writer's credit (as he wrote the original novels), and there is a foreword by [[Simon Jones (actor)|Simon Jones]], introductions by the producer and the director, and other introductory notes from other members of the cast.
+
+== See also ==
+{{colbegin|colwidth=30em}}
+
+* [[Hitchhiking]]
+* [[List of characters from The Hitchhiker's Guide to the Galaxy|List of characters from ''The Hitchhiker's Guide to the Galaxy'']]
+* [[Phrases from The Hitchhiker's Guide to the Galaxy|Phrases from ''The Hitchhiker's Guide to the Galaxy'']]
+* [[The Hitchhiker's Guide to the Galaxy cast lists|''The Hitchhiker's Guide to the Galaxy'' cast lists]]
+* "[[The Last Question]]", a story written by [[Isaac Asimov]] that inspired [[Deep Thought (The Hitchhiker's Guide to the Galaxy)|Deep Thought]]
+* [[Timeline of The Hitchhiker's Guide to the Galaxy versions|Timeline of ''The Hitchhiker's Guide to the Galaxy'' versions]]
+* [[Towel Day]]
+{{colend}}
+
+== Notes ==
+{{NoteFoot}}
+
+== References ==
+=== Citations ===
+{{Reflist}}
+
+=== Sources ===
+{{refbegin}}
+* {{cite book | author = Adams, Douglas | editor = Guzzardi, Peter | title = The Salmon of Doubt: Hitchhiking the Galaxy One Last Time | edition = first UK | publisher=Macmillan | year=2002 | isbn=978-0-333-76657-6 | author-link = Douglas Adams | title-link = The Salmon of Doubt }}
+* {{cite book | author = Adams, Douglas | editor = [[Geoffrey Perkins|Perkins, Geoffrey]] | author-mask = 4 | others = MJ Simpson, add. mater | title = The Hitchhiker's Guide to the Galaxy: The Original Radio Scripts| edition =25th Anniversary | publisher=Pan Books | year = 2003 | isbn= 978-0-330-41957-4 | author-link= Douglas Adams| title-link = The Hitchhiker's Guide to the Galaxy: The Original Radio Scripts }}
+* {{cite book | author = Gaiman, Neil | title = Don't Panic: Douglas Adams and the "Hitchhiker's Guide to the Galaxy" | publisher= Titan Books | year=2003 | isbn=978-1-84023-742-9 | author-link = Neil Gaiman }}
+* {{cite book | author = Simpson, M. J. | title = Hitchhiker: A Biography of Douglas Adams | edition = first US | publisher=Justin Charles &amp; Co | year=2003 | isbn=978-1-932112-17-7}}
+* {{cite book | author = Simpson, M. J. | title = The Pocket Essential Hitchhiker's Guide | edition = second | publisher=Pocket Essentials | year=2005 | isbn=978-1-904048-46-6 | author-mask = 8}}
+* {{cite book | editor = [[Robbie Stamp|Stamp, Robbie]] | title = The Making of The Hitchhiker's Guide to the Galaxy: The Filming of the Douglas Adams Classic | publisher=Boxtree | year=2005 | isbn=978-0-7522-2585-2}}
+* {{cite book | author=Webb, Nick | title = Wish You Were Here: The Official Biography of Douglas Adams | url = https://archive.org/details/wishyouwerehereo00webb | url-access=registration | edition = first US hardcover | publisher=Ballantine Books | year=2005 | isbn=978-0-345-47650-0 }}
+{{refend}}
+
+==External links==
+{{Wikiquote}}
+{{Commons category|Hitchhiker's Guide to the Galaxy}}
+{{Spoken Wikipedia|date=2008-05-17|The_Hitchhikers_Guide_to_the_Galaxy_Part_1.ogg|The_Hitchhikers_Guide_to_the_Galaxy_Part_2.ogg}}
+&lt;!-- Please do not alter the order of these links. If there is an official, or a fan site, that you think should be added, please add it to the end of the list in the appropriate sub-category. Thank you. --&gt;
+
+'''Official sites'''
+* {{Cite journal | url = http://www.bbc.co.uk/cult/hitchhikers/ | publisher = The BBC | type = Cult | title = ''The Hitchhiker's Guide to the Galaxy'' (TV series) | place = UK }} (includes information, links and downloads).
+* {{Cite journal | url = http://www.bbc.co.uk/radio4/hitchhikers/ | publisher = The BBC | type = Radio 4 | title = 2004–2005 series | place = UK }}.
+* {{Cite journal | url = http://hitchhikers.movies.go.com/ | type = official site | publisher = Go | title = Movies: The Hitchhikers' Guide to the Galaxy | url-status = dead | archive-url = https://web.archive.org/web/20040528161746/http://hitchhikers.movies.go.com/ | archive-date = 28 May 2004 | df = dmy-all }}.
+* {{IMDb title|id=0371724|title=The Hitchhiker's Guide to the Galaxy (2005 movie)}}
+* {{IMDb title|id=0081874|title=The Hitch Hikers Guide to the Galaxy (1981 TV series)}}
+* {{cite web | url = http://www.h2g2.com/ | website = h2g2 | title = Guide | location = UK }}
+* {{cite encyclopedia | url = http://www.museum.tv/archives/etv/H/htmlH/hitch-hickers/hitch-hickers.htm | encyclopedia = Encyclopedia of Television | publisher = Museum.TV | title = The Hitchhikers' Guide to the Galaxy }}
+* {{Cite journal | url = http://www.screenonline.org.uk/tv/id/560180/ | publisher = British Film Institute | title = Screen Online &amp;#124; ''The Hitchhikers' Guide to the Galaxy'' TV series }}.
+* {{Cite journal | url = http://www.dccomics.com/graphic_novels/?gn=1816 | publisher = DC Comics | title = Graphic novels: H2G2 }}.
+
+'''Other links'''
+* {{cite web|last1=Grime|first1=James|title=42 and Douglas Adams|url=http://www.numberphile.com/videos/42.html|work=Numberphile|publisher=[[Brady Haran]]|last2=Adesso|first2=Gerardo|last3=Moriarty|first3=Phil|access-date=8 April 2013|archive-url=https://web.archive.org/web/20181013132841/http://www.numberphile.com/videos/42.html|archive-date=13 October 2018|url-status=dead|df=dmy-all}}
+
+&lt;!-- DO ''not'' restore the Galactic Krikkit link here. It has been placed on the Hitchhiker's Guide to the Galaxy Cultural References Page, where it is more appropriate. Also, please leave out e-book links, unless you have an ISBN for a specific e-book edition that can be posted, as Wikipedia doesn't advertise, and the previously listed e-book is illegal. --&gt;
+{{The Hitchhiker's Guide to the Galaxy}}
+{{Douglas Adams}}
+{{Authority control}}
+
+{{DEFAULTSORT:Hitchhikers Guide To The Galaxy, The}}
+[[Category:The Hitchhiker's Guide to the Galaxy| ]]
+[[Category:1978 radio programme debuts]]
+[[Category:BBC Radio comedy programmes]]
+[[Category:British radio dramas]]
+[[Category:Comic science fiction novels]]
+[[Category:Novel series]]
+[[Category:Novels by Douglas Adams]]
+[[Category:The Hitchhiker's Guide to the Galaxy (radio series)]]
+[[Category:Novels about time travel]]
+[[Category:Hitchhiking in fiction]]
+[[Category:Radio programs adapted into comics]]
+[[Category:Radio programs adapted into novels]]
+[[Category:Radio programs adapted into plays]]
+[[Category:Radio programs adapted into video games]]
+[[Category:Radio programs adapted into television shows]]
+[[Category:Post-apocalyptic fiction]]</text>
+            <sha1>ndqxvgck1lho8pzz4jszzcsat5u8e9v</sha1>
+        </revision>
+    </page>
+    <page>
+        <title>Douglas Adams</title>
+        <ns>0</ns>
+        <id>8091</id>
+        <revision>
+            <id>1028051377</id>
+            <parentid>1028046646</parentid>
+            <timestamp>2021-06-11T15:08:20Z</timestamp>
+            <contributor>
+                <username>Nedrutland</username>
+                <id>3556578</id>
+            </contributor>
+            <comment>/* Death and legacy */ [[The Centre for Computing History]] in Cambridge</comment>
+            <model>wikitext</model>
+            <format>text/x-wiki</format>
+            <text bytes="63949" xml:space="preserve">{{other people}}
+{{short description|English author and humourist}}
+{{Use British English|date=March 2021}}
+{{Use dmy dates|date=May 2021}}
+{{Infobox writer
+| name          = Douglas Adams
+| image         = Douglas adams portrait cropped.jpg
+| caption       =
+| birth_name    = Douglas Noel Adams
+| birth_date    = {{birth date|1952|3|11|df=yes}}
+| birth_place   = [[Cambridge]], [[Cambridgeshire]], England
+| death_date    = {{Death date and age|2001|5|11|1952|3|11|df=yes}}
+| death_place   = [[Montecito, California]], US
+| resting_place   = [[Highgate Cemetery]], [[London]], England
+| occupation    = {{flatlist|
+* [[Author]]
+* [[screenwriter]]
+* [[essayist]]
+* [[List of humorists|humorist]]
+* [[satirist]]
+* [[dramatist]]
+}}
+| alma_mater    = [[St John's College, Cambridge]]
+| genre         = [[Science fiction]], [[comedy]], [[satire]]
+|notablework =''[[The Hitchhiker's Guide to the Galaxy]]''
+|signature= Douglas Adams Unterschrift (cropped).jpg
+| awards        = [[Inkpot Award]] (1983)&lt;ref&gt;[https://www.comic-con.org/awards/inkpot Inkpot Award]&lt;/ref&gt;
+| website       = {{URL|douglasadams.com}}
+}}
+'''Douglas Noel Adams''' (11 March 1952 – 11 May 2001) was an English author, screenwriter, essayist, humorist, satirist and dramatist. Adams was author of ''[[The Hitchhiker's Guide to the Galaxy]]'', which originated in 1978 as [[The Hitchhiker's Guide to the Galaxy (radio series)|a BBC radio comedy]], before developing into a "trilogy" of five books that sold more than 15&amp;nbsp;million copies in his lifetime and generated [[The Hitchhiker's Guide to the Galaxy (TV series)|a television series]], several stage plays, comics, [[The Hitchhiker's Guide to the Galaxy (video game)|a video game]], and in 2005 [[The Hitchhiker's Guide to the Galaxy (film)|a feature film]]. Adams's contribution to UK radio is commemorated in [[Radio Academy|The Radio Academy]]'s Hall of Fame.&lt;ref name="radioacad"&gt;{{cite web|title=The Radio Academy Hall of Fame |url=http://www.radioacademy.org/hall-of-fame |work=The Radio Academy |access-date=8 December 2011 |archive-url=https://web.archive.org/web/20111205051058/http://www.radioacademy.org/hall-of-fame/ |archive-date= 5 December 2011 |url-status=dead  }}&lt;/ref&gt;
+
+Adams also wrote ''[[Dirk Gently's Holistic Detective Agency]]'' (1987) and ''[[The Long Dark Tea-Time of the Soul]]'' (1988), and co-wrote ''[[The Meaning of Liff]]'' (1983), ''[[The Deeper Meaning of Liff]]'' (1990), and ''[[Last Chance to See]]'' (1990). He wrote two stories for the television series ''[[Doctor Who]]'', co-wrote ''[[City of Death]]'', and served as [[script editor]] for its [[Doctor Who (season 17)|seventeenth season]] in 1979. He co-wrote the [[Monty Python]] sketch "[[Patient Abuse]]" which appeared in the final episode of ''[[Monty Python's Flying Circus]]''. A posthumous collection of his selected works, including the first publication of his final (unfinished) novel, was published as ''[[The Salmon of Doubt]]'' in 2002.
+
+Adams was an advocate for environmentalism and [[conservation movement|conservation]], a lover of fast cars,&lt;ref name=TI&gt;{{cite web|work=[[The Independent]]|title=Douglas Adams: Master of his universe|date=19 April 2005|url=https://www.independent.co.uk/news/people/profiles/douglas-adams-master-of-his-universe-495422.html}}&lt;/ref&gt; [[innovation|technological innovation]] and the [[Macintosh|Apple Macintosh]], and a self-proclaimed "[[Atheism|radical atheist]]".
+
+==Early life==
+Adams was born on 11 March 1952 to Janet (née Donovan; 1927–2016) and Christopher Douglas Adams (1927–1985) in [[Cambridge]].&lt;ref name=ODNB &gt;Webb 2005b&lt;/ref&gt; The family moved a few months after his birth to the [[East End of London]], where his sister, Susan, was born three years later.&lt;ref name=Adams_xix&gt;{{Harvnb|Adams|2002|p=xix}}&lt;/ref&gt; His parents divorced in 1957; Douglas, Susan, and their mother moved then to an [[RSPCA]] animal shelter in [[Brentwood, Essex]], run by his maternal grandparents.&lt;ref&gt;Webb 2005a, p. 32.&lt;/ref&gt;
+
+===Education===
+Adams attended Primrose Hill Primary School in Brentwood. At the age of nine, he passed the entrance exam for [[Brentwood School (Essex)|Brentwood School]]. He attended the [[Preparatory school (United Kingdom)|prep school]] from 1959 to 1964, then the main school until December 1970. Adams was {{convert|6|ft|m}} tall by age 12, and stopped growing at {{convert|6|ft|5|in|m}}. His form master, Frank Halford, said that Adams's height had made him stand out and that he had been self-conscious about it.&lt;ref name=Adams_7&gt;{{Harvnb|Adams|2002|p=7}}&lt;/ref&gt;&lt;ref&gt;Botti, Nicholas. [http://douglasadams.eu/interview-with-frank-halford/ "Interview with Frank Halford"]. ''Life, DNA, and H2G2.'' 2009. Web. Retrieved 13 March 2012. (Click on link at bottom for facsimile page from ''Daily News'' article, 7 March 1998.)&lt;/ref&gt; His ability to write stories made him well known in the school.&lt;ref name=Simpson_9&gt;{{Harvnb|Simpson|2003|p=9}}&lt;/ref&gt; He became the only student ever to be awarded a ten out of ten by Halford for creative writing — something he remembered for the rest of his life, particularly when facing [[writer's block]].&lt;ref name=Adams_xix /&gt;
+
+Some of his earliest writing was published at the school, such as a report on its photography club in ''The Brentwoodian'' in 1962, or spoof reviews in the school magazine ''Broadsheet'', edited by [[Paul Neil Milne Johnstone]], who later became a character in ''The Hitchhiker's Guide''. He also designed the cover of one issue of the ''Broadsheet'', and had a letter and short story published in ''[[Eagle (comic)|The Eagle]]'', the boys' comic, in 1965. A poem entitled "A Dissertation on the task of writing a poem on a candle and an account of some of the difficulties thereto pertaining" written by Adams in January 1970 at the age of 17, was discovered in a cupboard at the school in early 2014.&lt;ref&gt;Flood, Alison (March 2014). [https://www.theguardian.com/books/2014/mar/19/lost-school-poems-douglas-adams-griff-rhys-jones "Lost poems of Douglas Adams and Griff Rhys Jones found in school cupboard"], ''The Guardian'', 19 March 2014. Accessed 2 July 2014&lt;/ref&gt;
+
+On the strength of an essay on religious poetry that discussed [[the Beatles]] and [[William Blake]], he was awarded an [[Exhibition (scholarship)|Exhibition]] in English at [[St John's College, Cambridge]], going up in 1971. He wanted to join the [[Footlights]], an invitation-only student comedy club that has acted as a hothouse for comic talent. He was not elected immediately as he had hoped, and started to write and perform in revues with Will Adams (no relation) and Martin Smith; they formed a group called "Adams-Smith-Adams". He became a member of the Footlights by 1973.&lt;ref name="Simpson_30-40"&gt;{{Harvnb|Simpson|2003|pp=30–40}}&lt;/ref&gt; Despite doing very little work — he recalled having completed three essays in three years — he graduated in 1974 with a 2:2 in [[English literature]].&lt;ref&gt;{{Cite ODNB|url=https://www.oxforddnb.com/view/10.1093/ref:odnb/9780198614128.001.0001/odnb-9780198614128-e-75853|title=Adams, Douglas Noël (1952–2001), writer |year=2004 |language=en|doi=10.1093/ref:odnb/75853|access-date=10 June 2019}}&lt;/ref&gt;
+
+==Career==
+
+===Writing===
+After leaving university Adams moved back to London, determined to break into TV and radio as a writer. An edited version of the ''Footlights Revue'' appeared on [[BBC Two|BBC2]] television in 1974. A version of the Revue performed live in London's [[West End of London|West End]] led to Adams being discovered by [[Monty Python]]'s [[Graham Chapman]]. The two formed a brief writing partnership, earning Adams a writing credit in [[List of Monty Python's Flying Circus episodes#6. Party Political Broadcast|episode 45]] of ''Monty Python'' for a sketch called "[[Patient Abuse]]". The pair also co-wrote the "Marilyn Monroe" sketch which appeared on the soundtrack album of ''[[The Album of the Soundtrack of the Trailer of the Film of Monty Python and the Holy Grail|Monty Python and the Holy Grail]]''. Adams is one of only two people other than the original Python members to get a writing credit (the other being [[Neil Innes]]).&lt;ref name=times&gt;{{cite news|title=Terry Jones remembers Douglas Adams, 'the last of the Pythons'|newspaper=The Times|date=10 October 2009}}&lt;/ref&gt;
+
+[[File:DNA in Monty Python.jpg|thumb|Adams in his first ''[[Monty Python's Flying Circus|Monty Python]]'' appearance, in full surgeon's garb]]
+
+Adams had two brief appearances in the fourth series of ''[[Monty Python's Flying Circus]]''. At the beginning of episode 42, "The Light Entertainment War", Adams is in a surgeon's mask (as Dr. Emile Koning, according to on-screen captions), pulling on gloves, while [[Michael Palin]] narrates a sketch that introduces one person after another but never gets started. At the beginning of episode 44, "Mr. Neutron", Adams is dressed in a [[List of recurring Monty Python's Flying Circus characters#Pepperpots|pepper-pot]] outfit and loads a missile onto a cart driven by [[Terry Jones]], who is calling for scrap metal ("Any old iron..."). The two episodes were broadcast in November 1974. Adams and Chapman also attempted non-Python projects, including ''[[Out of the Trees]]''.&lt;ref&gt;{{cite news |url=http://news.bbc.co.uk/2/hi/entertainment/6150254.stm |title='Lost' gems from the TV archives |last=Young |first=Kevin |date=1 December 2006 |work=BBC News |access-date=9 May 2018 |language=en-GB }}&lt;/ref&gt;
+
+At this point Adams's career stalled; his writing style was unsuited to the then-current style of radio and TV comedy.&lt;ref name=ODNB /&gt; To make ends meet he took a series of odd jobs, including as a hospital porter, barn builder, and chicken shed cleaner. He was employed as a bodyguard by a Qatari family, who had made their fortune in oil.&lt;ref&gt;Webb 2005a, p. 93.&lt;/ref&gt;
+
+During this time Adams continued to write and submit sketches, though few were accepted. In 1976 his career had a brief improvement when he wrote and performed ''Unpleasantness at Brodie's Close'' at the [[Edinburgh Fringe]] festival. By Christmas, work had dried up again, and a depressed Adams moved to live with his mother.&lt;ref name=ODNB /&gt; The lack of writing work hit him hard and low confidence became a feature of Adams's life; "I have terrible periods of lack of confidence [..] I briefly did therapy, but after a while I realised it was like a farmer complaining about the weather. You can't fix the weather&amp;nbsp;– you just have to get on with it".&lt;ref name=Adams_prologue&gt;{{Harvnb|Adams|2002|pp=prologue}}&lt;/ref&gt;
+
+Some of Adams's early radio work included sketches for ''[[The Burkiss Way]]'' in 1977 and ''[[The News Huddlines]]''.&lt;ref&gt;{{Harvnb|Simpson|2003|p=87}}&lt;/ref&gt; He also wrote, again with Chapman, 20 February 1977 episode of ''[[Doctor on the Go]]'', a sequel to the ''[[Doctor in the House (TV series)|Doctor in the House]]'' television comedy series. After the [[The Hitchhiker's Guide to the Galaxy (radio series)|first radio series of ''The Hitchhiker's Guide'']] became successful, Adams was made a BBC radio producer, working on ''[[Week Ending]]'' and a pantomime called ''[[Black Cinderella Two Goes East]]''.&lt;ref&gt;Roberts, Jem. ''The Clue Bible: The Fully Authorised History of I'm Sorry I Haven't A Clue from Footlights to Mornington Crescent'': London, 2009, p164-5&lt;/ref&gt; He left after six months to become the script editor for ''[[Doctor Who]]''.
+
+In 1979, Adams and [[John Lloyd (producer)|John Lloyd]] wrote scripts for two half-hour episodes of ''[[Doctor Snuggles]]'': "The Remarkable Fidgety River" and "The Great Disappearing Mystery" (episodes eight and twelve).&lt;ref&gt;{{Harvnb|Roberts|2014|pp=129–130}}&lt;/ref&gt; John Lloyd was also co-author of two episodes from the original ''Hitchhiker'' radio series ("Fit the Fifth" and "Fit the Sixth", also known as "Episode Five" and "Episode Six"), as well as ''[[The Meaning of Liff]]'' and ''[[The Deeper Meaning of Liff]]''.
+
+====Work on ''Doctor Who''====
+{{Main|Doctor Who}}
+Adams sent the script for the ''HHGG'' pilot radio programme to the ''Doctor Who'' production office in 1978, and was commissioned to write ''[[The Pirate Planet]]''. He had also previously attempted to submit a potential film script, called ''Doctor Who and the Krikkitmen'', which later became his novel ''Life, the Universe and Everything'' (which in turn became the third ''Hitchhiker's Guide'' radio series). Adams then went on to serve as script editor on the show for its seventeenth season in 1979. Altogether, he wrote three [[List of Doctor Who episodes (1963–1989)|''Doctor Who'' serials]] starring [[Tom Baker]] as [[The Doctor (Doctor Who)|the Doctor]]:
+* ''The Pirate Planet'' (the second serial in the ''[[The Key to Time|Key to Time]]'' arc, in ''[[Doctor Who (season 16)|season 16]]'')&lt;ref&gt;{{cite book |title=[[The Discontinuity Guide]] |last1=Cornell |first1=Paul |author-link1=Paul Cornell |last2=Day |first2=Martin |author-link2=Martin Day |last3=Topping |first3=Keith |author-link3=Keith Topping |year=1995 |publisher=[[Virgin Books]] |location=London |isbn=0-426-20442-5 |chapter=The Pirate Planet|chapter-url=https://www.bbc.co.uk/doctorwho/classic/episodeguide/pirateplanet/detail.shtml }}&lt;/ref&gt;
+* ''[[City of Death]]'' (with producer [[Graham Williams (television producer)|Graham Williams]], from an original storyline by writer [[David Fisher (writer)|David Fisher]]. It was transmitted under the pseudonym "[[David Agnew]]")&lt;ref&gt;{{cite book |title=[[The Discontinuity Guide]] |last1=Cornell |first1=Paul |author-link1=Paul Cornell |last2=Day |first2=Martin |author-link2=Martin Day |last3=Topping |first3=Keith |author-link3=Keith Topping |year=1995 |publisher=[[Virgin Books]] |location=London |isbn=0-426-20442-5 |chapter=City of Death|chapter-url=https://www.bbc.co.uk/doctorwho/classic/episodeguide/cityofdeath/detail.shtml }}&lt;/ref&gt;
+* ''[[Shada (Doctor Who)|Shada]]'' (only partially filmed; not televised due to [[strike action|industry disputes]], but was later completed using animation for the unfinished scenes and broadcast as "Doctor Who: The Lost Episode" on [[BBC America]] 19 July 2018)&lt;ref&gt;{{cite book |title=[[The Discontinuity Guide]] |last1=Cornell |first1=Paul |author-link1=Paul Cornell |last2=Day |first2=Martin |author-link2=Martin Day |last3=Topping |first3=Keith |author-link3=Keith Topping |year=1995 |publisher=[[Virgin Books]] |location=London |isbn=0-426-20442-5 |chapter=Shada|chapter-url=https://www.bbc.co.uk/doctorwho/classic/episodeguide/shada/detail.shtml }}&lt;/ref&gt;
+
+The episodes authored by Adams are some of the few that were not novelised, as Adams would not allow anyone else to write them and asked for a higher price than the publishers were willing to pay.&lt;ref&gt;{{cite web|url=http://www.skepticfiles.org/en001/drwhogde.htm |title=A 1990s Doctor Who FAQ |publisher=Skepticfiles.org |access-date=11 March 2013}}&lt;/ref&gt; ''Shada'' was later adapted as a novel by [[Gareth Roberts (writer)|Gareth Roberts]] in 2012 and ''City of Death'' and ''The Pirate Planet'' by [[James Goss (producer)|James Goss]] in 2015 and 2017 respectively.
+
+Elements of ''Shada'' and ''City of Death'' were reused in Adams's later novel ''[[Dirk Gently's Holistic Detective Agency]]'', in particular, the character of [[Professor Chronotis]]. [[Big Finish Productions]] eventually remade ''Shada'' as an audio play starring [[Paul McGann]] as the Doctor. Accompanied by partially animated illustrations, it was [[Doctor Who spin-offs#Webcasts|webcast]] on the [[BBC Online|BBC website]] in 2003, and subsequently released as a two-CD set later that year. An omnibus edition of this version was broadcast on the digital radio station [[BBC7]] on 10 December 2005.
+
+In the ''Doctor Who'' 2012 Christmas episode "[[The Snowmen#Production|The Snowmen]]", writer [[Steven Moffat]] was inspired by a storyline that Adams pitched called ''The Doctor Retires''.&lt;ref&gt;{{cite web|last=Moffat |first=Steven|author-link=Steven Moffat|url=http://www.radiotimes.com/news/2012-12-24/doctor-who-christmas-special-steven-moffat-matt-smith-and-jenna-louise-coleman-reveal-all |title=Doctor Who Christmas special: Steven Moffat, Matt Smith and Jenna-Louise Coleman reveal all |work=Radio Times |date=24 December 2012 |access-date=8 July 2013}}&lt;/ref&gt;
+
+====''The Hitchhiker's Guide to the Galaxy''====
+{{Main|The Hitchhiker's Guide to the Galaxy}}
+''The Hitchhiker's Guide to the Galaxy'' was a concept for a science-fiction comedy radio series pitched by Adams and radio producer [[Simon Brett]] to [[BBC Radio 4]] in 1977. Adams came up with an outline for a pilot episode, as well as a few other stories (reprinted in [[Neil Gaiman]]'s book ''[[Don't Panic: The Official Hitchhiker's Guide to the Galaxy Companion]]'') that could be used in the series.
+[[File:Towelday-Innsbruck.jpg|thumb|upright|[[Towel Day]] 2005 in Innsbruck, Austria, where Adams first had the idea of ''The Hitchhiker's Guide''. In the novels, a towel is the most useful thing a space traveller can have. The annual Towel Day (25 May) was first celebrated in 2001, two weeks after Adams's death.]]
+
+According to Adams, the idea for the title occurred to him while he lay drunk in a field in [[Innsbruck]], Austria, gazing at the stars. He was carrying a copy of the ''[[Hitch-hiker's Guide to Europe]]'', and it occurred to him that "somebody ought to write a ''Hitchhiker's Guide to the Galaxy''".&lt;ref&gt;{{cite book | author=Adams, Douglas| editor= Geoffrey Perkins |others=Additional Material by M. J. Simpson|title=[[The Hitchhiker's Guide to the Galaxy: The Original Radio Scripts]] | page = 10 | edition =25th Anniversary | publisher=Pan Books | year=2003 | isbn=0-330-41957-9}}&lt;/ref&gt;
+
+Despite the original outline, Adams was said to make up the stories as he wrote. He turned to [[John Lloyd (producer)|John Lloyd]] for help with the final two episodes of [[The Hitchhiker's Guide to the Galaxy Primary and Secondary Phases#The Primary Phase|the first series]]. Lloyd contributed bits from an unpublished science fiction book of his own, called ''GiGax''.&lt;ref&gt;Webb 2005a, p. 120.&lt;/ref&gt; Very little of Lloyd's material survived in later adaptations of ''Hitchhiker's'', such as the novels and the TV series. The TV series was based on the first six radio episodes, and sections contributed by Lloyd were largely re-written.
+
+[[BBC Radio 4]] broadcast the first radio series weekly in the UK starting 8 March 1978, lasting until April.&lt;ref&gt;[https://www.theregister.co.uk/2020/03/09/hhgttg_42/ “Grab a towel and pour yourself a Pan Galactic Gargle Blaster because The Hitchhiker's Guide to the Galaxy is 42”]. ''The Register''. Retrieved 12 March 2020&lt;/ref&gt; The series was distributed in the United States by [[NPR|National Public Radio]]. Following the success of the first series, another episode was recorded and broadcast, which was commonly known as the Christmas Episode. [[The Hitchhiker's Guide to the Galaxy Primary and Secondary Phases#The Secondary Phase|A second series]] of five episodes was broadcast one per night, during the week of 21–25 January 1980.
+
+While working on the radio series (and with simultaneous projects such as ''[[The Pirate Planet]]'') Adams developed problems keeping to writing deadlines that got worse as he published novels. Adams was never a prolific writer and usually had to be forced by others to do any writing. This included being locked in a hotel suite with his editor for three weeks to ensure that ''[[So Long, and Thanks for All the Fish]]'' was completed.&lt;ref&gt;Felch 2004&lt;/ref&gt; He was quoted as saying, "I love deadlines. I love the whooshing noise they make as they go by."&lt;ref name=Simpson_236&gt;{{Harvnb|Simpson|2003|p=236}}&lt;/ref&gt; Despite the difficulty with deadlines, Adams wrote five novels in the series, published in 1979, 1980, 1982, 1984, and 1992.
+
+The books formed the basis for other adaptations, such as three-part comic book adaptations for each of the first three books, an interactive text-adventure [[The Hitchhiker's Guide to the Galaxy (computer game)|computer game]], and a photo-illustrated edition, published in 1994. This latter edition featured a [[42 Puzzle]] designed by Adams, which was later incorporated into paperback covers of the first four ''Hitchhiker's'' novels (the paperback for the fifth re-used the artwork from the hardback edition).&lt;ref&gt;[http://www.iblist.com/series.php?id=2 Internet Book List] {{Webarchive|url=https://web.archive.org/web/20060220065441/http://www.iblist.com/series.php?id=2 |date=20 February 2006 }} page, with links to all five novels, and reproductions of the 1990s paperback covers that included the [[42 Puzzle]].&lt;/ref&gt;
+
+In 1980, Adams began attempts to turn the first ''Hitchhiker's'' novel into a film, making several trips to Los Angeles, and working with Hollywood studios and potential producers. The next year, the radio series became the basis for a BBC television mini-series&lt;ref&gt;{{citation|url=https://www.imdb.com/title/tt0081874/|title=''The Hitch Hiker's Guide to the Galaxy''|publisher=Internet Movie Database}}&lt;/ref&gt; broadcast in six parts. When he died in 2001 in California, he had been trying again to get the film project started with [[Disney]], which had bought the rights in 1998. The screenplay got a posthumous re-write by [[Karey Kirkpatrick]], and [[The Hitchhiker's Guide to the Galaxy (film)|the resulting film]] was released in 2005.
+
+Radio producer [[Dirk Maggs]] had consulted with Adams, first in 1993, and later in 1997 and 2000 about creating a third radio series, based on the third novel in the ''Hitchhiker's'' series.&lt;ref&gt;{{cite book | author=Adams, Douglas | editor = [[Dirk Maggs]] | title=The Hitchhiker's Guide to the Galaxy Radio Scripts: The Tertiary, Quandary and Quintessential Phases | publisher=Pan Books | year=2005|isbn=0-330-43510-8 |pages=xiv | no-pp=true}}&lt;/ref&gt; They also discussed the possibilities of radio adaptations of the final two novels in the five-book "trilogy". As with the film, this project was realised only after Adams's death. The third series, ''[[The Hitchhiker's Guide to the Galaxy Tertiary to Quintessential Phases#The Tertiary Phase|The Tertiary Phase]]'', was broadcast on [[BBC Radio 4]] in September 2004 and was subsequently released on audio CD. With the aid of a recording of his reading of ''Life, the Universe and Everything'' and editing, Adams can be heard playing the part of Agrajag posthumously. ''So Long, and Thanks for All the Fish'' and ''Mostly Harmless'' made up the fourth and fifth radio series, respectively (on radio they were titled ''[[The Hitchhiker's Guide to the Galaxy Tertiary to Quintessential Phases#The Quandary Phase|The Quandary Phase]]'' and ''[[The Hitchhiker's Guide to the Galaxy Tertiary to Quintessential Phases#The Quintessential Phase|The Quintessential Phase]]'') and these were broadcast in May and June 2005, and also subsequently released on Audio CD. The last episode in the last series (with a new, "more upbeat" ending) concluded with, "The very final episode of ''The Hitchhiker's Guide to the Galaxy'' by Douglas Adams is affectionately dedicated to its author."&lt;ref&gt;Adams, ''Dirk Maggs'', Page 356.&lt;/ref&gt;
+
+====''Dirk Gently'' series====
+[[File:Douglas Adams San Francisco.jpg|thumb|Adams in March 2000]]
+Between Adams's first trip to Madagascar with [[Mark Carwardine]] in 1985, and their series of travels that formed the basis for the radio series and non-fiction book ''[[Last Chance to See]]'', Adams wrote two other novels with a new cast of characters. ''[[Dirk Gently's Holistic Detective Agency]]'' was published in 1987, and was described by its author as "a kind of ghost-horror-detective-time-travel-romantic-comedy-epic, mainly concerned with mud, music and quantum mechanics".&lt;ref&gt;{{cite book|author=[[Neil Gaiman|Gaiman, Neil]] | title=Don't Panic: Douglas Adams &amp; The Hitchhiker's Guide to the Galaxy | edition=Second U.S. | publisher=Titan Books | year=2003 | page=169 | isbn=1-84023-742-2}}&lt;/ref&gt; It was derived from two Doctor Who serials Adams had written. {{citation needed|date=February 2021}}
+
+A sequel, ''[[The Long Dark Tea-Time of the Soul]]'', was published a year later. This was an entirely original work, Adams's first since ''So Long, and Thanks for All the Fish.'' After the book tour, Adams set off on his round-the-world excursion which supplied him with the material for ''Last Chance to See''.
+
+===Music===
+Adams played the [[guitar]] left-handed and had a collection of twenty-four left-handed guitars when he died (having received his first guitar in 1964). He also studied piano in the 1960s.&lt;ref&gt;Webb, page 49.&lt;/ref&gt; [[Pink Floyd]] and [[Procol Harum]] had important influence on Adams' work.
+
+====Pink Floyd====
+Adams's official biography shares its name with the song "[[Wish You Were Here (Pink Floyd song)|Wish You Were Here]]" by [[Pink Floyd]]. Adams was friends with Pink Floyd guitarist [[David Gilmour]] and, on Adams's 42nd birthday, he was invited to make a guest appearance at Pink Floyd's concert of 28 October 1994 at Earls Court in London, playing guitar on the songs "[[Brain Damage (song)|Brain Damage]]" and "[[Eclipse (Pink Floyd song)|Eclipse]]".&lt;ref name="Mabbett-MM"&gt;{{Cite book |publisher= Omnibus Press |isbn= 978-1-84938-370-7 |last= Mabbett |first= Andy |title= Pink Floyd – The Music and the Mystery |location= London |year= 2010 }}&lt;/ref&gt; Adams chose the name for Pink Floyd's 1994 album, ''[[The Division Bell]]'', by picking the words from the lyrics to one of its tracks, "High Hopes".&lt;ref name="Mabbett-MM" /&gt; Gilmour also performed at Adams's memorial service in 2001, and what would have been Adams's 60th birthday party in 2012.
+
+===Computer games and projects===
+Douglas Adams created an [[interactive fiction]] version of ''[[The Hitchhiker's Guide to the Galaxy (computer game)|HHGG]]'' with [[Steve Meretzky]] from [[Infocom]] in 1984. In 1986 he participated in a week-long brainstorming session with the [[Lucasfilm Games]] team for the game ''[[Labyrinth: The Computer Game|Labyrinth]]''. Later he was also involved in creating ''[[Bureaucracy (computer game)|Bureaucracy]]'' as a parody of events in his own life.
+
+Adams was a founder-director and Chief Fantasist of [[The Digital Village]], a digital media and Internet company with which he created ''[[Starship Titanic]]'', a [[Software and Information Industry Association#CODiE Awards|Codie award]]-winning and [[BAFTA#Games Awards|BAFTA-nominated adventure game]], which was published in 1998 by [[Simon &amp; Schuster]].&lt;ref name="bbc.co.uk"&gt;BBC Online (no date) [https://www.bbc.co.uk/cult/hitchhikers/dna/biog.shtml "The Hitchhiker's Guide to the Galaxy: DNA (1952-2001)"] Accessed 9 July 2014&lt;/ref&gt;&lt;ref&gt;Botti, Nicolas (2009). [http://www.douglasadams.eu/en_adams_bio.php "Life, DNA &amp; h2g2: Douglas Adams's Biography"] {{webarchive|url=https://web.archive.org/web/20140901131941/http://www.douglasadams.eu/en_adams_bio.php |date= 1 September 2014 }} Accessed 9 July 2014&lt;/ref&gt; [[Terry Jones]] wrote the accompanying book, entitled ''[[Starship Titanic|Douglas Adams' Starship Titanic]]'', since Adams was too busy with the computer game to do both. In April 1999, Adams initiated the [[h2g2]] [[collaborative writing]] project, an experimental attempt at making ''The Hitchhiker's Guide to the Galaxy'' a reality, and at harnessing the collective brainpower of the internet community. It was hosted by BBC Online from 2001 to 2011.&lt;ref name="bbc.co.uk"/&gt;
+
+In 1990, Adams wrote and presented a television documentary programme ''[[Hyperland]]''&lt;ref&gt;[https://www.imdb.com/title/tt0188677/ Internet Movie Database's page for ''Hyperland'']&lt;/ref&gt; which featured [[Tom Baker]] as a "software agent" (similar to the assistant pictured in Apple's [[Knowledge Navigator]] video of future concepts from 1987), and interviews with [[Ted Nelson]], the co-inventor of [[hypertext]] and the person who coined the term. Adams was an [[early adopter]] and advocate of hypertext.
+
+==Personal beliefs and activism==
+
+===Atheism and views on religion===
+Adams described himself as a "radical [[atheist]]", adding "radical" for emphasis so he would not be asked if he meant agnostic. He told [[American Atheists]] that this conveyed the fact that he really meant it. He imagined a sentient puddle who wakes up one morning and thinks, "This is an interesting world I find myself in – an interesting hole I find myself in – fits me rather neatly, doesn't it? In fact it fits me staggeringly well, must have been made to have me in it!" to demonstrate his view that the [[fine-tuned universe]] argument for God was a fallacy.&lt;ref&gt;Adams 1998.&lt;/ref&gt;
+
+He remained fascinated by religion because of its effect on human affairs. "I love to keep poking and prodding at it. I've thought about it so much over the years that that fascination is bound to spill over into my writing."&lt;ref name=amath&gt;{{cite journal |last=Silverman |first=Dave |title=Interview: Douglas Adams |journal=American Atheist |year=1998–1999 |volume=37 |issue=1 |url=http://www.atheists.org/Interview%3A__Douglas_Adams |access-date=16 August 2009 |archive-url=https://web.archive.org/web/20111218084109/http://www.atheists.org/interview:__douglas_adams |archive-date=18 December 2011 |url-status=dead  }}&lt;/ref&gt;
+
+The evolutionary biologist and atheist [[Richard Dawkins]] invited Adams to participate in his 1991 [[Royal Institution Christmas Lectures]], where Dawkins calls Adams from the audience to read a passage from ''[[The Restaurant at the End of the Universe]]'' which satirizes the absurdity of the thought that any one species would exist on Earth merely to serve as a meal to another species, such as humans. Dawkins also uses Adams's influence to exemplify arguments for non-belief in his 2006 book ''[[The God Delusion]]''. Dawkins dedicated the book to Adams, whom he jokingly called "possibly [my] only convert" to atheism&lt;ref name="TheGuardian"&gt;{{cite news|url=http://books.guardian.co.uk/reviews/roundupstory/0,,1939704,00.html |title=Observer, ''The God Delusion'', 5&amp;nbsp;November 2006|newspaper=[[The Guardian]]|date=5 November 2006 |access-date=1 June 2009 | location=London | first=Kim | last=Bunce}}&lt;/ref&gt; and wrote on his death that "Science has lost a friend, literature has lost a luminary, the [[mountain gorilla]] and the [[black rhino]] have lost a gallant defender."&lt;ref name=Dawkins2001&gt;{{cite news|last=Dawkins|first=Richard|author-link=Richard Dawkins|title=Lament for Douglas Adams|url=https://www.theguardian.com/uk/2001/may/14/books.booksnews|access-date=29 December 2012|newspaper=The Guardian|date=13 May 2001}}&lt;/ref&gt;
+
+===Environmental activism===
+Adams was also an [[environmental activist]] who campaigned on behalf of [[endangered species]]. This activism included the production of the non-fiction radio series ''[[Last Chance to See]]'', in which he and [[natural history|naturalist]] [[Mark Carwardine]] visited rare species such as the [[kakapo]] and [[baiji]], and the publication of a tie-in book of the same name. In 1992 this was made into a CD-ROM combination of [[audiobook]], [[e-book]] and picture slide show.
+
+Adams and Mark Carwardine contributed the 'Meeting a Gorilla' passage from ''Last Chance to See'' to the book ''[[Great Ape Project|The Great Ape Project]]''.&lt;ref&gt;{{cite book | editor=[[Paola Cavalieri|Cavalieri, Paola]] | editor2=[[Peter Singer]] | title=The Great Ape Project: Equality Beyond Humanity | edition=U.S. Paperback | publisher=St. Martin's Griffin | year=1994 | pages=[https://archive.org/details/greatapeprojecte00cava/page/19 19–23] | isbn=0-312-11818-X | url-access=registration | url=https://archive.org/details/greatapeprojecte00cava/page/19 }}&lt;/ref&gt; This book, edited by [[Paola Cavalieri]] and [[Peter Singer]], launched a wider-scale project in 1993, which calls for the extension of moral equality to include all great apes, human and non-human.
+
+In 1994, he participated in a climb of [[Mount Kilimanjaro]] while wearing a rhino suit for the British charity organisation [[Save the Rhino|Save the Rhino International]]. Puppeteer [[William Todd-Jones]], who had originally worn the suit in the London Marathon to raise money and bring awareness to the group, also participated in the climb wearing a rhino suit; Adams wore the suit while travelling to the mountain before the climb began. About £100,000 was raised through that event, benefiting schools in Kenya and a [[black rhinoceros]] preservation programme in [[Tanzania]]. Adams was also an active supporter of the [[Dian Fossey]] Gorilla Fund.
+
+Since 2003, Save the Rhino has held an annual Douglas Adams Memorial Lecture around the time of his birthday to raise money for environmental campaigns.&lt;ref&gt;{{cite web|url=http://lifednah2g2.blogspot.co.uk/2011/01/ninth-douglas-adams-memorial-lecture.html |title=The Ninth Douglas Adams Memorial Lecture |publisher=Save the Rhino International |access-date=27 July 2011}}&lt;/ref&gt;
+
+===Technology and innovation===
+Adams bought his first [[word processor]] in 1982, having considered one as early as 1979. His first purchase was a Nexu. In 1983, when he and Jane Belson went to Los Angeles, he bought a [[Digital Equipment Corporation|DEC]] [[Rainbow 100|Rainbow]]. Upon their return to England, Adams bought an [[Apricot Computers|Apricot]], then a [[BBC Micro]] and a [[Tandy 1000]].&lt;ref name="Simpson_184-185"&gt;{{Harvnb|Simpson|2003|pp=184–185}}&lt;/ref&gt; In ''Last Chance to See'', Adams mentions his [[Cambridge Z88]], which he had taken to [[Zaire]] on a quest to find the [[northern white rhinoceros]].&lt;ref&gt;{{cite book | author=Adams, Douglas and [[Mark Carwardine]] | title=Last Chance to See | edition=First U.S. Hardcover | publisher=[[Harmony Books]] | year=1991 | page=[https://archive.org/details/lastchancetosee0000adam/page/59 59] | isbn=0-517-58215-5 | url=https://archive.org/details/lastchancetosee0000adam/page/59 }}&lt;/ref&gt;
+
+Adams's posthumously published work, ''[[The Salmon of Doubt]]'', features several articles by him on the subject of technology, including reprints of articles that originally ran in ''[[MacUser]]'' magazine, and in ''[[The Independent#The Independent on Sunday|The Independent on Sunday]]'' newspaper. In these Adams claims that one of the first computers he ever saw was a [[Commodore PET]], and that he had "adored" his Apple Macintosh ("or rather my family of however many Macintoshes it is that I've recklessly accumulated over the years") since he first saw one at Infocom's offices in Boston in 1984.&lt;ref&gt;{{cite book | author=Adams, Douglas | title=The Salmon of Doubt: Hitchhiking the Galaxy One Last Time | edition=First UK hardcover | publisher=Macmillan | year=2002 | pages=90–1 | isbn=0-333-76657-1}}&lt;/ref&gt;
+
+Adams was a Macintosh user from the time they first came out in 1984 until his death in 2001. He was the first person to buy a Mac in Europe, the second being [[Stephen Fry]].&lt;ref&gt;{{cite web|url=https://www.youtube.com/watch?v=gx6WPQkhUXI |title=Craig Ferguson 23 February 2010B Late Late show Stephen Fry PT2 |publisher=YouTube |date=21 June 2010 |access-date=27 July 2011}}&lt;/ref&gt; Adams was also an "[[AppleMasters|Apple Master]]", celebrities whom Apple made into spokespeople for its products (others included [[John Cleese]] and [[Gregory Hines]]). Adams's contributions included a rock video that he created using the first version of [[iMovie]] with footage featuring his daughter Polly. The video was available on Adams's [[.Mac]] homepage. Adams installed and started using the first release of [[macOS|Mac OS X]] in the weeks leading up to his death. His last post to his own forum was in praise of Mac OS X and the possibilities of its [[Cocoa (API)|Cocoa]] programming framework. He said it was "awesome...", which was also the last word he wrote on his site.&lt;ref&gt;{{cite web|url=http://www.douglasadams.com/cgi-bin/mboard/info/dnathread.cgi?2922,1 |title=Adams's final post on his forums at |publisher=Douglasadams.com |access-date=1 June 2009}}&lt;/ref&gt;
+
+Adams used email to correspond with [[Steve Meretzky]] in the early 1980s, during their collaboration on Infocom's version of ''The Hitchhiker's Guide to the Galaxy''.&lt;ref name="Simpson_184-185"/&gt; While living in New Mexico in 1993 he set up another e-mail address and began posting to his own [[USENET]] newsgroup, alt.fan.douglas-adams, and occasionally, when his computer was acting up, to the comp.sys.mac hierarchy.&lt;ref&gt;{{cite web|url=https://groups.google.com/group/alt.fan.douglas-adams |title=Discussions – alt.fan.douglas-adams &amp;#124; Google Groups |access-date=11 March 2013}}&lt;/ref&gt; Challenges to the authenticity of his messages later led Adams to set up a message forum on his own website to avoid the issue. In 1996, Adams was a keynote speaker at the [[Microsoft]] [[Professional Developers Conference]] (PDC) where he described the personal computer as being a modelling device. The video of his keynote speech is archived on [[Channel 9 (discussion forum)|Channel 9]].&lt;ref&gt;{{cite web |last = Adams |first = Douglas |title = PDC 1996 Keynote with Douglas Adams |work=[[channel9.msdn.com]] |publisher=Channel 9 |date = 15 May 2001 |url = http://channel9.msdn.com/Events/PDC/PDC-1996/PDC-1996-Keynote-with-Douglas-Adams |access-date =22 March 2013}}&lt;/ref&gt;
+Adams was also a keynote speaker for the April 2001 [[Academic conference|Embedded Systems Conference]] in San Francisco, one of the major technical conferences on [[embedded system]] engineering.&lt;ref&gt;{{cite web|last=Cassel |first=David |title=So long, Douglas Adams, and thanks for all the fun |work=[[Salon (website)|Salon]] |publisher=Salon Media Group |date=15 May 2001 |url=http://archive.salon.com/tech/feature/2001/05/15/douglas_adams/index.html |access-date=10 July 2009 |url-status=dead |archive-url=https://web.archive.org/web/20080307080733/http://archive.salon.com/tech/feature/2001/05/15/douglas_adams/index.html |archive-date=7 March 2008 }}&lt;/ref&gt;
+
+==Personal life==
+Adams moved to [[Upper Street]], [[Islington]], in 1981&lt;ref name="IPP"&gt;{{cite web|url=http://www.islington.gov.uk/Leisure/heritage/heritage_borough/bor_plaques/peoplesplaques.asp |title=Islington People's Plaques |date=25 July 2011 |access-date=13 August 2011 |url-status=dead |archive-url=https://web.archive.org/web/20120318001614/http://www.islington.gov.uk/Leisure/heritage/heritage_borough/bor_plaques/peoplesplaques.asp |archive-date=18 March 2012 }}&lt;/ref&gt; and to Duncan Terrace, a few minutes' walk away, in the late 1980s.&lt;ref name="IPP" /&gt;
+
+In the early 1980s Adams had an affair with novelist [[Sally Emerson]], who was separated from her husband at that time. Adams later dedicated his book ''[[Life, the Universe and Everything]]'' to Emerson. In 1981 Emerson returned to her husband, [[Peter Stothard]], a contemporary of Adams's at [[Brentwood School (England)|Brentwood School]], and later editor of ''[[The Times]]''. Adams was soon introduced by friends to Jane Belson, with whom he later became romantically involved. Belson was the "lady barrister" mentioned in the jacket-flap biography printed in his books during the mid-1980s ("He [Adams] lives in Islington with a lady barrister and an Apple Macintosh"). The two lived in Los Angeles together during 1983 while Adams worked on an early screenplay adaptation of ''Hitchhiker's''. When the deal fell through, they moved back to London, and after several separations ("He is currently not certain where he lives, or with whom")&lt;ref name=sfweekly&gt;{{cite web|last=Bowers |first=Keith |title=Big Three |url=http://www.sfweekly.com/2011-07-06/calendar/big-three/ |work=SF Weekly |access-date=8 December 2011 |archive-url=https://web.archive.org/web/20110909083751/http://www.sfweekly.com/2011-07-06/calendar/big-three/ |archive-date= 9 September 2011 |url-status=live |date=6 July 2011 }}&lt;/ref&gt; and a broken engagement, they married on 25 November 1991.
+
+Adams and Belson had one daughter together, Polly Jane Rocket Adams, born on 22 June 1994, shortly after Adams turned 42. In 1999 the family moved from London to [[Santa Barbara, California]], where they lived until his death. Following the funeral, Jane Belson and Polly Adams returned to London.&lt;ref&gt;Webb, Chapter 10.&lt;/ref&gt; Belson died on 7 September 2011 of cancer, aged 59.&lt;ref name=timesobit&gt;{{cite web |title=Obituary &amp; Guest Book Preview for Jane Elizabeth BELSON |url=http://announcements.thetimes.co.uk/obituaries/timesonline-uk/obituary.aspx?page=lifestory&amp;pid=153521790 |work=The Times |access-date=8 December 2011 |archive-url=https://web.archive.org/web/20120404173415/http://announcements.thetimes.co.uk/obituaries/timesonline-uk/obituary-preview.aspx?n=jane-elizabeth-belson&amp;pid=153521790&amp;referrer=2282 |archive-date=4 April 2012 |url-status=live |date=9 September 2011 }}&lt;/ref&gt;
+
+== Death and legacy ==
+[[File:Grave of Douglas Adams, Highgate.jpg|thumb|upright|Adams's gravestone, [[Highgate Cemetery]], North London]]
+
+Adams died of a [[myocardial infarction|heart attack]] due to undiagnosed [[coronary artery disease]] on 11 May 2001, aged 49, after resting from his regular workout at a private gym in [[Montecito, California]].&lt;ref&gt;{{cite news|url=http://www.laweekly.com/2001-05-24/news/lots-of-screamingly-funny-sentences-no-fish/ |title=Lots of Screamingly Funny Sentences. No Fish. – page 1 |last1=Lewis |first1=Judith |last2=Shulman |first2=Dave |newspaper=LA Weekly |date=24 May 2001 |access-date=20 August 2009 |archive-url=https://web.archive.org/web/20111010233102/http://www.laweekly.com/2001-05-24/news/lots-of-screamingly-funny-sentences-no-fish/ |archive-date= 10 October 2011 |url-status=live  }}&lt;/ref&gt; His funeral was held on 16 May in Santa Barbara. His ashes were placed in [[Highgate Cemetery]] in north London in June 2002.&lt;ref name="Simpson_337-338"&gt;{{Harvnb|Simpson|2003|pp=337–338}}&lt;/ref&gt; A memorial service was held on 17 September 2001 at [[St Martin-in-the-Fields]] church, [[Trafalgar Square]], London. This became the first church service broadcast live on the web by the BBC.&lt;ref&gt;Gaiman, 204.&lt;/ref&gt;
+
+Two days before Adams died, the [[Minor Planet Center]] announced the naming of asteroid [[18610&amp;nbsp;Arthurdent]].&lt;ref name=MPC42677&gt;{{Citation | date = 9 May 2001 | title = New Names of Minor Planets | periodical = [[Minor Planet Circular]] | location = Cambridge, Massachusetts | publisher=[[Minor Planet Center]] | issue = MPC 42677 | url = http://www.minorplanetcenter.net/iau/ECS/MPCArchive/2001/MPC_20010509.pdf | issn = 0736-6884 }}&lt;/ref&gt; In 2005, the asteroid [[25924&amp;nbsp;Douglasadams]] was named in his memory.&lt;ref&gt;[http://www.nbcnews.com/id/6867061 Asteroid named after 'Hitchhiker' humorist: Late British sci-fi author honored after cosmic campaign] by Alan Boyle, NBC News, 25 January 2005&lt;/ref&gt;
+
+In May 2002, ''[[The Salmon of Doubt]]'' was published, containing many short stories, essays, and letters, as well as eulogies from [[Richard Dawkins]], [[Stephen Fry]] (in the UK edition), [[Christopher Cerf (musician and television producer)|Christopher Cerf]] (in the US edition), and [[Terry Jones]] (in the US paperback edition). It also includes eleven chapters of his unfinished novel, ''The Salmon of Doubt'', which was originally intended to become a new [[Dirk Gently]] novel, but might have later become the sixth ''Hitchhiker'' novel.&lt;ref&gt;
+{{cite news
+|url=https://www.independent.co.uk/arts-entertainment/books/reviews/the-salmon-of-doubt-by-douglas-adams-650803.html
+|title=The Salmon of Doubt by Douglas Adams
+|work=The Independent |location=London
+|access-date=2 August 2009
+|last=Murray
+|first=Charles Shaar
+| date=10 May 2002
+}}
+&lt;/ref&gt;&lt;ref&gt;
+{{cite news
+|url=https://www.independent.co.uk/arts-entertainment/books/features/cover-stories-douglas-adams-narnia-chronicles-something-like-a-house-672250.html
+|title=Cover Stories: Douglas Adams, Narnia Chronicles, Something like a House
+|work=The Independent |location=London
+|access-date=2 August 2009
+|author=The Literator
+| date=5 January 2002|archive-url=https://web.archive.org/web/20090801062359/http://www.independent.co.uk/arts-entertainment/books/features/cover-stories-douglas-adams-narnia-chronicles-something-like-a-house-672250.html|archive-date=1 August 2009 }}
+&lt;/ref&gt;
+
+Other events after Adams's death included a [[webcast]] production of ''[[Shada (Doctor Who)|Shada]]'', allowing the complete story to be told, radio dramatisations of the final three books in the ''Hitchhiker's'' series, and the completion of [[The Hitchhiker's Guide to the Galaxy (film)|the film adaptation]] of ''[[The Hitchhiker's Guide to the Galaxy (novel)|The Hitchhiker's Guide to the Galaxy]]''. The film, released in 2005, posthumously credits Adams as a producer, and several design elements – including a head-shaped planet seen near the end of the film – incorporated Adams's features.
+
+A 12-part radio series based on the [[Dirk Gently]] novels was announced in 2007.&lt;ref&gt;{{cite web|url=http://www.dirkmaggs.dswilliams.co.uk/Dirk%20Maggs%20News%20%20new%20projects.htm |archive-url=https://web.archive.org/web/20021209193312/http://www.dirkmaggs.dswilliams.co.uk/dirk%20maggs%20news%20%20new%20projects.htm |url-status=dead |archive-date= 9 December 2002 |title=Dirk Maggs News and New Projects page }}&lt;/ref&gt;
+
+BBC Radio 4 also commissioned a third Dirk Gently radio series based on the incomplete chapters of ''The Salmon of Doubt'', and written by [[Kim Fuller]];&lt;ref&gt;{{cite web|author=Matthew Hemley |url=http://www.thestage.co.uk/news/newsstory.php/24312/douglas-adams-final-dirk-gently-novel-to-be |title=The Stage / News / Douglas Adams's final Dirk Gently novel to be adapted for Radio 4 |work=The Stage |date=5 May 2009 |access-date=20 August 2009}}&lt;/ref&gt; but this was dropped in favour of a BBC TV series based on the two completed novels.&lt;ref&gt;{{cite web|url=http://www.chortle.co.uk/news/2009/10/11/9767/bbc_plans_dirk_gently_tv_series|title=BBC plans Dirk Gently TV series|publisher=Chortle.co.uk|date=11 October 2009|access-date=11 October 2009}}&lt;/ref&gt; A sixth ''Hitchhiker'' novel, ''[[And Another Thing... (novel)|And Another Thing...]]'', by ''[[Artemis Fowl (series)|Artemis Fowl]]'' author [[Eoin Colfer]], was released on 12 October 2009 (the 30th anniversary of the first book), published with the support of Adams's estate. A [[BBC Radio 4]] ''[[Book at Bedtime]]'' adaptation and an audio book soon followed.
+
+On 25 May 2001, two weeks after Adams's death, his fans organised a tribute known as [[Towel Day]], which has been observed every year since then.&lt;ref&gt;{{cite news | last=Molloy | first=Mark | date=25 May 2016 | title=What is Towel Day? The Hitchhiker's Guide to the Galaxy creator Douglas Adams celebrated | work=[[The Daily Telegraph|The Telegraph]] | url=https://www.telegraph.co.uk/books/authors/what-is-towel-day-the-hitchhikers-guide-to-the-galaxy-creator-do/ | access-date=27 July 2017}}&lt;/ref&gt;
+
+An Apple Macintosh SE/30 once owned by Adams can be seen on display at [[The Centre for Computing History]] in Cambridge.&lt;ref&gt;{{cite web| title=Apple Macintosh SE/30 (Douglas Adams) | work=The Centre for Computing History website | url=http://www.computinghistory.org.uk/det/41378/Apple-Macintosh-SE-30-(Douglas-Adams)/}}&lt;/ref&gt;
+
+In 2018, John Lloyd presented an hour-long episode of the [[BBC Radio Four]] documentary ''[[Archive on 4]]'', discussing Adams' private papers, which are held at [[St John's College, Cambridge]].&lt;ref name="BBC-b09tbl2s"&gt;{{cite web|title=Don't Panic! It's The Douglas Adams Papers, Archive on 4 - BBC Radio 4|url=https://www.bbc.co.uk/programmes/b09tbl2s|work=[[BBC]]|access-date=30 March 2018}}&lt;/ref&gt; The episode is available online.&lt;ref name="BBC-b09tbl2s" /&gt;
+
+A street&lt;ref&gt;{{Coord|-27.5893269|-48.662225|type:landmark_region:BR|name=Travessa Douglas Adams}}&lt;/ref&gt; in [[São José, Santa Catarina|São José]], [[Santa Catarina (state)|Santa Catarina]], [[Brazil]] is named in Adams' honour.&lt;ref name="TDA"&gt;{{cite web|title=Travessa Douglas Adams |website=Cdef Blog |url=http://www.cdef.com.br/2015/11/02/travessa-douglas-adams/ |access-date=30 March 2018 |language=pt-BR |date=2 November 2015}}&lt;/ref&gt;
+
+In March 2021 [[Unbound (publisher)|Unbound]] announced a [[crowdfunding|crowdfunder]] for ''42: the wildly improbable ideas of Douglas Adams'', a book based on Adams' papers, edited by [[Kevin Jon Davies]].&lt;ref name="brown"&gt;{{cite news |last1=Brown |first1=Mark |title=Douglas Adams' note to self reveals author found writing torture |url=https://www.theguardian.com/books/2021/mar/22/douglas-adams-note-to-self-reveals-author-found-writing-torture |access-date=22 March 2021 |work=The Guardian |date=22 March 2021 |language=en}}&lt;/ref&gt;
+
+==Awards and nominations==
+{| class="wikitable"
+|- style="text-align:center;"
+! style="background:#B0C4DE;" scope=col| Year
+! style="background:#B0C4DE;" scope=col| Award
+! style="background:#B0C4DE;" scope=col| Work
+! style="background:#B0C4DE;" scope=col| Category
+! style="background:#B0C4DE;" scope=col| Result
+! style="background:#B0C4DE;" scope=col| Reference
+|-
+|1979
+|scope=row| [[Hugo Award]]
+|''[[The Hitchhiker's Guide to the Galaxy (radio series)|The Hitchhiker's Guide to the Galaxy]]'' &lt;small&gt;(shared with [[Geoffrey Perkins]])&lt;/small&gt;
+|[[Hugo Award for Best Dramatic Presentation|Best Dramatic Presentation]]
+|{{nom}}
+|
+|}
+
+==Works==
+{{Refbegin|20em}}
+* ''[[The Private Life of Genghis Khan]]'' (1975), based on a comedy sketch Adams co-wrote with [[Graham Chapman]] (short story)
+* ''[[The Hitchhiker's Guide to the Galaxy (radio series)|The Hitchhiker's Guide to the Galaxy]]'' (1978) (radio series)
+* ''[[The Pirate Planet]]'' (1978), a [[Doctor Who]] serial
+* ''[[The Hitchhiker's Guide to the Galaxy (book)|The Hitchhiker's Guide to the Galaxy]]'' (1979) (novel)
+* ''[[City of Death]]'' (1979), a Doctor Who serial
+* ''[[Shada (Doctor Who)|Shada]]'' (1979–1980), a Doctor Who serial
+* ''[[The Restaurant at the End of the Universe]]'' (1980) (novel)
+* ''[[A Liar's Autobiography]] (Volume VI)'' (1980) authored by [[Graham Chapman]], with [[David Sherlock]], Alex Martin, [[David A. Yallop]] and Adams
+* ''[[Life, the Universe and Everything]]'' (1982) (novel)
+* ''[[The Meaning of Liff]]'' (1983 (book), with [[John Lloyd (producer)|John Lloyd]])
+* ''[[So Long, and Thanks for All the Fish]]'' (1984) (novel)
+* ''[[The Hitchhiker's Guide to the Galaxy (computer game)|The Hitchhiker's Guide to the Galaxy]]'' (1984, with [[Steve Meretzky]]) (computer game)
+* ''[[The Hitchhiker's Guide to the Galaxy: The Original Radio Scripts]]'' (1985, with [[Geoffrey Perkins]])
+* ''[[Young Zaphod Plays It Safe]] (short story)'' (1986)
+* ''[[The Utterly Utterly Merry Comic Relief Christmas Book|A Christmas Fairly Story]]'' {{sic}} (1986, with [[Terry Jones]]), and
+* ''Supplement to The Meaning of Liff'' (1986, with [[John Lloyd (producer)|John Lloyd]] and [[Stephen Fry]]), both part of
+** ''[[The Utterly Utterly Merry Comic Relief Christmas Book]]'' (1986, edited with [[Peter Fincham]])
+* ''[[Bureaucracy (computer game)|Bureaucracy]]'' (1987) (computer game)
+* ''[[Dirk Gently's Holistic Detective Agency]]'' (1987) (novel)
+* ''[[The Long Dark Tea-Time of the Soul]]'' (1988) (novel)
+* ''[[The Deeper Meaning of Liff]]'' (1990, with [[John Lloyd (producer)|John Lloyd]])
+* ''[[Last Chance to See]]'' (1990, with [[Mark Carwardine]]) (book)
+* ''[[Mostly Harmless]]'' (1992) (novel)
+* ''[[The Hitchhiker's Guide to the Galaxy (book)#Illustrated edition|The Illustrated Hitchhiker's Guide to the Galaxy]]'' (1994)
+* ''[[Douglas Adams's Starship Titanic]]'' (1997), written by [[Terry Jones]], based on an idea by Adams
+* ''[[Starship Titanic]]'' (computer game) (1998)
+* ''[[h2g2]]'' (internet project) (1999)
+* ''The Internet: The Last Battleground of the 20th century'' (radio series) (2000)
+* ''[[The Hitchhiker's Guide to the Future]]'' (radio series) (2001) final project for [[BBC Radio 4]] before his death
+* ''[https://www.youtube.com/watch?v=_ZG8HBuDjgc Parrots, the universe and everything]'' (2001)
+* ''[[The Salmon of Doubt]]'' (2002), unfinished novel manuscript (11 chapters), short stories, essays, and interviews (also available as an audiobook, read by [[Simon Jones (actor)|Simon Jones]])
+*  ''[[The Hitchhiker's Guide to the Galaxy (film)|The Hitchhiker's Guide to the Galaxy]]'' (2005) (film)
+{{Refend}}
+
+==TV writing credits==
+{| class="wikitable"
+|-  style="background:#ccc; text-align:center;"
+! Production
+! Notes
+! Broadcaster
+|-
+|''[[Monty Python's Flying Circus]]''
+|
+*"[[List of Monty Python's Flying Circus episodes#6. Party Political Broadcast|Party Political Broadcast on Behalf of the Liberal Party]]": [[Patient Abuse]] sketch (1974)
+|[[BBC Two]]
+|-
+|''[[Out of the Trees]]''
+|
+*Television pilot (1976)
+|BBC Two
+|-
+|''[[Doctor on the Go]]''
+|
+*"For Your Own Good" (1977)
+|[[ITV (TV network)|ITV]]
+|-
+|''[[Doctor Who]]''
+|
+4 stories with 13 episodes (1978-1979, 1983):
+*"[[The Pirate Planet]]" (1978, 4 episodes)
+*"[[Destiny of the Daleks]]" (1979, 4 episodes) (co-written with [[Terry Nation]], uncredited)
+*"[[City of Death]]" (co-written with [[Graham Williams (television producer)|Graham Williams]], 1979, credited as "[[David Agnew]]", 4 episodes)
+*"[[The Five Doctors]]" (1983) (clips from his partially filmed but unaired script for 1980s "[[Shada (Doctor Who)|Shada]]")
+|[[BBC One]]
+|-
+|''[[Doctor Snuggles]]''
+|
+*"The Great Disappearing Mystery" (1979)
+*"The Remarkable Fidgety River" (1979)
+|ITV
+|-
+|''[[Not the Nine O'Clock News]]''
+|
+*Unknown episodes (1979)
+|BBC Two
+|-
+|''[[The Hitchhiker's Guide to the Galaxy (TV series)|The Hitchhiker's Guide to the Galaxy]]''
+|
+*6 episodes (1981)
+|BBC Two
+|-
+|''[[Hyperland]]''
+|
+*Television documentary (1990)
+|BBC Two
+|-
+|''[[Shada (Doctor Who)|Doctor Who: The Lost Episode]]''
+|
+*Television special (2018) (1980s unaired "[[Shada (Doctor Who)|Shada]]", with animated inserts of sections not completed in 1980)&lt;ref&gt;{{cite web |url=http://www.latimes.com/entertainment/tv/la-et-st-tvhighlights-20180719-story.html |title=Thursday's TV highlights: 'Doctor Who: The Lost Episode' on BBC America |last=Stockly |first=Ed |work=[[Los Angeles Times]] |date=18 July 2018 |access-date=20 July 2018}}&lt;/ref&gt;
+|[[BBC America]]
+|}
+
+==See also==
+* [[List of animal rights advocates]]
+
+==Notes==
+{{reflist|30em}}
+{{Notelist|3}}
+
+== References ==
+* Adams, Douglas (1998). [http://www.biota.org/people/douglasadams/ Is there an Artificial God?], speech at ''Digital Biota 2'', Cambridge, England, September 1998.
+* {{cite book|last=Adams|first=Douglas|title=The Salmon of Doubt: Hitchhiking the Galaxy One Last Time|year=2002|publisher=Macmillan|location=London|isbn=0-333-76657-1}}
+* Dawkins, Richard (2003). "Eulogy for Douglas Adams," in ''A devil's chaplain: reflections on hope, lies, science, and love''. Houghton Mifflin Harcourt.
+* Felch, Laura (2004). [http://www.bookslut.com/nonfiction/2004_05_002057.php Don't Panic: Douglas Adams and the Hitchhiker's Guide to the Galaxy by Neil Gaiman], May 2004
+* Ray, Mohit K (2007). ''Atlantic Companion to Literature in English'', Atlantic Publishers and Distributors. {{ISBN|81-269-0832-7}}
+* {{cite book|last=Simpson|first=M. J.|title=[[Hitchhiker: A Biography of Douglas Adams]]|year=2003|publisher=Justin, Charles &amp; Co.|location=Boston, Mass.|isbn=1-932112-17-0|edition=1st}}
+* Webb, Nick (2005a). ''Wish You Were Here: The Official Biography of Douglas Adams''. Ballantine Books. {{ISBN|0-345-47650-6}}
+* Webb, Nick (2005b). [http://www.oxforddnb.com/view/article/75853 "Adams, Douglas Noël (1952–2001)"], ''Oxford Dictionary of National Biography'', Oxford University Press, January 2005. Retrieved 25 October 2005.
+* Roberts, Jem (2014) "The Frood: The Authorised &amp; Very Official Biography of Douglas Adams &amp; The Hitchhiker's Guide To The Galaxy" Preface Publishing. {{ISBN|009959076X}} [https://www.penguin.co.uk/books/1097370/the-frood "The Frood"]
+
+==Further reading==
+===Articles===
+{{Refbegin|30em}}
+* Herbert, R. (1980). The Hitchhiker's Guide to the Galaxy (Book Review). Library Journal, 105(16), 1982.
+* Adams, J., &amp; Brown, R. (1981). The Hitchhiker's Guide to the Galaxy (Book Review). School Library Journal, 27(5), 74.
+* Nickerson, S. L. (1982). The Restaurant at the End of the Universe (Book). Library Journal, 107(4), 476.
+* Nickerson, S. L. (1982). Life, the Universe, and Everything (Book). Library Journal, 107(18), 2007.
+* Morner, C. (1982). The Restaurant at the End of the Universe (Book Review). School Library Journal, 28(8), 87.
+* Morner, C. (1983). Life, the Universe and Everything (Book Review). School Library Journal, 29(6), 93.
+* Shorb, B. (1985). So Long, and Thanks for All the Fish (Book). School Library Journal, 31(6), 90.
+* The Long Dark Tea-Time of the Soul (Book). (1989). Atlantic (02769077), 263(4), 99.
+* Hoffert, B., &amp; Quinn, J. (1990). Last Chance To See (Book). Library Journal, 115(16), 77.
+* Reed, S. S., &amp; Cook, I. I. (1991). Dances with kakapos. People, 35(19), 79.
+* Last Chance to See (Book). (1991). Science News, 139(8), 126.
+* Field, M. M., &amp; Steinberg, S. S. (1991). Douglas Adams. Publishers Weekly, 238(6), 62.
+* Dieter, W. (1991). Last Chance to See (Book). Smithsonian, 22(3), 140.
+* Dykhuis, R. (1991). Last Chance To See (Book). Library Journal, 116(1), 140.
+* Beatty, J. (1991). Good Show (Book). Atlantic (02769077), 267(3), 131.
+* A guide to the future. (1992). Maclean's, 106(44), 51.
+* Zinsser, J. (1993). Audio reviews: Fiction. Publishers Weekly, 240(9), 24.
+* Taylor, B., &amp; Annichiarico, M. (1993). Audio reviews. Library Journal, 118(2), 132.
+* Good reads. (1995). NetGuide, 2(4), 109.
+* Stone, B. (1998). The unsinkable starship. Newsweek, 131(15), 78.
+* Gaslin, G. (2001). Galaxy Quest. Entertainment Weekly, (599), 79.
+* So long, and thanks for all the fish. (2001). Economist, 359(8222), 79.
+* Geier, T., &amp; Raftery, B. M. (2001). Legacy. Entertainment Weekly, (597), 11.
+* Passages. (2001). Maclean's, 114(21), 13.
+* Don't panic! Douglas Adams to keynote Embedded show. (2001). Embedded Systems Programming, 14(3), 10.
+* Ehrenman, G. (2001). World Wide Weird. InternetWeek, (862), 15.
+* Zaleski, J. (2002). The Salmon of Doubt (Book). Publishers Weekly, 249(15), 43.
+* Mort, J. (2002). The Salmon of Doubt (Book). Booklist, 98(16), 1386.
+* Lewis, D. L. (2002). Last Time Round The Galaxy. Quadrant Magazine, 46(9), 84.
+* Burns, A. (2002). The Salmon of Doubt (Book). Library Journal, 127(15), 111.
+* Burns, A., &amp; Rhodes, B. (2002). The Restaurant at the End of the Universe (Book). Library Journal, 127(19), 118.
+* Kaveney, R. (2002). A cheerful whale. TLS, (5173), 23.
+* Pearl, N., &amp; Welch, R. (2003). The Hitchhiker's Guide To The Galaxy (Book). Library Journal, 128(11), 124.
+* Preying on composite materials. (2003). R&amp;D Magazine, 45(6), 44.
+* Webb, N. (2003). The Berkeley Hotel hostage. Bookseller, (5069), 25.
+* The author who toured the universe. (2003). Bookseller, (5060), 35.
+* Osmond, A. (2005). Only human. Sight &amp; Sound, 15(5), 12–15.
+* Culture vulture. (2005). Times Educational Supplement, (4640), 19.
+* Maughan, S. (2005). Audio Bestsellers/Fiction. Publishers Weekly, 252(30), 17.
+* Hitchhiker At The Science Museum. (2005). In Britain, 14(10), 9.
+* Rea, A. (2005). The Adams asteroids. New Scientist, 185(2488), 31.
+* Most Improbable Adventure. (2005). Popular Mechanics, 182(5), 32.
+* The Hitchhiker's Guide To The Galaxy: The Tertiary Phase. (2005). Publishers Weekly, 252(14), 21.
+* Bartelt, K. R. (2005). Wish You Were Here: The Official Biography of Douglas Adams. Library Journal, 130(4), 86.
+* Larsen, D. (2005). I was a teenage android. New Zealand Listener, 198(3390), 37–38.
+* Tanner, J. C. (2005). Simplicity: it's hard. Telecom Asia, 16(6), 6.
+* Nielsen Bookscan Charts. (2005). Bookseller, (5175), 18–21.
+* Buena Vista launches regional site to push Hitchhiker's movie. (2005). New Media Age, 9.
+* Shynola bring Beckland to life. (2005). Creative Review, 25(3), 24–26.
+* Carwardine, M. (15 September 2007). The baiji: So long and thanks for all the fish. New Scientist. pp.&amp;nbsp;50–53.
+* Czarniawska, B. (2008). Accounting and gender across times and places: An excursion into fiction. Accounting, Organizations &amp; Society, 33(1), 33–47.
+* Pope, M. (2008). Life, the Universe, Religion and Science. Issues, (82), 31–34.
+* Bearne, S. (2008). BBC builds site to trail Last Chance To See TV series. New Media Age, 08.
+* Arrow to reissue Adams. (2008). Bookseller, (5352), 14.
+* Page, B. (2008). Colfer is new Hitchhiker. Bookseller, (5350), 7.
+* I've got a perfect puzzle for you. (2009). Bookseller, (5404), 42.
+* Mostly Harmless.... (2009). Bookseller, (5374), 46.
+* Penguin and PanMac hitch a ride together. (2009). Bookseller, (5373), 6.
+* Adams, Douglas. Britannica Biographies [serial online]. October 2010;:1
+* Douglas (Noël) Adams (1952–2001). Hutchinson's Biography Database [serial online]. July 2011;:1
+* My life in books. (2011). Times Educational Supplement, (4940), 27.
+{{Refend}}
+
+===Other===
+* {{webarchive |url=https://web.archive.org/web/20110720193159/http://www.douglasadams.com/ |date=20 July 2011 |title=Adams's official web site }}, established by him, and still operated by [[The Digital Village]]
+* {{TED speaker|douglas_adams}}
+* [http://www.biota.org/people/douglasadams/ Douglas Adams speech at Digital Biota 2 (1998)] [http://www.biota.org/podcast/#DNA (The audio of the speech)]
+* [https://www.theguardian.com/books/2008/jun/09/douglasadams Guardian Books "Author Page"], with profile and links to further articles.
+* {{Worldcat id|id=lccn-n80-76765}}
+* [http://www.vintagemacworld.com/iifx.html Douglas Adams &amp; his Computer] article about his Mac IIfx
+* BBC2 "Omnibus" tribute to Adams, presented by Kirsty Wark, 4 August 2001
+* Mueller, Rick and Greengrass, Joel (2002). ''Life, The Universe and Douglas Adams'', documentary.
+* Simpson, M.J. (2001). ''The Pocket Essential Hitchhiker's Guide''. {{ISBN|1-903047-40-4}}. Updated April 2005 {{ISBN|1-904048-46-3}}
+* [https://www.bbc.co.uk/programmes/p00fpvbm Special edition of BBC Book Club featuring Douglas Adams], first broadcast 2 January 2000 on BBC Radio 4
+* {{cite magazine |last=Bevan |first=William Ham |date=2019 |title=A Hitchhiker's Guide : It is a mistake to think you can solve any major problems just with potatoes |url=https://www.alumni.cam.ac.uk/magazine |magazine=CAM : Cambridge Alumni Magazine |publisher=Cambridge University Press }}
+
+==External links==
+{{Commons category}}
+{{Wikiquote}}
+{{Library resources box
+ |by=yes
+ |viaf=113230702
+ |label=Douglas Adams}}
+* {{Official website}}
+* {{IMDb name}}
+* {{British Comedy Guide|people|douglas_adams}}
+
+{{s-start}}
+{{s-bef|before= [[Anthony Read]]}}
+{{s-ttl|title=''[[Doctor Who]]'' script editor|years=1979–80}}
+{{s-aft|after= [[Christopher H. Bidmead]]}}
+{{s-end}}
+{{Douglas Adams}}
+{{HitchhikerBooks}}
+{{Dirk Gently}}
+{{Infocom games}}
+{{Inkpot Award 1980s}}
+{{Authority control}}
+
+{{DEFAULTSORT:Adams, Douglas}}
+[[Category:Douglas Adams| ]]
+[[Category:1952 births]]
+[[Category:2001 deaths]]
+[[Category:20th-century atheists]]
+[[Category:21st-century atheists]]
+[[Category:20th-century English novelists]]
+[[Category:21st-century English novelists]]
+[[Category:Alumni of St John's College, Cambridge]]
+[[Category:Apple Inc. people]]
+[[Category:Audiobook narrators]]
+[[Category:BBC radio producers]]
+[[Category:British atheism activists]]
+[[Category:British child writers]]
+[[Category:Burials at Highgate Cemetery]]
+[[Category:English atheists]]
+[[Category:English comedy writers]]
+[[Category:English essayists]]
+[[Category:English humanists]]
+[[Category:English humorists]]
+[[Category:English radio writers]]
+[[Category:English science fiction writers]]
+[[Category:English social commentators]]
+[[Category:English television writers]]
+[[Category:Infocom]]
+[[Category:Inkpot Award winners]]
+[[Category:Interactive fiction writers]]
+[[Category:British male television writers]]
+[[Category:Monty Python]]
+[[Category:Non-fiction environmental writers]]
+[[Category:People educated at Brentwood School, Essex]]
+[[Category:People from Cambridge]]
+[[Category:Usenet people]]
+[[Category:Weird fiction writers]]</text>
+            <sha1>jbs2xkzohm8uj57y6gn7v6vqtw7ygkx</sha1>
+        </revision>
+    </page>
+    <page>
+        <title>Douglas Adams/addlink.json</title>
+        <ns>0</ns>
+        <id>1523</id>
+        <revision>
+            <id>1744</id>
+            <timestamp>2021-06-21T14:27:26Z</timestamp>
+            <contributor>
+                <username>Admin</username>
+                <id>1</id>
+            </contributor>
+            <origin>1744</origin>
+            <model>json</model>
+            <format>application/json</format>
+            <text bytes="5624" sha1="2vfjqi4ca7ux85xx9em9kivqspwlhry" xml:space="preserve">
+{ "links": [ { "context_after": " War\", Ada", "context_before": " 42, \"The ", "link_index": 0, "link_target": "Light entertainment", "link_text": "Light Entertainment", "match_index": 0, "score": 0.7461552023887634, "wikitext_offset": 8548 }, { "context_after": ", gazing a", "context_before": ", ", "link_index": 1, "link_target": "Austria", "link_text": "Austria", "match_index": 0, "score": 0.7728191018104553, "wikitext_offset": 17148 }, { "context_after": " covers of", "context_before": "ated into ", "link_index": 2, "link_target": "Paperback", "link_text": "paperback", "match_index": 0, "score": 0.5386547446250916, "wikitext_offset": 20130 }, { "context_after": " edition).", "context_before": " from the ", "link_index": 3, "link_target": "Hardcover", "link_text": "hardback", "match_index": 0, "score": 0.9675663709640503, "wikitext_offset": 20247 }, { "context_after": " at Pink F", "context_before": "to make a ", "link_index": 4, "link_target": "Guest appearance", "link_text": "guest appearance", "match_index": 0, "score": 0.6092824339866638, "wikitext_offset": 24893 }, { "context_after": "\" (similar", "context_before": " as a \"", "link_index": 5, "link_target": "Software agent", "link_text": "software agent", "match_index": 0, "score": 0.5115369558334351, "wikitext_offset": 27599 }, { "context_after": ". He told ", "context_before": " he meant ", "link_index": 6, "link_target": "Agnosticism", "link_text": "agnostic", "match_index": 0, "score": 0.6835408210754395, "wikitext_offset": 28076 }, { "context_after": " combinati", "context_before": "de into a ", "link_index": 7, "link_target": "CD-ROM", "link_text": "CD-ROM", "match_index": 0, "score": 0.5569154620170593, "wikitext_offset": 30955 }, { "context_after": " in 1993 h", "context_before": "ng in New ", "link_index": 8, "link_target": "Mexico", "link_text": "Mexico", "match_index": 0, "score": 0.5211247205734253, "wikitext_offset": 36090 }, { "context_after": " address a", "context_before": "p another ", "link_index": 9, "link_target": "Email", "link_text": "e-mail", "match_index": 0, "score": 0.5464733242988586, "wikitext_offset": 36123 }, { "context_after": " as being ", "context_before": "ribed the ", "link_index": 10, "link_target": "Personal computer", "link_text": "personal computer", "match_index": 0, "score": 0.6218372583389282, "wikitext_offset": 36720 }, { "context_after": ", aged 59.", "context_before": "r 2011 of ", "link_index": 11, "link_target": "Cancer", "link_text": "cancer", "match_index": 0, "score": 0.5029670000076294, "wikitext_offset": 40106 }, { "context_after": ".\n", "context_before": ". ", "link_index": 12, "link_target": "Houghton Mifflin Harcourt", "link_text": "Houghton Mifflin Harcourt", "match_index": 0, "score": 0.871819257736206, "wikitext_offset": 54552 }, { "context_after": ". ", "context_before": ". ", "link_index": 13, "link_target": "Ballantine Books", "link_text": "Ballantine Books", "match_index": 0, "score": 0.6442415118217468, "wikitext_offset": 55159 }, { "context_after": ", January ", "context_before": ", ", "link_index": 14, "link_target": "Oxford University Press", "link_text": "Oxford University Press", "match_index": 0, "score": 0.9074432849884033, "wikitext_offset": 55348 } ], "links_count": 15, "meta": { "application_version": "5b4709d", "dataset_checksums": { "anchors": "5a186f92365cecca979a38de3e133bbf6089984f35b95cacd93e19a0403e00ab", "model": "dd650648b87d69547b1721560f0e16027e5f81ccb5dd2dcfdcf121d460abb53c", "pageids": "9e1b004e7fa84b0187a486c682a1cbf152ca52d2e769d9c3a140eefe9b540d44", "redirects": "57c5ce51d0ce4048743674a7ebb53e7a527d325765fd0632fa1455be46f7eb3c", "w2vfiltered": "096a5f2ca30708ce41408897c99efb854204ac8322fbada8a8147d8156b031e8" }, "format_version": 1 }, "page_title": "Douglas Adams", "pageid": 8091, "revid": 1025260716 }
+</text>
+            <sha1>2vfjqi4ca7ux85xx9em9kivqspwlhry</sha1>
+        </revision>
+    </page>
 </mediawiki>
