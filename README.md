@@ -17,7 +17,7 @@ Limitations
 
 Setup
 ----
-Tested on Ubuntu 18.04 and Debian 10.
+Tested on Debian 10.
 
 * Put all these files in `/var/www/html`
 * Run `sudo setup.sh`
