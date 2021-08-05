@@ -286,10 +286,11 @@ if ( $_POST['preset'] === 'custom' ) {
 	$allowedRepos = get_repo_presets()[ $_POST['preset'] ];
 }
 
-// When proxying, always enable MobileFrontend
+// When proxying, always enable MobileFrontend and its content provider
 if ( $useProxy ) {
 	// Doesn't matter if this appears twice
 	$allowedRepos[] = 'mediawiki/extensions/MobileFrontend';
+	$allowedRepos[] = 'mediawiki/extensions/MobileFrontendContentProvider';
 }
 
 foreach ( array_keys( $repos ) as $repo ) {

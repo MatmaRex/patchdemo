@@ -1,8 +1,7 @@
 // Allow proxying content from production
 
-$wgMFContentProviderClass = "MobileFrontend\\ContentProviders\\MwApiContentProvider";
+$wgMFContentProviderClass = "MobileFrontendContentProviders\\MwApiContentProvider";
 $wgMFContentProviderTryLocalContentFirst = true;
-$wgMFAlwaysUseContentProvider = true;
 
 // Enable proxying for Page previews if enabled.
 
