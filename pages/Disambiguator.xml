@@ -1,0 +1,132 @@
+<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.11/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mediawiki.org/xml/export-0.11/ http://www.mediawiki.org/xml/export-0.11.xsd" version="0.11" xml:lang="en">
+  <siteinfo>
+    <sitename>Patch Demo (master)</sitename>
+    <dbname>patchdemo_87597e9210</dbname>
+    <base>https://patchdemo.wmflabs.org/wikis/87597e9210/wiki/Main_Page</base>
+    <generator>MediaWiki 1.37.0-alpha</generator>
+    <case>first-letter</case>
+    <namespaces>
+      <namespace key="-2" case="first-letter">Media</namespace>
+      <namespace key="-1" case="first-letter">Special</namespace>
+      <namespace key="0" case="first-letter" />
+      <namespace key="1" case="first-letter">Talk</namespace>
+      <namespace key="2" case="first-letter">User</namespace>
+      <namespace key="3" case="first-letter">User talk</namespace>
+      <namespace key="4" case="first-letter">Project</namespace>
+      <namespace key="5" case="first-letter">Project talk</namespace>
+      <namespace key="6" case="first-letter">File</namespace>
+      <namespace key="7" case="first-letter">File talk</namespace>
+      <namespace key="8" case="first-letter">MediaWiki</namespace>
+      <namespace key="9" case="first-letter">MediaWiki talk</namespace>
+      <namespace key="10" case="first-letter">Template</namespace>
+      <namespace key="11" case="first-letter">Template talk</namespace>
+      <namespace key="12" case="first-letter">Help</namespace>
+      <namespace key="13" case="first-letter">Help talk</namespace>
+      <namespace key="14" case="first-letter">Category</namespace>
+      <namespace key="15" case="first-letter">Category talk</namespace>
+      <namespace key="710" case="first-letter">TimedText</namespace>
+      <namespace key="711" case="first-letter">TimedText talk</namespace>
+      <namespace key="828" case="first-letter">Module</namespace>
+      <namespace key="829" case="first-letter">Module talk</namespace>
+      <namespace key="2300" case="first-letter">Gadget</namespace>
+      <namespace key="2301" case="first-letter">Gadget talk</namespace>
+      <namespace key="2302" case="case-sensitive">Gadget definition</namespace>
+      <namespace key="2303" case="case-sensitive">Gadget definition talk</namespace>
+    </namespaces>
+  </siteinfo>
+  <page>
+    <title>New York</title>
+    <ns>0</ns>
+    <id>21</id>
+    <revision>
+      <id>23</id>
+      <timestamp>2021-09-08T22:11:36Z</timestamp>
+      <contributor>
+        <ip>172.16.0.164</ip>
+      </contributor>
+      <comment>Created page with "'''New York''' may refer to:  * [[New York City]] * [[New York (state)]] * [[New York (magazine)]] * [[New York Yankees]]"</comment>
+      <origin>23</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="121" sha1="79o6qg7x8hl5vmm91cntjn5205of43p" xml:space="preserve">'''New York''' may refer to:
+
+* [[New York City]]
+* [[New York (state)]]
+* [[New York (magazine)]]
+* [[New York Yankees]]</text>
+      <sha1>79o6qg7x8hl5vmm91cntjn5205of43p</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>New York City</title>
+    <ns>0</ns>
+    <id>22</id>
+    <revision>
+      <id>24</id>
+      <timestamp>2021-09-08T22:11:51Z</timestamp>
+      <contributor>
+        <ip>172.16.0.164</ip>
+      </contributor>
+      <comment>Created page with "New York City"</comment>
+      <origin>24</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="13" sha1="367tfxsqsrabt5k1a8wz0yxxztd9f5e" xml:space="preserve">New York City</text>
+      <sha1>367tfxsqsrabt5k1a8wz0yxxztd9f5e</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>New York (state)</title>
+    <ns>0</ns>
+    <id>23</id>
+    <revision>
+      <id>25</id>
+      <timestamp>2021-09-08T22:12:03Z</timestamp>
+      <contributor>
+        <ip>172.16.0.164</ip>
+      </contributor>
+      <comment>Created page with "New York State"</comment>
+      <origin>25</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="14" sha1="i3ae2z04l9gltdmbd3ppipi32n9klgr" xml:space="preserve">New York State</text>
+      <sha1>i3ae2z04l9gltdmbd3ppipi32n9klgr</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>New York (magazine)</title>
+    <ns>0</ns>
+    <id>24</id>
+    <revision>
+      <id>26</id>
+      <timestamp>2021-09-08T22:12:17Z</timestamp>
+      <contributor>
+        <ip>172.16.0.164</ip>
+      </contributor>
+      <comment>Created page with "''New York'' magazine"</comment>
+      <origin>26</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="21" sha1="kyskl8ptg3te9k6nvb5vxx2xjx9xqk1" xml:space="preserve">''New York'' magazine</text>
+      <sha1>kyskl8ptg3te9k6nvb5vxx2xjx9xqk1</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>New York Yankees</title>
+    <ns>0</ns>
+    <id>25</id>
+    <revision>
+      <id>27</id>
+      <timestamp>2021-09-08T22:12:30Z</timestamp>
+      <contributor>
+        <ip>172.16.0.164</ip>
+      </contributor>
+      <comment>Created page with "New York Yankees"</comment>
+      <origin>27</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="16" sha1="9w24cn3fo300z887yksu8r90qzstacr" xml:space="preserve">New York Yankees</text>
+      <sha1>9w24cn3fo300z887yksu8r90qzstacr</sha1>
+    </revision>
+  </page>
+</mediawiki>
