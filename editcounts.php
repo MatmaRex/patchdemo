@@ -48,8 +48,11 @@ $wikis = [];
 while ( $data = $results->fetch_assoc() ) {
 	$wiki = $data['wiki'];
 	$wikis[$wiki] = $data;
-	foreach ( $mysqli->query( "SELECT * FROM patchdemo_$wiki.site_stats LIMIT 1" ) as $row ) {
-		$wikis[$wiki] += $row;
+	$stats = $mysqli->query( "SELECT * FROM patchdemo_$wiki.site_stats LIMIT 1" );
+	if ( $stats ) {
+		foreach ( $stats as $row ) {
+			$wikis[$wiki] += $row;
+		}
 	}
 }
 
