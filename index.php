@@ -298,7 +298,7 @@ while ( $data = $results->fetch_assoc() ) {
 		( $canAdmin ? '<td data-label="Time to create">' . ( $wikiData['timeToCreate'] ? $wikiData['timeToCreate'] . 's' : '' ) . '</td>' : '' ) .
 		( $canDelete ?
 			'<td data-label="Actions"><a href="delete.php?wiki=' . $wiki . '">Delete</a></td>' :
-			( $anyCanDelete ? '<td></td>' : '' )
+			'<!-- EMPTY ACTIONS -->'
 		) .
 	'</tr>';
 
@@ -306,6 +306,8 @@ while ( $data = $results->fetch_assoc() ) {
 		$closedWikis++;
 	}
 }
+
+$rows = str_replace( '<!-- EMPTY ACTIONS -->', $anyCanDelete ? '<td></td>' : '', $rows );
 
 if ( $closedWikis ) {
 	echo new OOUI\MessageWidget( [
