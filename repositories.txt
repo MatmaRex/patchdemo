@@ -37,6 +37,7 @@ mediawiki/extensions/Popups w/extensions/Popups
 mediawiki/extensions/ProofreadPage w/extensions/ProofreadPage
 mediawiki/extensions/Renameuser w/extensions/Renameuser
 mediawiki/extensions/ReplaceText w/extensions/ReplaceText
+mediawiki/extensions/RevisionSlider w/extensions/RevisionSlider
 mediawiki/extensions/Scribunto w/extensions/Scribunto
 mediawiki/extensions/SecurePoll w/extensions/SecurePoll
 mediawiki/extensions/SpamBlacklist w/extensions/SpamBlacklist
