@@ -87,9 +87,14 @@ summary {
 	display: list-item !important;
 }
 
-summary > .oo-ui-labelElement-label {
+summary > .oo-ui-labelElement-label:not( .oo-ui-inline-help ) {
 	/* stylelint-disable-next-line declaration-no-important */
 	display: inline !important;
+}
+
+/* T292631 */
+.oo-ui-fieldLayout.oo-ui-fieldLayout-align-left > .oo-ui-fieldLayout-body > .oo-ui-fieldLayout-header {
+	hyphens: none;
 }
 
 .form-preset .oo-ui-fieldLayout,
