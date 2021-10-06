@@ -374,7 +374,7 @@ function get_linked_tasks( string $message, array &$alreadyLinkedTasks = [] ) : 
 }
 
 function get_repo_data() : array {
-	$data = file_get_contents( __DIR__ . '/repositories.txt' );
+	$data = file_get_contents( __DIR__ . '/repository-lists/all.txt' );
 	$repos = [];
 
 	foreach ( explode( "\n", trim( $data ) ) as $line ) {
@@ -463,11 +463,11 @@ function get_repo_presets() : array {
 	$presets['all'] = array_keys( get_repo_data() );
 
 	$presets['wikimedia'] = explode( "\n", trim(
-		file_get_contents( __DIR__ . '/repositories-preset-wikimedia.txt' )
+		file_get_contents( __DIR__ . '/repository-lists/wikimedia.txt' )
 	) );
 
 	$presets['tarball'] = explode( "\n", trim(
-		file_get_contents( __DIR__ . '/repositories-preset-tarball.txt' )
+		file_get_contents( __DIR__ . '/repository-lists/tarball.txt' )
 	) );
 
 	// Things don't work well without the default skin
