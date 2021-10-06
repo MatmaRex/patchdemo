@@ -6,7 +6,7 @@ While I've made token effort to avoid remote code execution vulnerabilities, the
 
 Features
 ----
-* Create a public wiki with [bundled extensions/skins](./repositories.txt)
+* Create a public wiki with [bundled extensions/skins](./repository-lists/all.txt)
 * Use a specific release or WMF version
 * Apply any number of patches to MediaWiki, extensions or skins
 * Require that patches have V+2 review (token security effort)

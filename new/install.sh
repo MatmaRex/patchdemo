@@ -26,7 +26,7 @@ while IFS=' ' read -r repo dir; do
 			cat $PATCHDEMO/localsettings/$filename.txt >> $PATCHDEMO/wikis/$NAME/w/LocalSettings.php
 		fi
 	fi
-done < $PATCHDEMO/repositories.txt
+done < $PATCHDEMO/repository-lists/all.txt
 
 # create htaccess
 echo "RewriteEngine On

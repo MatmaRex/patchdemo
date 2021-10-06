@@ -8,7 +8,7 @@ sudo -u www-data mkdir repositories
 cd repositories
 while IFS=' ' read -r repo dir; do
 	sudo -u www-data git clone --no-checkout https://gerrit.wikimedia.org/r/$repo.git $repo
-done < ../repositories.txt
+done < ../repository-lists/all.txt
 cd ..
 
 # Composer wants a directory for itself (COMPOSER_HOME)
