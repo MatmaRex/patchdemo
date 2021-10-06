@@ -146,6 +146,7 @@ if ( $useOAuth && !$user ) {
 						] ),
 						[
 							'label' => 'Choose included repos:',
+							'help' => new OOUI\HtmlSnippet( 'If your extension is not listed, please create a <a href="https://github.com/MatmaRex/patchdemo/issues/new">new issue</a>.' ),
 							'helpInline' => true,
 							'align' => 'left',
 							'classes' => [ 'form-repos-field' ],
