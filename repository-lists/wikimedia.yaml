@@ -96,8 +96,9 @@
 - mediawiki/extensions/timeline
 - mediawiki/extensions/TitleBlacklist
 - mediawiki/extensions/TorBlock
-- mediawiki/extensions/Translate
-- mediawiki/extensions/TranslationNotifications
+# Not installed on most WMF wikis
+# - mediawiki/extensions/Translate
+# - mediawiki/extensions/TranslationNotifications
 - mediawiki/extensions/TrustedXFF
 - mediawiki/extensions/TwoColConflict
 - mediawiki/extensions/UniversalLanguageSelector
