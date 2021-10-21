@@ -1,4 +1,5 @@
 mediawiki/core w
+mediawiki/extensions/3D w/extensions/3D
 mediawiki/extensions/AbuseFilter w/extensions/AbuseFilter
 mediawiki/extensions/BetaFeatures w/extensions/BetaFeatures
 mediawiki/extensions/CategoryTree w/extensions/CategoryTree
