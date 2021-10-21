@@ -462,13 +462,8 @@ function get_repo_presets() : array {
 
 	$presets['all'] = array_keys( get_repo_data() );
 
-	$presets['wikimedia'] = explode( "\n", trim(
-		file_get_contents( __DIR__ . '/repository-lists/wikimedia.txt' )
-	) );
-
-	$presets['tarball'] = explode( "\n", trim(
-		file_get_contents( __DIR__ . '/repository-lists/tarball.txt' )
-	) );
+	$presets['wikimedia'] = Yaml::parse( file_get_contents( __DIR__ . '/repository-lists/wikimedia.yaml' ) );
+	$presets['tarball'] = Yaml::parse( file_get_contents( __DIR__ . '/repository-lists/tarball.yaml' ) );
 
 	// Things don't work well without the default skin
 	$presets['minimal'] = [ 'mediawiki/core', 'mediawiki/skins/Vector' ];
