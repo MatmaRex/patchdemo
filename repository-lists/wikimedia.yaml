@@ -75,6 +75,7 @@
 - mediawiki/extensions/PdfHandler
 - mediawiki/extensions/Poem
 - mediawiki/extensions/PoolCounter
+- mediawiki/extensions/Popups
 - mediawiki/extensions/ReadingLists
 - mediawiki/extensions/Renameuser
 - mediawiki/extensions/RevisionSlider
