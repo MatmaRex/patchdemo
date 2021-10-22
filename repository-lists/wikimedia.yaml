@@ -1,3 +1,4 @@
+# Extensions which are not installed on most WMF wikis are commented out
 - mediawiki/core
 - mediawiki/extensions/3D
 - mediawiki/extensions/AbuseFilter
@@ -20,10 +21,11 @@
 - mediawiki/extensions/cldr
 - mediawiki/extensions/CodeEditor
 - mediawiki/extensions/CodeMirror
-- mediawiki/extensions/CodeReview
+# - mediawiki/extensions/CodeReview
 - mediawiki/extensions/Collection
 - mediawiki/extensions/CommonsMetadata
 - mediawiki/extensions/ConfirmEdit
+- mediawiki/extensions/ContentTranslation
 - mediawiki/extensions/Disambiguator
 - mediawiki/extensions/DiscussionTools
 - mediawiki/extensions/DismissableSiteNotice
@@ -33,11 +35,13 @@
 - mediawiki/extensions/EventBus
 - mediawiki/extensions/EventLogging
 - mediawiki/extensions/EventStreamConfig
-- mediawiki/extensions/ExtensionDistributor
+# - mediawiki/extensions/ExtensionDistributor
+- mediawiki/extensions/ExternalGuidance
 - mediawiki/extensions/FeaturedFeeds
 - mediawiki/extensions/FileExporter
 - mediawiki/extensions/Flow
 - mediawiki/extensions/Gadgets
+- mediawiki/extensions/GeoData
 - mediawiki/extensions/GlobalBlocking
 - mediawiki/extensions/GlobalCssJs
 - mediawiki/extensions/GlobalPreferences
@@ -54,8 +58,7 @@
 - mediawiki/extensions/Kartographer
 - mediawiki/extensions/LabeledSectionTransclusion
 - mediawiki/extensions/Linter
-- mediawiki/extensions/LiquidThreads
-- mediawiki/extensions/LocalisationUpdate
+# - mediawiki/extensions/LiquidThreads
 - mediawiki/extensions/LoginNotify
 - mediawiki/extensions/MassMessage
 - mediawiki/extensions/Math
@@ -64,7 +67,7 @@
 - mediawiki/extensions/MobileFrontend
 - mediawiki/extensions/MultimediaViewer
 - mediawiki/extensions/NavigationTiming
-- mediawiki/extensions/Newsletter
+# - mediawiki/extensions/Newsletter
 - mediawiki/extensions/Nuke
 - mediawiki/extensions/OATHAuth
 - mediawiki/extensions/OAuth
@@ -75,15 +78,17 @@
 - mediawiki/extensions/PdfHandler
 - mediawiki/extensions/Poem
 - mediawiki/extensions/PoolCounter
+- mediawiki/extensions/Popups
 - mediawiki/extensions/ReadingLists
+- mediawiki/extensions/RelatedArticles
 - mediawiki/extensions/Renameuser
 - mediawiki/extensions/RevisionSlider
-- mediawiki/extensions/RSS
+# - mediawiki/extensions/RSS
 - mediawiki/extensions/Score
 - mediawiki/extensions/Scribunto
 - mediawiki/extensions/SecureLinkFixer
 - mediawiki/extensions/SecurePoll
-- mediawiki/extensions/SiteMatrix
+# - mediawiki/extensions/SiteMatrix
 - mediawiki/extensions/SpamBlacklist
 - mediawiki/extensions/SyntaxHighlight_GeSHi
 - mediawiki/extensions/TemplateData
@@ -96,7 +101,6 @@
 - mediawiki/extensions/timeline
 - mediawiki/extensions/TitleBlacklist
 - mediawiki/extensions/TorBlock
-# Not installed on most WMF wikis
 # - mediawiki/extensions/Translate
 # - mediawiki/extensions/TranslationNotifications
 - mediawiki/extensions/TrustedXFF
@@ -107,12 +111,12 @@
 - mediawiki/extensions/VipsScaler
 - mediawiki/extensions/VisualEditor
 - mediawiki/extensions/WebAuthn
-- mediawiki/extensions/Wikibase
-- mediawiki/extensions/WikibaseLexeme
+# - mediawiki/extensions/Wikibase
+# - mediawiki/extensions/WikibaseLexeme
 - mediawiki/extensions/WikiEditor
 - mediawiki/extensions/wikihiero
 - mediawiki/extensions/WikiLove
-- mediawiki/extensions/WikimediaBadges
+# - mediawiki/extensions/WikimediaBadges
 - mediawiki/extensions/WikimediaEvents
 - mediawiki/extensions/WikimediaMessages
 - mediawiki/extensions/XAnalytics
