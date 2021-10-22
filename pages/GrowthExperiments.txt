@@ -5,3 +5,5 @@ Project:GrowthExperiments_help_desk
 The Hitchhiker's Guide to the Galaxy
 Douglas Adams
 Douglas Adams/addlink.json
+1886_in_Chile
+1886_in_Chile/addimage.json

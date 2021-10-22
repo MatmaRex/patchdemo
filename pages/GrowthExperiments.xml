@@ -99,6 +99,10 @@
 		"group": "easy",
 		"type": "link-recommendation"
 	},
+    "image-recommendation": {
+        "group": "medium",
+        "type": "image-recommendation"
+    },
     "links": {
         "group": "easy",
         "templates": [
@@ -1382,6 +1386,100 @@ In March 2021 [[Unbound (publisher)|Unbound]] announced a [[crowdfunding|crowdfu
 { "links": [ { "context_after": " War\", Ada", "context_before": " 42, \"The ", "link_index": 0, "link_target": "Light entertainment", "link_text": "Light Entertainment", "match_index": 0, "score": 0.7461552023887634, "wikitext_offset": 8548 }, { "context_after": ", gazing a", "context_before": ", ", "link_index": 1, "link_target": "Austria", "link_text": "Austria", "match_index": 0, "score": 0.7728191018104553, "wikitext_offset": 17148 }, { "context_after": " covers of", "context_before": "ated into ", "link_index": 2, "link_target": "Paperback", "link_text": "paperback", "match_index": 0, "score": 0.5386547446250916, "wikitext_offset": 20130 }, { "context_after": " edition).", "context_before": " from the ", "link_index": 3, "link_target": "Hardcover", "link_text": "hardback", "match_index": 0, "score": 0.9675663709640503, "wikitext_offset": 20247 }, { "context_after": " at Pink F", "context_before": "to make a ", "link_index": 4, "link_target": "Guest appearance", "link_text": "guest appearance", "match_index": 0, "score": 0.6092824339866638, "wikitext_offset": 24893 }, { "context_after": "\" (similar", "context_before": " as a \"", "link_index": 5, "link_target": "Software agent", "link_text": "software agent", "match_index": 0, "score": 0.5115369558334351, "wikitext_offset": 27599 }, { "context_after": ". He told ", "context_before": " he meant ", "link_index": 6, "link_target": "Agnosticism", "link_text": "agnostic", "match_index": 0, "score": 0.6835408210754395, "wikitext_offset": 28076 }, { "context_after": " combinati", "context_before": "de into a ", "link_index": 7, "link_target": "CD-ROM", "link_text": "CD-ROM", "match_index": 0, "score": 0.5569154620170593, "wikitext_offset": 30955 }, { "context_after": " in 1993 h", "context_before": "ng in New ", "link_index": 8, "link_target": "Mexico", "link_text": "Mexico", "match_index": 0, "score": 0.5211247205734253, "wikitext_offset": 36090 }, { "context_after": " address a", "context_before": "p another ", "link_index": 9, "link_target": "Email", "link_text": "e-mail", "match_index": 0, "score": 0.5464733242988586, "wikitext_offset": 36123 }, { "context_after": " as being ", "context_before": "ribed the ", "link_index": 10, "link_target": "Personal computer", "link_text": "personal computer", "match_index": 0, "score": 0.6218372583389282, "wikitext_offset": 36720 }, { "context_after": ", aged 59.", "context_before": "r 2011 of ", "link_index": 11, "link_target": "Cancer", "link_text": "cancer", "match_index": 0, "score": 0.5029670000076294, "wikitext_offset": 40106 }, { "context_after": ".\n", "context_before": ". ", "link_index": 12, "link_target": "Houghton Mifflin Harcourt", "link_text": "Houghton Mifflin Harcourt", "match_index": 0, "score": 0.871819257736206, "wikitext_offset": 54552 }, { "context_after": ". ", "context_before": ". ", "link_index": 13, "link_target": "Ballantine Books", "link_text": "Ballantine Books", "match_index": 0, "score": 0.6442415118217468, "wikitext_offset": 55159 }, { "context_after": ", January ", "context_before": ", ", "link_index": 14, "link_target": "Oxford University Press", "link_text": "Oxford University Press", "match_index": 0, "score": 0.9074432849884033, "wikitext_offset": 55348 } ], "links_count": 15, "meta": { "application_version": "5b4709d", "dataset_checksums": { "anchors": "5a186f92365cecca979a38de3e133bbf6089984f35b95cacd93e19a0403e00ab", "model": "dd650648b87d69547b1721560f0e16027e5f81ccb5dd2dcfdcf121d460abb53c", "pageids": "9e1b004e7fa84b0187a486c682a1cbf152ca52d2e769d9c3a140eefe9b540d44", "redirects": "57c5ce51d0ce4048743674a7ebb53e7a527d325765fd0632fa1455be46f7eb3c", "w2vfiltered": "096a5f2ca30708ce41408897c99efb854204ac8322fbada8a8147d8156b031e8" }, "format_version": 1 }, "page_title": "Douglas Adams", "pageid": 8091, "revid": 1025260716 }
 </text>
             <sha1>2vfjqi4ca7ux85xx9em9kivqspwlhry</sha1>
+        </revision>
+    </page>
+    <page>
+        <title>1886 in Chile</title>
+        <ns>0</ns>
+        <id>2503</id>
+        <revision>
+            <id>3048</id>
+            <timestamp>2021-10-22T10:59:08Z</timestamp>
+            <contributor>
+                <username>Admin</username>
+                <id>1</id>
+            </contributor>
+            <origin>3048</origin>
+            <model>wikitext</model>
+            <format>text/x-wiki</format>
+            <text bytes="1206" sha1="pqfgz6uvcnls847dani563sgsn7ef2p" xml:space="preserve">
+{{One source|date=May 2021}}
+{{Year in Chile|1886}}
+
+The following lists events that happened during '''[[1886]] in [[Chile]]'''.
+
+==Incumbents==
+*[[President of Chile]]: [[Domingo Santa María]] (until September 18), [[José Manuel Balmaceda]]<ref>{{cite book |last1=Martin |first1=Frederick |last2=Keltie |first2=Sir John Scott |last3=Renwick |first3=Isaac Parker Anderson |last4=Epstein |first4=Mortimer |last5=Steinberg |first5=Sigfrid Henry |last6=Paxton |first6=John |last7=Hunter |first7=Brian |title=The Statesman's Year-book |date=1891 |publisher=St. Martin's Press |page=404 |url=https://books.google.co.uk/books?id=xMQ-AAAAYAAJ&amp;pg=PA404 |language=en}}</ref>
+
+                == Events ==
+                ===June===
+                *15 June - [[Chilean presidential election, 1886]]
+
+                ==Births==
+                *date unknown - [[Oscar Novoa]]
+                *21 August - [[Max Jara]]
+
+                ==Deaths==
+                *25 January - [[Benjamín Vicuña Mackenna]]
+                *13 May - [[Patricio Lynch]]
+                *5 June - [[Antonio Varas]]
+                *3 September - [[José Miguel Barriga Castro]]
+                *6 September - [[Vicente Pérez Rosales]]
+
+                == References ==
+                {{Reflist}}
+
+                {{Years in Chile}}
+                {{South America topic|1886 in}}
+
+                [[Category:1886 in Chile| ]]
+                [[Category:Years of the 19th century in Chile]]
+                [[Category:1886 by country]]
+			</text>
+            <sha1>pqfgz6uvcnls847dani563sgsn7ef2p</sha1>
+        </revision>
+    </page>
+    <page>
+        <title>1886 in Chile/addimage.json</title>
+        <ns>0</ns>
+        <id>2504</id>
+        <revision>
+            <id>3049</id>
+            <timestamp>2021-10-22T11:00:10Z</timestamp>
+            <contributor>
+                <username>Admin</username>
+                <id>1</id>
+            </contributor>
+            <origin>3049</origin>
+            <model>json</model>
+            <format>application/json</format>
+            <text bytes="691" sha1="ad2voqoq5hzzk819xkr48t76eg17r67" xml:space="preserve">
+{
+	"seed": "",
+	"pages": [
+		{
+			"project": "enwiki",
+			"page": "1886_in_Chile",
+			"page_id": 45232173,
+			"suggestions": [
+				{
+					"filename": "Teatro_Victoria,_Valparaíso_1886.jpg",
+					"confidence_rating": "low",
+					"source": {
+						"name": "ima",
+						"details": {
+							"from": "commons",
+							"found_on": "",
+							"dataset_id": "0f256bbe-8100-4e7e-acef-a3a5f1407cc2"
+						}
+					}
+				}
+			]
+		}
+	]
+}
+			</text>
+            <sha1>ad2voqoq5hzzk819xkr48t76eg17r67</sha1>
         </revision>
     </page>
 </mediawiki>
