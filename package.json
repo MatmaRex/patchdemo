@@ -8,6 +8,6 @@
 		"stylelint-config-wikimedia": "^0.10.3"
 	},
 	"dependencies": {
-		"oojs-ui": "^0.41.3"
+		"oojs-ui": "^0.42.1"
 	}
 }

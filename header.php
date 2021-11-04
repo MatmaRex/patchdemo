@@ -10,7 +10,7 @@ echo '<!DOCTYPE html>
 		<link rel="stylesheet" href="' . $basePath . '/node_modules/oojs-ui/dist/oojs-ui-wikimediaui.min.css">
 		<link rel="stylesheet" href="' . $basePath . '/css/common.css">
 		<script src="' . $basePath . '/node_modules/jquery/dist/jquery.min.js"></script>
-		<script src="' . $basePath . '/node_modules/oojs/dist/oojs.jquery.min.js"></script>
+		<script src="' . $basePath . '/node_modules/oojs/dist/oojs.min.js"></script>
 		<script src="' . $basePath . '/node_modules/oojs-ui/dist/oojs-ui.min.js"></script>
 		<script src="' . $basePath . '/node_modules/oojs-ui/dist/oojs-ui-wikimediaui.min.js"></script>
 		<link rel="icon" type="image/png" sizes="32x32" href="' . $basePath . '/images/favicon-32x32.png">
