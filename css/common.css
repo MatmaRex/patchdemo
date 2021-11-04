@@ -92,7 +92,7 @@ summary > .oo-ui-labelElement-label:not( .oo-ui-inline-help ) {
 	display: inline !important;
 }
 
-/* T292631 */
+/* TODO: Remove once T292631 is resolved */
 .oo-ui-fieldLayout.oo-ui-fieldLayout-align-left > .oo-ui-fieldLayout-body > .oo-ui-fieldLayout-header {
 	hyphens: none;
 }
