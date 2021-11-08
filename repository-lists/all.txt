@@ -37,6 +37,7 @@ mediawiki/extensions/PdfHandler w/extensions/PdfHandler
 mediawiki/extensions/Poem w/extensions/Poem
 mediawiki/extensions/Popups w/extensions/Popups
 mediawiki/extensions/ProofreadPage w/extensions/ProofreadPage
+mediawiki/extensions/QuickSurveys w/extensions/QuickSurveys
 mediawiki/extensions/Renameuser w/extensions/Renameuser
 mediawiki/extensions/ReplaceText w/extensions/ReplaceText
 mediawiki/extensions/RevisionSlider w/extensions/RevisionSlider
