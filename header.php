@@ -22,7 +22,7 @@ echo '<!DOCTYPE html>
 	<body>
 		<header>
 			<div class="headerInner">
-				<h1><a class="logo" href="' . $basePath . '/.">Patch demo</a></h1>
+				<h1><a class="logo" href="' . $basePath . '/."><span>Patch demo</span></a></h1>
 				<div class="sourceAndUser">';
 if ( $user ) {
 	echo "<div class='user'>Logged in as <b>{$user->username}</b> [<a href='?logout'>Log out</a>]</div>";
