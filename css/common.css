@@ -47,21 +47,53 @@ header {
 	margin: 0;
 	flex-grow: 1;
 	white-space: nowrap;
+	height: 2em;
+	position: relative;
 }
 
 .logo {
+	position: relative;
 	display: inline-block;
-	text-decoration: none;
-	color: inherit;
-	background: url( ../images/logo.svg ) no-repeat 0 0;
-	background-size: 2em;
-	line-height: 2em;
-	padding-left: 2.5em;
+	width: 2em;
+	height: 2em;
+	margin-right: 7em;
+	background: url( ../images/wordmark.svg );
+	background-size: cover;
+}
+
+.logo > span {
+	color: transparent;
+}
+
+.logo:after {
+	content: ' ';
+	position: absolute;
+	top: 0;
+	left: 2em;
+	width: 7em;
+	height: 2em;
+	background: url( ../images/wordmark.svg ) -2em 0;
+	background-size: cover;
 }
 
 .logo:hover {
 	text-decoration: none;
-	color: #2a4b8d;
+}
+
+.logo:hover:after {
+	/* #2a4b8d */
+	filter: invert( 24% ) sepia( 13% ) saturate( 5585% ) hue-rotate( 195deg ) brightness( 98% ) contrast( 87% );
+}
+
+@media ( max-width: 720px ) {
+	/* Hide text part of logo on mobile */
+	.logo {
+		margin-right: 1em;
+	}
+
+	.logo:after {
+		display: none;
+	}
 }
 
 .sourceAndUser {
