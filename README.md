@@ -1,4 +1,8 @@
-With Patch Demo, you too can spin up a MediaWiki instance running a particular patch from Wikimedia Gerrit. (To my knowledge, the idea was first described in [T76245](https://phabricator.wikimedia.org/T76245).)
+<img src="https://github.com/MatmaRex/patchdemo/raw/master/images/wordmark.svg" alt="Patch demo" width="200">
+
+---
+
+With **Patch demo**, you too can spin up a MediaWiki instance running a particular patch from Wikimedia Gerrit. (To my knowledge, the idea was first described in [T76245](https://phabricator.wikimedia.org/T76245).)
 
 This project is not secure. You should only install it in disposable virtual machines, and maybe have some monitoring in place in case someone starts mining bitcoin on them.
 
