@@ -13,7 +13,7 @@
 	);
 
 	pd.notify = function ( message, body ) {
-		if ( 'Notification' in window && +sessionStorage.getItem( 'patchdemo-notifications' ) ) {
+		if ( 'Notification' in window && +localStorage.getItem( 'patchdemo-notifications' ) ) {
 			// eslint-disable-next-line no-new
 			new Notification(
 				message,

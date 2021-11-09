@@ -144,16 +144,16 @@
 
 			var onNotifChange = function ( value ) {
 				if ( !value ) {
-					sessionStorage.setItem( 'patchdemo-notifications', '0' );
+					localStorage.setItem( 'patchdemo-notifications', '0' );
 					notifField.setLabel( notifFieldLabel );
 				} else {
-					sessionStorage.setItem( 'patchdemo-notifications', '1' );
+					localStorage.setItem( 'patchdemo-notifications', '1' );
 					Notification.requestPermission().then( onRequestPermission );
 				}
 			};
 
 			notifToggle.on( 'change', onNotifChange );
-			if ( +sessionStorage.getItem( 'patchdemo-notifications' ) && Notification.permission ) {
+			if ( +localStorage.getItem( 'patchdemo-notifications' ) && Notification.permission ) {
 				onRequestPermission( Notification.permission );
 			}
 
