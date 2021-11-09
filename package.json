@@ -4,8 +4,8 @@
 		"test": "eslint . && stylelint **/*.css"
 	},
 	"devDependencies": {
-		"eslint-config-wikimedia": "^0.20.0",
-		"stylelint-config-wikimedia": "^0.10.3"
+		"eslint-config-wikimedia": "^0.21.0",
+		"stylelint-config-wikimedia": "^0.11.1"
 	},
 	"dependencies": {
 		"oojs-ui": "^0.42.1"
