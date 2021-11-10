@@ -1,0 +1,953 @@
+<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.11/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mediawiki.org/xml/export-0.11/ http://www.mediawiki.org/xml/export-0.11.xsd" version="0.11" xml:lang="en">
+  <siteinfo>
+    <sitename>Patch Demo (737944,1)</sitename>
+    <dbname>patchdemo_72b9419304</dbname>
+    <base>https://patchdemo.wmflabs.org/wikis/72b9419304/wiki/Main_Page</base>
+    <generator>MediaWiki 1.38.0-alpha</generator>
+    <case>first-letter</case>
+    <namespaces>
+      <namespace key="-2" case="first-letter">Media</namespace>
+      <namespace key="-1" case="first-letter">Special</namespace>
+      <namespace key="0" case="first-letter" />
+      <namespace key="1" case="first-letter">Talk</namespace>
+      <namespace key="2" case="first-letter">User</namespace>
+      <namespace key="3" case="first-letter">User talk</namespace>
+      <namespace key="4" case="first-letter">Project</namespace>
+      <namespace key="5" case="first-letter">Project talk</namespace>
+      <namespace key="6" case="first-letter">File</namespace>
+      <namespace key="7" case="first-letter">File talk</namespace>
+      <namespace key="8" case="first-letter">MediaWiki</namespace>
+      <namespace key="9" case="first-letter">MediaWiki talk</namespace>
+      <namespace key="10" case="first-letter">Template</namespace>
+      <namespace key="11" case="first-letter">Template talk</namespace>
+      <namespace key="12" case="first-letter">Help</namespace>
+      <namespace key="13" case="first-letter">Help talk</namespace>
+      <namespace key="14" case="first-letter">Category</namespace>
+      <namespace key="15" case="first-letter">Category talk</namespace>
+      <namespace key="710" case="first-letter">TimedText</namespace>
+      <namespace key="711" case="first-letter">TimedText talk</namespace>
+      <namespace key="828" case="first-letter">Module</namespace>
+      <namespace key="829" case="first-letter">Module talk</namespace>
+      <namespace key="2300" case="first-letter">Gadget</namespace>
+      <namespace key="2301" case="first-letter">Gadget talk</namespace>
+      <namespace key="2302" case="case-sensitive">Gadget definition</namespace>
+      <namespace key="2303" case="case-sensitive">Gadget definition talk</namespace>
+    </namespaces>
+  </siteinfo>
+  <page>
+    <title>Talk:DiscussionTools</title>
+    <ns>1</ns>
+    <id>32</id>
+    <revision>
+      <id>36</id>
+      <parentid>35</parentid>
+      <timestamp>2021-11-10T17:16:07Z</timestamp>
+      <contributor>
+        <username>Alice</username>
+        <id>6</id>
+      </contributor>
+      <minor/>
+      <comment>Alice moved page [[Talk:Talk]] to [[Talk:DiscussionTools]]</comment>
+      <origin>35</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="153879" sha1="konpfatyy85to00edg49q0i7831t76l" xml:space="preserve">Contents taken from https://en.wikipedia.org/wiki/Wikipedia:Village_pump_(technical)/Archive_193.
+
+This text is available under the Creative Commons Attribution-ShareAlike Licence.
+
+== Badminton module ==
+Hi there. Could I get some help for improving [[Module:Sports table/Badminton team]]. I try to use these codes, but there are some columns with zero, which should be not shown, as the data might not be available. So I expect the column would be: Pos, Team, Pld, W, L, MF, MA, MD, Pts, Qualification (for uncomplete table, activated by "point_for_against_style=none". Any help would be appreciated. Regards. [[User:Medelam|Medelam]] ([[User talk:Medelam|talk]]) 13:49, 19 October 2021 (UTC)
+: Looks like you want {{para|point_for_against_style|none}} and {{para|game_for_against_style|none}}, which removes the header columns. However there doesn't seem to be code to disable the data rows in [[Module:Sports_table/Badminton_team]]. I've changed your example (above) and will I'll see if I can get it to work in the sandbox. —&amp;nbsp;&lt;span style="font-family:Arial;background:#d6ffe6;border:solid 1px;border-radius:5px;box-shadow:darkcyan 0px 1px 1px;"&gt;&amp;nbsp;[[User:Jts1882|Jts1882]]&amp;nbsp;&amp;#124;[[User talk:Jts1882|&amp;nbsp;talk]]&amp;nbsp;&lt;/span&gt; 14:32, 19 October 2021 (UTC)
+:: {{ping|Medelam}} Is the above now what you require? —&amp;nbsp;&lt;span style="font-family:Arial;background:#d6ffe6;border:solid 1px;border-radius:5px;box-shadow:darkcyan 0px 1px 1px;"&gt;&amp;nbsp;[[User:Jts1882|Jts1882]]&amp;nbsp;&amp;#124;[[User talk:Jts1882|&amp;nbsp;talk]]&amp;nbsp;&lt;/span&gt; 14:41, 19 October 2021 (UTC)
+::: {{ping|Jts1882}} Yes, that is exactly what I want. Appreciate your effort. Thank you and regards. [[User:Medelam|Medelam]] ([[User talk:Medelam|talk]]) 14:44, 19 October 2021 (UTC)
+:::: I've put it live. The header code was also hiding the points columns if the games columns were hidden, so I've done the same with the country rows for consistency. So {{para|point_for_against_style|none}} is redundant when {{para|game_for_against_style|none}} is set. —&amp;nbsp;&lt;span style="font-family:Arial;background:#d6ffe6;border:solid 1px;border-radius:5px;box-shadow:darkcyan 0px 1px 1px;"&gt;&amp;nbsp;[[User:Jts1882|Jts1882]]&amp;nbsp;&amp;#124;[[User talk:Jts1882|&amp;nbsp;talk]]&amp;nbsp;&lt;/span&gt; 15:18, 19 October 2021 (UTC)
+
+== Skip to Top and Skip to Bottom arrows ==
+
+A few project pages - and not all of them - have big arrows to click for "Skip to Top" and "Skip to Bottom".  For me personally, they're just blocking text I want to read.  How are these inserted on project pages, and how can I adjust so I don't have to see these arrows.  Thanks. [[User:Maile66|— Maile ]] ([[User talk:Maile66|talk]]) 15:53, 19 October 2021 (UTC)
+
+:@[[User:Maile66|Maile66]] see {{tl|Skip to top and bottom}} - I think this is the template you're referring to. There are instructions there on how to hide them in your CSS. [[User:Nthep|Nthep]] ([[User talk:Nthep|talk]]) 16:01, 19 October 2021 (UTC)
+
+::Looks like it worked.  Thanks. [[User:Maile66|— Maile ]] ([[User talk:Maile66|talk]]) 16:43, 19 October 2021 (UTC)
+
+== Looking for help from a Python dev to help getting ReFill to build and run ==
+
+I volunteered to take over maintenance of [[WP:Refill]] as the original developer was no longer interested/able to do so. I am set up with Toolforge access via PuTTY etc. I'm having difficulties getting the code to build and run locally on my dev machine. I could really do with a Python dev to help me deal with NPM versioning issues (breaking changes in dependencies). Ideally, it would be someone who would be willing to be around longer than just to get me going, i.e. to field occasional subsequent questions. Hopefully, [[User:Curb Safe Charmer|Curb Safe Charmer]] ([[User talk:Curb Safe Charmer|talk]]) 16:54, 19 October 2021 (UTC)
+:{{re|Curb Safe Charmer}} Hey! I got that running locally not that long ago {{p}} what's broken? ~[[User:TheresNoTime|TheresNoTime]] &lt;sup&gt;([[User talk:TheresNoTime|to explain!]])&lt;/sup&gt; 17:04, 19 October 2021 (UTC)
+::Replied on TheresNoTime's talk page. Thanks - this is hopefully the help I need - if not, I will post again here. [[User:Curb Safe Charmer|Curb Safe Charmer]] ([[User talk:Curb Safe Charmer|talk]]) 20:06, 19 October 2021 (UTC)
+:::Just a note, if this gets into [[Pythonic|Pythonic Madness]] I may have to poke someone like {{u|Tamzin}} ~[[User:TheresNoTime|TheresNoTime]] &lt;sup&gt;([[User talk:TheresNoTime|to explain!]])&lt;/sup&gt; 20:09, 19 October 2021 (UTC)
+
+== Funny white bars in history previews, using green-on-black gadget ==
+
+This seems to have started today. When I point my mouse at "hist" on my watchlist the pop-up shews more-or-less as usual, but with vertical white bars between cur prev | time | username | section. You can see a picture of it [https://imgur.com/MG4XMYS here]. They are not visible if I switch the gadget off. [[User:DuncanHill|DuncanHill]] ([[User talk:DuncanHill|talk]]) 19:08, 19 October 2021 (UTC)
+:{{Re|DuncanHill}} there was an update to [[Wikipedia:Tools/Navigation popups]] today - is that what you are using?  Perhaps there is a conflict with something in [[MediaWiki:Gadget-Blackskin.css]]. As the former has ~55000 users and the later has ~6400, I'd rather someone propose a change to blackskin then rollback navpops though. — [[User:Xaosflux|&lt;span style="color:#FF9933; font-weight:bold; font-family:monotype;"&gt;xaosflux&lt;/span&gt;]] &lt;sup&gt;[[User talk:Xaosflux|&lt;span style="color:#009933;"&gt;Talk&lt;/span&gt;]]&lt;/sup&gt; 19:20, 19 October 2021 (UTC)
+::{{re|Xaosflux}} Yes, Navigation Pop-ups. [[User:DuncanHill|DuncanHill]] ([[User talk:DuncanHill|talk]]) 19:24, 19 October 2021 (UTC)
+:Apparently blackskin.css overrides the table background, and the cell background, but not the background-color of the table rows —[[User:TheDJ|Th&lt;span style="color: green"&gt;e&lt;/span&gt;DJ]] ([[User talk:TheDJ|talk]] • [[Special:Contributions/TheDJ|contribs]]) 19:24, 19 October 2021 (UTC)
+::{{replyto|xaosflux}} we can just add this into the table section of the blackskin. &lt;syntaxhighlight lang="css"&gt;table tr { 
+    background-color: #000000!important;
+    color: #00dd00!important;
+}&lt;/syntaxhighlight&gt; —[[User:TheDJ|Th&lt;span style="color: green"&gt;e&lt;/span&gt;DJ]] ([[User talk:TheDJ|talk]] • [[Special:Contributions/TheDJ|contribs]]) 19:34, 19 October 2021 (UTC)
+:{{re|TheDJ}} thank you for the markup; {{ping|DuncanHill}} I updated blackskin, please check in about 5 mins? — [[User:Xaosflux|&lt;span style="color:#FF9933; font-weight:bold; font-family:monotype;"&gt;xaosflux&lt;/span&gt;]] &lt;sup&gt;[[User talk:Xaosflux|&lt;span style="color:#009933;"&gt;Talk&lt;/span&gt;]]&lt;/sup&gt; 20:44, 19 October 2021 (UTC)
+::{{re|TheDJ}} and {{re|Xaosflux}} Thank you, works as expected now. [[User:DuncanHill|DuncanHill]] ([[User talk:DuncanHill|talk]]) 20:59, 19 October 2021 (UTC)
+
+== wpTextbox1 equivalent in 2017 wikitext editor ==
+
+What is it's equivalent? I don't find the element anywhere in the page and thus almost no user script in [[Wikipedia:User scripts/List#Editing]] doesn't work for me. The [[Wikipedia:User scripts/Guide]] seems to be written for the 2010 editor and isn't helpful for me in editing mode, when I try to develop a script on my own. Thanks for any help! — [[User:DaxServer|DaxServer]] ([[User talk:DaxServer|talk]]) 13:49, 20 October 2021 (UTC)
+:wpTextbox1 is present alright for the 2017 wikitext editor. You should use [[mw:ResourceLoader/Core_modules#jquery.textSelection|jQuery.textSelection API]] for textbox interactions as they'd work independently of the type of source editor. – [[User:SD0001|&lt;span style="font-weight: bold; color: #C30"&gt;SD0001&lt;/span&gt;]] ([[User talk:SD0001|talk]]) 15:06, 20 October 2021 (UTC)
+::@[[User:SD0001|SD0001]] Thanks for the reply. I must have been doing something so wrong!! — [[User:DaxServer|DaxServer]] ([[User talk:DaxServer|talk]]) 15:21, 20 October 2021 (UTC)
+
+== Proposal to turn the DYK helper into a gadget ==
+
+{{atop|There was consensus for the original proposal (to turn it into a gadget), following which the idea of using withJS was floated, and there seemed to be support for that too. So there is consensus for both of these options. Some editors were concerned that having to enable a gadget is not necessarily a great user experience either. Interested parties may wish to informally discuss (probably at [[WT:DYK]]) which idea would work better, after which that idea may be implemented. [[User:ProcrastinatingReader|ProcrastinatingReader]] ([[User talk:ProcrastinatingReader|talk]]) 12:41, 29 October 2021 (UTC)}}
+This proposal arises out of ongoing efforts to simplify the process of making DYK nominations so that newcomers are able to complete it more easily (see [[Wikipedia_talk:Did_you_know/Archive_173#This_is_a_documentation_problem|here]] and [[User_talk:Mike_Peel#DYK_nomination_instructions|here]]). Currently, one of the first obstacles is installing [[User:SD0001/DYK-helper|the DYK helper script]], which requires editing your js page. If the helper were a gadget, all it'd require to activate is going to the settings page. The helper is very widely used and trusted (kudos to maintainer {{u|SD0001}}), so I propose turning it into a gadget. (Per [[Wikipedia:Gadget#Proposals|here]], this is the place to do that.) &lt;span style="color:#AAA"&gt;&lt;small&gt;&amp;#123;{u&amp;#124;&lt;/small&gt;&lt;span style="border-radius:9em;padding:0 5px;background:#088"&gt;[[User:Sdkb|&lt;span style="color:#FFF"&gt;'''Sdkb'''&lt;/span&gt;]]&lt;/span&gt;&lt;small&gt;}&amp;#125;&lt;/small&gt;&lt;/span&gt; &lt;sup&gt;[[User talk:Sdkb|'''talk''']]&lt;/sup&gt; 19:48, 18 October 2021 (UTC)
+*'''Support''' as proposer. &lt;span style="color:#AAA"&gt;&lt;small&gt;&amp;#123;{u&amp;#124;&lt;/small&gt;&lt;span style="border-radius:9em;padding:0 5px;background:#088"&gt;[[User:Sdkb|&lt;span style="color:#FFF"&gt;'''Sdkb'''&lt;/span&gt;]]&lt;/span&gt;&lt;small&gt;}&amp;#125;&lt;/small&gt;&lt;/span&gt; &lt;sup&gt;[[User talk:Sdkb|'''talk''']]&lt;/sup&gt; 19:48, 18 October 2021 (UTC)
+*'''Support'''. The process of posting a ''Did you know'' nomination is currently very manual, which can put off people from submitting them, and automating it makes a lot of sense. I think this helper script is a good step forward with this, but asking (potentially new) editors to install it in their individual javascript pages is very off-putting and very technical: it becomes a lot easier if it's just an option to turn on in their preferences. Thanks. [[User:Mike Peel|Mike Peel]] ([[User talk:Mike Peel|talk]]) 19:55, 18 October 2021 (UTC)
+*'''Support''' In general, the entire DYK review process and feedback/comments also feels way too manual and different from talk page discussions which I would have expected. The less manual, the better overall! ~ 🦝 [[User:Shushugah|Shushugah]]&amp;nbsp;(he/him&amp;nbsp;•&amp;nbsp;[[User talk:Shushugah|talk]]) 22:52, 18 October 2021 (UTC)
+*{{?}} (1) {{ping|SD0001}} are you good with this? (2) {{ping|Sdkb}} confirming this would be for opt-in, correct? — [[User:Xaosflux|&lt;span style="color:#FF9933; font-weight:bold; font-family:monotype;"&gt;xaosflux&lt;/span&gt;]] &lt;sup&gt;[[User talk:Xaosflux|&lt;span style="color:#009933;"&gt;Talk&lt;/span&gt;]]&lt;/sup&gt; 23:21, 18 October 2021 (UTC)
+*:For (1), see [[User_talk:Mike_Peel#DYK_nomination_instructions|here]]. For (2), yes. &lt;span style="color:#AAA"&gt;&lt;small&gt;&amp;#123;{u&amp;#124;&lt;/small&gt;&lt;span style="border-radius:9em;padding:0 5px;background:#088"&gt;[[User:Sdkb|&lt;span style="color:#FFF"&gt;'''Sdkb'''&lt;/span&gt;]]&lt;/span&gt;&lt;small&gt;}&amp;#125;&lt;/small&gt;&lt;/span&gt; &lt;sup&gt;[[User talk:Sdkb|'''talk''']]&lt;/sup&gt; 23:25, 18 October 2021 (UTC)
+*'''Support''' - I'm all for simplifying any process, especially if it helps new users. [[User:Maile66|— Maile ]] ([[User talk:Maile66|talk]]) 23:29, 18 October 2021 (UTC)
+*'''Support''' turning this excellent script into a gadget [[User:Valereee|—valereee]] ([[User talk:Valereee|talk]]) 00:01, 19 October 2021 (UTC)
+* '''Support'''. I do not know the effort that goes into creating a gadget, but, I support this action that will greatly simplify the act of submitting a DYK nomination. Actually on that note if there is a way to simplify any other main page nomination (ITN nomination comes to mind) as a part of the same submission gadget, that would be welcome too. I am adding some ITN Admins just as an fyi. cc {{ping|Stephen|Spencer|PFHLai|Masem|MSGJ}} &lt;!-- Template:Unsigned --&gt;&lt;span class="autosigned" style="font-size:85%;"&gt;—&amp;nbsp;Preceding [[Wikipedia:Signatures|unsigned]] comment added by [[User:Ktin|Ktin]] ([[User talk:Ktin#top|talk]] • [[Special:Contributions/Ktin|contribs]]) 00:07, 19 October 2021 (UTC)&lt;/span&gt;
+*: {{ping|Stephen|Spencer|PFHLai|Masem|MSGJ}} as a courtesy to Ktin above. --[[User:Izno|Izno]] ([[User talk:Izno|talk]]) 01:08, 19 October 2021 (UTC)
+*::I'm all for more automated tools to help make these sections easier to use. Don't know enough about the DYK side of things to specifically comment there. '''[[User:Spencer|&lt;span style="color:#082529"&gt;Spencer&lt;/span&gt;]]'''&lt;sup&gt;[[User talk:Spencer|&lt;span style="color:#FFBF00"&gt;T•&lt;/span&gt;]][[Special:Contributions/Spencer|&lt;span style="color:#FFBF00"&gt;C&lt;/span&gt;]]&lt;/sup&gt; 02:21, 19 October 2021 (UTC)
+*::Glad to see more tools and new ways to contribute. :-) --[[User:PFHLai|PFHLai]] ([[User talk:PFHLai|talk]]) 10:23, 19 October 2021 (UTC)
+* Some non-blocking comments to this action (overall I want all the widely-used scripts to be gadgets): 1) I dislike the use of morebits.js. I am sure it is convenient, but it sure is so 2005 in looks. :^) 2) The name should be indicative of its purpose if possible; DYK "helper" is not. It appears to be exclusive to nominations, so, "DYK nominator" or even "DYKN.js" would be preferable. --[[User:Izno|Izno]] ([[User talk:Izno|talk]]) 01:03, 19 October 2021 (UTC)
+* I like the idea, but installing a gadget is still one more step than necessary - I imagine we could use a withJS link here? That way you'd just click on a button "submit a DYK" on the DYK page (that's probably the precise place where people have the idea to submit their article, after all) and have the form immediately open. That would also eliminate any need to hunt down the "DYK" menu item or link. It would require a little coding and add one form field (you'd need to write the name of the article), but I'd be happy to help out and I think the extra inconvenience is worth it. A gadget would still help power users who submit lots of DYKs, but I would imagine they would be experienced enough to be able to install a user script (especially with script-installer). (I also feel like the gadget list is getting a little long, but that's a really, really tiny concern.) If we go ahead with a gadget nonetheless (which I'm not opposed to! just proposing another solution), I agree with what Izno said about naming. For {{u|Ktin}}, I would absolutely be in favor of introducing forms for those other processes. [[User:Enterprisey|Enterprisey]]&amp;nbsp;([[User talk:Enterprisey|talk!]]) 02:20, 19 October 2021 (UTC)
+*:Thanks {{re|Enterprisey}} and apologies for the digression. I must admit I know the least about gadgets and user scripts. But, what is the best way to take this conversation forward? The folks above are the real gurus of the ITN page. Happy to help coordinate. [[User:Ktin|Ktin]] ([[User talk:Ktin|talk]]) 02:46, 19 October 2021 (UTC)
+*::@[[User:Ktin|Ktin]], well, you're in luck! I just made [[Wikipedia:Workflow improvements]], so we could talk further over there. [[User:Enterprisey|Enterprisey]]&amp;nbsp;([[User talk:Enterprisey|talk!]]) 10:10, 19 October 2021 (UTC)
+*:Is there something blocking having the gadget accessible from withJS? Probably means a little modification (autofill versus not of the page of interest), but that doesn't seem like a big deal. [[User:Izno|Izno]] ([[User talk:Izno|talk]]) 03:09, 19 October 2021 (UTC)
+*::Yes, that's the only thing blocking it as far as I'm aware. Not a big deal, yeah. [[User:Enterprisey|Enterprisey]]&amp;nbsp;([[User talk:Enterprisey|talk!]]) 03:21, 19 October 2021 (UTC)
+*:The use case for this seems to be primarily using a single form entry for a task - as such I'm much more in favor of ?withJS if it will work.  The primary benefit for end users is that they won't have to go enable anything - they would just get a button to click on.  The downside (?) is that they would need to navigate to the page and push the button as opposed to say adding this to a tool menu on their interface. — [[User:Xaosflux|&lt;span style="color:#FF9933; font-weight:bold; font-family:monotype;"&gt;xaosflux&lt;/span&gt;]] &lt;sup&gt;[[User talk:Xaosflux|&lt;span style="color:#009933;"&gt;Talk&lt;/span&gt;]]&lt;/sup&gt; 15:01, 19 October 2021 (UTC)
+*:That's precisely what I told Sdkb when they approached me (see [[User_talk:Mike_Peel#DYK_nomination_instructions]]). But it will require extensive changes and is not something I see happening in the near future. This script uses Morebits.quickForm that's designed to work within modal windows. A full-page form would render oddly with quickForm (eg. you can't even limit the width of the textareas, they'll spread across the page). While morebits is a good framework for complex forms within small dialogs (which OOUI is really lousy at), for a full-page form it's better to use OOUI. There are lots of UI controls in this script (for handling multiple hooks, multiple nominators, multiple articles, ...) which would likely require custom OOUI widgets. Also, the prose size calculation relies on the article being open (it can be tweaked to load the article html via the API, but then what with the user being able to change the article ...). – [[User:SD0001|&lt;span style="font-weight: bold; color: #C30"&gt;SD0001&lt;/span&gt;]] ([[User talk:SD0001|talk]]) 16:17, 19 October 2021 (UTC)
+*::Sure, the "proper" way would be to convert it to a full-screen form, but honestly I don't think that's a requirement; it'll still work perfectly fine as a modal form, I'm guessing, even if it'll look a little weird. (Please correct me if I'm wrong.) For the prose size, yes, that's inconvenient, but I'd imagine people would use the [[Wikipedia:Prosesize|dedicated widget]] for that if they do it very often. [[User:Enterprisey|Enterprisey]]&amp;nbsp;([[User talk:Enterprisey|talk!]]) 22:29, 19 October 2021 (UTC)
+*:::Hm. I think it would be semi-professional to open an all new page on which a modal pops up. But regarding the conversion to full-screen form, I think I may spoken too soon. Let me take a shot at that first – it's just that quickForm hasn't ever been used outside a modal ([[WP:TWPREF]] looks similar to other Twinkle windows that use quickForm, but actually it uses HTML built from the ground up!). It shouldn't be too hard to do some refactoring and have everything fit into a fixed-width div. Might need a couple of morebits patches. – [[User:SD0001|&lt;span style="font-weight: bold; color: #C30"&gt;SD0001&lt;/span&gt;]] ([[User talk:SD0001|talk]]) 09:31, 20 October 2021 (UTC)
+*:Nevertheless, I suppose one day it could be rewritten (maybe as part of [[WP:Workflow improvements]]) – which brings to the other point: when https://gerrit.wikimedia.org/r/c/mediawiki/extensions/Gadgets/+/730684 is merged (likely, since it just cleared a security review) it would be possible to load gadgets via URL – in a way that's quite more performant than the current withJS trick (resourceloader minimisation, caching, load being requested before page is ready, etc – basically all the advantages that gadgets have over user scripts). When both of these happen we can convert this to a hidden gadget and have it load only by URL. – [[User:SD0001|&lt;span style="font-weight: bold; color: #C30"&gt;SD0001&lt;/span&gt;]] ([[User talk:SD0001|talk]]) 16:26, 19 October 2021 (UTC)
+*::Awesome! [[User:Enterprisey|Enterprisey]]&amp;nbsp;([[User talk:Enterprisey|talk!]]) 22:29, 19 October 2021 (UTC)
+*:It required some refactoring, but this is {{t|done}}. I posted a note on [[WT:DYK#DYK-helper_script_improvements_and_auto-loading]] which has instructions on testing it out. cc {{ping|Sdkb|Enterprisey}}. – [[User:SD0001|&lt;span style="font-weight: bold; color: #C30"&gt;SD0001&lt;/span&gt;]] ([[User talk:SD0001|talk]]) 14:22, 21 October 2021 (UTC)
+*'''Comment''' - I'm not entirely sure which part of the process this proposal is covering, but noting that DYK already has a fairly intuitive process at [[WP:DYKNOM]] where you fill in the name of your article and off you go. It seems like the hard part about that is that you have to then go and edit the newly created DYK nom template, and then also transclude the nomination on the appropriate page. So I think we should be focusing our efforts on automating the latter two steps to complete that process, while keeping the ease-of-use of the form at WP:DYKNOM. The above-mentioned solution, which as far as I can tell involves either installing a JS script or fiddling around with your settings, is the very opposite of an ease-of-use solution for newcomers. Cheers &amp;nbsp;&amp;mdash;&amp;nbsp;[[User:Amakuru|Amakuru]] ([[User talk:Amakuru|talk]]) 08:07, 20 October 2021 (UTC)
+*:@[[User:Amakuru|Amakuru]] This only creates the template, but does not actually link/transclude it anywhere which was confusing for me. Because I once created the template and expected it to transclude. I also noticed the preload template doesn't automatically autopopulate the title parameter, but I can fix that directly. ~ 🦝 [[User:Shushugah|Shushugah]]&amp;nbsp;(he/him&amp;nbsp;•&amp;nbsp;[[User talk:Shushugah|talk]]) 09:52, 20 October 2021 (UTC)
+*::{{ping|Shushugah}} yes, this is my point. Rather than creating an entirely new tool, which requires users to install something on their profiles, the page I mention should be expanded and updated so that it does all of the steps rather than just one of them. Either that, or have a bot do the heavy-lifting, which is what happens at [[WP:GAN]] - an example of a good user-friendly process IMHO. Cheers &amp;nbsp;&amp;mdash;&amp;nbsp;[[User:Amakuru|Amakuru]] ([[User talk:Amakuru|talk]]) 09:59, 20 October 2021 (UTC)
+*:::I boldly edited [[Template:T:TDYK/preload]] to autopopulate the article name. Have a look ~ 🦝 [[User:Shushugah|Shushugah]]&amp;nbsp;(he/him&amp;nbsp;•&amp;nbsp;[[User talk:Shushugah|talk]]) 10:19, 20 October 2021 (UTC)
+*::To clarify, when @[[User:Shushugah|Shushugah]] says {{tq|1=This only creates the template, ...}} they are talking about the inputbox at WP:DYKNOM, not the script. – [[User:SD0001|&lt;span style="font-weight: bold; color: #C30"&gt;SD0001&lt;/span&gt;]] ([[User talk:SD0001|talk]]) 16:15, 20 October 2021 (UTC)
+*:@[[User:Amakuru|Amakuru]] DYK-helper automates all of those steps. – [[User:SD0001|&lt;span style="font-weight: bold; color: #C30"&gt;SD0001&lt;/span&gt;]] ([[User talk:SD0001|talk]]) 16:14, 20 October 2021 (UTC)
+{{abot}}
+
+== Uploading non-image files ==
+
+After tagging an orphaned PDF for [[WP:F10]], I noticed that the message that Twinkle posts on the uploader's talk page ({{tl|Db-badfiletype-notice}} makes reference to Microsoft Word documents as a potential bad file type.  But I thought I'd read somewhere that there's technical limitations in place that prevent the uploading of word documents (and generally non-image files other than PDFs).  I guess if there are legacy ones hanging around, it might not be bad to keep the wording, but is it going to be possible to upload such file types?  If not, I can change the template wording. [[User:Hog Farm|Hog Farm]] &lt;sub&gt; ''[[User talk:Hog Farm|Talk]]''&lt;/sub&gt; 06:12, 21 October 2021 (UTC)
+:{{re|Hog Farm}} you can see the list of supported file extensions [https://en.wikipedia.org/wiki/Special:ApiSandbox#action=query&amp;format=json&amp;meta=siteinfo&amp;siprop=fileextensions&amp;sifilteriw=local here] (click "make request" after ensuring we're not trying to trick you in to something nefarious - notably the &lt;code&gt;action=&lt;/code&gt; in the left pane should say &lt;code&gt;query&lt;/code&gt; to show it is only trying to read things).  I suppose technically this isn't examining the file "type" just the name, but it is something to go off of.  Improvements to that system are discussed in [[phab:T42479]] and many linked tasks therein. — [[User:Xaosflux|&lt;span style="color:#FF9933; font-weight:bold; font-family:monotype;"&gt;xaosflux&lt;/span&gt;]] &lt;sup&gt;[[User talk:Xaosflux|&lt;span style="color:#009933;"&gt;Talk&lt;/span&gt;]]&lt;/sup&gt; 11:44, 21 October 2021 (UTC)
+:: Had to look up what some of those file extensions meant.  Mostly a bunch of obscure audio/video formats.  Looks like the only F10-eligible filetype is .pdf and possibly .djvu. [[User:Hog Farm|Hog Farm]] &lt;sub&gt; ''[[User talk:Hog Farm|Talk]]''&lt;/sub&gt; 14:41, 21 October 2021 (UTC)
+
+== Is this script safe to implement on the common.css  page ==
+
+I was wondering this script, found on [[Wikipedia:Customizing_watchlists#Highlight_specific_pages|Customizing watchlists]] for the Username:common.css files is safe to apply? [[User:Qwerty284651|Qwerty284651]] ([[User talk:Qwerty284651|talk]]) 23:34, 20 October 2021 (UTC)
+&lt;syntaxhighlight lang="CSS"&gt;a [title="pagename"] {
+    color: white;
+    background: red;
+    font-size: 150%;
+}&lt;/syntaxhighlight&gt; [[User:Qwerty284651|Qwerty284651]] ([[User talk:Qwerty284651|talk]]) 23:34, 20 October 2021 (UTC)
+:{{re|Qwerty284651}} yes, that would be "safe" to use on your [[User:Qwerty284651/common.css]] page. — [[User:Xaosflux|&lt;span style="color:#FF9933; font-weight:bold; font-family:monotype;"&gt;xaosflux&lt;/span&gt;]] &lt;sup&gt;[[User talk:Xaosflux|&lt;span style="color:#009933;"&gt;Talk&lt;/span&gt;]]&lt;/sup&gt; 23:44, 20 October 2021 (UTC)
+::{{ping|xaosflux}} I tried using both the full URL permalink and the abbreviated name of an actual [https://prnt.sc/1wwe054 Wiki page], but it gave an error stating '''Warning: Unqualified attribute selectors are known to be slow.''' I am not good with scripts, so I don't understand what it wants from me. Could you help me out, please? [[User:Qwerty284651|Qwerty284651]] ([[User talk:Qwerty284651|talk]]) 00:10, 21 October 2021 (UTC)
+:::The warning message is letting you know that since the &lt;syntaxhighlight lang="CSS" inline&gt;[title="pagename"]&lt;/syntaxhighlight&gt; selector will match against any HTML element, it will be slow to check all of them for the title attribute in question. You should remove the space between &lt;syntaxhighlight lang="CSS" inline&gt;a&lt;/syntaxhighlight&gt; and &lt;syntaxhighlight lang="CSS" inline&gt;[title="pagename"]&lt;/syntaxhighlight&gt;, so only anchor elements will be checked. (I updated the Customizing watchlists page accordingly.) [[User:Isaacl|isaacl]] ([[User talk:Isaacl|talk]]) 04:37, 21 October 2021 (UTC)
+:::Indeed, this isn't a great script - but it isn't "dangerous". — [[User:Xaosflux|&lt;span style="color:#FF9933; font-weight:bold; font-family:monotype;"&gt;xaosflux&lt;/span&gt;]] &lt;sup&gt;[[User talk:Xaosflux|&lt;span style="color:#009933;"&gt;Talk&lt;/span&gt;]]&lt;/sup&gt; 10:57, 21 October 2021 (UTC)
+::::Thanks, Xaosflux. I just run into this script, whilst looking for a way to highlight certain pages in my watchlist for easier navigation, but wasn't sure what was the problem with the error it was displaying. Thanks. Cheers, [[User:Qwerty284651|Qwerty284651]] ([[User talk:Qwerty284651|talk]]) 11:32, 21 October 2021 (UTC)
+:::::@[[User:Xaosflux|Xaosflux]] Under pagename do I use the wikilink short version or the full URL permalink? [[User:Qwerty284651|Qwerty284651]] ([[User talk:Qwerty284651|talk]]) 20:19, 21 October 2021 (UTC)
+::::::The "title" attribute on an HTML element is what shows up in the popup tooltip when you hover over the element. Thus you should use whatever shows up when you hover over the link. [[User:Isaacl|isaacl]] ([[User talk:Isaacl|talk]]) 21:15, 21 October 2021 (UTC)
+::::::{{ec}} {{replyto|Qwerty284651}} I moved this thread from [[WT:VPT]], which is the talk page for discussing improvements to this page - basically, whether to alter the archive settings, almost nothing else goes there.
+::::::Anyway, please note that what you have provided above is not a script, it is a [[CSS]] rule. CSS rules, generally speaking, are harmless - the worst that could happen is that you make the whole page invisible. None of the three declarations in your rule goes anyway near to sdoing that. --[[User:Redrose64|&lt;span style="color:#a80000; background:#ffeeee; text-decoration:inherit"&gt;Red&lt;/span&gt;rose64]] &amp;#x1f339; ([[User talk:Redrose64|talk]]) 21:18, 21 October 2021 (UTC)
+:::::::{{ping|Redrose64}} Thanks for clarifying it for me. [[User:Qwerty284651|Qwerty284651]] ([[User talk:Qwerty284651|talk]]) 22:34, 21 October 2021 (UTC)
+
+== Deal with bare URLs to files ==
+
+Hi there! I've been working on expanding bare URLs in references recently. However, there have been lots of URLs that point to an external file (PDF, image, etc.), where automatic reference generating cannot work normally to grab information such as titles. Then what can I do to expand those references? Maybe, upload the original files? Or something else? -- [[User:Unite_together|UNITE TOGETHER]], [[Special:Contributions/Unite_together|STRIVE FOR SURVIVAL]]! 02:53, 16 October 2021 (UTC)
+
+:I think those have to be handled manually. [[User:Whatamidoing (WMF)|Whatamidoing (WMF)]] ([[User talk:Whatamidoing (WMF)|talk]]) 23:49, 21 October 2021 (UTC)
+
+::FYI in the last year or so I've noticed that refill2 is now formatting a few PDFs. Reflinks can format quite a few of them and can also mark some that have gone dead with a "dead link" template. But, as Whatamidoing points out, there are still tons of them that have to be formatted manually. [[User:MarnetteD|MarnetteD]]&amp;#124;[[User talk:MarnetteD|Talk]] 00:00, 22 October 2021 (UTC)
+
+== IGN citation problem ==
+
+Hi. The auto citation tool is having problems citing pages from the IGN site. See the example: "&lt;nowiki&gt;&lt;ref&gt;{{Citation|last=pm|first=Craig HarrisUpdated: 12 May 2012 11:41 amPosted: 20 Oct 2008 10:14|title=Legend of Kage 2 Review - IGN|url=https://www.ign.com/articles/2008/10/20/legend-of-kage-2-review|language=en|access-date=2021-10-18}}&lt;/ref&gt;&lt;/nowiki&gt;". Note that the '''"last"''' and '''"first"''', which serve respectively to put the last and first name of the author of the article, are showing quite wrong information. And this bug not only affects the enwiki, but other wikis, like ptwiki, are also being affected. [[User:A.WagnerC|✍A.WagnerC]] ([[User talk:A.WagnerC|talk]]) 17:22, 18 October 2021 (UTC)
+
+:This is likely an issue with the Zotero configuration for IGN. See [https://www.zotero.org/support/translators zotero.org] for more information. [[User:Izno|Izno]] ([[User talk:Izno|talk]]) 00:59, 19 October 2021 (UTC)
+::@[[User:Scann|Scann]] or @[[User:Diegodlh|Diegodlh]] could probably tell you more about what the problem is. [[User:Whatamidoing (WMF)|Whatamidoing (WMF)]] ([[User talk:Whatamidoing (WMF)|talk]]) 23:56, 21 October 2021 (UTC)
+:::Thanks for flagging this. I'll defer to Diego to explain the problem but in the meantime I've added the URL to our list of "problematic URLs" to test with Web2Cit. --[[User:Scann|Scann]] ([[User talk:Scann|talk]]) 00:29, 22 October 2021 (UTC)
+
+== Possible printability issue ==
+
+I do have a possible issue that may be rooted in Wikipedia software. Or in the construction of lists with Wikipedia style elements. Some larger lists do not "nicely" print. With nicely I mean you can get the entire data to printer output without manually resizing (scaling). Fit to page size should do that, but it doesn't. While this can be OS related, I am a bit puzzled that it does not even work for PDF output (instead of printer output). As PDF carries an outer frame, in which all elements are placed, in theory it should not occur that certain information gets outside that frame.
+
+This is Linux Mint (Ubuntu) version 19, and I see the issue with both the printer driver for Canon MX925 (which is a very reliable, well written driver). I have to scale below 87% (!) to get the entire content of a given page into that page without overspill at the right hand side. At the moment, I do not have a Windows machine at hand to verify this behaviour on Windows.
+
+Browser is an up-to-date Firefox 93. Printing is done via Firefox' print function, which utilizes all installed drivers and a built-in PDF export. Mint/Ubuntu also offers PDF printer export as a driver, so I got three options: Canon, PDF export driver, built-in Firefox PDF export. All three show the issue...
+
+The best example to showcase this is the list of Doctor Who serials:
+https://en.wikipedia.org/wiki/List_of_Doctor_Who_episodes_(1963%E2%80%931989)
+
+Thanks a lot.
+[[Special:Contributions/2001:A61:BAC:F001:9C64:F645:CAA3:9003|2001:A61:BAC:F001:9C64:F645:CAA3:9003]] ([[User talk:2001:A61:BAC:F001:9C64:F645:CAA3:9003|talk]]) 10:01, 22 October 2021 (UTC)
+
+== Tooltip and dialog box text for suggested translation links in left sidebar is not all English ==
+
+When an article at en-wiki doesn't exist in any other language, I usually get a few "suggested" languages to translate into in the left sidebar under the 'Languages' heading, where language links would appear had there been articles in other languages.  In my case, French is one of those languages that often appears. The text in the left sidebar is ''français'', exactly as it would be if a fr-wiki article existed. (Well, not exactly; the font is a lighter shade; approximately #72777D.) But the hover text is different.  
+
+Hovering over ''français'' in the language links section of the sidebar when there is no French article pops up the [[tooltip]] "{{!xt|Translate this page into français}}". Clicking the link pops up a dialog box, which starts off with the bold heading, '''{{!xt|This page does not exist in français yet. Do you want to create it?}}''' 
+
+This is English Wikipedia, and in my opinion, both the tooltip and the dialog box should both be written entirely in English (with the possible exception of adding a parenthetical appositive; e.g., "{{xt|Translate this page into French (''français'')}}" would be fine. I don't have an objection to the  long-standing practice of leaving the rendered text of language names in the list of language links in the native language; my question/complaint regards the language of the tooltip text, and of the pop-up dialog box. Thanks, [[User:Mathglot|Mathglot]] ([[User talk:Mathglot|talk]]) 20:12, 21 October 2021 (UTC)
+
+:This seems like a reasonable task to put in Phabricator, starting with the [https://phabricator.wikimedia.org/project/profile/18/ Language-team] team project. They should be able to sort it into an appropriate component project. [[User:Izno|Izno]] ([[User talk:Izno|talk]]) 20:45, 21 October 2021 (UTC)
+::We can also do it locally in [[MediaWiki:Cx-entrypoint-title]] and [[MediaWiki:Cx-entrypoint-dialog-page-doesnt-exist-yet]] by testing &lt;code&gt;$1&lt;/code&gt;. We don't appear to currently have a feature to get the language code from the native language name like ''français'', but we could make it. [[User:PrimeHunter|PrimeHunter]] ([[User talk:PrimeHunter|talk]]) 21:50, 21 October 2021 (UTC)
+:Realistically, this suggestion is primarily intended for people fluent in the destination language - if you can't easily read the name of the destination language in its native format - you probably shouldn't be trying to create articles on that other project.  Am I missing a part of this? — [[User:Xaosflux|&lt;span style="color:#FF9933; font-weight:bold; font-family:monotype;"&gt;xaosflux&lt;/span&gt;]] &lt;sup&gt;[[User talk:Xaosflux|&lt;span style="color:#009933;"&gt;Talk&lt;/span&gt;]]&lt;/sup&gt; 13:31, 22 October 2021 (UTC)
+
+== Creating a new user talk section using discussion tools unwatches the page ==
+
+{{tracked|T294122}}
+
+Hi all, I've found that sometimes the quickest way of seeing if an issue is ''just me'' or ''not just me'' is by mentioning it here and waiting for the screaming.
+{{ctop|Please see {{phab|T294122}}, but in summary..}}
+'''List of steps to reproduce''':
+* Watch a '''user''' talk page (e.g. https://test.wikipedia.org/wiki/User_talk:TheresNoTime), either indefinitely or temporarily
+* Click &lt;code&gt;New Section&lt;/code&gt;, with the discussion tools enabled
+* Fill in the section title, and message, and save
+
+'''What happens?''':
+* The message is posted, and the previously watched talk page is unwatched
+
+'''What should have happened instead?''':
+* The message is posted without affecting the watched status
+{{cbot}}
+
+Can anyone else confirm? ~[[User:TheresNoTime|TheresNoTime]] &lt;sup&gt;([[User talk:TheresNoTime|to explain!]])&lt;/sup&gt; 14:06, 22 October 2021 (UTC)
+
+:@[[User:TheresNoTime|TheresNoTime]] yep, confirmed - interestingly, when I tested on a page I had watchlisted ''before'' enabling discussion tools, the bug didn't trigger. When I tested watching a page ''after'' enabling discussion tools, things happened exactly as you describe. [[User:Firefly|&lt;span style="color:#850808;"&gt;firefly&lt;/span&gt;]] &lt;small&gt;( [[User talk:Firefly|t]] · [[Special:Contributions/Firefly|c]] )&lt;/small&gt; 14:12, 22 October 2021 (UTC)
+
+== mw.hook listener or list of all hooks ==
+
+Is there is a list of all available hooks (&lt;code&gt;mw.hook&lt;/code&gt;) or is there a listener that I can hook into to listen to all hook fires? I've looked at [[mw:Manual:Hooks]], but that doesn't seem what I'm looking for. An example is [[User:BrandonXLF/EasySummary.js]], where the script is hooked into &lt;code&gt;ve.saveDialog.stateChanged&lt;/code&gt; Thanks! — [[User:DaxServer|DaxServer]] ([[User talk:DaxServer|talk]]) 11:48, 22 October 2021 (UTC)
+
+:The core ones are listed [https://doc.wikimedia.org/mediawiki-core/master/js/#!/api/mw.hook here] in the mw.hook documentation. Other ones are considered to be 'private' but most can easily be found with [https://codesearch.wmcloud.org codesearch]. —[[User:TheDJ|Th&lt;span style="color: green"&gt;e&lt;/span&gt;DJ]] ([[User talk:TheDJ|talk]] • [[Special:Contributions/TheDJ|contribs]]) 13:19, 22 October 2021 (UTC)
+:If you just want the names of all the hooks that have previously fired on the page you're on, you could also go to the function definition for &lt;code&gt;mw.hook&lt;/code&gt; in your browser's dev tools and set a breakpoint on &lt;syntaxhighlight inline class="nowrap" lang="js"&gt;return hooks[name]&lt;/syntaxhighlight&gt; right at the top of the function, hit the breakpoint by running &lt;code&gt;mw.hook()&lt;/code&gt;, then look at the keys in the &lt;code&gt;hooks&lt;/code&gt; object. –&amp;nbsp;[[User talk:Rummskartoffel|&lt;span style="font-weight:normal;background:linear-gradient(90deg,#e40303,#ff8c00,#ffed00,#008026,#004dff,#750787);color:transparent;background-clip:text;-webkit-background-clip:text;"&gt;Rummskartoffel&lt;/span&gt;]] 14:58, 22 October 2021 (UTC)
+::Thanks @[[User:TheDJ|TheDJ]] and @[[User:Rummskartoffel|Rummskartoffel]]. Both your solutions're quite useful! — [[User:DaxServer|DaxServer]] ([[User talk:DaxServer|talk]]) 16:45, 22 October 2021 (UTC)
+
+== Redlink to existing page ==
+
+{{tracked|T293707}}
+
+Hello! I'm seeing something rather peculiar. In [[Special:PageHistory/Template:COVID-19 data/data]], there are links to [[User:TolBot/Task 5]], a soft redirect to Meta-Wiki, in my bot's edit summaries — but, despite the page existing, the links are red. When I click on a diff, the link is blue, and anywhere outside of an edit summary it's also blue. I've tried with safemode, so I don't think it's me. Can anybody else verify this or help me figure out what's going on? Thanks. [[User:Tol|&lt;span style="color:#f542d7"&gt;Tol&lt;/span&gt;]] ([[User talk:Tol|talk]] &amp;#124; [[Special:Contribs/Tol|contribs]]) @ 21:57, 15 October 2021 (UTC)
+:I see the link in the most recent edit as blue, and the others as red.  Moving to the previous 100, all are blue.  Filtering by date to exclude today's two changes, all are blue.  It looks like a minor bug. [[User:Certes|Certes]] ([[User talk:Certes|talk]]) 22:17, 15 October 2021 (UTC)
+::I only see one "Task 5" blue link at the history of [[Template:COVID-19 data/data]]. It is the most recent. The reason it is blue is that the wikitext is &lt;code&gt;&lt;nowiki&gt;[[m:User:TolBot/Task 5|Task 5]]&lt;/nowiki&gt;&lt;/code&gt; whereas the others omit &lt;code&gt;m:&lt;/code&gt;. I tried to purge the history page but of course it only purged the template and that did not help. Weird. I don't see how it's related, but I asked about a red link problem [[Wikipedia:Village pump (technical)/Archive 191#Red link on preview|here]]. [[User:Johnuniq|Johnuniq]] ([[User talk:Johnuniq|talk]]) 22:44, 15 October 2021 (UTC)
+:There was recently an overhaul of how edit summaries ("comments") are formatted on history pages, this might be another regression from that. I would suggest filing a bug in Phabricator for this, as the output clearly is wrong given [[User:TolBot/Task 5]] exists on this wiki. [[User:Legoktm|Legoktm]] ([[User talk:Legoktm|talk]]) 05:50, 16 October 2021 (UTC)
+::And notably on other pages, such as the changevisibility controls page, the show as blue links.  So looks like a bug of sorts on the history view page. — [[User:Xaosflux|&lt;span style="color:#FF9933; font-weight:bold; font-family:monotype;"&gt;xaosflux&lt;/span&gt;]] &lt;sup&gt;[[User talk:Xaosflux|&lt;span style="color:#009933;"&gt;Talk&lt;/span&gt;]]&lt;/sup&gt; 15:46, 16 October 2021 (UTC)
+:::Thanks, everyone. I've filed a [[phab:T293707|task]]. [[User:Tol|&lt;span style="color:#f542d7"&gt;Tol&lt;/span&gt;]] ([[User talk:Tol|talk]] &amp;#124; [[Special:Contribs/Tol|contribs]]) @ 21:54, 18 October 2021 (UTC)
+:This also happens for user pages that don't exist here but do exist at Meta, when a cross-wiki transclusion occurs - see for instance the two links to Explicit's user page in [//en.wikipedia.org/w/index.php?title=Template:WikiProject_Isle_of_Wight/doc&amp;action=history&amp;offset=202110231150&amp;limit=2 these edits]. --[[User:Redrose64|&lt;span style="color:#a80000; background:#ffeeee; text-decoration:inherit"&gt;Red&lt;/span&gt;rose64]] &amp;#x1f339; ([[User talk:Redrose64|talk]]) 12:08, 23 October 2021 (UTC)
+
+== Edit summaries with characters not staying on its line ==
+
+This anon is vandalizing and leaving non-linear edit summaries {{IPvandal|93.106.154.191}} which are visible in his contribution history. I am using Windows 10 Pro/64 w/ Firefox current version. It is also visible with Chrome. Should a fix be made to Wiki's html generator?
+{{cot|Some of the "offending" test}} ̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺ͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩ ̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺ͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩ ̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺ͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩ ̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺ͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩ
+{{cob}} [[User:Adakiko|Adakiko]] ([[User talk:Adakiko|talk]]) 07:08, 23 October 2021 (UTC)
+:See [[Zalgo text]]. [[User:Nardog|Nardog]] ([[User talk:Nardog|talk]]) 07:18, 23 October 2021 (UTC)
+::This could make for some interesting vandalism. Might need to request revdels so that other's edit summaries are readable? [[User:Adakiko|Adakiko]] ([[User talk:Adakiko|talk]]) 07:24, 23 October 2021 (UTC)
+:::So far, all of the "offending" edits have been at [[WP:Sandbox]], a page to which we extend a great degree of freedom; it is generally acknowledged that no edits to this page can constitute [[WP:VAND|vandalism]] as it is normally understood. So long as they're not committing a great Wikicrime - such as making an attack page or posting a massive copyvio - we generally let it be. --[[User:Redrose64|&lt;span style="color:#a80000; background:#ffeeee; text-decoration:inherit"&gt;Red&lt;/span&gt;rose64]] &amp;#x1f339; ([[User talk:Redrose64|talk]]) 11:36, 23 October 2021 (UTC)
+:::: While in this case it appears not to be vandalism and may even be a legitimate test edit , the edits do present a problem which we may need to find solutions, to ensure that if someone does something similar on non-sandbox pages, it doesn't effect the usability of the page or of the page history to other legitimate users. Ideally we shouldn't have to rely on friendly admins rev-deleting things to fix issues like this.[[User:Nigel Ish|Nigel Ish]] ([[User talk:Nigel Ish|talk]]) 12:02, 23 October 2021 (UTC)
+:::::I doubt this kind of vandalism occurs frequently enough to warrant any preventative measures. You have to know how to do it, and there are much easier and quicker ways to vandalise. –&amp;nbsp;[[User talk:Rummskartoffel|&lt;span style="font-weight:normal;background:linear-gradient(90deg,#e40303,#ff8c00,#ffed00,#008026,#004dff,#750787);color:transparent;background-clip:text;-webkit-background-clip:text;"&gt;Rummskartoffel&lt;/span&gt;]] 13:10, 23 October 2021 (UTC)
+
+== Archive header not displayed at [[Talk:Air Koryo]] ==
+
+Hi, could someone take a look at why the list of archives isn't displaying at the top of [[Talk:Air Koryo]]? I'm guessing it's due to the strange naming convention, e.g. [[Talk:Air Koryo/2012/Archive 1]], but not sure how to fix it. -[[User:M.nelson|M.nelson]] ([[User talk:M.nelson|talk]]) 10:23, 23 October 2021 (UTC)
+
+:Because you didn't put (and configured) one of the templates that do just that?
+:[[User:MiszaBot/config#After_you_have_set_up_archiving]]. [[User:MarMi wiki|MarMi wiki]] ([[User talk:MarMi wiki|talk]]) 15:21, 23 October 2021 (UTC)
+::{{fixed}}. Those archives are very small and should probably be merged into one archive with a standard name. – [[User:Jonesey95|Jonesey95]] ([[User talk:Jonesey95|talk]]) 15:29, 23 October 2021 (UTC)
+:::Thank you. Good point, the standard format would be better; I'll try resetting it and then {{t1|talk header}} might list them without an additional template. -[[User:M.nelson|M.nelson]] ([[User talk:M.nelson|talk]]) 15:57, 23 October 2021 (UTC)
+
+== Missing history? ==
+
+I received a message on [[User talk:BattyBot]] claiming that my bot created [[Draft:Manathi P Ganesan]].  However, my bot doesn't create drafts.  I looked at the draft history, and the only edit listed is my bot's edit to add {{tl|Draft categories}}.  What happened to the rest of the edit history, and how can it be restored?  Thanks!  [[User:GoingBatty|GoingBatty]] ([[User talk:GoingBatty|talk]]) 02:38, 24 October 2021 (UTC)
+:Based on the logs, the draft was [[WP:HISTMERGE|history-merged]] into a user sandbox page, which basically moved all revisions to that page.  —[[User:Jéské Couriano|&lt;i style="color: #1E90FF;"&gt;A little blue Bori&lt;/i&gt;]] [[User talk:Jéské Couriano|&lt;span style="color: #228B22"&gt;v^_^v&lt;/span&gt;]] &lt;sup&gt;&lt;small&gt;[[Special:Contributions/Jéské Couriano|Jéské Couriano]]&lt;/small&gt;&lt;/sup&gt; 02:53, 24 October 2021 (UTC)
+: {{ec}} {{u|Anthony Appleyard}} used [[Special:MergeHistory]] to move the rest of the history to [[User:Mc.balamurugan/sandbox]]. It's still there, so there's nothing to restore. [[User:Pppery|* Pppery *]] [[User talk:Pppery|&lt;sub style="color:#800000"&gt;it has begun...&lt;/sub&gt;]] 02:53, 24 October 2021 (UTC)
+:Click "[https://en.wikipedia.org/w/index.php?title=Special:Log&amp;page=Draft%3AManathi+P+Ganesan View logs for this page]" at top of the page history to see what happened. [[User:PrimeHunter|PrimeHunter]] ([[User talk:PrimeHunter|talk]]) 11:38, 24 October 2021 (UTC)
+
+== There is a draft for this article ==
+
+When edited, dab [[Morgan White]] claims that "There is a draft for this article at [[Draft:Morgan White]]".  That page does exist, but it's a redirect to [[Morgan White (gymnast)]].  I see why {{tl|Editnotices/Namespace/Main}} is invoking {{tl|Draft at}}, but could we handle such cases better?  Pinging {{u|BD2412}} and {{u|SD0001}} who contributed to [[Wikipedia:Village pump (technical)/Archive 192#Draft notice for redirects and other existing pages|a previous discussion]]. [[User:Certes|Certes]] ([[User talk:Certes|talk]]) 22:49, 23 October 2021 (UTC)
+: I have gone ahead and moved the draft title to [[Draft:Morgan White (gymnast)]] for consistency. [[User:BD2412|&lt;span style="background:gold"&gt;'''''BD2412'''''&lt;/span&gt;]] [[User talk:BD2412|'''T''']] 22:52, 23 October 2021 (UTC)
+:Feel free to suggest an edit at [[template talk:Editnotices/Namespace/Main]]. The logic has become rather complicated, though maybe not to the extent that a Lua module is needed. – [[User:SD0001|&lt;span style="font-weight: bold; color: #C30"&gt;SD0001&lt;/span&gt;]] ([[User talk:SD0001|talk]]) 11:51, 24 October 2021 (UTC)
+::Thanks for the replies.  This odd-looking behaviour seems correct then: the template is right to draw our attention to the minor issue of a malplaced redirect.  If someone were preparing a [[WP:BCA|BCA]] or other replacement for the dab, I'd want to know about it. [[User:Certes|Certes]] ([[User talk:Certes|talk]]) 14:54, 24 October 2021 (UTC)
+
+== Attribution of tags ==
+
+I made [https://en.wikipedia.org/w/index.php?title=Johor%E2%80%93Singapore_Causeway&amp;type=revision&amp;diff=1051301323&amp;oldid=1051299224&amp;diffmode=source this edit] just to fix a template date in a article split request so the article would be correctly categorized by the month/year. This got listed under '''Articles to be split''' at [[Wikipedia:WikiProject Singapore]] as ''proposed'' by me when it was in fact an IP that first added {{txl|split-section}}. Another editor did a split, without there having been any discussion.  After that, they discovered it was suggested by an IP, and mentioned on my TP that they were mislead and may not have done the split had they realized the request came from an IP (not to disparage all IPs). Regardless, the "proposer" of the split was listed incorrectly. I don't know what templates/bots are involved in this so asking here if this can be "fixed". [[User:MB|&lt;b style="color:#034503"&gt;MB&lt;/b&gt;]] 19:58, 24 October 2021 (UTC)
+:{{re|MB}} I think you are referring to [https://en.wikipedia.org/w/index.php?title=Wikipedia%3AWikiProject_Singapore%2FArticle_alerts&amp;type=revision&amp;diff=1051394143&amp;oldid=1051222198 this edit] - and think that it should be better?  If so, please bring it up at [[User talk:AAlertBot]] and / or [[Wikipedia talk:Article alerts]] to see how that could be improved. — [[User:Xaosflux|&lt;span style="color:#FF9933; font-weight:bold; font-family:monotype;"&gt;xaosflux&lt;/span&gt;]] &lt;sup&gt;[[User talk:Xaosflux|&lt;span style="color:#009933;"&gt;Talk&lt;/span&gt;]]&lt;/sup&gt; 20:19, 24 October 2021 (UTC)
+::Asked at [[Wikipedia talk:Article alerts]]. Thanks. [[User:MB|&lt;b style="color:#034503"&gt;MB&lt;/b&gt;]] 20:26, 24 October 2021 (UTC)
+
+== GNU General Public License Flashcard Program to use on Wikipedia's glossaries. ==
+
+Hi. Does anyone know of a GNU General Public License flashcard software program that can be used to run, share, and modify on Wikipedia?  If so, please paste the code in your response. I would want to test it in the sandbox and then eventually place it on some of the glossaries and make flashcards within Wikipedia using the terms and definitions.  The reader would be able to study the flashcards without leaving the page. It is an idea I have wanted to try for a long time.  I think it would be a big hit. [[User:LearnMore|LearnMore]] ([[User talk:LearnMore|talk]]) 20:24, 22 October 2021 (UTC)
+
+{{Wikiversity|Help:Quiz-Simple}}
+:{{re|LearnMore}} Wikipedia usually doesn't support that kind of interactive content, historically because it doesn't print in a reasonable way and is difficult to proofread. You can make quizzes on the Wikiversity sister project and link them as shown here. There is another technical reason that you don't want to host actual flashcards inside Mediawiki or its extensions: [[spaced repetition]], a useful way to sequence flashcards, requires storage that doesn't fit into the Mediawiki [[database schema]], nor in JavaScript storage in a way that would let a user migrate between browsers e.g. on different devices, and for large decks of flashcards such as for language vocabulary, it's not clear whether you could prevent bumping up against local storage limits even if you limited users to one browser. One very popular and widely supported free cross-platform flashcard app is [[Anki (software)|Anki]], decks of which you can link to with their AnkiWeb service which has [https://faqs.ankiweb.net/how-can-i-work-with-someone-else-to-create-a-deck.html limited collaboration features]. [[Special:Contributions/71.204.166.188|71.204.166.188]] ([[User talk:71.204.166.188|talk]]) 04:43, 23 October 2021 (UTC)
+
+::Thank you very much for the response.  I appreciate it. [[User:LearnMore|LearnMore]] ([[User talk:LearnMore|talk]]) 21:49, 24 October 2021 (UTC)
+
+== Where to post SQL requests ==
+
+I'm pretty sure there used to be a page somewhere to ask for SQL queries to be run. I did a cold search, and found [[Wikipedia:SQL requests]], which led me on this amazing journey, via a 6-way soft redirect-cum-splashpage-cum-suggested page runaround: 
+* &lt;small&gt;[[Wikipedia:SQL requests]] → [[meta:Requests for queries]] → [[wikitech:Nova Resource:Tools/Tools/Query service]] → [[wikitech:Obsolete:Tool:Query service]] → [https://jira.toolserver.org/browse/DBQ Jira DBQ] → [[wikitech:Portal:Toolforge]] →?→ [[wikitech:Category:Toolforge_tools]]&lt;/small&gt;
+but never found my answer. So my first question is, where should [[Wikipedia:SQL requests]] *really* [soft-]redirect to?
+
+Secondly, if you happen to know SQL and your appointment tomorrow with the Prime Minister was canceled at the last minute, I'm looking for two queries, yielding a count, and a handful of sample pages:
+* '''count'''{{snd}}how many non-existent pages in Draft space have one or more in-links from mainspace?  (I.e., if [[Draft:Foo_123]] has one in-link from mainspace, [[Draft:Bar_456]] has five, and [[Draft:Baz_678]] has one hundred, the total count is 3.)
+* '''sample'''{{snd}} can I get a list of around a dozen non-existent PAGENAMEs in Draftspace from that set, somewhat randomly selected (i.e., not all starting with 'A').
+Thanks! [[User:Mathglot|Mathglot]] ([[User talk:Mathglot|talk]]) 03:18, 25 October 2021 (UTC)
+:[[WP:Request a query]]. – [[User:SD0001|&lt;span style="font-weight: bold; color: #C30"&gt;SD0001&lt;/span&gt;]] ([[User talk:SD0001|talk]]) 03:29, 25 October 2021 (UTC)
+:: {{re|SD0001}}, thank you! [[User:Mathglot|Mathglot]] ([[User talk:Mathglot|talk]]) 05:31, 25 October 2021 (UTC)
+:: {{discussion moved to|WP:Request a query#Non-existent Draft PAGENAMEs with in-links from mainspace|ts=[[User:Mathglot|Mathglot]] ([[User talk:Mathglot|talk]]) 06:07, 25 October 2021 (UTC)}}
+
+== [[m:Special:MyLanguage/Tech/News/2021/43|Tech News: 2021-43]] ==
+
+&lt;section begin="technews-2021-W43"/&gt;&lt;div class="plainlinks"&gt;
+Latest '''[[m:Special:MyLanguage/Tech/News|tech news]]''' from the Wikimedia technical community. Please tell other users about these changes. Not all changes will affect you. [[m:Special:MyLanguage/Tech/News/2021/43|Translations]] are available.
+
+'''Recent changes'''
+* The [[m:Special:MyLanguage/Coolest_Tool_Award|Coolest Tool Award 2021]] is looking for nominations. You can recommend tools until 27 October.
+
+'''Changes later this week'''
+* [[File:Octicons-sync.svg|12px|link=|Recurrent item]] The [[mw:MediaWiki 1.38/wmf.6|new version]] of MediaWiki will be on test wikis and MediaWiki.org from {{#time:j xg|2021-10-26|en}}. It will be on non-Wikipedia wikis and some Wikipedias from {{#time:j xg|2021-10-27|en}}. It will be on all wikis from {{#time:j xg|2021-10-28|en}} ([[mw:MediaWiki 1.38/Roadmap|calendar]]).
+
+'''Future changes'''
+*[[m:Special:MyLanguage/Help:Diff|Diff pages]] will have an improved copy and pasting experience. [[m:Special:MyLanguage/Community Wishlist Survey 2021/Copy paste diffs|The changes]] will allow the text in the diff for before and after to be treated as separate columns and will remove any unwanted syntax. [https://phabricator.wikimedia.org/T192526]
+* The version of the [[w:en:Liberation fonts|Liberation fonts]] used in SVG files will be upgraded. Only new thumbnails will be affected. Liberation Sans Narrow will not change. [https://phabricator.wikimedia.org/T253600]
+
+'''Meetings'''
+* You can join a meeting about the [[m:Special:MyLanguage/Community Wishlist Survey|Community Wishlist Survey]]. News about the [[m:Special:MyLanguage/Community Wishlist Survey 2021/Warn when linking to disambiguation pages|disambiguation]] and the [[m:Special:MyLanguage/Community Wishlist Survey 2021/Real Time Preview for Wikitext|real-time preview]] wishes will be shown. The event will take place on Wednesday, 27 October at 14:30 UTC. [[m:Special:MyLanguage/Community Wishlist Survey/Updates/Talk to Us|See how to join]].
+
+'''''[[m:Special:MyLanguage/Tech/News|Tech news]]''' prepared by [[m:Special:MyLanguage/Tech/News/Writers|Tech News writers]] and posted by [[m:Special:MyLanguage/User:MediaWiki message delivery|bot]]&amp;nbsp;• [[m:Special:MyLanguage/Tech/News#contribute|Contribute]]&amp;nbsp;• [[m:Special:MyLanguage/Tech/News/2021/43|Translate]]&amp;nbsp;• [[m:Tech|Get help]]&amp;nbsp;• [[m:Talk:Tech/News|Give feedback]]&amp;nbsp;• [[m:Global message delivery/Targets/Tech ambassadors|Subscribe or unsubscribe]].''
+&lt;/div&gt;&lt;section end="technews-2021-W43"/&gt;
+
+20:06, 25 October 2021 (UTC)
+&lt;!-- Message sent by User:Quiddity (WMF)@metawiki using the list at https://meta.wikimedia.org/w/index.php?title=Global_message_delivery/Targets/Tech_ambassadors&amp;oldid=22232718 --&gt;
+
+== Styles of level 2 and level 3 headings ==
+
+Recently completed the [[b:Oberon/ETH Oberon/Tutorial/Compiler|Compiler page]] in the [[b:Oberon/ETH_Oberon/Tutorial|Oberon tutorial]]. I expect higher level headings to be more prominent than lower level headings. For example, "Tutorial objective" and "Introduction" (level 2) should be more prominent than the subsection "A first example" (level 3). In appearance, prominence is reversed. Levels 2 and 3 headings are rendered in a similar font size but level 3 is bold. Can anyone explain? A bug in MediaWiki? Can it be corrected? Thx, ... [[User:PeterEasthope|PeterEasthope]] ([[User talk:PeterEasthope|talk]]) 14:35, 21 October 2021 (UTC)
+:@[[User:PeterEasthope|PeterEasthope]]: As far as I can tell, everything looks as intended in Vector, Monobook, and Timeless. Judging from your description, you're using Monobook, which is the only skin of the three that has bold h3s and regular h2s with the same font. If you just want to swap the font weight of the two (on your end only), you can add the following to [[b:Special:MyPage/monobook.css|your monobook.css on Wikibooks]]:&lt;syntaxhighlight lang="css"&gt;
+h2 {
+  font-weight: bold;
+}
+h3 {
+  font-weight: normal;
+}
+&lt;/syntaxhighlight&gt; –&amp;nbsp;[[User talk:Rummskartoffel|&lt;span style="font-weight:normal;background:linear-gradient(90deg,#e40303,#ff8c00,#ffed00,#008026,#004dff,#750787);color:transparent;background-clip:text;-webkit-background-clip:text;"&gt;Rummskartoffel&lt;/span&gt;]] 15:20, 21 October 2021 (UTC)
+:: [[Wikipedia:Skin|Skin]] has examples of the four skins. Can the skin be identified visually? Something more certain? In Monobook, the links in the left margin are framed. In Vector, the links are listed with no frames. Please have a look at the [[UEFA Euro 2012 Final|UEFA Euro 2012 Final]] page. In default Vector style I see level 2, "Route to the final" in plain face; level 3, "Spain" in bold face. Why is the subordinate heading more prominent than the superordinate heading? Thx, ... [[User:PeterEasthope|PeterEasthope]] ([[User talk:PeterEasthope|talk]]) 04:51, 22 October 2021 (UTC)
+:::I disagree that the level 3 headings are more prominent in any of these four skins, though they do look too similar for my taste in Timeless. I don't know the exact design decisions that went into making the headings look the way they do, since I'm not a developer; for that, consider asking a member of the [[mw:Readers/Web/Team|Web team]]. In any case, I'm not seeing a bug here. –&amp;nbsp;[[User talk:Rummskartoffel|&lt;span style="font-weight:normal;background:linear-gradient(90deg,#e40303,#ff8c00,#ffed00,#008026,#004dff,#750787);color:transparent;background-clip:text;-webkit-background-clip:text;"&gt;Rummskartoffel&lt;/span&gt;]] 12:09, 22 October 2021 (UTC)
+::::{{tqq|I disagree that the level 3 headings are more prominent in any of these four skins}}
+::::To the best of my understanding, J. Doe with a default environment will see level 2 headings in plain face; level 3 in bold face; similar or same font size in both. Most people will agree that bold is more prominent than plain.... [[User:PeterEasthope|PeterEasthope]] ([[User talk:PeterEasthope|talk]]) 17:47, 22 October 2021 (UTC)
+::::{{tqq|... consider asking a member of the [[mw:Readers/Web/Team|Web team]].}}
+::::Will do, thanks.... [[User:PeterEasthope|PeterEasthope]] ([[User talk:PeterEasthope|talk]]) 17:47, 22 October 2021 (UTC)
+:I also find level 3 more prominent than level 2.  I'm used to it now, but was initially confused as &lt;u&gt;L2&lt;/u&gt; seemed to be a subsection within '''L3'''.  I use Legacy Vector (if I'd wanted a narrow screen, I'd have bought one) but standard Vector has similar headings. [[User:Certes|Certes]] ([[User talk:Certes|talk]]) 13:09, 22 October 2021 (UTC)
+::Me to. I use Monobook and H3s are bold and look more prominent which always seemed wrong. [[User:MB|&lt;b style="color:#034503"&gt;MB&lt;/b&gt;]] 16:00, 22 October 2021 (UTC)
+::C&gt;I'm used to it now, but was initially confused as &lt;u&gt;L2&lt;/u&gt; seemed to be a subsection within '''L3'''.
+::We all accepted it for too long. Ref. [[The Emperor's New Clothes|The Emperor's New Clothes]]. Regards, ... [[User:PeterEasthope|PeterEasthope]] ([[User talk:PeterEasthope|talk]]) 17:47, 22 October 2021 (UTC)
+:I guess this is all a matter of subjective personal taste, but I, for one, see level 2 headings as clearly superior to the L3–L6s. After all, they're in a larger typeface {{em|and}} they have that great, big horizontal rule stretching all the way across the page. I think one of the Vector skins shows me no discernable difference between H5 and H6 (only), but in my usual skin, Monobook, all the levels are clearly and recognizably differently sized. &lt;i&gt;&amp;mdash;&amp;nbsp;[[User:JohnFromPinckney|JohnFromPinckney]] ([[User talk:JohnFromPinckney|talk]] / [[Special:Contributions/JohnFromPinckney|edits]])&lt;/i&gt; 22:00, 22 October 2021 (UTC)
+::It's certainly skin-dependent. I've checked out four properties (&lt;code&gt;font-family&lt;/code&gt;, &lt;code&gt;font-weight&lt;/code&gt;, &lt;code&gt;border-bottom&lt;/code&gt; and &lt;code&gt;font-size&lt;/code&gt;) for all six heading levels in four skins. Three properties are easily summarised:
+::*MonoBook uses a normal-weight sans-serif font for all heading levels
+::*Timeless uses a normal-weight serif font for all heading levels
+::*Vector and Minerva use a serif font for levels 1 and 2 only, but sans-serif for levels 3, 4, 5 and 6
+::*Vector and Minerva use bold for levels 3 and 4 only, normal weight for levels 1, 2, 5 and 6
+::*MonoBook, Timeless and Vector show bottom borders (n.b. not horizontal rules) for levels 1 and 2 only, none for levels 3 to 6 - Minerva does not use borders at all.
+::The fourth is best presented as a table:
+::{| class=wikitable
+|+The &lt;code&gt;font-size:&lt;/code&gt; property
+|-
+! Level || MonoBook || Timeless || Vector || Minerva
+|-
+| h1 || 188% || 2em || 1.8em || 1.7em
+|-
+| h2 || 150% || 1.8em || 1.5em || 1.5em
+|-
+| h3 || 128% || 1.6em || 1.2em || 1.2em
+|-
+| h4 || 116% || 1.4em || rowspan=3 | 100% || rowspan=3 | 100%
+|-
+| h5 || 108% || 1.25em
+|-
+| h6 || 100% || 1.2em
+|}
+::The Vector results are the same for "old" and "new" variants. --[[User:Redrose64|&lt;span style="color:#a80000; background:#ffeeee; text-decoration:inherit"&gt;Red&lt;/span&gt;rose64]] &amp;#x1f339; ([[User talk:Redrose64|talk]]) 00:02, 23 October 2021 (UTC)
+:::"Old" is post-[[mw:Typography refresh#Summary%20of%20changes|mw:Typography refresh]] Vector, rather than "original" Vector.  The last major update to Vector was in late 2013 and 2014.  That was when the ==Level 2 section headings== started using a serif font.  If memory serves, this decision was driven by research (e.g., what font is easiest for people to read on a computer screen) rather than someone's aesthetic view.
+:::About making changes:  The archives for this page will show many people complaining about it the day that it hit, some people still complaining a week or two later, and only one or two editors still unhappy with it a month or two later.  Apparently we hate having the fonts changed, but we get used to the new appearance on approximately the same time schedule that every other major website has found.  I would expect the same outcome if similar changes are made in the future.  Partly because of remembering that experience, I've stuck with the default skin at sites that have adopted New Vector.  I've encountered some hiccups along the way, and re-locating the search box has proven to be surprisingly difficult for me to adapt to (but maybe if all the wikis were the same, I'd have gotten used to it faster?), but it no longer seems foreign and bad, and I have found one clear advantage:  I haven't ever accidentally clicked the "Log out" button in New Vector.
+:::(Important note to anyone thinking about changing the fonts in the future:  ''Please don't''.) [[User:Whatamidoing (WMF)|Whatamidoing (WMF)]] ([[User talk:Whatamidoing (WMF)|talk]]) 16:00, 26 October 2021 (UTC)
+
+== Anarchism quality/ importance issues ==
+
+Hi all - was pointed to come here with this question from the help desk. Currently, some articles that have an importance assessment are showing up as "NA", even though they have an importance scale assigned to them. I was wondering if there was a way to fix this? [[Wikipedia:WikiProject Anarchism]] [[User:Jamzze|Jamzze]] ([[User talk:Jamzze|talk]]) 20:05, 25 October 2021 (UTC)
+:Please link to one or two articles with this problem. – [[User:Jonesey95|Jonesey95]] ([[User talk:Jonesey95|talk]]) 20:46, 25 October 2021 (UTC)
+::{{ping|Jamzze}} And make sure they really are articles. I suspect the "articles" you have in mind are actually redirects but it's hard to tell without an example. ''Always'' include an example. [[User:PrimeHunter|PrimeHunter]] ([[User talk:PrimeHunter|talk]]) 11:54, 26 October 2021 (UTC)
+:::Yup, looks like they're redirects that have their class set. I [[Special:Diff/1051936533|just fixed]] one of them. --[[User:Rchard2scout|rchard2scout]] ([[User talk:Rchard2scout|talk]]) 12:43, 26 October 2021 (UTC)
+::::Hi all - thanks so much - I had no idea! Will have a look at the redirects and change that then. [[User:Jamzze|Jamzze]] ([[User talk:Jamzze|talk]]) 17:08, 26 October 2021 (UTC)
+:::::{{replyto|Rchard2scout|Jamzze}} Explicitly setting {{para|class|redirect}} is rarely necessary, because most WikiProject banners will autodetect it; Milhist is a rare exception. Unless the page is an actual article or a disambiguation page, it's normally best to omit the {{para|class}} parameter, or leave it blank. --[[User:Redrose64|&lt;span style="color:#a80000; background:#ffeeee; text-decoration:inherit"&gt;Red&lt;/span&gt;rose64]] &amp;#x1f339; ([[User talk:Redrose64|talk]]) 20:26, 26 October 2021 (UTC)
+
+== Rollback on mobile devices ==
+
+On two occasions lately I have fat-fingered rollback. On both occasions a dialog box opened that asked me if I really wanted to do that. On both occasions I answered “Cancel”, but it performed the rollback anyway.  I need to disable this for myself, as I don’t tend to use rollback and obviously the option is causing more harm than good, but I thought maybe a technical-minded person could look into it. Thank you!  [[User:78.26|&lt;span style="border:1px solid black;color:red; padding:1px;background:1h5h1h; color: #008B8B;"&gt;&lt;b&gt;78.26&lt;/b&gt;&lt;/span&gt;]] &lt;sub&gt;([[User talk:78.26|spin me]] / [[Special:Contributions/78.26|revolutions]])&lt;/sub&gt; 02:57, 26 October 2021 (UTC)
+:{{Re|78.26}} before diving in any further, would you please check [[Special:Preferences#mw-prefsection-gadgets]] and confirm if your option for {{tq|Require confirmation before performing rollback on mobile devices}} is checked? — [[User:Xaosflux|&lt;span style="color:#FF9933; font-weight:bold; font-family:monotype;"&gt;xaosflux&lt;/span&gt;]] &lt;sup&gt;[[User talk:Xaosflux|&lt;span style="color:#009933;"&gt;Talk&lt;/span&gt;]]&lt;/sup&gt; 17:07, 26 October 2021 (UTC)
+::{{re|Xaosflux}} Yes, it is, thank you for asking. And in fact, the confirmation is popping up just like it should.  The problem is that when "Cancel" is selected, the rollback is performed anyway.  [[User:78.26|&lt;span style="border:1px solid black;color:red; padding:1px;background:1h5h1h; color: #008B8B;"&gt;&lt;b&gt;78.26&lt;/b&gt;&lt;/span&gt;]] &lt;sub&gt;([[User talk:78.26|spin me]] / [[Special:Contributions/78.26|revolutions]])&lt;/sub&gt; 17:10, 26 October 2021 (UTC)
+:::{{re|78.26}} thank you, can you provide an example of the last time this occurred?  I suspected it might have been [[Special:AbuseFilter/examine/1436794383]]? Can you be a bit more specific about your interface?  Are you using the mobile application (ios or android), or the mobile web?  If using a mobile device and web, are you using "desktop view"?  — [[User:Xaosflux|&lt;span style="color:#FF9933; font-weight:bold; font-family:monotype;"&gt;xaosflux&lt;/span&gt;]] &lt;sup&gt;[[User talk:Xaosflux|&lt;span style="color:#009933;"&gt;Talk&lt;/span&gt;]]&lt;/sup&gt; 17:23, 26 October 2021 (UTC)
+:::@[[User:78.26|78.26]] Which browser, device, and skin are you using? &lt;span style="font-family:sans-serif"&gt;&amp;mdash; &lt;span style="font-weight:bold"&gt;[[User:MusikAnimal|&lt;span style="color:black; font-style:italic"&gt;MusikAnimal&lt;/span&gt;]] &lt;sup&gt;[[User talk:MusikAnimal|&lt;span style="color:green"&gt;talk&lt;/span&gt;]]&lt;/sup&gt;&lt;/span&gt;&lt;/span&gt; 17:25, 26 October 2021 (UTC)
+::::{{re|Xaosflux}}, {{re|MusikAnimal}}, the last two examples are: [https://en.wikipedia.org/w/index.php?title=User_talk:Ritchie333&amp;diff=prev&amp;oldid=1051877266] and  [https://en.wikipedia.org/w/index.php?title=Wikipedia:Articles_for_deletion/Willie_H._Fuller&amp;diff=prev&amp;oldid=1051010539].  This is on an Apple iPhone 6s, Software Version 14.6., Safari browser, "desktop view" (sorry, I really don't like mobile view).  Does that help?  [[User:78.26|&lt;span style="border:1px solid black;color:red; padding:1px;background:1h5h1h; color: #008B8B;"&gt;&lt;b&gt;78.26&lt;/b&gt;&lt;/span&gt;]] &lt;sub&gt;([[User talk:78.26|spin me]] / [[Special:Contributions/78.26|revolutions]])&lt;/sub&gt; 17:35, 26 October 2021 (UTC)
+:::::{{re|78.26}} using that same browser, would you mind sharing your useragent?  You can fetch that from sites such as Google using [https://www.google.com/search?q=what+is+my+useragent this link]. Feel free to redact any version numbers in there. — [[User:Xaosflux|&lt;span style="color:#FF9933; font-weight:bold; font-family:monotype;"&gt;xaosflux&lt;/span&gt;]] &lt;sup&gt;[[User talk:Xaosflux|&lt;span style="color:#009933;"&gt;Talk&lt;/span&gt;]]&lt;/sup&gt; 17:52, 26 October 2021 (UTC)
+:::::Just a note, this is [[MediaWiki:Gadget-confirmationRollback-mobile.js]]. — [[User:Xaosflux|&lt;span style="color:#FF9933; font-weight:bold; font-family:monotype;"&gt;xaosflux&lt;/span&gt;]] &lt;sup&gt;[[User talk:Xaosflux|&lt;span style="color:#009933;"&gt;Talk&lt;/span&gt;]]&lt;/sup&gt; 17:56, 26 October 2021 (UTC)
+:::::: Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko).  [[User:78.26|&lt;span style="border:1px solid black;color:red; padding:1px;background:1h5h1h; color: #008B8B;"&gt;&lt;b&gt;78.26&lt;/b&gt;&lt;/span&gt;]] &lt;sub&gt;([[User talk:78.26|spin me]] / [[Special:Contributions/78.26|revolutions]])&lt;/sub&gt; 18:04, 26 October 2021 (UTC)
+:::::::@[[User:78.26|78.26]] Thanks. I unfortunately have no way of testing the behaviour on an iPhone, but I do recall someone reporting this same issue before and they were also using an iPhone. Could you try using a different browser, such as Chrome or Firefox? That will at least narrow it down to a Safari issue. The gadget itself is extremely simple and should in theory work in virtually all browsers. &lt;span style="font-family:sans-serif"&gt;&amp;mdash; &lt;span style="font-weight:bold"&gt;[[User:MusikAnimal|&lt;span style="color:black; font-style:italic"&gt;MusikAnimal&lt;/span&gt;]] &lt;sup&gt;[[User talk:MusikAnimal|&lt;span style="color:green"&gt;talk&lt;/span&gt;]]&lt;/sup&gt;&lt;/span&gt;&lt;/span&gt; 20:50, 26 October 2021 (UTC)
+:::Allright, I'll make some test edits with my alternate account and then try to "not-rollback" on both the Safari browser and Chrome.  (I've never used Chrome on my mobile device, guess I'll see how I like it...)  I'll ping you with the result.  [[User:78.26|&lt;span style="border:1px solid black;color:red; padding:1px;background:1h5h1h; color: #008B8B;"&gt;&lt;b&gt;78.26&lt;/b&gt;&lt;/span&gt;]] &lt;sub&gt;([[User talk:78.26|spin me]] / [[Special:Contributions/78.26|revolutions]])&lt;/sub&gt; 20:56, 26 October 2021 (UTC)
+::::{{ping|MusikAnimal}} I presume this is bad news, but on both browsers (Safari, Chrome, both using Desktop view) I hit "rollback" and selected "Cancel" each time.  I never selected "OK" on either browser.  If you check my edit history you'll see the discouraging results.  [[User:78.26|&lt;span style="border:1px solid black;color:red; padding:1px;background:1h5h1h; color: #008B8B;"&gt;&lt;b&gt;78.26&lt;/b&gt;&lt;/span&gt;]] &lt;sub&gt;([[User talk:78.26|spin me]] / [[Special:Contributions/78.26|revolutions]])&lt;/sub&gt; 21:14, 26 October 2021 (UTC)
+:::::{{re|78.26}} Yes, bad news :( That must mean it's an iPhone issue, I suppose. I will try to find a device (or virtual device) to debug this further. For now, since you say you rarely use rollback, you could hide the links entirely with [[User:MusikAnimal/rollbackTouch.js]]. &lt;span style="font-family:sans-serif"&gt;&amp;mdash; &lt;span style="font-weight:bold"&gt;[[User:MusikAnimal|&lt;span style="color:black; font-style:italic"&gt;MusikAnimal&lt;/span&gt;]] &lt;sup&gt;[[User talk:MusikAnimal|&lt;span style="color:green"&gt;talk&lt;/span&gt;]]&lt;/sup&gt;&lt;/span&gt;&lt;/span&gt; 21:34, 26 October 2021 (UTC)
+::::::{{re|MusikAnimal}}Thanks!  My next question was going to be if I could disable this (you can't in Preferences, already looked) because I can think of twice I've used rollback on purpose.  Thank you also, {{u|Xaosflux}}.  [[User:78.26|&lt;span style="border:1px solid black;color:red; padding:1px;background:1h5h1h; color: #008B8B;"&gt;&lt;b&gt;78.26&lt;/b&gt;&lt;/span&gt;]] &lt;sub&gt;([[User talk:78.26|spin me]] / [[Special:Contributions/78.26|revolutions]])&lt;/sub&gt; 21:38, 26 October 2021 (UTC)
+:::::::If you never use rollback on desktop either, you can simply hide them by adding &lt;syntaxhighlight lang="css"&gt;.mw-rollback-link {
+	display: none;
+}&lt;/syntaxhighlight&gt; to your [[Special:MyPage/common.css|common.css]]. That would be simpler and faster than installing that script or enabling the gadget. [[User:Nardog|Nardog]] ([[User talk:Nardog|talk]]) 21:53, 26 October 2021 (UTC)
+::::::::Yeah, I was going to suggest that, but it leaves a lingering pipe character next to "undo". In order to remove that you need to remove the outer span which doesn't have a CSS class or ID. We could hide the first span under &lt;code&gt;.mw-changeslist-links&lt;/code&gt;, but I'm not sure that accounts for rollback links in all places, or if there are cases where rollback isn't in the first span. Finally, the script only targets mobile devices (though 78.26 made it clear they don't use rollback on any device). But anyway, yes, a CSS-only solution is always more efficient. &lt;span style="font-family:sans-serif"&gt;&amp;mdash; &lt;span style="font-weight:bold"&gt;[[User:MusikAnimal|&lt;span style="color:black; font-style:italic"&gt;MusikAnimal&lt;/span&gt;]] &lt;sup&gt;[[User talk:MusikAnimal|&lt;span style="color:green"&gt;talk&lt;/span&gt;]]&lt;/sup&gt;&lt;/span&gt;&lt;/span&gt; 22:22, 26 October 2021 (UTC)
+:::::::::That's only true on history. On Contributions, Watchlist and RecentChanges the whole list item gets removed. It also has the problem of not taking effect after a live update. [[User:Nardog|Nardog]] ([[User talk:Nardog|talk]]) 22:27, 26 October 2021 (UTC)
+::::::::::Bah! Okay I've removed the &lt;code&gt;.parent()&lt;/code&gt; (which I only added just before I commented here). A pity that the HTML isn't consistent across change lists. Thanks for pointing that out! I can do the special handling for history pages, I suppose.
+::::::::::Good point also about live update. This script I believe predates the live feature of Watchlist and RecentChanges, though of course other scripts/gadgets could dynamically add rollback links as well. I'll fix that, but for anyone reading this who wants to hide rollback links forever and always, like {{u|78.26}}, use the CSS Nardog mentioned above :) I assume for most people the stray pipe characters on history pages is not much of a nuisance. &lt;span style="font-family:sans-serif"&gt;&amp;mdash; &lt;span style="font-weight:bold"&gt;[[User:MusikAnimal|&lt;span style="color:black; font-style:italic"&gt;MusikAnimal&lt;/span&gt;]] &lt;sup&gt;[[User talk:MusikAnimal|&lt;span style="color:green"&gt;talk&lt;/span&gt;]]&lt;/sup&gt;&lt;/span&gt;&lt;/span&gt; 22:38, 26 October 2021 (UTC)
+:::::::::::It would be simpler if you just added a class to {{tag|body|o}} if the user agent indicates a mobile device and hid rollback links under that class in CSS. [[User:Nardog|Nardog]] ([[User talk:Nardog|talk]]) 22:51, 26 October 2021 (UTC)
+::::::::::::@[[User:Nardog|Nardog]] Clever! That's a pure JS solution (assuming you'll use &lt;code&gt;mw.util.addCSS()&lt;/code&gt;, so there's still a bit of delay as opposed to pure CSS, but that seems more than acceptable here. I'll give this a go when I find the time. If you wanted to write something yourself I'll happily review it and merge it into the gadget. Just ping me :) &lt;span style="font-family:sans-serif"&gt;&amp;mdash; &lt;span style="font-weight:bold"&gt;[[User:MusikAnimal|&lt;span style="color:black; font-style:italic"&gt;MusikAnimal&lt;/span&gt;]] &lt;sup&gt;[[User talk:MusikAnimal|&lt;span style="color:green"&gt;talk&lt;/span&gt;]]&lt;/sup&gt;&lt;/span&gt;&lt;/span&gt; 05:38, 27 October 2021 (UTC)
+::::::It's really weird that the rollback gets performed ''despite'' choosing Cancel, as opposed to the gadget not taking effect at all. I can totally see the gadget failing when used on Ajax-updated pages though, since it's attaching the handler to &lt;code&gt;.mw-rollback-link&lt;/code&gt; just once, directly. I think it should either make use of event delegation as in &lt;code&gt;$(document.body).on('click', '.mw-rollback-link', function (e) {...&lt;/code&gt; or hook it to &lt;code&gt;wikipage.content&lt;/code&gt; and attach the handler every time the page is updated.
+::::::&lt;code&gt;$(".mw-rollback-link").parent().remove()&lt;/code&gt; removes not just the links but the whole list items with them (i.e. &lt;code&gt;.parent()&lt;/code&gt; is unnecessary). But I don't understand why you wouldn't just hide them in CSS. [[User:Nardog|Nardog]] ([[User talk:Nardog|talk]]) 21:53, 26 October 2021 (UTC)
+{{od}} Only after this lengthy discussion did I recall [[meta:WMDE Technical Wishes/Rollback]] which has been around for a while now. In [[Special:Preferences#mw-prefsection-rendering|Preferences &gt; Appearance]], look for "Show a confirmation prompt when clicking on a rollback link". This makes it work much like the "Thank" button which requires a second click to confirm. However there appears to be some UI issues in the Advanced Mode on mobile. But for those who only work off of the desktop UI (be it on a mobile device or otherwise), this is a nice solution to the problem. &lt;span style="font-family:sans-serif"&gt;&amp;mdash; &lt;span style="font-weight:bold"&gt;[[User:MusikAnimal|&lt;span style="color:black; font-style:italic"&gt;MusikAnimal&lt;/span&gt;]] &lt;sup&gt;[[User talk:MusikAnimal|&lt;span style="color:green"&gt;talk&lt;/span&gt;]]&lt;/sup&gt;&lt;/span&gt;&lt;/span&gt; 05:47, 27 October 2021 (UTC)
+:{{re|MusikAnimal}} sorta - that will also force the link when not "on mobile" too. — [[User:Xaosflux|&lt;span style="color:#FF9933; font-weight:bold; font-family:monotype;"&gt;xaosflux&lt;/span&gt;]] &lt;sup&gt;[[User talk:Xaosflux|&lt;span style="color:#009933;"&gt;Talk&lt;/span&gt;]]&lt;/sup&gt; 12:30, 27 October 2021 (UTC)
+
+== Media Search is available for all users on Wikimedia Commons ==
+
+Hello! We wanted to make a gentle reminder that, since last May, there is a new default way to search files and other media on Commons. [[commons:Special:MediaSearch|Special:MediaSearch]] has been developed [[commons:Commons:Structured data/Media search#Previous updates|in the past year]] to make use of the structured data on Commons and information from Wikidata in order to provide users with more relevant and extensive results, regardless of the language used for the query.
+
+The new interface allows users to access some of the file information (licensing, description…) directly on the page, gives users various options to better filter results, and relies on Wikidata's concept-linking abilities and multilingual labels. [[commons:Special:Search|Special:Search]] remains available for users for cases when its purposeful wikitext-based search may be more appropriate to use.
+
+MediaSearch is just one part of the larger [[mw:Structured data across Wikimedia|Structured Data Across Wikimedia project]], which aims to structure content on wikitext pages, to make reading, editing, and searching easier and more accessible across projects and on the Internet. If you want to learn more about the project, please visit the project pages on MediaWiki, subscribe to the [[mw:Newsletter:Structured Data Across Wikimedia|SDAW Newsletter]], or get in touch with us on the [[mw:Talk:Structured Data Across Wikimedia|project's talk page]]. The Structured Data team looks forward to continuing work on opening up Wikimedia content. Thanks! -- [[User:Sannita (WMF)|Sannita (WMF)]] ([[User talk:Sannita (WMF)|talk]]) 13:58, 27 October 2021 (UTC)
+
+== Difficulty in editing templates using the VisualEditor ==
+
+Sorry, I'm not sure if this is the right place for this message but here goes. The VisualEditor is a more accesible way of editing and I really think we should make as many of our pages work with it as is possible. I have come across various templates such as [[List of listed buildings in Stonehaven, Aberdeenshire]], aviation destination lists on airport pages, and multi-column templates, that make it harder or impossible to edit and add references using the VisualEditor. In frustration, I created a deletion discussion at [[Wikipedia:Templates_for_discussion/Log/2021_July_11#Template:Airport_destination_list]] but it was kept, and to be honest I felt the keep arguments were unconvincing. 
+
+I suppose I want to see if anyone has the same feelings as me here, and if an argument could be made for removing these templates on the grounds of their negative impact on accessibility. Especially in the case of templates creating tables, I just don't think it's beneficial as experienced editors still know how to edit table syntax in the source code editor, but new editors or those who find the VisualEditor easier to use are locked out from editing. Could multiple columns be created using a div and CSS, avoiding the need for a template? If we want new editors to cite their sources, we need to make it easy for them to do so. [[User:NemesisAT|NemesisAT]] ([[User talk:NemesisAT|talk]]) 11:39, 26 October 2021 (UTC)
+:I don't use VE, but doesn't {{tl|Airport destination list}}'s documentation need a TemplateData section in order to make it usable with VE? I thought that was required, or at least required for ease of use. {{tl|HS listed building row}}, which is used in the list article, is also lacking TemplateData code. – [[User:Jonesey95|Jonesey95]] ([[User talk:Jonesey95|talk]]) 16:11, 26 October 2021 (UTC)
+::I'm unable to experiment with TemplateData on {{T|Airport destination list}} as it has been locked, however my gripe with it was that you can't add citations, or indeed any formatting, unless you know the wikicode off-by-heart at which point you may as well use the source editor anyway. In fact, I believe it is not possible to add a citation or use WYSIWYG editing for any template paramter within the VisualEditor. Regarding the listed buildings template, that article is actually one template containing many more within it. It appears to be too much for the VisualEditor to load but again even if it did load, as the entire article is located within template parameters it is impossible to use VisualEditor tools to edit it, you're stuck with using source code within the VisualEditor. Hopefully this makes sense! TemplateData is good but I don't think it would resolve the issues I'm facing here. [[User:NemesisAT|NemesisAT]] ([[User talk:NemesisAT|talk]]) 16:20, 26 October 2021 (UTC)
+:::Somewhat perversely, TemplateData code is stored in the templates' documentation pages, which are not protected, so you should be able to add it yourself, to each of the templates in question. I don't think it makes sense to assume that the templates would not work with VE if they were properly equipped with TemplateData code; try it first before giving up. For help in adding that code, your best bet is probably [[Wikipedia:Help desk]]. – [[User:Jonesey95|Jonesey95]] ([[User talk:Jonesey95|talk]]) 16:37, 26 October 2021 (UTC)
+::::Ah of course, I forgot that it's on the documentation page. I'll have a look. [[User:NemesisAT|NemesisAT]] ([[User talk:NemesisAT|talk]]) 16:57, 26 October 2021 (UTC)
+::::I have started a TemplateData for {{T|Airport destination list}}, but it will never be able to help you with adding a reference as the reference tools are all in the main VisualEditor toolbar, whereas the parameters of a template can only be edited in plain text. I should note that I am able to use the source code editor, in fact, I used to be opposed to the VisualEditor (both on here and on Wikia), but as it has developed, I've realised it is much easier for editing large tables and long pages with lots of references in them. [[User:NemesisAT|NemesisAT]] ([[User talk:NemesisAT|talk]]) 17:49, 26 October 2021 (UTC)
+::Three thoughts:
+::* @[[User:Johanna Strodt (WMDE)|Johanna Strodt (WMDE)]] will want to see this, since WMDE is currently working on how to edit templates in the visual editor.
+::* Most table-oriented templates were created a long time ago. MediaWiki originally used plain old HTML to create tables (a pair of &lt;code&gt;&lt;nowiki&gt;&lt;tr&gt;&lt;/nowiki&gt;&lt;/code&gt; tags for each row, a pair of &lt;code&gt;&lt;nowiki&gt;&lt;td&gt;&lt;/nowiki&gt;&lt;/code&gt; tags for each cell, etc.) The creation of a wikitext syntax (&lt;code&gt;|-&lt;/code&gt;for a new row, &lt;code&gt;||&lt;/code&gt; to separate cells on the same line) for made it easier, but it's still hard, especially when the table is large, or if you want any colors or other fancy formatting. Editors created table templates because it was easier than the wikitext for large or heavily formatted tables. However, now that the visual editor handles all of "code" parts for you, it is generally easier to edit tables in the visual editor than to wrangle templates (unless you want colored text). I particularly recommend the visual editor to anyone who needs to add, remove, or rearrange the columns in an existing table.
+::* You can add and edit templates even if a TemplateData section doesn't exist. It's just (usually) more difficult.
+::[[User:Whatamidoing (WMF)|Whatamidoing (WMF)]] ([[User talk:Whatamidoing (WMF)|talk]]) 16:51, 26 October 2021 (UTC)
+:::That's interesting, I didn't know about the history of the table syntax. [[User:NemesisAT|NemesisAT]] ([[User talk:NemesisAT|talk]]) 17:51, 26 October 2021 (UTC)
+:::The specific WMDE link is [[meta:WMDE Technical Wishes/VisualEditor template dialog improvements]]. &lt;span style="color:#AAA"&gt;&lt;small&gt;&amp;#123;{u&amp;#124;&lt;/small&gt;&lt;span style="border-radius:9em;padding:0 5px;background:#088"&gt;[[User:Sdkb|&lt;span style="color:#FFF"&gt;'''Sdkb'''&lt;/span&gt;]]&lt;/span&gt;&lt;small&gt;}&amp;#125;&lt;/small&gt;&lt;/span&gt; &lt;sup&gt;[[User talk:Sdkb|'''talk''']]&lt;/sup&gt; 17:42, 27 October 2021 (UTC)
+:Late to the party but... sending a template to TfD on the grounds that it's difficult to edit in VE could be seen as [[WP:POINT]]y. --[[User:Redrose64|&lt;span style="color:#a80000; background:#ffeeee; text-decoration:inherit"&gt;Red&lt;/span&gt;rose64]] &amp;#x1f339; ([[User talk:Redrose64|talk]]) 20:17, 26 October 2021 (UTC)
+:Here are some scatter brain thoughts (without reviewing that TFD):
+:# Templates can ensure intra-article consistency. While that is not something we necessarily need to preserve, it can be a nice benefit of table templates.
+:# Templates can indicate the good 'default' information to include. (A drawback is sometimes that's an infobox with 50 parameters. ;)
+:# Templates can restrict what is included, e.g. as in fan-driven wiki articles.
+:# They are easier even than wiki syntax to deal with by experienced editors. Just because we know how doesn't mean we prefer to know.
+:They have detracting points too of course.
+:# VE dislikes them. (BTW the Phab task you are looking for is [[:phab:T52182]] and related. It's old.)
+:# Do we really need standardization across all such articles for all such tables?
+:I know in the past that some of table templates have been deleted as being generally unnecessary, but certainly not all. And those have mostly been table-start, table-row, table-end type templates, not templates that compose the entire construct.
+:Another Phab task of interest might be [[:phab:T54582]] for the specific template.
+:A specific point: {{tq|Could multiple columns be created using a div and CSS}} Yes, but we don't want users to do that. It's fundamentally gross and requires inline CSS. In the case of reference blocks, one might consider advocating to remove {{tl|reflist}} in the general case in lieu of &amp;lt;references/&gt; since most people probably don't need what it provides anymore (columns of references), and where they do they could instead use {{tl|div col}}, which wouldn't make VE sad. Making general columns like {{tl|col-begin}} does is somewhere on my to do list, but I don't know when I'll get to a nice version. [[User:Izno|Izno]] ([[User talk:Izno|talk]]) 17:00, 27 October 2021 (UTC)
+
+== Number of editors per project ==
+
+In one discussion somewhere I saw a graph of active editors in English Wikipedia compared to those of French Wikipedia. I think the graphs were a screenshot of one of the autogenerated statistics pages. Anyone know what that page might have been and could you provide a link? Regards, [[User:1Kwords|A Thousand Words]] ([[User talk:1Kwords|talk]]) 06:07, 28 October 2021 (UTC)
+
+:I have no idea about that (I don't remember seeing any graphs), but at [[List of Wikipedias#Editions overview]] the table there has similar information for the more-or-less current moment. No idea if that satisfies your requirements. &lt;i&gt;&amp;mdash;&amp;nbsp;[[User:JohnFromPinckney|JohnFromPinckney]] ([[User talk:JohnFromPinckney|talk]] / [[Special:Contributions/JohnFromPinckney|edits]])&lt;/i&gt; 08:15, 28 October 2021 (UTC)
+:{{replyto|1Kwords}} [[Special:ActiveUsers]] gives a list of all the editors who have performed an edit on the English Wikipedia in the last 30 days, you can retrieve the number of active users using the &lt;nowiki&gt;{{NUMBEROFACTIVEUSERS}}&lt;/nowiki&gt; magic word. Numbers for all projects are availiable on meta at [[meta:List of Wikipedias]]. [[Special:Contributions/163.1.15.238|163.1.15.238]] ([[User talk:163.1.15.238|talk]]) 12:23, 28 October 2021 (UTC)
+::The magicword only works on the local wiki, for any wiki: &lt;code&gt;&lt;nowiki&gt;{{NUMBEROF|users|fr}}&lt;/nowiki&gt;&lt;/code&gt; = {{NUMBEROF|users|fr}} or &lt;code&gt;&lt;nowiki&gt;{{NUMBEROF|activeusers|fr}}&lt;/nowiki&gt;&lt;/code&gt; = {{NUMBEROF|activeusers|fr}} -- [[User:GreenC|&lt;span style="color: #006A4E;"&gt;'''Green'''&lt;/span&gt;]][[User talk:GreenC|&lt;span style="color: #093;"&gt;'''C'''&lt;/span&gt;]] 12:31, 28 October 2021 (UTC)
+::: Found [https://stats.wikimedia.org/#/en.wikipedia.org/contributing/active-editors/normal|line|2-year|(page_type)~content*non-content|monthly this page with Statistics], it shows number of active users over the last 12 months. The average is also shown, about 40K users for that time period. Found it via some searching and clicking the right links. [[User:1Kwords|A Thousand Words]] ([[User talk:1Kwords|talk]]) 19:24, 28 October 2021 (UTC)
+
+==Mapframe border disappeared==
+{{maplink
+|title1=Claremont Colleges boundary
+  |type1=shape
+  |id1=Q3246557
+  |stroke-color1=#8246AF
+  |stroke-width1=4
+  |fill1=#8246AF
+  |fill-opacity1=0
+|title2=Pomona College boundary
+  |type2=shape
+  |id2=Q7227384
+  |stroke-color2=#20438F
+  |stroke-width2=6
+  |fill2=#20438F
+  |fill-opacity2=0
+|frame=yes |frame-align=right |frame-lat=34.0978 |frame-long=-117.7119 |zoom=14 |frame-width=230 |frame-height=180
+|text=Campus map, showing the partial workaround for the boundary disappearance
+}}
+
+{{maplink
+|title1=Claremont Colleges boundary
+  |type1=line
+  |id1=Q3246557
+  |stroke-color1=#8246AF
+  |stroke-width1=4
+|title2=Pomona College boundary
+  |type2=line
+  |id2=Q7227384
+  |stroke-color2=#20438F
+  |stroke-width2=6
+|frame=yes |frame-align=center |frame-lat=34.0978 |frame-long=-117.7119 |zoom=14 |frame-width=230 |frame-height=180
+|text=Campus map, showing the boundary disappearance bug
+}}
+
+Following up from [[Wikipedia:Village_pump_(technical)/Archive_192#Mapframe_bug_with_references|here]], I'm continuing to have two issues with the [[WP:Mapframe|Mapframe]] at [[Pomona College#Campus]]. The first (this thread) is that the boundary line has disappeared. The odd thing here is that it worked fine for a day or so when I first added it, but then it disappeared without any edits to the article/Wikidata item/OSM item I'm aware of, and it hasn't come back. The bug is replicated above at center.
+
+The partial workaround I've found is to change {{para|type|line}} to {{para|type|shape}}, as shown above at right. However, even with the fill opacity set to zero, it still means anywhere in the interior of the campus becomes clickable with the title popping up. I'd much prefer it to return to the behavior from the line type before starting the FAC; does anyone know how to get that working again? Cheers, &lt;span style="color:#AAA"&gt;&lt;small&gt;&amp;#123;{u&amp;#124;&lt;/small&gt;&lt;span style="border-radius:9em;padding:0 5px;background:#088"&gt;[[User:Sdkb|&lt;span style="color:#FFF"&gt;'''Sdkb'''&lt;/span&gt;]]&lt;/span&gt;&lt;small&gt;}&amp;#125;&lt;/small&gt;&lt;/span&gt; &lt;sup&gt;[[User talk:Sdkb|'''talk''']]&lt;/sup&gt; 19:15, 23 October 2021 (UTC)
+
+:It's hard to say, but generally, I don't think shapes are supposed to be available in the line service. I'd be surprised if they were. Then again, our change in the osmdb sync has brought to light multiple changes already, so maybe there is an error. I really can't say. —[[User:TheDJ|Th&lt;span style="color: green"&gt;e&lt;/span&gt;DJ]] ([[User talk:TheDJ|talk]] • [[Special:Contributions/TheDJ|contribs]]) 12:54, 25 October 2021 (UTC)
+::@[[User:TheDJ|TheDJ]], the OSM feature from which the boundary is (I think) being derived is [https://www.openstreetmap.org/way/458898308 way 458898308], which is a line rather than a shape. I know some other institutions have a relation in addition to a way; I don't really understand what the difference is between those or if that might be related to the issue. Also, I'm not sure what you're referring to with "osmdb sync". &lt;span style="color:#AAA"&gt;&lt;small&gt;&amp;#123;{u&amp;#124;&lt;/small&gt;&lt;span style="border-radius:9em;padding:0 5px;background:#088"&gt;[[User:Sdkb|&lt;span style="color:#FFF"&gt;'''Sdkb'''&lt;/span&gt;]]&lt;/span&gt;&lt;small&gt;}&amp;#125;&lt;/small&gt;&lt;/span&gt; &lt;sup&gt;[[User talk:Sdkb|'''talk''']]&lt;/sup&gt; 18:57, 25 October 2021 (UTC)
+:::@[[User:TheDJ|TheDJ]], okay, so I found [[phab:T285668]]. I'm still not quite sure what to do about this, though. Just drawing a line on the boundary rather than an infilled shape (using &lt;code&gt;"service": "geoline"&lt;/code&gt; rather than &lt;code&gt;"service": "geoshape"&lt;/code&gt;) seems like something that ought to be possible, and it was possible until a week or so ago but now it seems it's not. &lt;span style="color:#AAA"&gt;&lt;small&gt;&amp;#123;{u&amp;#124;&lt;/small&gt;&lt;span style="border-radius:9em;padding:0 5px;background:#088"&gt;[[User:Sdkb|&lt;span style="color:#FFF"&gt;'''Sdkb'''&lt;/span&gt;]]&lt;/span&gt;&lt;small&gt;}&amp;#125;&lt;/small&gt;&lt;/span&gt; &lt;sup&gt;[[User talk:Sdkb|'''talk''']]&lt;/sup&gt; 20:42, 28 October 2021 (UTC)
+::::That's not related, that ticket is about the toolforge OSM maps, which are way more broken than wikimedia maps at this point. There isn't a ticket about this particular issue yet, but i suspect it has something to do with the [[phab:T288730|new way the import/update]] of the OSM database is being handled now. —[[User:TheDJ|Th&lt;span style="color: green"&gt;e&lt;/span&gt;DJ]] ([[User talk:TheDJ|talk]] • [[Special:Contributions/TheDJ|contribs]]) 20:51, 28 October 2021 (UTC)
+:::::Okay, thanks for the info; I created a phab ticket at [[phab:T294598]]. Cheers, &lt;span style="color:#AAA"&gt;&lt;small&gt;&amp;#123;{u&amp;#124;&lt;/small&gt;&lt;span style="border-radius:9em;padding:0 5px;background:#088"&gt;[[User:Sdkb|&lt;span style="color:#FFF"&gt;'''Sdkb'''&lt;/span&gt;]]&lt;/span&gt;&lt;small&gt;}&amp;#125;&lt;/small&gt;&lt;/span&gt; &lt;sup&gt;[[User talk:Sdkb|'''talk''']]&lt;/sup&gt; 21:08, 28 October 2021 (UTC)
+
+== Other admin deletion logs showing up on my watchlist ==
+[[File:New filters for edit review - Filtering 1 include-exclude.png|thumb|right|Filter options on recent changes, but the same interface can be found on the watchlist]]
+I haven't lately checked - or unchecked - anything different on my Watchlist preferences. But my Watchlist is starting to show me the logs of Admin users. ANI suggested I uncheck the "logged actions" box. I don't see such a box, either on my Watchlist page, or on my Preferences. And it doesn't seem to be all admin logs that are showing up.  Just two or three a day.  Today's says "09:57 (Deletion log)‎ [Kusma‎; Favonian‎; Blablubbs‎]". And that's how it seems everyday. How do I stop this? [[User:Maile66|— Maile ]] ([[User talk:Maile66|talk]]) 15:37, 29 October 2021 (UTC)
+:{{re|Maile66}} as far as I know, that happens when a page on your watchlist is deleted. At the top of your watchlist, there should be a box that says "Active filters". If it's hidden, click the "show" button. Then you can click the X next to "Logged actions" to stop showing them in your watchlist. I think that only lasts as long as you stay on the current watchlist page, but there's a bookmark icon to the right that allows you to save your filter preferences ([[:mw:Help:New filters for edit review/Filtering]]). [[User:Clpo13|clpo13]]&lt;sub&gt;([[User_talk:Clpo13|talk]])&lt;/sub&gt; 15:55, 29 October 2021 (UTC)
+::Something is missing here. "Active filters" is not on mine, but I can click on "Show", but the drop down does not give me the option of "Logged actions". [[User:Maile66|— Maile ]] ([[User talk:Maile66|talk]]) 16:10, 29 October 2021 (UTC)
+:::Do you have the "Use non-JavaScript interface" option checked in your [[Special:Preferences#mw-prefsection-watchlist|watchlist preferences]]? That would show the old watchlist options, which doesn't include the newer, advanced filters. [[User:Clpo13|clpo13]]&lt;sub&gt;([[User_talk:Clpo13|talk]])&lt;/sub&gt; 16:26, 29 October 2021 (UTC)
+
+::::Aaahhhhhhhh ... I unchecked it, and the problem went away.  Thanks. [[User:Maile66|— Maile ]] ([[User talk:Maile66|talk]]) 16:33, 29 October 2021 (UTC)
+
+== Color of "You have new messages" alert for IP editors ==
+
+See {{sectionlink|MediaWiki talk:Common.css|Orange bar of doom now peach bar of doom}}. [[User:Suffusion of Yellow|Suffusion of Yellow]] ([[User talk:Suffusion of Yellow|talk]]) 00:31, 30 October 2021 (UTC)
+
+== Updating infobox templates ==
+
+Scenario: 10k articles use the same infobox template. That template has code that hasn't been changed for 10 years (consider it deprecated). New template is ready. What are some advices and tips for the best workflow which causes the less amount of chaos with articles? Asking for cases outside of EnWiki. - [[User:Klein Muçi|Klein Muçi]] ([[User talk:Klein Muçi|talk]]) 23:57, 21 October 2021 (UTC)
+
+:Tell us more about the changes.  Are there incompatible parameters? [[User:Whatamidoing (WMF)|Whatamidoing (WMF)]] ([[User talk:Whatamidoing (WMF)|talk]]) 00:38, 22 October 2021 (UTC)
+::@[[User:Whatamidoing (WMF)|Whatamidoing (WMF)]], at most cases, no. But let's assume I have around 10 infoboxes suffering from the same problem and some of they may have totally new code syntax, for example having changed from traditional wiki text to Lua module invocations.
+::Real situation: Admin at SqWiki. Some infoboxes are outdated, we want to update them mirroring EnWiki. It's been month we've postponed that because we're worried about the chaos that my continue from that. Today I finally got the courage and updated the infobox related to musical artists, which was transcluded in +700 articles. The number of parameters and their type was more or less the same but in English so what I did was import the EnWiki version in a temporary name in SqWiki, get all the articles that it was transcluded on, feed that list on AWB together with 10 find and replace regex-es which would change the parameters on them (just translate them on English basically) and let my robot take over. Removed the old template, move the new one to the old name. Voila!
+::I was wondering if there are any other better ways I'm missing out on. - [[User:Klein Muçi|Klein Muçi]] ([[User talk:Klein Muçi|talk]]) 00:50, 22 October 2021 (UTC)
+:::I think – and someone should please [[Cunningham's Law|correct me if I'm wrong]] – that all of the good solutions inspire editors to improve the article on [[Vaporware]], and that your current appropach is the most typical, and best, of the existing (poor) options. [[User:Whatamidoing (WMF)|Whatamidoing (WMF)]] ([[User talk:Whatamidoing (WMF)|talk]]) 16:12, 26 October 2021 (UTC)
+::::@[[User:Whatamidoing (WMF)|Whatamidoing (WMF)]], thanks for the answer. I was thinking I never got an answer back in this post. Good to know I'm on the right track. :) - [[User:Klein Muçi|Klein Muçi]] ([[User talk:Klein Muçi|talk]]) 23:18, 30 October 2021 (UTC)
+:::::Another potential option, for future use, would be to make the old template a wrapper for the new template. This ensures compatibility with the new parameters (and means you don't miss anything). Once this is done, you create a subst-only version of the old template, which then can be subst'ed away and replaced by the new template. [[User:Primefac|Primefac]] ([[User talk:Primefac|talk]]) 07:57, 31 October 2021 (UTC) {{ppor}}
+
+== Article in mutually contradicting categories ==
+
+[[Rehelim]] is in both [[:Category:Short description matches Wikidata]] and [[:Category:Short description is different from Wikidata]]. Any explanation? &lt;span style="font-family: Cambria;"&gt;[[User:Abductive|&lt;span style="color: teal;"&gt;'''Abductive'''&lt;/span&gt;]] ([[User talk:Abductive|reasoning]])&lt;/span&gt; 23:14, 29 October 2021 (UTC)
+:There is no such thing as contradicting categories from a category system point of view... — [[User:Xaosflux|&lt;span style="color:#FF9933; font-weight:bold; font-family:monotype;"&gt;xaosflux&lt;/span&gt;]] &lt;sup&gt;[[User talk:Xaosflux|&lt;span style="color:#009933;"&gt;Talk&lt;/span&gt;]]&lt;/sup&gt; 23:19, 29 October 2021 (UTC)
+::&lt;code&gt;&lt;nowiki&gt;{{short description|Israeli settlement in the West Bank}}&lt;/nowiki&gt;&lt;/code&gt; matches Wikidata but the infobox automatically adds the different short description "Place in Judea and Samaria Area". The first short description is used. [[User:PrimeHunter|PrimeHunter]] ([[User talk:PrimeHunter|talk]]) 23:27, 29 October 2021 (UTC)
+::{{ec}} In short - there are 2 templates that are pushing those categories, {{tl|short description}} and {{tl|Infobox Israel village}} - that later of which requires more patience than I have right now to unravel. — [[User:Xaosflux|&lt;span style="color:#FF9933; font-weight:bold; font-family:monotype;"&gt;xaosflux&lt;/span&gt;]] &lt;sup&gt;[[User talk:Xaosflux|&lt;span style="color:#009933;"&gt;Talk&lt;/span&gt;]]&lt;/sup&gt; 23:28, 29 October 2021 (UTC)
+:::This is a perennial topic at [[Wikipedia_talk:Short_description#Matches_Wikidata_and_also_different|WT:Short description]]. Brilliant solutions are welcome. – [[User:Jonesey95|Jonesey95]] ([[User talk:Jonesey95|talk]]) 23:56, 29 October 2021 (UTC)
+::::At the very least, update the documentation for [[Template:Infobox Israel village]] to let editors know what it is they are invoking when they use it? — [[User:Xaosflux|&lt;span style="color:#FF9933; font-weight:bold; font-family:monotype;"&gt;xaosflux&lt;/span&gt;]] &lt;sup&gt;[[User talk:Xaosflux|&lt;span style="color:#009933;"&gt;Talk&lt;/span&gt;]]&lt;/sup&gt; 00:04, 30 October 2021 (UTC)
+:::::{{done}}. Never let anyone say I didn't do the very least. – [[User:Jonesey95|Jonesey95]] ([[User talk:Jonesey95|talk]]) 16:31, 31 October 2021 (UTC)
+
+== Advice regarding a template update ==
+
+I am seeking advice regarding {{tl|EB1911 poster}}. Currently the template does not function as described in the [[Template:EB1911 poster/doc|templat's documentation]] nor at [[:Category:Wikipedia articles incorporating the template EB1911 poster with no parameters]] where it reluctantly states that failing to designate the article's title using the first unnamed parameter defaults to using &lt;nowiki&gt;{{PAGENAME}}&lt;/nowiki&gt; albeit advisable to avoid. Currently, no such link is produced by such default although I have worked up a functioning solution in the [[Template:EB1911 poster/sandbox|templat's sandbox]]. Yet, because the template is protected, and I don't wish to use the TE flag inappropriately, I ask: would it be better for me to rewrite the instructions to correspond with the templat's functionality, or recode the template to correspond with the instructions? Additionally, the category's title makes it seem that the template was used without any parameters being used when in fact it only red flags and categorizes based on whether or not &lt;nowiki&gt;{{{1|}}}&lt;/nowiki&gt; is used (even when other parameters are used). In this case I ask: should the category be moved to a more accurate title (like [[:Category:Wikipedia articles incorporating the template EB1911 poster without designating the article's title]] for example) or here again, simply rewrite the instructions to accurately describe what triggers the categorization of member pages? Thank you for considering this request, and for any advice given. I appreciate the opportunity to learn from those regularly watching this page.--[[User:John Cline|John Cline]] ([[User talk:John Cline#Top|talk]]) 10:19, 1 November 2021 (UTC)
+:Shouldn't these questions be asked at [[Template talk:EB1911 poster]].  Doesn't seem like an appropriate topic for WP:VPT.
+:—[[User:Trappist the monk|Trappist the monk]] ([[User talk:Trappist the monk|talk]]) 11:37, 1 November 2021 (UTC)
+::Thank you for your reply. I'll move the thread to that page. --[[User:John Cline|John Cline]] ([[User talk:John Cline#Top|talk]]) 12:28, 1 November 2021 (UTC)
+:{{ping|John Cline}} {{tq|Yet, because the template is protected, and I don't wish to use the TE flag inappropriately...}} Template editor was granted to you because you are trusted to perform changes to pages protected so. Unless you have a COI of some sort (which it's hard to think would be applicable to a 110-year-old revision of ''Britannica''), [[WP:BOLD|do what you think is best for the Wikipedia]]. [[User:Izno|Izno]] ([[User talk:Izno|talk]]) 12:35, 1 November 2021 (UTC)
+::Thank you Izno, I appreciate your reply. I've already moved the discussion to [[Template talk:EB1911 poster#Advice regarding an update of this template]] so I'll leave it open for a little while and mark this thread as resolved. Thanks again.--[[User:John Cline|John Cline]] ([[User talk:John Cline#Top|talk]]) 13:03, 1 November 2021 (UTC)
+{{resolved}}
+
+== Indentation bug in mobile ==
+
+Compare the [https://en.m.wikipedia.org/w/index.php?title=Wikipedia:Wikipedia_Signpost/2021-10-31/Book_review&amp;oldid=1052910764 mobile view] and [https://en.wikipedia.org/w/index.php?title=Wikipedia:Wikipedia_Signpost/2021-10-31/Book_review&amp;oldid=1052910764 desktop view] of an old version [[Wikipedia:Wikipedia Signpost/2021-10-31/Book review]]. For some reason, using a colon for indentation in the first para after the Signpost templates shows a large blank area in mobile view. I replaced the colon with &lt;code&gt;&lt;nowiki&gt;&lt;div style="margin-left:1em;"&gt;&lt;/nowiki&gt;&lt;/code&gt; which displays properly in mobile web. I have occassionally seen this type of bug in talk pages too. Any idea what's the reason behind this? [[User:ಮಲ್ನಾಡಾಚ್ ಕೊಂಕ್ಣೊ|ಮಲ್ನಾಡಾಚ್ ಕೊಂಕ್ಣೊ]] ([[User talk:ಮಲ್ನಾಡಾಚ್ ಕೊಂಕ್ಣೊ|talk]]) 14:33, 1 November 2021 (UTC)
+
+:A colon is not for indentation. This is a bad habit we developed on talk pages, but generally a colon is part of a definition list. We generally use the template {{tl|hatnote}} or any of it's more specific children templates for styling this. —[[User:TheDJ|Th&lt;span style="color: green"&gt;e&lt;/span&gt;DJ]] ([[User talk:TheDJ|talk]] • [[Special:Contributions/TheDJ|contribs]]) 15:11, 1 November 2021 (UTC)
+:The content there would probably better use {{tl|block indent}}. --[[User:Izno|Izno]] ([[User talk:Izno|talk]]) 15:20, 1 November 2021 (UTC)
+
+== Block new account creation only? ==
+
+As a way to fight persistent creation of new socks on a /16 IP range with lots of legitimate traffic, I'm thinking the best tool might be to partial-block the /16 from some rarely-used namespace (say, "Gadget Definition Talk") and also tick the "Block account creation" box.  I think that would have the effect of letting everybody, including IPs, continue to edit, yet prevent new socks from being generated.  I assume that would work?  Any reason not to do something like that? -- [[User:RoySmith|RoySmith]] [[User Talk:RoySmith|(talk)]] 15:55, 31 October 2021 (UTC)
+
+:That's cute. I would use a namespace that most people can't edit such as Gadget or MediaWiki, not a talk namespace, leaning to MediaWiki because that one is guaranteed not to go anywhere. If I were to do something like this. And if it works. [[User:Izno|Izno]] ([[User talk:Izno|talk]]) 16:40, 31 October 2021 (UTC)
+:{{re|RoySmith|Izno}} you don't need that hack, you can just do what you want to do - see example at [[:testwiki:Special:Redirect/logid/266527]]. — [[User:Xaosflux|&lt;span style="color:#FF9933; font-weight:bold; font-family:monotype;"&gt;xaosflux&lt;/span&gt;]] &lt;sup&gt;[[User talk:Xaosflux|&lt;span style="color:#009933;"&gt;Talk&lt;/span&gt;]]&lt;/sup&gt; 16:58, 31 October 2021 (UTC)
+::Interesting.  Hey, could you give me a mop on testwiki so I can play with this? -- [[User:RoySmith|RoySmith]] [[User Talk:RoySmith|(talk)]] 17:14, 31 October 2021 (UTC)
+:::Oh, I see what you did.  Select "Partial", leave "Pages" and "Namespaces" both blank, and tick "Block account creation"?  I just assumed you had to put something into one of Pages or Namespaces, but I guess not? -- [[User:RoySmith|RoySmith]] [[User Talk:RoySmith|(talk)]] 17:17, 31 October 2021 (UTC)
+::::{{done}} and nope - not required to actually include any "editing" blockage. — [[User:Xaosflux|&lt;span style="color:#FF9933; font-weight:bold; font-family:monotype;"&gt;xaosflux&lt;/span&gt;]] &lt;sup&gt;[[User talk:Xaosflux|&lt;span style="color:#009933;"&gt;Talk&lt;/span&gt;]]&lt;/sup&gt; 17:36, 31 October 2021 (UTC)
+:::::That's pretty cool. I'll keep that in mind if I ever need to only prevent account creation from a range. [[User:Dreamy Jazz|Dreamy &lt;i style="color:#d00"&gt;'''Jazz'''&lt;/i&gt;]] &lt;sup&gt;''[[User talk:Dreamy Jazz|talk to me]]'' &amp;#124; ''[[Special:Contribs/Dreamy Jazz|my contributions]]''&lt;/sup&gt; 18:17, 31 October 2021 (UTC)
+::::::This is a very neat trick! I wish I had known about this since partial blocks were introduced. I think this deserves documentation. For starters I've added a note at [[Special:Diff/1053054507|Wikipedia:Blocking IP addresses]] and [[Special:Diff/1053054954|Wikipedia:Partial blocks]]. &lt;span style="font-family:sans-serif"&gt;&amp;mdash; &lt;span style="font-weight:bold"&gt;[[User:MusikAnimal|&lt;span style="color:black; font-style:italic"&gt;MusikAnimal&lt;/span&gt;]] &lt;sup&gt;[[User talk:MusikAnimal|&lt;span style="color:green"&gt;talk&lt;/span&gt;]]&lt;/sup&gt;&lt;/span&gt;&lt;/span&gt; 17:00, 1 November 2021 (UTC)
+
+== [[m:Special:MyLanguage/Tech/News/2021/44|Tech News: 2021-44]] ==
+
+&lt;section begin="technews-2021-W44"/&gt;&lt;div class="plainlinks"&gt;
+Latest '''[[m:Special:MyLanguage/Tech/News|tech news]]''' from the Wikimedia technical community. Please tell other users about these changes. Not all changes will affect you. [[m:Special:MyLanguage/Tech/News/2021/44|Translations]] are available.
+
+'''Recent changes'''
+* There is a limit on the amount of emails a user can send each day. This limit is now global instead of per-wiki. This change is to prevent abuse. [https://phabricator.wikimedia.org/T293866]
+
+'''Changes later this week'''
+* [[File:Octicons-sync.svg|12px|link=|Recurrent item]] The [[mw:MediaWiki 1.38/wmf.7|new version]] of MediaWiki will be on test wikis and MediaWiki.org from {{#time:j xg|2021-11-02|en}}. It will be on non-Wikipedia wikis and some Wikipedias from {{#time:j xg|2021-11-03|en}}. It will be on all wikis from {{#time:j xg|2021-11-04|en}} ([[mw:MediaWiki 1.38/Roadmap|calendar]]).
+
+'''''[[m:Special:MyLanguage/Tech/News|Tech news]]''' prepared by [[m:Special:MyLanguage/Tech/News/Writers|Tech News writers]] and posted by [[m:Special:MyLanguage/User:MediaWiki message delivery|bot]]&amp;nbsp;• [[m:Special:MyLanguage/Tech/News#contribute|Contribute]]&amp;nbsp;• [[m:Special:MyLanguage/Tech/News/2021/44|Translate]]&amp;nbsp;• [[m:Tech|Get help]]&amp;nbsp;• [[m:Talk:Tech/News|Give feedback]]&amp;nbsp;• [[m:Global message delivery/Targets/Tech ambassadors|Subscribe or unsubscribe]].''
+&lt;/div&gt;&lt;section end="technews-2021-W44"/&gt;
+
+20:26, 1 November 2021 (UTC)
+&lt;!-- Message sent by User:Quiddity (WMF)@metawiki using the list at https://meta.wikimedia.org/w/index.php?title=Global_message_delivery/Targets/Tech_ambassadors&amp;oldid=22269406 --&gt;
+
+== Sprites? ==
+
+Prompted by [[WP:VPM#Very big pages]], I took a look at [[2021 in mammal paleontology]].   A big chunk of the load time is a pile of tiny png files of national flags, many of which are smaller than 200 bytes (i.e. the HTTP headers swamp the data).  This seems like a perfect use for [[Sprite (computer graphics)|sprites]].  Does the mediawiki software support that in any way? -- [[User:RoySmith|RoySmith]] [[User Talk:RoySmith|(talk)]] 15:35, 29 October 2021 (UTC)
+
+:No, that's not how the web works. That said, the fix is obvious: Remove the "pile of tiny png files of national flags". [[User:Izno|Izno]] ([[User talk:Izno|talk]]) 16:12, 29 October 2021 (UTC)
+::There are around 58 different flags. That's not so bad. Many articles have around 200. [[User:PrimeHunter|PrimeHunter]] ([[User talk:PrimeHunter|talk]]) 22:33, 29 October 2021 (UTC)
+::[https://www.w3schools.com/css/css_image_sprites.asp CSS image sprites] is one approach to convert loading multiple little images into loading a single image. In theory, someone could make a template to encapsulate the inner workings away for something like a composite image of all the national flags. More investigation is needed to determine how much savings it might provide, and weigh it against the cost of maintaining a composite image. [[User:Isaacl|isaacl]] ([[User talk:Isaacl|talk]]) 05:17, 30 October 2021 (UTC)
+:{{re|Isaacl}} could be a possible solution when template size is exceeded on some list pages as well. — [[User:Xaosflux|&lt;span style="color:#FF9933; font-weight:bold; font-family:monotype;"&gt;xaosflux&lt;/span&gt;]] &lt;sup&gt;[[User talk:Xaosflux|&lt;span style="color:#009933;"&gt;Talk&lt;/span&gt;]]&lt;/sup&gt; 12:10, 30 October 2021 (UTC)
+:This is doable with TemplateStyles, IIRC. We'd need to put together a standard sheet with all the flags that an article might use, though. (We couldn't practically have a separate sheet specifically for the flags used in a particular article, nor is there a system for generating them like that.) I don't know if this would make sense to do from a performance perspective. --[[User:Yair rand|Yair rand]] ([[User talk:Yair rand|talk]]) 17:47, 31 October 2021 (UTC)
+::The problem with sprites for something like this, is that it only really works well if the same images are used a lot on the same page. Having a sprite with 500 different flags while most pages only use one flag or 0 flags, doesn't really make sense either. This is where optimising for Wikipedia becomes really difficult. Our pages are just all so different that many common optimisation strategies don't apply. —[[User:TheDJ|Th&lt;span style="color: green"&gt;e&lt;/span&gt;DJ]] ([[User talk:TheDJ|talk]] • [[Special:Contributions/TheDJ|contribs]]) 10:24, 2 November 2021 (UTC)
+
+== Tools down ==
+{{tracked|T294853}}
+
+Just a heads up: There's a bunch of toolforge-based services (and possibly others?) down right now. I'm told there's a network issue in the toolforge infrastructure that's to blame and it's being worked on. So if something's not working, that's probably why. [[User:RoySmith-Mobile|RoySmith-Mobile]] ([[User talk:RoySmith-Mobile|talk]]) 12:55, 2 November 2021 (UTC)
+
+:Latest update: "The incident has been resolved, all the alerts will start clearing up shortly.  If you still see some issues, please ping us ... on IRC (#wikimedia-cloud on libera.chat)."  -- [[User:RoySmith|RoySmith]] [[User Talk:RoySmith|(talk)]] 14:15, 2 November 2021 (UTC)
+
+== [Read-only time] Wednesday 3rd November 06:00 AM UTC ==
+
+'''A maintenance operation will be performed on [https://zonestamp.toolforge.org/1635919251 Wednesday 3rd November 06:00 AM UTC].''' It should only last for a few minutes. During this time, publishing edits will not be possible at English Wikipedia.
+
+For more details about the operation and on all impacted services, please check [[phab:T293964|on Phabricator]].
+
+A banner will be displayed 30 minutes before the operation.
+
+Please help your community to be aware of this maintenance operation. Thank you!
+
+[[User:Trizek (WMF)|Trizek (WMF)]] ([[User talk:Trizek (WMF)|talk]]) 15:03, 2 November 2021 (UTC)
+
+== When a revert isn't a revert ==
+
+Hi! Can we all agree the software should only use the term '''revert''' to mean ''undoing somebody's edit to the previous state'', you know like the word means? Currently it is possible to hit the undo button AND THEN MAKE ANY UNRELATED CHANGES, and the poor sob making the original change will see his changes "reverted". &lt;strike&gt;This is not a theoretical concern, I just got [https://en.wikipedia.org/w/index.php?title=Kongoni_(operating_system)&amp;action=history bitten by it].&lt;/strike&gt; --[[User:Palosirkka|Palosirkka]] ([[User talk:Palosirkka|talk]]) 14:46, 31 October 2021 (UTC)
+:{{replyto|Palosirkka}} Could you explain what the issue is, because I'm not seeing the issue from that article's history. You fixed the logo size, but did so using the wrong syntax. Ahunt came along and fixed the syntax for you. You reverted his edit because ???, then Ahunt reverted your revert. The only diffs in that chain that are tagged as "undo" (i.e. having involved clicking the undo button) are your revert and Ahunt's revert of your revert. The only edits that are tagged as "reverted" Ahunt fixing the syntax and you removing Ahunt's fix. As far as I can see everything is correct? [[Special:Contributions/192.76.8.77|192.76.8.77]] ([[User talk:192.76.8.77|talk]]) 14:58, 31 October 2021 (UTC)
+::{{replyto|192.76.8.77}}The issue is Ahunt didnt revert my change returning the article to it's previous state but ALSO made other changes. Yet the software called it all misleadingly 'reverted'. Do you now see my point? I reverted precisely because of the word reverted was used without looking at the diff. This misleading lingo can lead to such silly reverts and even "edit wars". --[[User:Palosirkka|Palosirkka]] ([[User talk:Palosirkka|talk]]) 15:05, 31 October 2021 (UTC)
+:::It's a [[Wikipedia:Reverting|partial reversion]], or a "revert and do differently".  However, the software does label any change made with the undo button a reversion, even if it keeps the previous edit intact and changes something unrelated.  Please try not to take the "Reverted" tag personally.  It doesn't necessarily mean your edit is being criticised.  On this occasion, you spotted a problem and partially solved it, allowing another editor to stand on your shoulders and finish the job.  [[User:Certes|Certes]] ([[User talk:Certes|talk]]) 15:12, 31 October 2021 (UTC)
+::::And that should be changed. I don't take it personally at all but it causes unneccessary re-reverts. --[[User:Palosirkka|Palosirkka]] ([[User talk:Palosirkka|talk]]) 15:17, 31 October 2021 (UTC)
+:::{{tq|I reverted precisely because of the word reverted was used without looking at the diff.}} So you deliberately edit warred without reviewing the changes in the revision? That seems blockable. Maybe you shouldn't do that instead. [[User:Izno|Izno]] ([[User talk:Izno|talk]]) 15:13, 31 October 2021 (UTC)
+::::lol, no. I reverted Ahunt's edit because the software claimed he had removed my useful change. --[[User:Palosirkka|Palosirkka]] ([[User talk:Palosirkka|talk]]) 15:17, 31 October 2021 (UTC)
+:::::I think your point is clear, but unfortunately, things aren't so simple in our world (and the "Undid revision 1052844..." text that appears in the edit summary field with "undo" is only a suggestion; editors are free to adapt that text as appropriate). In the world in which we're working, edit summaries are very often incomplete, misleading or missing altogether. It behooves us all to actually check the diffs we undo/revert/rollback; after all, we take responsibility for each and every edit we make {{em|based on content}} even more than [[WP:ES|ES]] or "Reverted" flags. I hope you can consider this one of those "lessons learned" and continue contributing to Wikipedia with this knowledge helping you. Technically, I think it'd be very hard to revise the system so that any edits before saving an "undone" edit negate the application of the "Reverted" marker in th histories. &lt;i&gt;&amp;mdash;&amp;nbsp;[[User:JohnFromPinckney|JohnFromPinckney]] ([[User talk:JohnFromPinckney|talk]] / [[Special:Contributions/JohnFromPinckney|edits]])&lt;/i&gt; 15:32, 31 October 2021 (UTC)
+::::::{{tq|Technically, I think it'd be very hard to revise the system so that any edits before saving an "undone" edit negate the application of the "Reverted" marker in th histories.}} No that's already been done ([[phab:T259014]]). [[User:Nardog|Nardog]] ([[User talk:Nardog|talk]]) 15:35, 31 October 2021 (UTC)
+:::{{replyto|Palosirkka}} No he didn't - It's tagged as "reverted" because ''you'' reverted it - edits which are performing a revert are tagged "undo" or "manual revert" depending upon how you do them. The first edit he made to the page [https://en.wikipedia.org/w/index.php?title=Kongoni_(operating_system)&amp;diff=next&amp;oldid=1052838964] is not a revert in any sense of the word - he just moved the 90px into it's correct section of the infobox. It was not performed using the undo button, it is not a manual revert and the software did not tag it as such. [[Special:Contributions/192.76.8.77|192.76.8.77]] ([[User talk:192.76.8.77|talk]]) 15:22, 31 October 2021 (UTC)
+::::{{replyto|192.76.8.77}}Good catch! So, the example is wrong. Sorry for that folks... However I still think the undo button should only remove the edit in question without allowing other changes. --[[User:Palosirkka|Palosirkka]] ([[User talk:Palosirkka|talk]]) 15:31, 31 October 2021 (UTC)
+:Just a note, there was a similar discussion [[Wikipedia_talk:Reverting#Using_undo_for_an_edit_that_isn't_a_revert|here]] last week, which generally seems to indicate that such actions are perfectly acceptable, though obviously if further changes are made they are indicated in the edit summary. [[User:Primefac|Primefac]] ([[User talk:Primefac|talk]]) 16:01, 31 October 2021 (UTC)
+
+:Just to chime in. I agree with the sentiment here. I also want to add that I think the word "revert" has gained a toxic overtone among the general public in relation to Wikipedia. I've seen people online complain "your edits get reverted by power users" countless times. That's probably because we overuse the term. It really should only be used for things like obvious vandalism. Good faith edits should not be "reverted" and a explanatory edit summary should be given. [[User:Jason Quinn|Jason Quinn]] ([[User talk:Jason Quinn|talk]]) 17:16, 2 November 2021 (UTC)
+
+== [[Portal:Current_events]] is not formatted correctly at large screens ==
+
+&lt;s&gt;It seems that the image at the TITN is breaking the format of the whole page. Purging does nothing, but zooming until the TITN text is taller than the picture does display the page as it should be. - [[Special:Contributions/49.147.242.233|49.147.242.233]] ([[User talk:49.147.242.233|talk]]) 09:24, 3 November 2021 (UTC)&lt;/s&gt;
+:[[Portal:Current events/Headlines/styles.css]] was fixed to correct for this error. - [[Special:Contributions/49.147.242.233|49.147.242.233]] ([[User talk:49.147.242.233|talk]]) 12:17, 3 November 2021 (UTC)
+
+== Diff-related user scripts broken ==
+
+Some diff-related user scripts may have been broken by https://phabricator.wikimedia.org/T285857, which modified the HTML structure of diffs. New CSS classes were added, and there may have been other changes too. [[User:Enterprisey|Enterprisey]]&amp;nbsp;([[User talk:Enterprisey|talk!]]) 06:32, 4 November 2021 (UTC)
+:Thanks for the heads-up. Based on the [https://gerrit.wikimedia.org/r/plugins/gitiles/mediawiki/php/wikidiff2/+log log], the changes AFAICS are:
+:*{{tag|td|o}}s (including headers) now have a &lt;code&gt;diff-side-deleted&lt;/code&gt; or &lt;code&gt;diff-side-added&lt;/code&gt; class to indicate which pane.
+:*The markers (pluses and minuses) are now in the &lt;code&gt;data-marker&lt;/code&gt; attribute, which is then shown in a pseudo-element.
+:*Empty lines now have {{tag|br|o}} instead of a non-breaking space
+:[[User:Nardog|Nardog]] ([[User talk:Nardog|talk]]) 07:41, 4 November 2021 (UTC)
+
+== IP constantly varying between an Ipv6 and an Ipv4 address ==
+
+It's constantly switching between these two addresses. Why? --[[Special:Contributions/2A02:AA1:1625:94FC:19BF:E15A:695E:13F|2A02:AA1:1625:94FC:19BF:E15A:695E:13F]] ([[User talk:2A02:AA1:1625:94FC:19BF:E15A:695E:13F|talk]]) 14:41, 4 November 2021 (UTC)
+
+== No WD link ==
+
+Two weeks later there still is no WD link. WD link enables link to Wikidata item next to name at Wikipedia page. Why there is no information about this gadget or redirect to certain description in Wikipedia space or Wikidata item? [[User:Eurohunter|Eurohunter]] ([[User talk:Eurohunter|talk]]) 18:38, 3 November 2021 (UTC)
+:{{re|Eurohunter}} quickly going through the archives, it looks like you are trying to load a personal user script from wikidata, in to your personal global javascript - and are having some trouble with it?  I suggest you start by contacting the user who's script you are loading at the project they host it in. — [[User:Xaosflux|&lt;span style="color:#FF9933; font-weight:bold; font-family:monotype;"&gt;xaosflux&lt;/span&gt;]] &lt;sup&gt;[[User talk:Xaosflux|&lt;span style="color:#009933;"&gt;Talk&lt;/span&gt;]]&lt;/sup&gt; 18:46, 3 November 2021 (UTC)
+::{{re|xaosflux}} No. I have it enabled in ENWP preferences (probably) and it worked here for some months or years until last month. What happened? [[User:Eurohunter|Eurohunter]] ([[User talk:Eurohunter|talk]]) 18:59, 3 November 2021 (UTC)
+: It just started working again foor no reason. [[User:Eurohunter|Eurohunter]] ([[User talk:Eurohunter|talk]]) 19:19, 3 November 2021 (UTC)
+*No idea, [[Special:Preferences#mw-prefsection-gadgets]] / [[Special:Gadgets]] are the enwiki gadgets - what are you referring to in there?  You do appear to have [[:meta:User:Eurohunter/global.js]] set to load [[:wikidata:User:Yair_rand/WikidataInfo.js]] - which describes itself as ''Add a small box under a Wikipedia article's title displaying the label, description, aliases and the identifier of the related Wikidata item''. — [[User:Xaosflux|&lt;span style="color:#FF9933; font-weight:bold; font-family:monotype;"&gt;xaosflux&lt;/span&gt;]] &lt;sup&gt;[[User talk:Xaosflux|&lt;span style="color:#009933;"&gt;Talk&lt;/span&gt;]]&lt;/sup&gt; 20:50, 3 November 2021 (UTC)
+** {{re|Xaosflux}} Yes but it was done there long time ago and only stopped working recently for weeks and it's working again. Why? [[User:Eurohunter|Eurohunter]] ([[User talk:Eurohunter|talk]]) 16:25, 4 November 2021 (UTC)
+::I already told you that at [[Wikipedia:Village pump (technical)/Archive 192#WD link]]: "[[d:User:Yair rand/WikidataInfo.js]] is loaded in [[:meta:User:Eurohunter/global.js]]". Please read old answers and link old discussions when you report an issue. In the old discussion you said "it works elsewhere" but didn't give an example. Always include an example. [[User:PrimeHunter|PrimeHunter]] ([[User talk:PrimeHunter|talk]]) 21:19, 3 November 2021 (UTC)
+::: {{re|PrimeHunter}} Yes but it was loaded there long time ago so why it didn't worked for 2 weeks? "it works elsewhere" - I mean every Wikipedia version expect ENWP so what I was supposed to say? I thought "elsewhere" is abvious and means every version expect ENWP. Right? [[User:Eurohunter|Eurohunter]] ([[User talk:Eurohunter|talk]]) 16:25, 4 November 2021 (UTC)
+::::It could be lots of things, you could start by unloading all of [[User:Eurohunter/common.js|these]] and only loading the one script - sometimes there are timing issues or other conflicts between javascripts.  See also [[:mw:Help:Locating broken scripts]]. — [[User:Xaosflux|&lt;span style="color:#FF9933; font-weight:bold; font-family:monotype;"&gt;xaosflux&lt;/span&gt;]] &lt;sup&gt;[[User talk:Xaosflux|&lt;span style="color:#009933;"&gt;Talk&lt;/span&gt;]]&lt;/sup&gt; 17:00, 4 November 2021 (UTC)
+::::I asked about Simple and you said "it still doesn't works in ENWP and SimpleWP and it works elsewhere". That claims it doesn't work in the only other place I asked about. Now you apparently claim it did work at Simple. Claims that something works or doesn't work everywhere are often false. There are 325 Wikipedias and around 600 other Wikimedia wikis where [[:meta:User:Eurohunter/global.js]] is loaded. You obviously didn't test all of them. "elsewhere" includes Commons and so on. Even if the claim is right, readers don't know that and may spend significant time testing it at various places to see if any of them give or don't give the reported problem for themselves. Always give an example. ALWAYS. Helpers waste a huge amount of time on posts which don't give examples. You are also more likely to get fast and relevant answers when you give an example. Something in your personal JavaScript or gadgets may conflict with the script. Scripts are loaded in partially random order and the order may affect the result. If it fails again then try to log out, view an example page, and enter &lt;code&gt;mw.loader.load('https://www.wikidata.org/w/index.php?title=User:Yair_rand/WikidataInfo.js&amp;action=raw&amp;ctype=text/javascript');&lt;/code&gt; in the web console (Ctrl+Shift+K in Firefox on Windows). [[User:PrimeHunter|PrimeHunter]] ([[User talk:PrimeHunter|talk]]) 17:14, 4 November 2021 (UTC)
+
+==Mapframe references don't display within descriptions==
+{{maplink
+|title1=Rains Center
+  |type1=point
+  |description1=Athletics and recreation facility, built 1989, renovated 2021&lt;ref name="TSL Rains"&gt;{{cite news|last1=Fitz|first1=Allison|date=14 February 2020|title=New Rains Center to be completed by 2022; 5Cs prepare for construction's effects|work=[[The Student Life]]|url=https://tsl.news/new-rains-center-to-be-remodeled/|access-date=2 December 2020}}&lt;/ref&gt;
+  |coord1={{coord|34.09905|-117.71174}}
+  |marker1=pitch
+  |marker-color1=#E6AB02
+
+|frame=yes |frame-align=right |frame-lat=34.0978 |frame-long=-117.7119 |zoom=14 |frame-width=230 |frame-height=180
+|text=Campus map, showing the reference error bug
+}}
+
+Following up from [[Wikipedia:Village_pump_(technical)/Archive_192#Mapframe_bug_with_references|here]], the second issue I've been having with the [[WP:Mapframe|Mapframe]] at [[Pomona College#Campus]] (first in thread directly above) is that references don't display properly within the description field. Click on the pin at right to see how &lt;code&gt;&lt;nowiki&gt;&lt;ref&gt;{{cite news|last1=Fitz|first1=Allison|date=14 February 2020|title=New Rains Center to be completed by 2022; 5Cs prepare for construction's effects|work=[[The Student Life]]|url=https://tsl.news/new-rains-center-to-be-remodeled/|access-date=2 December 2020}}&lt;/ref&gt;&lt;/nowiki&gt;&lt;/code&gt; gets mangled. The same thing happens with SFNs, which I'd also like to use. I haven't been able to make progress on this since last time, so it may require a phab ticket; if that's the case, I'm mostly looking to understand how to better present the issue to increase the likelihood it gets taken up. Thanks in advance for the help, &lt;span style="color:#AAA"&gt;&lt;small&gt;&amp;#123;{u&amp;#124;&lt;/small&gt;&lt;span style="border-radius:9em;padding:0 5px;background:#088"&gt;[[User:Sdkb|&lt;span style="color:#FFF"&gt;'''Sdkb'''&lt;/span&gt;]]&lt;/span&gt;&lt;small&gt;}&amp;#125;&lt;/small&gt;&lt;/span&gt; &lt;sup&gt;[[User talk:Sdkb|'''talk''']]&lt;/sup&gt; 19:15, 23 October 2021 (UTC)
+
+&lt;small&gt;Courtesy pinging those who commented previously: {{re|Izno|ɱ|TheDJ|Tgr (WMF)|Krinkle}} see also the thread immediately above. &lt;span style="color:#AAA"&gt;&lt;small&gt;&amp;#123;{u&amp;#124;&lt;/small&gt;&lt;span style="border-radius:9em;padding:0 5px;background:#088"&gt;[[User:Sdkb|&lt;span style="color:#FFF"&gt;'''Sdkb'''&lt;/span&gt;]]&lt;/span&gt;&lt;small&gt;}&amp;#125;&lt;/small&gt;&lt;/span&gt; &lt;sup&gt;[[User talk:Sdkb|'''talk''']]&lt;/sup&gt; 19:15, 23 October 2021 (UTC)&lt;/small&gt;
+
+:@[[User:Sdkb|Sdkb]] [[phab:T28213|T28213]] is the general class this bug belongs to. [[User:Tgr (WMF)|Tgr (WMF)]] ([[User talk:Tgr (WMF)|talk]]) 01:04, 24 October 2021 (UTC)
+:This problem is because the templates used here just dump wikitext into geojson. But geojson doesn't support wikitext or html, geojson only supports text only descriptions. —[[User:TheDJ|Th&lt;span style="color: green"&gt;e&lt;/span&gt;DJ]] ([[User talk:TheDJ|talk]] • [[Special:Contributions/TheDJ|contribs]]) 13:05, 25 October 2021 (UTC)
+::The lua/template probably can use killMarkers to remove the references from the input. —[[User:TheDJ|Th&lt;span style="color: green"&gt;e&lt;/span&gt;DJ]] ([[User talk:TheDJ|talk]] • [[Special:Contributions/TheDJ|contribs]]) 13:10, 25 October 2021 (UTC)
+::: I tried that, but &lt;code&gt;mw.text.killMarkers&lt;/code&gt; and &lt;code&gt;mw.text.unstrip&lt;/code&gt; don't seem to work any more (only &lt;code&gt;mw.text.unstripNoWiki&lt;/code&gt; seems still functional). Is there any downside to removing the stripmarker with gsub? —&amp;nbsp;&lt;span style="font-family:Arial;background:#d6ffe6;border:solid 1px;border-radius:5px;box-shadow:darkcyan 0px 1px 1px;"&gt;&amp;nbsp;[[User:Jts1882|Jts1882]]&amp;nbsp;&amp;#124;[[User talk:Jts1882|&amp;nbsp;talk]]&amp;nbsp;&lt;/span&gt; 15:55, 25 October 2021 (UTC)
+::{{re|TheDJ|Jts1882}} Mapframe does seem able to handle images, so I think that means it's able to convert at least some types of wikitext into proper output. Would getting it to do the same with references be feasible, or is that out of the question? &lt;span style="color:#AAA"&gt;&lt;small&gt;&amp;#123;{u&amp;#124;&lt;/small&gt;&lt;span style="border-radius:9em;padding:0 5px;background:#088"&gt;[[User:Sdkb|&lt;span style="color:#FFF"&gt;'''Sdkb'''&lt;/span&gt;]]&lt;/span&gt;&lt;small&gt;}&amp;#125;&lt;/small&gt;&lt;/span&gt; &lt;sup&gt;[[User talk:Sdkb|'''talk''']]&lt;/sup&gt; 19:00, 25 October 2021 (UTC)
+
+{{maplink/sandbox
+|title1=Rains Center
+  |type1=point
+  |description1=Athletics and recreation facility, built 1989, renovated 2021&lt;ref name="TSL Rains"&gt;{{cite news|last1=Fitz|first1=Allison|date=14 February 2020|title=New Rains Center to be completed by 2022; 5Cs prepare for construction's effects|work=[[The Student Life]]|url=https://tsl.news/new-rains-center-to-be-remodeled/|access-date=2 December 2020}}&lt;/ref&gt;
+  |coord1={{coord|34.09905|-117.71175}}
+  |marker1=pitch
+  |marker-color1=#E6AB02
+
+|frame=yes |frame-align=right |frame-lat=34.0978 |frame-long=-117.7119 |zoom=14 |frame-width=230 |frame-height=180
+|text=Campus map, showing the reference error bug
+}}
+{{Replyto|Sdkb|Jts1882|Tgr (WMF)}} I think I fixed it in the sandbox ? Markers include control characters and because control characters cannot be in json, these were getting stripped from the input. By moving that logic to later in the flow and using killMarkers on content explictely meant for the json body, I think we can work around both problems. —[[User:TheDJ|Th&lt;span style="color: green"&gt;e&lt;/span&gt;DJ]] ([[User talk:TheDJ|talk]] • [[Special:Contributions/TheDJ|contribs]]) 20:24, 25 October 2021 (UTC)
+
+:oh great, now the static map is broken again... Guess there is still a control char somewhere.... —[[User:TheDJ|Th&lt;span style="color: green"&gt;e&lt;/span&gt;DJ]] ([[User talk:TheDJ|talk]] • [[Special:Contributions/TheDJ|contribs]]) 20:29, 25 October 2021 (UTC)
+::ah interesting.. moved the coord a fraction and it fixed itself. I think i know why.. the livepreview saved a copy of the image with a different hash, causing an incorrect group reference being generated that the static tile renderer then cannot use... This likely happens a lot and I think i might already have a patch for that particular problem somewhere.
+&lt;mapframe text="Campus map with mapframe tag directly" width=230 height=180 zoom=14 latitude=34.0978 longitude=-117.7119&gt;
+{
+  "type": "Feature",
+  "geometry": { "type": "Point", "coordinates": [-117.71175, 34.09905] },
+  "properties": {
+    "title": "Rains Center",
+    "description": "Athletics and recreation facility, built 1989, renovated 2021&lt;ref name=\"TSL Rains\"&gt;{{cite news|last1=Fitz|first1=Allison|date=14 February 2020|title=New Rains Center to be completed by 2022; 5Cs prepare for construction's effects|work=[[The Student Life]]|url=https://tsl.news/new-rains-center-to-be-remodeled/|access-date=2 December 2020}}&lt;/ref&gt;",
+    "marker-size": "large",
+    "marker-color": "#0050d0",
+    "marker-symbol": "pitch"
+  }
+}
+&lt;/mapframe&gt;
+:::{{re|TheDJ}} I tried adding a ref within a direct call of mapframe HTML, as you suggested. It doesn't seem to have worked, though. Am I doing something wrong? &lt;span style="color:#AAA"&gt;&lt;small&gt;&amp;#123;{u&amp;#124;&lt;/small&gt;&lt;span style="border-radius:9em;padding:0 5px;background:#088"&gt;[[User:Sdkb|&lt;span style="color:#FFF"&gt;'''Sdkb'''&lt;/span&gt;]]&lt;/span&gt;&lt;small&gt;}&amp;#125;&lt;/small&gt;&lt;/span&gt; &lt;sup&gt;[[User talk:Sdkb|'''talk''']]&lt;/sup&gt; 23:34, 26 October 2021 (UTC)
+::::{{replyto|Sdkb}} there were just [https://en.wikipedia.org/w/index.php?title=Wikipedia:Village_pump_(technical)&amp;type=revision&amp;diff=1052081120&amp;oldid=1052068387&amp;diffmode=source a few errors] in the json. Importantly, the json values need to be escaped (esp. "), but also geojson flips the order of the latitude and longitude (apparently that's a thing in Cartesian geometry). —[[User:TheDJ|Th&lt;span style="color: green"&gt;e&lt;/span&gt;DJ]] ([[User talk:TheDJ|talk]] • [[Special:Contributions/TheDJ|contribs]]) 08:21, 27 October 2021 (UTC)
+{{talkref}}
+
+===Ref parameter===
+For anyone following along, after some discussion with TheDJ and others on [[WP:Discord|Discord]] (around [https://discord.com/channels/221049808784326656/291940905240231937/903391956435095563 here]), we'd like to add reference parameters (e.g. {{para|ref2}}, {{para|ref3}}) to [[Module:Mapframe]]. These would add &lt;code&gt;&lt;nowiki&gt;&lt;ref&gt;reference content&lt;/ref&gt;&lt;/nowiki&gt;&lt;/code&gt; into the json appended to the end of the description parameter. This would bypass a parse cycle and make it so that the ref tag wouldn't be escaped when the JSON is made, resolving the bug. If anyone who knows Lua could help to code this, I would be grateful! &lt;span style="color:#AAA"&gt;&lt;small&gt;&amp;#123;{u&amp;#124;&lt;/small&gt;&lt;span style="border-radius:9em;padding:0 5px;background:#088"&gt;[[User:Sdkb|&lt;span style="color:#FFF"&gt;'''Sdkb'''&lt;/span&gt;]]&lt;/span&gt;&lt;small&gt;}&amp;#125;&lt;/small&gt;&lt;/span&gt; &lt;sup&gt;[[User talk:Sdkb|'''talk''']]&lt;/sup&gt; 07:55, 1 November 2021 (UTC)
+{{maplink/sandbox
+|title1=Rains Center
+  |type1=point
+  |description1=Athletics and recreation facility, built 1989, renovated 2021.
+  |reference1=&lt;ref name="TSL Rains"&gt;{{cite news|last1=Fitz|first1=Allison|date=14 February 2020|title=New Rains Center to be completed by 2022; 5Cs prepare for construction's effects|work=[[The Student Life]]|url=https://tsl.news/new-rains-center-to-be-remodeled/|access-date=2 December 2020}}&lt;/ref&gt;
+  |coord1={{coord|34.09905|-117.71174}}
+  |marker1=pitch
+  |marker-color1=#E6AB02
+
+|frame=yes |frame-align=right |frame-lat=34.0978 |frame-long=-117.7119 |zoom=14 |frame-width=230 |frame-height=180
+|text=Campus map, using a reference parameter
+}}
+{{maplink/sandbox
+|title1=Rains Center
+  |type1=point
+  |description1=Athletics and recreation facility, built 1989, renovated 2021.
+  |reference1=&lt;ref name="TSL Rains2"&gt;{{cite news|last1=Fitz|first1=Allison|date=14 February 2020|title=New Rains Center to be completed by 2022; 5Cs prepare for construction's effects|work=[[The Student Life]]|url=https://tsl.news/new-rains-center-to-be-remodeled/|access-date=2 December 2020}}&lt;/ref&gt;
+  |coord1={{coord|34.09905|-117.71174}}
+  |marker1=pitch
+  |marker-color1=#E6AB02
+|title2=Table Mountain Observatory
+  |type2=point
+  |description2=Academic facility
+  |reference2=&lt;ref name="Dummy"&gt;{{cite news|last1=Other|first1=A.N.|date=14 February 2020|title=Table Mountain Observatory to be completed by 2022; 5Cs prepare for construction's effects|work=[[The Student Life]]|url=https://tsl.news/new-rains-center-to-be-remodeled/|access-date=2 December 2020}}&lt;/ref&gt;
+  |coord2={{coord|34.09705|-117.71374}}
+  |marker2=college
+  |marker-color2=#1B9E77
+|frame=yes |frame-align=right |frame-lat=34.0978 |frame-long=-117.7119 |zoom=14 |frame-width=230 |frame-height=180
+|text=Bug when multiple features are used
+}}
+: {{ping|Sdkb}} Does [https://en.wikipedia.org/w/index.php?title=Module:Mapframe/sandbox&amp;diff=1053013498&amp;oldid=1051908242 this edit] do what you want (see right)? I was puzzled why it didn't work until I saw that the stripmarkers were being stripped out in recent changes. —&amp;nbsp;&lt;span style="font-family:Arial;background:#d6ffe6;border:solid 1px;border-radius:5px;box-shadow:darkcyan 0px 1px 1px;"&gt;&amp;nbsp;[[User:Jts1882|Jts1882]]&amp;nbsp;&amp;#124;[[User talk:Jts1882|&amp;nbsp;talk]]&amp;nbsp;&lt;/span&gt; 11:53, 1 November 2021 (UTC)
+::[[User:Jts1882|Jts1882]], that looks fantastic; thanks so much! I did encounter a bug, though; it seems that if more than one feature is added, it goes back to displaying &lt;code&gt;'"`UNIQ--ref-00000003-QINU`"'&lt;/code&gt; again. Any idea what's causing that? &lt;span style="color:#AAA"&gt;&lt;small&gt;&amp;#123;{u&amp;#124;&lt;/small&gt;&lt;span style="border-radius:9em;padding:0 5px;background:#088"&gt;[[User:Sdkb|&lt;span style="color:#FFF"&gt;'''Sdkb'''&lt;/span&gt;]]&lt;/span&gt;&lt;small&gt;}&amp;#125;&lt;/small&gt;&lt;/span&gt; &lt;sup&gt;[[User talk:Sdkb|'''talk''']]&lt;/sup&gt; 17:30, 1 November 2021 (UTC)
+::: {{ping|Sdkb|TheDJ}}Single features and multiple features are handled slightly differently. The latter are placed in an array and control characters stripped (in part of the code added to the sandbox by TheDJ to remove stripmarkers). I don't have access to your discussion on Discord, but am I right in thinking that these changes aren't needed with this reference solution. I've disabled the stripping of control characters (line 597) to show that the reference code otherwise works.
+::: I think rather than removing stripmarkers in the code, it might be better to detect them and provide a warning or error message. If references it could suggest use of the reference parameters. —&amp;nbsp;&lt;span style="font-family:Arial;background:#d6ffe6;border:solid 1px;border-radius:5px;box-shadow:darkcyan 0px 1px 1px;"&gt;&amp;nbsp;[[User:Jts1882|Jts1882]]&amp;nbsp;&amp;#124;[[User talk:Jts1882|&amp;nbsp;talk]]&amp;nbsp;&lt;/span&gt; 08:18, 2 November 2021 (UTC)
+
+: I think there is a simpler solution. Escape the control characters on line 199 rather than replacing them with a blank.
+:: Old:
+::&lt;syntaxhighlight lang="python" line start="199"&gt;
+cleanArgs[key] = (not util.matchesParam('text', key)) and val:gsub('%c',' ') or val
+&lt;/syntaxhighlight&gt;
+:: New:
+::&lt;syntaxhighlight lang="python" line start="199"&gt;
+cleanArgs[key] = (not util.matchesParam('text', key)) and val:gsub('(%c)','\%1') or val
+&lt;/syntaxhighlight&gt;
+: Is there a problem with this? —&amp;nbsp;&lt;span style="font-family:Arial;background:#d6ffe6;border:solid 1px;border-radius:5px;box-shadow:darkcyan 0px 1px 1px;"&gt;&amp;nbsp;[[User:Jts1882|Jts1882]]&amp;nbsp;&amp;#124;[[User talk:Jts1882|&amp;nbsp;talk]]&amp;nbsp;&lt;/span&gt; 09:53, 2 November 2021 (UTC)
+::I guess that could work. let's try it. —[[User:TheDJ|Th&lt;span style="color: green"&gt;e&lt;/span&gt;DJ]] ([[User talk:TheDJ|talk]] • [[Special:Contributions/TheDJ|contribs]]) 10:17, 2 November 2021 (UTC)
+:::@[[User:Jts1882|Jts1882]], @[[User:TheDJ|TheDJ]]: The sandbox looks like it's working! Should we implement as is or do you want to try the simplification idea first? &lt;span style="color:#AAA"&gt;&lt;small&gt;&amp;#123;{u&amp;#124;&lt;/small&gt;&lt;span style="border-radius:9em;padding:0 5px;background:#088"&gt;[[User:Sdkb|&lt;span style="color:#FFF"&gt;'''Sdkb'''&lt;/span&gt;]]&lt;/span&gt;&lt;small&gt;}&amp;#125;&lt;/small&gt;&lt;/span&gt; &lt;sup&gt;[[User talk:Sdkb|'''talk''']]&lt;/sup&gt; 00:26, 3 November 2021 (UTC)
+:::: The current sandbox version makes a number of changes dealing with stripmarkers that might not be necessary. The simple solution of escaping stripmarkers might offer a more general solution and wouldn't be removing anything added to the template parameters. It worked for me in the tests I did in the editor. It's not clear to me why the control characters were replace by spaces rather than escaped before, as it seems to me this caused the stripmarkers to leak. If it works, then is the ref parameter needed? —&amp;nbsp;&lt;span style="font-family:Arial;background:#d6ffe6;border:solid 1px;border-radius:5px;box-shadow:darkcyan 0px 1px 1px;"&gt;&amp;nbsp;[[User:Jts1882|Jts1882]]&amp;nbsp;&amp;#124;[[User talk:Jts1882|&amp;nbsp;talk]]&amp;nbsp;&lt;/span&gt; 07:10, 4 November 2021 (UTC)
+:::::Oh, if it makes the ref parameter unnecessary, that's even better! I'm good with implementing the simplified version then. &lt;span style="color:#AAA"&gt;&lt;small&gt;&amp;#123;{u&amp;#124;&lt;/small&gt;&lt;span style="border-radius:9em;padding:0 5px;background:#088"&gt;[[User:Sdkb|&lt;span style="color:#FFF"&gt;'''Sdkb'''&lt;/span&gt;]]&lt;/span&gt;&lt;small&gt;}&amp;#125;&lt;/small&gt;&lt;/span&gt; &lt;sup&gt;[[User talk:Sdkb|'''talk''']]&lt;/sup&gt; 08:59, 4 November 2021 (UTC)
+{{maplink/sandbox
+|title1=Rains Center
+  |type1=point
+  |description1=Athletics and recreation facility, built 1989, renovated 2021.&lt;ref name="TSL Rains2"&gt;{{cite news|last1=Fitz|first1=Allison|date=14 February 2020|title=New Rains Center to be completed by 2022; 5Cs prepare for construction's effects|work=[[The Student Life]]|url=https://tsl.news/new-rains-center-to-be-remodeled/|access-date=2 December 2020}}&lt;/ref&gt;
+  |coord1={{coord|34.09905|-117.71174}}
+  |marker1=pitch
+  |marker-color1=#E6AB02
+|title2=Table Mountain Observatory
+  |type2=point
+  |description2=Academic facility&lt;ref name="Dummy"&gt;{{cite news|last1=Other|first1=A.N.|date=14 February 2020|title=Table Mountain Observatory to be completed by 2022; 5Cs prepare for construction's effects|work=[[The Student Life]]|url=https://tsl.news/new-rains-center-to-be-remodeled/|access-date=2 December 2020}}&lt;/ref&gt;
+  |coord2={{coord|34.09705|-117.71374}}
+  |marker2=college
+  |marker-color2=#1B9E77
+|frame=yes |frame-align=right |frame-lat=34.0978 |frame-long=-117.7119 |zoom=14 |frame-width=230 |frame-height=180
+|text=Version with multiple features using new sandbox solution (no reference parameter)
+}}
+:::::: Not quite as simple as I thought. My solution above breaks json queries in {{para|raw}} parameters. I've reset the sandbox and added special handling for the description parameter using the above method, leaving handing of {{para|raw}} and other parameters unchanged. This works in the examples we've being using (see right or [[User:Jts1882/sandbox#mapframe_test]]) and doesn't break any of the {{tl|Maplink/testcases}}.
+:::::: It was the replacement of control characters with spaces (to fix the issue of control characters in the json output) that cause the leak of stripmarkers. The {{para|text}} parameter was excluded from this process to protect stripmarkers, but stripmarkers in other parameters were corrupted. I'm not sure, but it seems that only the {{para|raw}} parameter needs special handling and that my fix could be used on the other parameters, which would allow references on titles as well. —&amp;nbsp;&lt;span style="font-family:Arial;background:#d6ffe6;border:solid 1px;border-radius:5px;box-shadow:darkcyan 0px 1px 1px;"&gt;&amp;nbsp;[[User:Jts1882|Jts1882]]&amp;nbsp;&amp;#124;[[User talk:Jts1882|&amp;nbsp;talk]]&amp;nbsp;&lt;/span&gt; 10:18, 4 November 2021 (UTC)
+:::::::The technical part is over my head, but the behavior all looks good! I put a courtesy notice at the module talk page; if no one from there/here raises concerns, feel free to implement! &lt;span style="color:#AAA"&gt;&lt;small&gt;&amp;#123;{u&amp;#124;&lt;/small&gt;&lt;span style="border-radius:9em;padding:0 5px;background:#088"&gt;[[User:Sdkb|&lt;span style="color:#FFF"&gt;'''Sdkb'''&lt;/span&gt;]]&lt;/span&gt;&lt;small&gt;}&amp;#125;&lt;/small&gt;&lt;/span&gt; &lt;sup&gt;[[User talk:Sdkb|'''talk''']]&lt;/sup&gt; 19:26, 4 November 2021 (UTC)
+
+{{reflist-talk}}
+
+== Dealing with related redirects ==
+
+I have created these eight pages, all redirects to [[Photoelasticity]].
+* [[Stress-optic coefficients]]
+* [[Stress-optic coefficient]]
+* [[Stress optic coefficients]]
+* [[Stress optic coefficient]]
+* [[Stress-Optic Coefficients]]
+* [[Stress-Optic Coefficient]]
+* [[Stress Optic Coefficients]]
+* [[Stress Optic Coefficient]]
+If someone comes along and changes one of them to a full-fledged article, then all of the others should redirect to that. But the creator may be unaware of those others. Is there some way we can use existing software to assure that that person will become aware of the situation? [[User:Michael Hardy|Michael Hardy]] ([[User talk:Michael Hardy|talk]]) 17:37, 4 November 2021 (UTC)
+:@[[User:Michael Hardy|Michael Hardy]] A comment?&amp;nbsp;&amp;#8213;&amp;nbsp;[[User:Qwerfjkl|&lt;span style="background:#1d9ffc; color:white; padding:5px; box-shadow:darkgray 2px 2px 2px;"&gt;Qwerfjkl&lt;/span&gt;]][[User talk:Qwerfjkl|&lt;span style="background:#79c0f2;color:white; padding:2px; box-shadow:darkgray 2px 2px 2px;"&gt;talk&lt;/span&gt;]] 20:58, 4 November 2021 (UTC)
+
+== Space aliens ate my header! ==
+
+In [[Special:Permalink/1052557516|Wikipedia:Sockpuppet investigations/Ineedtostopforgetting/Archive]], the "11 October 2021" L3 heading doesn't render.  My first guess is something broken in the immediately preceeding {{t|SPIpriorcases}}, but my eyes glaze over when I try to read that junk.
+
+There is HTML being generated for it:
+
+&lt;pre&gt;
+&lt;h3&gt;&lt;span class="mw-headline" id="11_October_2021" data-mw-comment="{&amp;quot;type&amp;quot;:&amp;quot;heading&amp;quot;,&amp;quot;level&amp;quot;:0,&amp;quot;id&amp;quot;:&amp;quot;h-11_October_2021-Ineedtostopforgetting&amp;quot;,&amp;quot;replies&amp;quot;:[&amp;quot;h-Suspected_sockpuppets-11_October_2021-2021-10-11T01:46:00.000Z&amp;quot;,&amp;quot;h-Comments_by_other_users-11_October_2021-2021-10-11T17:27:00.000Z&amp;quot;,&amp;quot;h-Clerk,_CheckUser,_and\/or_patrolling_admin_comments-11_October_2021-2021-10-29T13:56:00.000Z&amp;quot;],&amp;quot;headingLevel&amp;quot;:3,&amp;quot;placeholderHeading&amp;quot;:false}"&gt;&lt;span data-mw-comment-start="" id="h-11_October_2021-Ineedtostopforgetting"&gt;&lt;/span&gt;11 October 2021&lt;span data-mw-comment-end="h-11_October_2021-Ineedtostopforgetting"&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="mw-editsection"&gt;&lt;span class="mw-editsection-bracket"&gt;[&lt;/span&gt;&lt;a href="/w/index.php?title=Wikipedia:Sockpuppet_investigations/Ineedtostopforgetting/Archive&amp;amp;action=edit&amp;amp;section=1" title="Edit section: 11 October 2021"&gt;edit source&lt;/a&gt;&lt;span class="mw-editsection-bracket"&gt;]&lt;/span&gt;&amp;nbsp;&lt;span class="arky" style="display:none"&gt;&lt;span class="mw-editsection-bracket"&gt;[&lt;/span&gt;&lt;a data-header="3" data-section="1" onclick="$(this).closest(&amp;quot;:header&amp;quot;).toggleClass(&amp;quot;arkyhighlight&amp;quot;);$(this).toggleClass(&amp;quot;arkylink&amp;quot;);var archivable = $(&amp;quot;.arky a&amp;quot;); for(var i=archivable.index(this); i&lt;archivable.length; ++i) { if (archivable[i] == this) { continue; } if ($(archivable[i]).attr(&amp;quot;data-header&amp;quot;) &gt; 3 &amp;amp;&amp;amp; $(archivable[i]).hasClass(&amp;quot;arkylink&amp;quot;) != $(this).hasClass(&amp;quot;arkylink&amp;quot;)) { $(archivable[i]).click(); } else { break; } }"&gt;archive&lt;/a&gt;&lt;span class="mw-editsection-bracket"&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/h3&gt;
+&lt;/pre&gt;
+
+but nothing actually displays. -- [[User:RoySmith|RoySmith]] [[User Talk:RoySmith|(talk)]] 20:59, 1 November 2021 (UTC)
+:Perhaps the most efficient thing to do is ask [[User:Vanjagenije]], who just (~3 days ago) archived part of the archive to another page, according to [https://en.wikipedia.org/w/index.php?title=Wikipedia:Sockpuppet_investigations/Ineedtostopforgetting/Archive&amp;action=history this]. &lt;i&gt;&amp;mdash;&amp;nbsp;[[User:JohnFromPinckney|JohnFromPinckney]] ([[User talk:JohnFromPinckney|talk]] / [[Special:Contributions/JohnFromPinckney|edits]])&lt;/i&gt; 21:29, 1 November 2021 (UTC)
+:The box generated by {{t|SPIpriorcases}} has the "infobox" class, which [[MediaWiki:Common.css#L-314|is floating]]. Looks like it floats right on top of the heading; using the dev tools to manually set &lt;code class="nowrap"&gt;float: none&lt;/code&gt; on the box causes the heading to show up again. A naïve way to fix this would be to add that style rule to the template, which [[Special:Diff/1053094711|I've done]] in the sandbox (to see how it looks, edit the SPI page, replace &lt;code&gt;&lt;nowiki&gt;{{SPIpriorcases}}&lt;/nowiki&gt;&lt;/code&gt; with &lt;code&gt;&lt;nowiki&gt;{{SPIpriorcases/sandbox}}&lt;/nowiki&gt;&lt;/code&gt;, and preview). Maybe there are better ways, though. –&amp;nbsp;[[User talk:Rummskartoffel|&lt;span style="font-weight:normal;background:linear-gradient(90deg,#e40303,#ff8c00,#ffed00,#008026,#004dff,#750787);color:transparent;background-clip:text;-webkit-background-clip:text;"&gt;Rummskartoffel&lt;/span&gt;]] 21:40, 1 November 2021 (UTC)
+::(Don't use the infobox class for things that aren't infoboxes. This might better be using {{tl|side box}}.) [[User:Izno|Izno]] ([[User talk:Izno|talk]]) 22:28, 1 November 2021 (UTC)
+:::{{ping|firefly}} you were the last person to edit {{t|SPIpriorcases}}, but more importantly, you understand this stuff a lot better than I do. -- [[User:RoySmith|RoySmith]] [[User Talk:RoySmith|(talk)]] 23:21, 1 November 2021 (UTC)
+::::@[[User:RoySmith|RoySmith]] hmmm did I break something? I’m travelling at the moment but will have a look when I can get to a computer - assuming someone else doesn’t get there first :) [[User:Firefly|&lt;span style="color:#850808;"&gt;firefly&lt;/span&gt;]] &lt;small&gt;( [[User talk:Firefly|t]] · [[Special:Contributions/Firefly|c]] )&lt;/small&gt; 06:32, 2 November 2021 (UTC)
+*I just removed the {{t|SPIpriorcases}} template [https://en.wikipedia.org/w/index.php?title=Wikipedia:Sockpuppet_investigations/Ineedtostopforgetting/Archive&amp;diff=1053215121&amp;oldid=1052557516]. It is not needed in the archive. '''[[User:Vanjagenije|&lt;span style="color:#008B8B;"&gt;Vanjagenije&lt;/span&gt;]] [[User talk:Vanjagenije|&lt;span style="color: #F4A460;"&gt;(talk)&lt;/span&gt;]]''' 16:12, 2 November 2021 (UTC)
+*Can someone explain to me, in small words for slow minds, what the use case is for an element ''ever'' to be both float:right and width=100%?  Isn't that just asking for breakage? —[[User:Cryptic|Cryptic]] 22:09, 4 November 2021 (UTC)</text>
+      <sha1>konpfatyy85to00edg49q0i7831t76l</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Done</title>
+    <ns>10</ns>
+    <id>31</id>
+    <revision>
+      <id>34</id>
+      <timestamp>2021-11-10T17:14:39Z</timestamp>
+      <contributor>
+        <username>Alice</username>
+        <id>6</id>
+      </contributor>
+      <comment>Created page with "&lt;span class="nowrap"&gt;[[File:Yes check.svg|18px|link=|alt=]]&amp;nbsp;'''{{{1|Done}}}'''&lt;/span&gt;{{{{{|safesubst:}}}#if:{{{2|{{{note|{{{reason|}}}}}}}}}|&amp;#58; {{{2|{{{note|{{{reason}}}}}}}}}}}&lt;!--template:done--&gt;"</comment>
+      <origin>34</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="205" sha1="ctpmc8dvdm1m6er57x8zzp624ewmr1o" xml:space="preserve">&lt;span class="nowrap"&gt;[[File:Yes check.svg|18px|link=|alt=]]&amp;nbsp;'''{{{1|Done}}}'''&lt;/span&gt;{{{{{|safesubst:}}}#if:{{{2|{{{note|{{{reason|}}}}}}}}}|&amp;#58; {{{2|{{{note|{{{reason}}}}}}}}}}}&lt;!--template:done--&gt;</text>
+      <sha1>ctpmc8dvdm1m6er57x8zzp624ewmr1o</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Ping</title>
+    <ns>10</ns>
+    <id>30</id>
+    <revision>
+      <id>33</id>
+      <timestamp>2021-11-10T17:13:01Z</timestamp>
+      <contributor>
+        <username>Alice</username>
+        <id>6</id>
+      </contributor>
+      <comment>Created page with "{{&lt;includeonly&gt;safesubst:&lt;/includeonly&gt;#invoke:Reply to|replyto|&lt;noinclude&gt;example=Example&lt;/noinclude&gt;|max=50}}"</comment>
+      <origin>33</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="111" sha1="naayljeco5qiac4a1lgp9k2clbdlrtm" xml:space="preserve">{{&lt;includeonly&gt;safesubst:&lt;/includeonly&gt;#invoke:Reply to|replyto|&lt;noinclude&gt;example=Example&lt;/noinclude&gt;|max=50}}</text>
+      <sha1>naayljeco5qiac4a1lgp9k2clbdlrtm</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Module:Reply to</title>
+    <ns>828</ns>
+    <id>29</id>
+    <revision>
+      <id>32</id>
+      <timestamp>2021-11-10T17:11:56Z</timestamp>
+      <contributor>
+        <username>Alice</username>
+        <id>6</id>
+      </contributor>
+      <comment>Created page with "local p = {}  local function makeError(msg) 	msg ='Error in [[Template:Reply to]]: ' .. msg 	return mw.text.tag('strong', {['class']='error'}, msg) end  function p.replyto(frame) 	local origArgs = frame:getParent().args 	local args = {} 	local maxArg = 1 	local usernames = 0 	for k, v in pairs(origArgs) do 		if type(k) == 'number' then 			if mw.ustring.match(v,'%S') then 				if k &gt; maxArg then maxArg = k end 				usernames = usernames + 1 				local title = mw.title.new(v)..."</comment>
+      <origin>32</origin>
+      <model>Scribunto</model>
+      <format>text/plain</format>
+      <text bytes="1667" sha1="2g258a6jic0282azfyk17p5289xwnxm" xml:space="preserve">local p = {}
+
+local function makeError(msg)
+	msg ='Error in [[Template:Reply to]]: ' .. msg
+	return mw.text.tag('strong', {['class']='error'}, msg)
+end
+
+function p.replyto(frame)
+	local origArgs = frame:getParent().args
+	local args = {}
+	local maxArg = 1
+	local usernames = 0
+	for k, v in pairs(origArgs) do
+		if type(k) == 'number' then
+			if mw.ustring.match(v,'%S') then
+				if k &gt; maxArg then maxArg = k end
+				usernames = usernames + 1
+				local title = mw.title.new(v)
+				if not title then return makeError('Input contains forbidden characters.') end
+				args[k] = title.rootText
+			end
+		elseif v == '' and k:sub(0,5) == 'label' then
+			args[k] = '&amp;#x200B;'
+		else
+			args[k] = v
+		end
+	end
+
+	if usernames &gt; (tonumber(frame.args.max) or 50) then
+		return makeError(string.format(
+			'More than %s names specified.',
+			tostring(frame.args.max or 50)
+		))
+	else
+		if usernames &lt; 1 then
+			if frame.args.example then args[1] = frame.args.example else return makeError('Username not given.') end
+		end
+		args['label1'] = args['label1'] or args['label']
+		local isfirst = true
+		local outStr = args['prefix'] or '@'
+		for i = 1, maxArg do
+			if args[i] then
+				if isfirst then
+					isfirst = false
+				else
+					if ( (usernames &gt; 2) or ((usernames == 2) and (args['c'] == '')) ) then outStr = outStr..', ' end
+					if i == maxArg then outStr = outStr..' '..(args['c'] or 'and') .. ' ' end
+				end
+				outStr = string.format(
+					'%s[[User:%s|%s]]',
+					outStr,
+					args[i],
+					args['label'..tostring(i)] or args[i]
+				)
+			end
+		end
+		outStr = outStr..(args['p'] or ':')
+		return mw.text.tag('span', {['class']='template-ping'}, outStr)
+	end
+end
+
+return p</text>
+      <sha1>2g258a6jic0282azfyk17p5289xwnxm</sha1>
+    </revision>
+  </page>
+</mediawiki>
