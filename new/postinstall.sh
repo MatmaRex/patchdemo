@@ -82,5 +82,6 @@ php $PATCHDEMO/wikis/$NAME/w/maintenance/initSiteStats.php
 
 # copy logo
 cp $PATCHDEMO/images/logo.svg $PATCHDEMO/wikis/$NAME/w/
+cp $PATCHDEMO/images/icon.svg $PATCHDEMO/wikis/$NAME/w/
 cp $PATCHDEMO/images/wordmark.svg $PATCHDEMO/wikis/$NAME/w/
 cp $PATCHDEMO/images/favicon.ico $PATCHDEMO/wikis/$NAME/w/
