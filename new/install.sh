@@ -17,7 +17,7 @@ php $PATCHDEMO/wikis/$NAME/w/maintenance/install.php \
 # apply our default settings
 cat $PATCHDEMO/localsettings/core.txt >> $PATCHDEMO/wikis/$NAME/w/LocalSettings.php
 
-# apply extension/skin/service-sepcific setings
+# apply extension/skin/service-specific settings
 while IFS=' ' read -r repo dir; do
 	filename=$(echo $repo | sed "s/\//-/g" | sed "s/^mediawiki-//")
 	if [ -f $PATCHDEMO/localsettings/$filename.txt ]; then
