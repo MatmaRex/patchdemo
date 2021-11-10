@@ -31,10 +31,11 @@ $wgEnableUploads = true;
 // Logo
 $wgLogos = [
 	'svg' => "$wgResourceBasePath/logo.svg",
+	'icon' => "$wgResourceBasePath/icon.svg",
 	'wordmark' => [
 		'src' => "$wgResourceBasePath/wordmark.svg",
-		'width' => 190,
-		'height' => 50,
+		'width' => 138,
+		'height' => 18,
 	]
 ];
 $wgFavicon = "$wgResourceBasePath/favicon.ico";

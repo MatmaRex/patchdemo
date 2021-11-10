@@ -57,8 +57,8 @@ header {
 	width: 2em;
 	height: 2em;
 	margin-right: 7em;
-	background: url( ../images/wordmark.svg );
-	background-size: cover;
+	background: url( ../images/icon.svg ) center center no-repeat;
+	background-size: contain;
 }
 
 .logo > span {
@@ -69,11 +69,11 @@ header {
 	content: ' ';
 	position: absolute;
 	top: 0;
-	left: 2em;
-	width: 7em;
+	left: 2.5em;
+	width: 6.5em;
 	height: 2em;
-	background: url( ../images/wordmark.svg ) -2em 0;
-	background-size: cover;
+	background: url( ../images/wordmark.svg ) center center no-repeat;
+	background-size: contain;
 }
 
 .logo:hover {

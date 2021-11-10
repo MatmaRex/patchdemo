@@ -1,4 +1,4 @@
-<img src="https://github.com/MatmaRex/patchdemo/raw/master/images/wordmark.svg" alt="Patch demo" width="200">
+<img src="https://github.com/MatmaRex/patchdemo/raw/master/images/icon.svg" alt="Patch demo" width="50" valign="middle"> &nbsp; <img src="https://github.com/MatmaRex/patchdemo/raw/master/images/wordmark.svg" alt="Patch demo" width="160" valign="middle">
 
 ---
 
