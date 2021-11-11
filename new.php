@@ -331,7 +331,7 @@ foreach ( $repos as $source => $target ) {
 
 set_progress( 40, 'Checking out your wiki...' );
 
-$reposString = implode( "\n", array_map( function ( $k, $v ) {
+$reposString = implode( "\n", array_map( static function ( $k, $v ) {
 	return "$k $v";
 }, array_keys( $repos ), array_values( $repos ) ) );
 
@@ -348,7 +348,7 @@ if ( $error ) {
 
 set_progress( 60, 'Installing your wiki...' );
 
-$reposString = implode( "\n", array_map( function ( $k, $v ) {
+$reposString = implode( "\n", array_map( static function ( $k, $v ) {
 	return "$k $v";
 }, array_keys( $repos ), array_values( $repos ) ) );
 

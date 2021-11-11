@@ -69,7 +69,7 @@ function wiki_set_time_to_create( string $wiki, int $timeToCreate ) {
 	$stmt->close();
 }
 
-function get_wiki_data( string $wiki ) : array {
+function get_wiki_data( string $wiki ): array {
 	global $mysqli;
 
 	$stmt = $mysqli->prepare( '
@@ -92,7 +92,7 @@ function get_wiki_data( string $wiki ) : array {
 	return get_wiki_data_from_row( $data );
 }
 
-function get_wiki_data_from_row( array $data ) : array {
+function get_wiki_data_from_row( array $data ): array {
 	// Decode JSON
 	$data['patches'] = json_decode( $data['patches'] ) ?: [];
 	$data['announcedTasks'] = json_decode( $data['announcedTasks'] ) ?: [];
@@ -121,7 +121,7 @@ function get_wiki_data_from_row( array $data ) : array {
 	return $data;
 }
 
-function get_patch_data( $r, $p ) : array {
+function get_patch_data( $r, $p ): array {
 	global $mysqli;
 
 	$patch = $r . ',' . $p;
@@ -181,7 +181,7 @@ function get_patch_data( $r, $p ) : array {
 	return $data;
 }
 
-function get_task_data( int $task ) : array {
+function get_task_data( int $task ): array {
 	global $config, $mysqli;
 
 	if ( !$config['conduitApiKey'] ) {
@@ -238,7 +238,7 @@ function get_task_data( int $task ) : array {
 	return $data;
 }
 
-function all_closed( array $statuses ) : bool {
+function all_closed( array $statuses ): bool {
 	foreach ( $statuses as $status ) {
 		if ( $status !== 'MERGED' && $status !== 'ABANDONED' ) {
 			return false;
@@ -247,9 +247,9 @@ function all_closed( array $statuses ) : bool {
 	return true;
 }
 
-function format_patch_list( array $patchList, ?string $branch, bool &$closed = false ) : string {
+function format_patch_list( array $patchList, ?string $branch, bool &$closed = false ): string {
 	$statuses = [];
-	$patches = implode( '<br>', array_map( function ( $patchData ) use ( &$statuses, &$linkedTaskList ) {
+	$patches = implode( '<br>', array_map( static function ( $patchData ) use ( &$statuses, &$linkedTaskList ) {
 		global $config;
 		$statuses[] = $patchData['status'];
 		$title = $patchData['patch'] . ': ' . $patchData[ 'subject' ];
@@ -265,7 +265,7 @@ function format_patch_list( array $patchList, ?string $branch, bool &$closed = f
 			( $branch && $branch !== 'master' ? '<br>Branch: ' . $branch : '' );
 }
 
-function format_linked_tasks( array $linkedTasks ) : string {
+function format_linked_tasks( array $linkedTasks ): string {
 	global $config;
 	$taskDescs = [];
 	foreach ( $linkedTasks as $task => $taskData ) {
@@ -276,7 +276,7 @@ function format_linked_tasks( array $linkedTasks ) : string {
 	return $linkedTasks ?: '<em>No tasks</em>';
 }
 
-function make_shell_command( array $env, string $cmd ) : string {
+function make_shell_command( array $env, string $cmd ): string {
 	$prefix = '';
 	foreach ( $env as $key => $value ) {
 		$value = escapeshellarg( $value );
@@ -286,26 +286,26 @@ function make_shell_command( array $env, string $cmd ) : string {
 	return "$prefix$cmd 2>&1";
 }
 
-function shell_echo( string $cmd ) : int {
+function shell_echo( string $cmd ): int {
 	echo '<pre>';
 	echo htmlspecialchars( "$cmd\n" );
 	$process = Process::fromShellCommandline( $cmd );
 	$process->setTimeout( null );
-	$error = $process->run( function ( $type, $buffer ) {
+	$error = $process->run( static function ( $type, $buffer ) {
 		echo htmlspecialchars( $buffer );
 	} );
 	echo '</pre>';
 	return $error;
 }
 
-function shell( $cmd ) : ?string {
+function shell( $cmd ): ?string {
 	$process = Process::fromShellCommandline( $cmd );
 	$process->setTimeout( null );
 	$error = $process->run();
 	return $error ? null : $process->getOutput();
 }
 
-function delete_wiki( string $wiki ) : int {
+function delete_wiki( string $wiki ): int {
 	global $mysqli;
 
 	$wikiData = get_wiki_data( $wiki );
@@ -348,7 +348,7 @@ function delete_wiki( string $wiki ) : int {
 
 $requestCache = [];
 
-function gerrit_query( string $url, $echo = false ) : ?array {
+function gerrit_query( string $url, $echo = false ): ?array {
 	global $config, $requestCache;
 	if ( $echo ) {
 		echo "<pre>$url</pre>";
@@ -363,7 +363,7 @@ function gerrit_query( string $url, $echo = false ) : ?array {
 	return $requestCache[$url];
 }
 
-function get_linked_tasks( string $message, array &$alreadyLinkedTasks = [] ) : array {
+function get_linked_tasks( string $message, array &$alreadyLinkedTasks = [] ): array {
 	preg_match_all( '/^Bug: T([0-9]+)$/m', $message, $m );
 	foreach ( $m[1] as $task ) {
 		if ( !in_array( $task, $alreadyLinkedTasks, true ) ) {
@@ -373,7 +373,7 @@ function get_linked_tasks( string $message, array &$alreadyLinkedTasks = [] ) : 
 	return $alreadyLinkedTasks;
 }
 
-function get_repo_data() : array {
+function get_repo_data(): array {
 	$data = file_get_contents( __DIR__ . '/repository-lists/all.txt' );
 	$repos = [];
 
@@ -385,14 +385,14 @@ function get_repo_data() : array {
 	return $repos;
 }
 
-function get_branches( string $repo ) : array {
+function get_branches( string $repo ): array {
 	$gitcmd = "git --git-dir=" . __DIR__ . "/repositories/$repo/.git";
 	// basically `git branch -r`, but without the silly parts
 	$branches = explode( "\n", shell_exec( "$gitcmd for-each-ref refs/remotes/origin/ --format='%(refname:short)'" ) );
 	return $branches;
 }
 
-function can_delete( string $creator = null ) : bool {
+function can_delete( string $creator = null ): bool {
 	global $user, $useOAuth;
 	if ( !$useOAuth ) {
 		// Unauthenticated site
@@ -402,7 +402,7 @@ function can_delete( string $creator = null ) : bool {
 	return ( $username && $username === $creator ) || can_admin();
 }
 
-function can_admin() : bool {
+function can_admin(): bool {
 	global $config, $user, $useOAuth;
 	if ( !$useOAuth ) {
 		// Unauthenticated site
@@ -413,18 +413,18 @@ function can_admin() : bool {
 	return $username && in_array( $username, $admins, true );
 }
 
-function user_link( string $username ) : string {
+function user_link( string $username ): string {
 	global $config;
 	$base = preg_replace( '/(.*\/index.php).*/i', '$1', $config[ 'oauth' ][ 'url' ] );
 	return '<a href="' . $base . '?title=' . urlencode( 'User:' . $username ) . '" target="_blank">' . $username . '</a>';
 }
 
-function banner_html() : string {
+function banner_html(): string {
 	global $config;
 	return $config['banner'];
 }
 
-function is_trusted_user( string $email ) : bool {
+function is_trusted_user( string $email ): bool {
 	$config = file_get_contents( 'https://raw.githubusercontent.com/wikimedia/integration-config/master/zuul/layout.yaml' );
 	// Hack: Parser doesn't understand this, even using Yaml::PARSE_CUSTOM_TAGS
 	$config = str_replace( '!!merge', 'merge', $config );
@@ -457,7 +457,7 @@ function post_phab_comment( string $id, string $comment ) {
 	}
 }
 
-function get_repo_presets() : array {
+function get_repo_presets(): array {
 	$presets = [];
 
 	$presets['all'] = array_keys( get_repo_data() );
@@ -471,7 +471,7 @@ function get_repo_presets() : array {
 	return $presets;
 }
 
-function detectProtocol() : string {
+function detectProtocol(): string {
 	// Copied from MediaWiki's WebRequest::detectProtocol
 	if (
 		( !empty( $_SERVER['HTTPS'] ) && $_SERVER['HTTPS'] !== 'off' ) ||
@@ -486,7 +486,7 @@ function detectProtocol() : string {
 	}
 }
 
-function get_csrf_token() : string {
+function get_csrf_token(): string {
 	global $useOAuth;
 	if ( !$useOAuth ) {
 		return '';
@@ -497,7 +497,7 @@ function get_csrf_token() : string {
 	return $_SESSION['csrf_token'];
 }
 
-function check_csrf_token( string $token ) : bool {
+function check_csrf_token( string $token ): bool {
 	global $useOAuth;
 	if ( !$useOAuth ) {
 		return true;
