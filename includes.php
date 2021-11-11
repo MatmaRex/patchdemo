@@ -328,7 +328,7 @@ function delete_wiki( string $wiki ) : int {
 		$creator = $wikiData['creator'];
 		post_phab_comment(
 			'T' . $task,
-			"Test wiki on [[ $server$serverPath | Patch Demo ]] " . ( $creator ? ' by ' . $creator : '' ) . " using patch(es) linked to this task was **deleted**:\n" .
+			"Test wiki on [[ $server$serverPath | Patch demo ]] " . ( $creator ? ' by ' . $creator : '' ) . " using patch(es) linked to this task was **deleted**:\n" .
 			"\n" .
 			"~~[[ $server$serverPath/wikis/$wiki/w/ ]]~~"
 		);
