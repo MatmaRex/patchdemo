@@ -233,7 +233,7 @@ foreach ( $patches as &$patch ) {
 	}
 }
 
-$wikiName = "Patch Demo (" . trim(
+$wikiName = "Patch demo (" . trim(
 	// Add branch name if it's not master, or if there are no patches
 	( $branchDesc !== 'master' || !$patchesApplied ? $branchDesc : '' ) . ' ' .
 	// Add list of patches
@@ -243,7 +243,7 @@ $wikiName = "Patch Demo (" . trim(
 // Update DB record with patches applied
 wiki_add_patches( $namePath, $patchesApplied );
 
-$mainPage = "This wiki was generated on [$server$serverPath Patch Demo] at ~~~~~.
+$mainPage = "This wiki was generated on [$server$serverPath '''Patch demo'''] at ~~~~~.
 
 ;Branch: $branchDesc
 ;Applied patches:";
@@ -388,7 +388,7 @@ if ( $announce && count( $linkedTasks ) ) {
 	foreach ( $linkedTasks as $task ) {
 		post_phab_comment(
 			'T' . $task,
-			"Test wiki **created** on [[ $server$serverPath | Patch Demo ]]" . ( $creator ? ' by ' . $creator : '' ) . " using patch(es) linked to this task:\n" .
+			"Test wiki **created** on [[ $server$serverPath | Patch demo ]]" . ( $creator ? ' by ' . $creator : '' ) . " using patch(es) linked to this task:\n" .
 			"\n" .
 			"$server$serverPath/wikis/$namePath/w/"
 		);
