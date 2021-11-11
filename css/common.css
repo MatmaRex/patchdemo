@@ -135,6 +135,10 @@ summary > .oo-ui-labelElement-label:not( .oo-ui-inline-help ) {
 	margin-right: 1em;
 }
 
+.form-announce-taskList {
+	font-size: 0.92857143em;
+}
+
 .enableNotifications {
 	margin-left: 40%;
 }

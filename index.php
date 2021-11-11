@@ -92,11 +92,13 @@ if ( $useOAuth && !$user ) {
 					$config['conduitApiKey'] ?
 						new OOUI\FieldLayout(
 							new OOUI\CheckboxInputWidget( [
+								'classes' => [ 'form-announce' ],
 								'name' => 'announce',
 								'value' => 1,
 								'selected' => true
 							] ),
 							[
+								'classes' => [ 'form-announce-layout' ],
 								'label' => 'Announce wiki on Phabricator:',
 								'help' => 'Any tasks linked to from patches applied will get a comment announcing this wiki.',
 								'helpInline' => true,
@@ -344,5 +346,10 @@ echo '<table class="wikis">' .
 <script src="js/PatchSelectWidget.js"></script>
 <script src="js/index.js"></script>
 <?php
-echo '<script> pd.wikiPatches = ' . json_encode( $wikiPatches ) . '; </script>';
+echo '<script>
+pd.wikiPatches = ' . json_encode( $wikiPatches ) . ';
+pd.config = ' . json_encode( [
+	'phabricatorUrl' => $config['phabricatorUrl']
+] ) . ';
+</script>';
 include "footer.html";

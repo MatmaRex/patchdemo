@@ -106,6 +106,7 @@ window.PatchSelectWidget.prototype.createTagItemWidget = function () {
 		data.p = response[ 0 ].p ||
 			// eslint-disable-next-line no-underscore-dangle
 			response[ 0 ].revisions[ response[ 0 ].current_revision ]._number;
+		data.linkedTasks = response[ 0 ].linkedTasks;
 
 		item.setFlags( [] );
 		item.setData( data );
@@ -146,6 +147,18 @@ window.PatchSelectWidget.prototype.onChangeTags = function () {
 				data.input;
 		} ).join( '|' )
 	);
+
+	var linkedTasks = {};
+	this.items.forEach( function ( item ) {
+		var data = item.getData();
+		if ( data.linkedTasks ) {
+			data.linkedTasks.forEach( function ( task ) {
+				linkedTasks[ task ] = true;
+			} );
+		}
+	} );
+
+	this.emit( 'linkedTasks', Object.keys( linkedTasks ) );
 
 	var patchKey = this.items.map( function ( item ) {
 		var data = item.getData();
