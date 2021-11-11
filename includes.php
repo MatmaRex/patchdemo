@@ -77,7 +77,7 @@ function get_wiki_data( string $wiki ): array {
 	global $mysqli;
 
 	$stmt = $mysqli->prepare( '
-		SELECT wiki, creator, UNIX_TIMESTAMP( created ) created, patches, branch, announcedTasks, timeToCreate, deleted
+		SELECT wiki, creator, UNIX_TIMESTAMP( created ) created, patches, branch, announcedTasks, timeToCreate, deleted, redirect
 		FROM wikis WHERE wiki = ?
 	' );
 	if ( !$stmt ) {
@@ -316,7 +316,11 @@ function shell( $cmd, array $env = [] ): ?string {
 	return $error ? null : $process->getOutput();
 }
 
-function delete_wiki( string $wiki ): ?string {
+function is_valid_hash( string $hash ): bool {
+	return preg_match( '/^[0-9a-f]{10,32}$/', $hash ) !== false;
+}
+
+function delete_wiki( string $wiki, ?string $redirect = null ): ?string {
 	global $mysqli;
 
 	$wikiData = get_wiki_data( $wiki );
@@ -346,12 +350,16 @@ function delete_wiki( string $wiki ): ?string {
 		);
 	}
 
+	if ( $redirect && !is_valid_hash( $redirect ) ) {
+		$redirect = null;
+	}
+
 	$stmt = $mysqli->prepare( '
 		UPDATE wikis
-		SET deleted = 1
+		SET deleted = 1, redirect = ?
 		WHERE wiki = ?
 	' );
-	$stmt->bind_param( 's', $wiki );
+	$stmt->bind_param( 'ss', $redirect, $wiki );
 	$stmt->execute();
 	$stmt->close();
 

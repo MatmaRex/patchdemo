@@ -34,6 +34,48 @@ if ( !$wikiData['deleted'] ) {
 			'</tr>' .
 		'</table>';
 
+		$username = $user ? $user->username : null;
+		$wikilist = [
+			[
+				'data' => '',
+				'label' => 'None',
+			]
+		];
+		$stmt = $mysqli->prepare( '
+			SELECT wiki, creator, UNIX_TIMESTAMP( created ) created
+			FROM wikis
+			WHERE !deleted
+			ORDER BY IF( creator = ?, 1, 0 ) DESC, created DESC
+		' );
+		if ( !$stmt ) {
+			die( $mysqli->error );
+		}
+		$stmt->bind_param( 's', $username );
+		$stmt->execute();
+		$results = $stmt->get_result();
+		if ( !$results ) {
+			die( $mysqli->error );
+		}
+		$shownMyWikis = false;
+		$shownOtherWikis = false;
+		while ( $data = $results->fetch_assoc() ) {
+			if ( $data[ 'wiki' ] === $wiki ) {
+				continue;
+			}
+			$creator = $data[ 'creator' ] ?? '';
+			if ( !$shownMyWikis && $creator === $username ) {
+				$wikilist[] = [ 'optgroup' => 'My wikis' ];
+				$shownMyWikis = true;
+			}
+			if ( $shownMyWikis && !$shownOtherWikis && $creator !== $username ) {
+				$wikilist[] = [ 'optgroup' => 'Other wikis' ];
+				$shownOtherWikis = true;
+			}
+			$wikilist[] = [
+				'data' => $data[ 'wiki' ],
+				'label' => substr( $data[ 'wiki' ], 0, 10 ) . ' - ' . $data[ 'creator' ] . ' (' . date( 'Y-m-d H:i:s', $data[ 'created' ] ) . ')',
+			];
+		}
 		echo new OOUI\FormLayout( [
 			'method' => 'POST',
 			'items' => [
@@ -42,6 +84,18 @@ if ( !$wikiData['deleted'] ) {
 						'<br>Are you sure you want to delete this wiki? This cannot be undone.'
 					),
 					'items' => array_filter( [
+						count( $wikilist ) > 1 ?
+							new OOUI\FieldLayout(
+								new OOUI\DropdownInputWidget( [
+									'name' => 'redirect',
+									'options' => $wikilist,
+								] ),
+								[
+									'label' => 'Leave a redirect to another wiki (optional):',
+									'align' => 'left',
+								]
+							) :
+							null,
 						new OOUI\FieldLayout(
 							new OOUI\ButtonInputWidget( [
 								'type' => 'submit',
@@ -51,7 +105,7 @@ if ( !$wikiData['deleted'] ) {
 							] ),
 							[
 								'label' => ' ',
-								'align' => 'inline',
+								'align' => 'left',
 							]
 						),
 						new OOUI\FieldLayout(
@@ -70,10 +124,12 @@ if ( !$wikiData['deleted'] ) {
 			die( "Invalid session." );
 		}
 
+		$redirect = $_POST['redirect'] ?: null;
+
 		ob_implicit_flush( true );
 
 		echo '<div class="consoleLog">';
-		$error = delete_wiki( $wiki );
+		$error = delete_wiki( $wiki, $redirect );
 		echo '</div>';
 
 		if ( $error ) {
@@ -87,4 +143,8 @@ if ( !$wikiData['deleted'] ) {
 
 if ( $wikiData['deleted'] ) {
 	echo '<p>Wiki deleted.</p>';
+}
+
+if ( $wikiData['redirect'] ) {
+	echo '<p>Redirected to <a href="wikis/' . $wikiData['redirect'] . '/w">' . $wikiData['redirect'] . '</a>.</p>';
 }
