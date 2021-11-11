@@ -316,7 +316,7 @@ function shell( $cmd, array $env = [] ): ?string {
 	return $error ? null : $process->getOutput();
 }
 
-function delete_wiki( string $wiki ): int {
+function delete_wiki( string $wiki ): ?string {
 	global $mysqli;
 
 	$wikiData = get_wiki_data( $wiki );
@@ -325,7 +325,7 @@ function delete_wiki( string $wiki ): int {
 		return 'Wiki already deleted.';
 	}
 
-	$error = shell_echo( __DIR__ . '/deletewiki.sh',
+	$errorCode = shell_echo( __DIR__ . '/deletewiki.sh',
 		[
 			'PATCHDEMO' => __DIR__,
 			'WIKI' => $wiki
@@ -355,7 +355,7 @@ function delete_wiki( string $wiki ): int {
 	$stmt->execute();
 	$stmt->close();
 
-	return $error;
+	return $errorCode ? 'Delete script failed.' : null;
 }
 
 $requestCache = [];
