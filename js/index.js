@@ -43,6 +43,39 @@
 			);
 		} );
 
+		if ( $( '.form-announce' ).length ) {
+			var announceLayout = OO.ui.infuse( $( '.form-announce-layout' ) );
+			var taskLabel = new OO.ui.LabelWidget( { classes: [ 'form-announce-taskList' ] } );
+			announceLayout.$field.append( taskLabel.$element );
+
+			// eslint-disable-next-line no-inner-declarations
+			function updateLinkedTasks( linkedTasks ) {
+				var $label = $( [] );
+				if ( !linkedTasks.length ) {
+					$label = $( '<em>' ).text( 'No linked tasks found.' );
+				} else {
+					linkedTasks.forEach( function ( task ) {
+						var id = 'T' + task;
+						if ( $label.length ) {
+							$label = $label.add( document.createTextNode( ', ' ) );
+						}
+						$label = $label.add(
+							$( '<a>' )
+								.attr( {
+									href: window.pd.config.phabricatorUrl + '/' + id,
+									target: '_blank'
+								} )
+								.text( id )
+						);
+					} );
+				}
+				taskLabel.setLabel( $label );
+			}
+
+			patchesInput.on( 'linkedTasks', updateLinkedTasks );
+			updateLinkedTasks( [] );
+		}
+
 		if ( $( '.myWikis' ).length ) {
 			var $wikisTable = $( '.wikis' );
 			var myWikis = OO.ui.infuse( $( '.myWikis' ) );
