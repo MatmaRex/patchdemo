@@ -18,7 +18,7 @@ class DetailsFieldLayout extends OOUI\FieldLayout {
 		$this->body = new OOUI\Tag( 'details' );
 		$this->body->addClasses( [ 'oo-ui-fieldLayout-body' ] );
 		// This adds the content back
-		$this->align = null;
+		$this->align = '';
 		$this->setAlignment( $config['align'] );
 
 		$this->prependContent( $this->body );

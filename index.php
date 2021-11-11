@@ -8,7 +8,7 @@ if ( $useOAuth && !$user ) {
 } else {
 	$branches = get_branches( 'mediawiki/core' );
 
-	$branches = array_filter( $branches, function ( $branch ) {
+	$branches = array_filter( $branches, static function ( $branch ) {
 		return preg_match( '/^origin\/(master|wmf|REL)/', $branch );
 	} );
 	natcasesort( $branches );
@@ -19,7 +19,7 @@ if ( $useOAuth && !$user ) {
 	// Move master to the top
 	array_unshift( $branches, array_pop( $branches ) );
 
-	$branchesOptions = array_map( function ( $branch ) {
+	$branchesOptions = array_map( static function ( $branch ) {
 		return [
 			'label' => preg_replace( '/^origin\//', '', $branch ),
 			'data' => $branch,
