@@ -6,4 +6,7 @@ if ( file_exists( 'extensions/ConfirmEdit/QuestyCaptcha/extension.json' ) ) {
 	];
 	$wgCaptchaTriggers['edit'] = true;
 	$wgCaptchaTriggers['createaccount'] = true;
+
+	// Don't show CAPTCHA when logged in
+	$wgGroupPermissions['user']['skipcaptcha'] = true;
 }
