@@ -16,6 +16,13 @@ $short_fields = [
 		'label' => 'Edits',
 		'link' => 'Special:RecentChanges?days=90',
 	],
+	'last_edit' => [
+		'label' => 'Last edit',
+		'link' => 'Special:RecentChanges?days=90',
+		'formatter' => static function ( $time ) {
+			return ( new DateTime( $time ) )->format( 'Y-m-d H:i:s' );
+		}
+	],
 	'ss_good_articles' => [
 		'label' => 'Articles',
 		'link' => 'Special:AllPages',
@@ -48,7 +55,10 @@ $wikis = [];
 while ( $data = $results->fetch_assoc() ) {
 	$wiki = $data['wiki'];
 	$wikis[$wiki] = $data;
-	$stats = $mysqli->query( "SELECT * FROM patchdemo_$wiki.site_stats LIMIT 1" );
+	$stats = $mysqli->query( "
+			SELECT *,
+			( SELECT MAX( rev_timestamp ) FROM patchdemo_$wiki.revision ) AS last_edit
+			FROM patchdemo_$wiki.site_stats LIMIT 1" );
 	if ( $stats ) {
 		foreach ( $stats as $row ) {
 			$wikis[$wiki] += $row;
@@ -71,7 +81,10 @@ foreach ( $wikis as $wiki => $data ) {
 	foreach ( $short_fields as $field => $fieldMeta ) {
 		echo '<td data-label="' . $fieldMeta['label'] . '">' .
 			'<a href="wikis/' . $wiki . '/w/index.php/' . $fieldMeta['link'] . '">' .
-				( isset( $data[$field] ) ? $data[$field] : '<em>?</em>' ) .
+				( isset( $data[$field] ) ?
+					( isset( $fieldMeta['formatter'] ) ? $fieldMeta['formatter']( $data[$field] ) : $data[$field] ) :
+					'<em>?</em>'
+				) .
 			'</a>' .
 		'</td>';
 	}
