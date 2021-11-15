@@ -67,7 +67,7 @@ while ( $data = $results->fetch_assoc() ) {
 }
 
 uksort( $wikis, static function ( $a, $b ) use ( $wikis ) {
-	return ( $wikis[ $b ][ 'ss_total_edits' ] ?? -1 ) - ( $wikis[ $a ][ 'ss_total_edits' ] ?? -1 );
+	return ( $wikis[ $b ][ 'ss_total_edits' ] ?? -1 ) <=> ( $wikis[ $a ][ 'ss_total_edits' ] ?? -1 );
 } );
 
 echo '<table class="wikis"><tr><th>Wiki</th>';
