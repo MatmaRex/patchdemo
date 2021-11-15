@@ -89,7 +89,7 @@ window.PatchSelectWidget.prototype.createTagItemWidget = function () {
 	item.setData( { input: patch } );
 
 	patchCache[ patch ] = patchCache[ patch ] || (
-		patch.match( /^(I[0-9a-f]+|[0-9]+(,[0-9+])?)$/ ) ?
+		patch.match( /^(I[0-9a-f]+|[0-9]+(,[0-9]+)?)$/ ) ?
 			$.get( 'api.php', { patch: patch } ) :
 			$.Deferred().reject( 'Invalid patch number' ).promise()
 	);
