@@ -25,7 +25,7 @@ sudo mysql -u patchdemo --password='patchdemo' < sql/patchdemo.sql
 
 # dependencies for the website
 composer update --no-dev
-npm install --production
+npm ci --production
 
 # setup daily cron job to deduplicate files
 echo "#!/bin/bash
