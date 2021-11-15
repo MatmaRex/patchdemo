@@ -26,6 +26,7 @@ mediawiki/extensions/InputBox w/extensions/InputBox
 mediawiki/extensions/Interwiki w/extensions/Interwiki
 mediawiki/extensions/Linter w/extensions/Linter
 mediawiki/extensions/LocalisationUpdate w/extensions/LocalisationUpdate
+mediawiki/extensions/Math w/extensions/Math
 mediawiki/extensions/MassMessage w/extensions/MassMessage
 mediawiki/extensions/MultimediaViewer w/extensions/MultimediaViewer
 mediawiki/extensions/Nuke w/extensions/Nuke
