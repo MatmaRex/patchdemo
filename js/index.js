@@ -155,6 +155,9 @@
 
 		reposInput.emit( 'change' );
 
+		var languageInput = OO.ui.infuse( $( '.form-language' ) );
+		languageInput.setValidation( /^[a-z-]{2,}$/ );
+
 		if ( 'Notification' in window ) {
 			var notifField = OO.ui.infuse( document.getElementsByClassName( 'enableNotifications' )[ 0 ] );
 			// Enable placholder widget so field label isn't greyed out

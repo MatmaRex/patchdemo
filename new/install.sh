@@ -15,6 +15,7 @@ php $PATCHDEMO/wikis/$NAME/w/maintenance/install.php \
 "$WIKINAME" "Patch Demo"
 
 # apply our default settings
+echo "\$wgLanguageCode = '$LANGUAGE';" >> $PATCHDEMO/wikis/$NAME/w/LocalSettings.php
 cat $PATCHDEMO/localsettings/core.txt >> $PATCHDEMO/wikis/$NAME/w/LocalSettings.php
 
 # apply extension/skin/service-specific settings

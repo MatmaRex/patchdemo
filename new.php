@@ -20,6 +20,7 @@ $startTime = time();
 $branch = trim( $_POST['branch'] );
 $patches = trim( $_POST['patches'] );
 $announce = !empty( $_POST['announce'] );
+$language = trim( $_POST['language'] );
 
 $namePath = substr( md5( $branch . $patches . time() ), 0, 10 );
 $server = detectProtocol() . '://' . $_SERVER['HTTP_HOST'];
@@ -120,6 +121,13 @@ if ( $patches ) {
 	$patches = array_map( 'trim', preg_split( "/\n|\|/", $patches ) );
 } else {
 	$patches = [];
+}
+
+set_progress( 0, 'Checking language code...' );
+
+if ( !preg_match( '/^[a-z-]{2,}$/', $language ) !== false ) {
+	$languageHtml = htmlentities( $language );
+	abandon( "Invalid language code <em>$languageHtml</em>" );
 }
 
 set_progress( 0, 'Querying patch metadata...' );
@@ -352,6 +360,7 @@ $cmd = make_shell_command( $baseEnv + [
 	'WIKINAME' => $wikiName,
 	'SERVER' => $server,
 	'SERVERPATH' => $serverPath,
+	'LANGUAGE' => $language,
 ], __DIR__ . '/new/install.sh' );
 
 $error = shell_echo( $cmd );

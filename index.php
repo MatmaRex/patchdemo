@@ -168,6 +168,19 @@ if ( $useOAuth && !$user ) {
 						]
 					),
 					new OOUI\FieldLayout(
+						new OOUI\TextInputWidget( [
+							'name' => 'language',
+							'value' => 'en',
+							'classes' => [ 'form-language' ]
+						] ),
+						[
+							'label' => 'Language code',
+							'help' => 'Will be used as the content language and default interface language.',
+							'helpInline' => true,
+							'align' => 'left',
+						]
+					),
+					new OOUI\FieldLayout(
 						new OOUI\CheckboxInputWidget( [
 							'name' => 'proxy',
 							'value' => 1,

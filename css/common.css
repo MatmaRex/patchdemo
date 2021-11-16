@@ -139,6 +139,10 @@ summary > .oo-ui-labelElement-label:not( .oo-ui-inline-help ) {
 	font-size: 0.92857143em;
 }
 
+.form-language {
+	max-width: 10em;
+}
+
 @media ( min-width: 721px ) {
 	.enableNotifications {
 		margin-left: 40%;
