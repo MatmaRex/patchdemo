@@ -1,1 +1,1 @@
-$wgPageViewInfoWikimediaDomain = 'en.wikipedia.org';
+$wgPageViewInfoWikimediaDomain = "$wgLanguageCode.wikipedia.org";

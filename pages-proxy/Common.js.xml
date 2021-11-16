@@ -45,13 +45,13 @@
         <username>Patch Demo</username>
         <id>1</id>
       </contributor>
-      <comment>Load CSS from en.wiki</comment>
+      <comment>Load CSS from Wikipedia</comment>
       <origin>20</origin>
       <model>javascript</model>
       <format>text/javascript</format>
-      <text bytes="270" sha1="8l7i230dl0l5ci0s7isy54kf7bw8aa5" xml:space="preserve">mw.loader.load( 'https://en.wikipedia.org/w/index.php?title=MediaWiki:Common.css&amp;action=raw&amp;ctype=text/css', 'text/css' );
-mw.loader.load( 'https://en.wikipedia.org/w/index.php?title=MediaWiki:' + mw.config.get( 'skin' ) + '.css&amp;action=raw&amp;ctype=text/css', 'text/css' );</text>
-      <sha1>8l7i230dl0l5ci0s7isy54kf7bw8aa5</sha1>
+      <text bytes="354" sha1="f0oi2nwxzlzgludf5w1hhz3tgxmpkrh" xml:space="preserve">mw.loader.load( 'https://' + mw.config.get( 'wgContentLanguage' ) + '.wikipedia.org/w/index.php?title=MediaWiki:Common.css&amp;action=raw&amp;ctype=text/css', 'text/css' );
+mw.loader.load( 'https://' + mw.config.get( 'wgContentLanguage' ) + '.wikipedia.org/w/index.php?title=MediaWiki:' + mw.config.get( 'skin' ) + '.css&amp;action=raw&amp;ctype=text/css', 'text/css' );</text>
+      <sha1>f0oi2nwxzlzgludf5w1hhz3tgxmpkrh</sha1>
     </revision>
   </page>
 </mediawiki>
