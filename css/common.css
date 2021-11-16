@@ -139,8 +139,10 @@ summary > .oo-ui-labelElement-label:not( .oo-ui-inline-help ) {
 	font-size: 0.92857143em;
 }
 
-.enableNotifications {
-	margin-left: 40%;
+@media ( min-width: 721px ) {
+	.enableNotifications {
+		margin-left: 40%;
+	}
 }
 
 /* Wiki list */
