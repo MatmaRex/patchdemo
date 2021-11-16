@@ -187,8 +187,8 @@ if ( $useOAuth && !$user ) {
 							'selected' => false
 						] ),
 						[
-							'label' => 'Proxy articles from en.wikipedia.org',
-							'help' => 'Any articles not local to the wiki will be pulled from English Wikipedia.',
+							'label' => 'Proxy articles from wikipedia.org',
+							'help' => 'Any articles not local to the wiki will be pulled from Wikipedia, using the language code above.',
 							'helpInline' => true,
 							'align' => 'left',
 						]
