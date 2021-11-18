@@ -1,6 +1,9 @@
 #!/bin/bash
 set -ex
 
+# make database
+mysql -u patchdemo --password=patchdemo -e "CREATE DATABASE patchdemo_$NAME";
+
 # install
 cd $PATCHDEMO/wikis/$NAME/w
 php $PATCHDEMO/wikis/$NAME/w/maintenance/install.php \

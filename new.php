@@ -337,24 +337,47 @@ foreach ( $repos as $source => $target ) {
 	set_progress( $repoProgress, 'Updating repositories...' );
 }
 
-set_progress( 40, 'Checking out your wiki...' );
+// Just creates empty folders so no need for progress update
+$error = shell_echo( __DIR__ . '/new/precheckout.sh', $baseEnv );
+if ( $error ) {
+	abandon( "Could not create directories for wiki" );
+}
 
-$reposString = implode( "\n", array_map( static function ( $k, $v ) {
-	return "$k $v";
-}, array_keys( $repos ), array_values( $repos ) ) );
+$start = 40;
+$end = 60;
+$n = 1;
+$repoProgress = $start;
+$repoCount = count( $repos );
+foreach ( $repos as $source => $target ) {
+	set_progress( $repoProgress, "Checking out repositories ($n/$repoCount)..." );
 
-$error = shell_echo( __DIR__ . '/new/checkout.sh',
-	$baseEnv + [
+	$error = shell_echo( __DIR__ . '/new/checkout.sh',
+		$baseEnv + [
 		'BRANCH' => $branch,
+		'REPO_SOURCE' => $source,
+		'REPO_TARGET' => $target,
+		]
+	);
+	if ( $error ) {
+		abandon( "Could not check out repository <em>$source</em>" );
+	}
+
+	$repoProgress += ( $end - $start ) / $repoCount;
+	$n++;
+}
+
+set_progress( 60, 'Fetching dependencies...' );
+$error = shell_echo( __DIR__ . '/new/postcheckout.sh',
+	$baseEnv + [
+		// Variable used by composer itself, not our script
 		'COMPOSER_HOME' => __DIR__ . '/composer',
-		'REPOSITORIES' => $reposString,
 	]
 );
 if ( $error ) {
-	abandon( "Could not check out wiki." );
+	abandon( "Could not fetch dependencies" );
 }
 
-set_progress( 60, 'Installing your wiki...' );
+set_progress( 65, 'Installing your wiki...' );
 
 $error = shell_echo( __DIR__ . '/new/install.sh',
 	$baseEnv + [
@@ -366,7 +389,7 @@ $error = shell_echo( __DIR__ . '/new/install.sh',
 	]
 );
 if ( $error ) {
-	abandon( "Could not install wiki." );
+	abandon( "Could not install wiki" );
 }
 
 set_progress( 80, 'Fetching and applying patches...' );
@@ -374,7 +397,7 @@ set_progress( 80, 'Fetching and applying patches...' );
 foreach ( $commands as $i => $command ) {
 	$error = shell_echo( $command[1], $baseEnv + $command[0] );
 	if ( $error ) {
-		abandon( "Could not apply patch {$patchesApplied[$i]}." );
+		abandon( "Could not apply patch {$patchesApplied[$i]}" );
 	}
 }
 
@@ -389,7 +412,7 @@ $error = shell_echo( __DIR__ . '/new/postinstall.sh',
 	]
 );
 if ( $error ) {
-	abandon( "Could not setup wiki content." );
+	abandon( "Could not setup wiki content" );
 }
 
 if ( $announce && count( $linkedTasks ) ) {
