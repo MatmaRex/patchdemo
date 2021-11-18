@@ -319,24 +319,27 @@ $baseEnv = [
 	'NAME' => $namePath,
 ];
 
-set_progress( 5, 'Updating repositories...' );
-
 $start = 5;
 $end = 40;
+$n = 1;
 $repoProgress = $start;
+$repoCount = count( $repos );
 
 foreach ( $repos as $source => $target ) {
+	set_progress( $repoProgress, "Updating repositories ($n/$repoCount)..." );
+
 	$error = shell_echo( __DIR__ . '/new/updaterepos.sh',
 		$baseEnv + [
-			'REPOSITORIES' => "$source $target",
+			'REPO_SOURCE' => $source,
 		]
 	);
+
 	if ( $error ) {
 		abandon( "Could not update repository <em>$source</em>" );
 	}
 
-	$repoProgress += ( $end - $start ) / count( $repos );
-	set_progress( $repoProgress, 'Updating repositories...' );
+	$repoProgress += ( $end - $start ) / $repoCount;
+	$n++;
 }
 
 // Just creates empty folders so no need for progress update
