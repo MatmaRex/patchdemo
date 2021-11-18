@@ -348,10 +348,6 @@ if ( $error ) {
 
 set_progress( 60, 'Installing your wiki...' );
 
-$reposString = implode( "\n", array_map( static function ( $k, $v ) {
-	return "$k $v";
-}, array_keys( $repos ), array_values( $repos ) ) );
-
 $cmd = make_shell_command( $baseEnv + [
 	'WIKINAME' => $wikiName,
 	'SERVER' => $server,
