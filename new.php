@@ -368,13 +368,18 @@ if ( $error ) {
 	abandon( "Could not install wiki." );
 }
 
-set_progress( 80, 'Fetching and applying patches...' );
-
+$start = 80;
+$end = 90;
+$progress = $start;
+$count = count( $commands );
 foreach ( $commands as $i => $command ) {
+	$n = $i + 1;
+	set_progress( $progress, "Fetching and applying patches ($n/$count)..." );
 	$error = shell_echo( $command[1], $baseEnv + $command[0] );
 	if ( $error ) {
 		abandon( "Could not apply patch {$patchesApplied[$i]}." );
 	}
+	$progress += ( $end - $start ) / $count;
 }
 
 set_progress( 90, 'Setting up wiki content...' );
