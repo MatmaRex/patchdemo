@@ -1,5 +1,7 @@
 <?php
 
+use Symfony\Component\Yaml\Yaml;
+
 require_once "includes.php";
 
 include "header.php";
@@ -366,15 +368,40 @@ foreach ( $repos as $source => $target ) {
 	$n++;
 }
 
-set_progress( 60, 'Fetching dependencies...' );
-$error = shell_echo( __DIR__ . '/new/postcheckout.sh',
-	$baseEnv + [
-		// Variable used by composer itself, not our script
-		'COMPOSER_HOME' => __DIR__ . '/composer',
-	]
-);
+// TODO: Make this a loop if repos other than VE need to update submodules
+set_progress( 60, 'Fetching submodules...' );
+$error = shell_echo( __DIR__ . '/new/submodules.sh', $baseEnv );
 if ( $error ) {
-	abandon( "Could not fetch dependencies" );
+	abandon( "Could not fetch submodules" );
+}
+
+$composerUpdateRepos = Yaml::parse( file_get_contents( __DIR__ . '/repository-lists/composerupdate.yaml' ) );
+// Filter down to repos which are being installed
+$composerUpdateRepos = array_values( array_filter(
+	$composerUpdateRepos,
+	static function ( string $repo ) use ( $repos ): bool {
+		return isset( $repos[$repo] );
+	}
+) );
+$start = 60;
+$end = 65;
+$repoProgress = $start;
+$repoCount = count( $composerUpdateRepos );
+foreach ( $composerUpdateRepos as $i => $repo ) {
+	$n = $i + 1;
+	set_progress( $repoProgress, "Fetching dependencies ($n/$repoCount)..." );
+	$error = shell_echo( __DIR__ . '/new/composerupdate.sh',
+		$baseEnv + [
+			// Variable used by composer itself, not our script
+			'COMPOSER_HOME' => __DIR__ . '/composer',
+			'REPO_TARGET' => $repos[$repo],
+		]
+	);
+	if ( $error ) {
+		abandon( "Could not fetch dependencies for <em>$repo</em>" );
+	}
+
+	$repoProgress += ( $end - $start ) / $repoCount;
 }
 
 set_progress( 65, 'Installing your wiki...' );
