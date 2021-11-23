@@ -1,0 +1,5 @@
+// Disabled on all WMF wikis
+$wgULSLanguageDetection = false;
+// Disabled on most WFM wikis
+$wgULSWebfontsEnabled = false;
+$wgULSPosition = 'interlanguage';
