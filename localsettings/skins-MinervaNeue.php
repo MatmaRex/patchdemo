@@ -1,1 +1,3 @@
+<?php
+
 $wgMinervaApplyKnownTemplateHacks = true;

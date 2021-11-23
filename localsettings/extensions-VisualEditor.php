@@ -1,3 +1,5 @@
+<?php
+
 // NWE beta feature
 $wgVisualEditorEnableWikitextBetaFeature = true;
 // CollabPad test server

@@ -1,3 +1,5 @@
+<?php
+
 $wgGERestbaseUrl = "https://$wgLanguageCode.wikipedia.org/api/rest_v1";
 $wgGENewcomerTasksRemoteApiUrl = "https://$wgLanguageCode.wikipedia.org/w/api.php";
 $wgGENewcomerTasksTopicType = 'ores';
@@ -7,5 +9,5 @@ $wgGEHelpPanelHelpDeskTitle = 'Project:GrowthExperiments_help_desk';
 
 $growthExperimentsLocalSettings = "$IP/extensions/GrowthExperiments/tests/selenium/fixtures/GrowthExperiments.LocalSettings.php";
 if ( file_exists( $growthExperimentsLocalSettings ) ) {
-    require_once $growthExperimentsLocalSettings;
+	require_once $growthExperimentsLocalSettings;
 }

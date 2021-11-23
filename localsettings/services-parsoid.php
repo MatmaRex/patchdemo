@@ -1,3 +1,5 @@
+<?php
+
 // Parsoid/PHP required configuration
 $wgEnableRestAPI = true;
 if ( file_exists( 'parsoid/extension.json' ) ) {

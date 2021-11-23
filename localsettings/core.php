@@ -1,3 +1,5 @@
+<?php
+
 // Generic verbose error reporting stuff
 $isCli = PHP_SAPI === 'cli' || PHP_SAPI === 'phpdbg';
 error_reporting( -1 );
