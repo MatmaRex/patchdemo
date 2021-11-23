@@ -59,7 +59,7 @@ done
 
 # Add the proxy if selected
 if [ "${USE_PROXY}" = "1" ]; then
-	cat $PATCHDEMO/localsettings/feature-proxy.txt >> $PATCHDEMO/wikis/$NAME/w/LocalSettings.php
+	cp $PATCHDEMO/localsettings/feature-proxy.php $PATCHDEMO/wikis/$NAME/w/settings.d
 	# Import custom Common.js for fetching CSS from the wiki
 	for page in $(find $PATCHDEMO/pages-proxy -name "*.xml" -not -type d -printf '%P\n')
 	do
@@ -69,7 +69,7 @@ fi
 
 # Enable instantCommons if selected
 if [ "${USE_INSTANT_COMMONS}" = "1" ]; then
-	cat $PATCHDEMO/localsettings/feature-instantCommons.txt >> $PATCHDEMO/wikis/$NAME/w/LocalSettings.php
+	cp $PATCHDEMO/localsettings/feature-instantCommons.php $PATCHDEMO/wikis/$NAME/w/settings.d
 fi
 
 # populate interwiki table from en.wiki

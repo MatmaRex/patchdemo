@@ -1,2 +1,4 @@
+<?php
+
 // InstantCommons
 $wgUseInstantCommons = true;

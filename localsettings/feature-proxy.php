@@ -1,3 +1,5 @@
+<?php
+
 // Allow proxying content from production
 
 $wgMFContentProviderClass = "MobileFrontendContentProviders\\MwApiContentProvider";

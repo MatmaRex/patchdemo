@@ -14,16 +14,16 @@ php $PATCHDEMO/wikis/$NAME/w/maintenance/install.php \
 --pass=patchdemo1 \
 "$WIKINAME" "Patch Demo"
 
-# apply our default settings
 echo "\$wgLanguageCode = '$LANGUAGE';" >> $PATCHDEMO/wikis/$NAME/w/LocalSettings.php
-cat $PATCHDEMO/localsettings/core.txt >> $PATCHDEMO/wikis/$NAME/w/LocalSettings.php
 
-# apply extension/skin/service-specific settings
+mkdir $PATCHDEMO/wikis/$NAME/w/settings.d
+echo 'foreach( glob( __DIR__ . "/settings.d/*.php" ) as $conffile ) { include_once $conffile; }' >> $PATCHDEMO/wikis/$NAME/w/LocalSettings.php
+
+# apply core/extension/skin/service-specific settings
 while IFS=' ' read -r repo dir; do
 	filename=$(echo $repo | sed "s/\//-/g" | sed "s/^mediawiki-//")
-	if [ -f $PATCHDEMO/localsettings/$filename.txt ]; then
-		echo -e "\n// $repo" >> $PATCHDEMO/wikis/$NAME/w/LocalSettings.php
-		cat $PATCHDEMO/localsettings/$filename.txt >> $PATCHDEMO/wikis/$NAME/w/LocalSettings.php
+	if [ -f $PATCHDEMO/localsettings/$filename.php ]; then
+		cp $PATCHDEMO/localsettings/$filename.php $PATCHDEMO/wikis/$NAME/w/settings.d
 	fi
 done <<< "$REPOSITORIES"
 

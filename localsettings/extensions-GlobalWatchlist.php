@@ -1,1 +1,3 @@
+<?php
+
 $wgGlobalWatchlistDevMode = true;

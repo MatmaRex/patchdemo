@@ -1,3 +1,5 @@
+<?php
+
 if ( file_exists( 'extensions/ConfirmEdit/QuestyCaptcha/extension.json' ) ) {
 	// Unintrusive anti-spam CAPTCHA
 	wfLoadExtension( 'ConfirmEdit/QuestyCaptcha' );

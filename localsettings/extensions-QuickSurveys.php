@@ -1,3 +1,5 @@
+<?php
+
 $wgQuickSurveysConfig = [
 	[
 		'name' => 'internal example survey',
