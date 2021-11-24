@@ -289,7 +289,7 @@ function make_shell_command( array $env, string $cmd ): string {
 function shell_echo( string $cmd ): int {
 	echo '<pre>';
 	echo htmlspecialchars( "$cmd\n" );
-	$process = Process::fromShellCommandline( $cmd );
+	$process = Process::fromShellCommandline( $cmd, null, [] );
 	$process->setTimeout( null );
 	$error = $process->run( static function ( $type, $buffer ) {
 		echo htmlspecialchars( $buffer );
@@ -299,7 +299,7 @@ function shell_echo( string $cmd ): int {
 }
 
 function shell( $cmd ): ?string {
-	$process = Process::fromShellCommandline( $cmd );
+	$process = Process::fromShellCommandline( $cmd, null, [] );
 	$process->setTimeout( null );
 	$error = $process->run();
 	return $error ? null : $process->getOutput();
