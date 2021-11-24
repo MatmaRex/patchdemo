@@ -276,20 +276,16 @@ function format_linked_tasks( array $linkedTasks ): string {
 	return $linkedTasks ?: '<em>No tasks</em>';
 }
 
-function make_shell_command( array $env, string $cmd ): string {
+function shell_echo( string $cmd, array $env = [] ): int {
+	echo '<pre>';
+
 	$prefix = '';
 	foreach ( $env as $key => $value ) {
 		$value = escapeshellarg( $value );
 		$prefix .= "$key=$value ";
 	}
-
-	return "$prefix$cmd 2>&1";
-}
-
-function shell_echo( string $cmd ): int {
-	echo '<pre>';
-	echo htmlspecialchars( "$cmd\n" );
-	$process = Process::fromShellCommandline( $cmd, null, [] );
+	echo htmlspecialchars( "$prefix$cmd\n" );
+	$process = Process::fromShellCommandline( $cmd, null, $env );
 	$process->setTimeout( null );
 	$error = $process->run( static function ( $type, $buffer ) {
 		echo htmlspecialchars( $buffer );
@@ -298,8 +294,8 @@ function shell_echo( string $cmd ): int {
 	return $error;
 }
 
-function shell( $cmd ): ?string {
-	$process = Process::fromShellCommandline( $cmd, null, [] );
+function shell( $cmd, array $env = [] ): ?string {
+	$process = Process::fromShellCommandline( $cmd, null, $env );
 	$process->setTimeout( null );
 	$error = $process->run();
 	return $error ? null : $process->getOutput();
@@ -314,11 +310,12 @@ function delete_wiki( string $wiki ): int {
 		return 'Wiki already deleted.';
 	}
 
-	$cmd = make_shell_command( [
-		'PATCHDEMO' => __DIR__,
-		'WIKI' => $wiki
-	], __DIR__ . '/deletewiki.sh' );
-	$error = shell_echo( $cmd );
+	$error = shell_echo( __DIR__ . '/deletewiki.sh',
+		[
+			'PATCHDEMO' => __DIR__,
+			'WIKI' => $wiki
+		]
+	);
 
 	foreach ( $wikiData['announcedTasks'] as $task ) {
 		// TODO: Deduplicate server/serverPath with variables in new.php

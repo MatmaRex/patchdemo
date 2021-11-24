@@ -324,11 +324,11 @@ $end = 40;
 $repoProgress = $start;
 
 foreach ( $repos as $source => $target ) {
-	$cmd = make_shell_command( $baseEnv + [
-		'REPOSITORIES' => "$source $target",
-	], __DIR__ . '/new/updaterepos.sh' );
-
-	$error = shell_echo( $cmd );
+	$error = shell_echo( __DIR__ . '/new/updaterepos.sh',
+		$baseEnv + [
+			'REPOSITORIES' => "$source $target",
+		]
+	);
 	if ( $error ) {
 		abandon( "Could not update repository <em>$source</em>" );
 	}
@@ -343,27 +343,27 @@ $reposString = implode( "\n", array_map( static function ( $k, $v ) {
 	return "$k $v";
 }, array_keys( $repos ), array_values( $repos ) ) );
 
-$cmd = make_shell_command( $baseEnv + [
-	'BRANCH' => $branch,
-	'COMPOSER_HOME' => __DIR__ . '/composer',
-	'REPOSITORIES' => $reposString,
-], __DIR__ . '/new/checkout.sh' );
-
-$error = shell_echo( $cmd );
+$error = shell_echo( __DIR__ . '/new/checkout.sh',
+	$baseEnv + [
+		'BRANCH' => $branch,
+		'COMPOSER_HOME' => __DIR__ . '/composer',
+		'REPOSITORIES' => $reposString,
+	]
+);
 if ( $error ) {
 	abandon( "Could not check out wiki." );
 }
 
 set_progress( 60, 'Installing your wiki...' );
 
-$cmd = make_shell_command( $baseEnv + [
-	'WIKINAME' => $wikiName,
-	'SERVER' => $server,
-	'SERVERPATH' => $serverPath,
-	'LANGUAGE' => $language,
-], __DIR__ . '/new/install.sh' );
-
-$error = shell_echo( $cmd );
+$error = shell_echo( __DIR__ . '/new/install.sh',
+	$baseEnv + [
+		'WIKINAME' => $wikiName,
+		'SERVER' => $server,
+		'SERVERPATH' => $serverPath,
+		'LANGUAGE' => $language,
+	]
+);
 if ( $error ) {
 	abandon( "Could not install wiki." );
 }
@@ -371,8 +371,7 @@ if ( $error ) {
 set_progress( 80, 'Fetching and applying patches...' );
 
 foreach ( $commands as $i => $command ) {
-	$cmd = make_shell_command( $baseEnv + $command[0], $command[1] );
-	$error = shell_echo( $cmd );
+	$error = shell_echo( $command[1], $baseEnv + $command[0] );
 	if ( $error ) {
 		abandon( "Could not apply patch {$patchesApplied[$i]}." );
 	}
@@ -380,13 +379,13 @@ foreach ( $commands as $i => $command ) {
 
 set_progress( 90, 'Setting up wiki content...' );
 
-$cmd = make_shell_command( $baseEnv + [
-	'MAINPAGE' => $mainPage,
-	'USE_PROXY' => $useProxy,
-	'USE_INSTANT_COMMONS' => $useInstantCommons,
-], __DIR__ . '/new/postinstall.sh' );
-
-$error = shell_echo( $cmd );
+$error = shell_echo( __DIR__ . '/new/postinstall.sh',
+	$baseEnv + [
+		'MAINPAGE' => $mainPage,
+		'USE_PROXY' => $useProxy,
+		'USE_INSTANT_COMMONS' => $useInstantCommons,
+	]
+);
 if ( $error ) {
 	abandon( "Could not setup wiki content." );
 }
