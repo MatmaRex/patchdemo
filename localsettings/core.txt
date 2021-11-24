@@ -39,6 +39,8 @@ $wgLogos = [
 	]
 ];
 $wgFavicon = "$wgResourceBasePath/favicon.ico";
+// Legacy logo setting for older releases
+$wgLogo = "$wgResourceBasePath/logo.svg";
 
 // Email settings
 $wgAllowHTMLEmail = true;
