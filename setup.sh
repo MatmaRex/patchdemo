@@ -3,6 +3,18 @@ sudo apt-get install apache2 default-mysql-server php libapache2-mod-php php-mys
 # dependencies of our system
 sudo apt-get install git composer npm unzip rdfind
 
+# Docker
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+# ElasticSearch
+docker run -d --restart=always \
+  -v elasticdata:/usr/share/elasticsearch/data \
+  -e "discovery.type=single-node" \
+  -e "bootstrap.system_call_filter=false" \
+  -p 9200:9200 \
+  -p 9300:9300 \
+  docker-registry.wikimedia.org/dev/stretch-elasticsearch:0.1.0
+
 # create master copies of repositories
 sudo -u www-data mkdir repositories
 cd repositories

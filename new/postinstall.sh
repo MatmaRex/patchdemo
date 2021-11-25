@@ -38,6 +38,15 @@ if [ -d $PATCHDEMO/wikis/$NAME/w/extensions/SecurePoll ]; then
 	php $PATCHDEMO/wikis/$NAME/w/maintenance/createAndPromote.php "Patch Demo" --force --custom-groups electionadmin
 fi
 
+# CirrusSearch
+if [ -d $PATCHDEMO/wikis/$NAME/w/extensions/CirrusSearch ]; then
+  php $PATCHDEMO/wikis/$NAME/w/maintenance/update.php --quick
+  php $PATCHDEMO/wikis/$NAME/w/extensions/CirrusSearch/maintenance/UpdateSearchIndexConfig.php
+  php $PATCHDEMO/wikis/$NAME/w/extensions/CirrusSearch/maintenance/ForceSearchIndex.php --skipLinks --indexOnSkip
+  php $PATCHDEMO/wikis/$NAME/w/extensions/CirrusSearch/maintenance/ForceSearchIndex.php --skipParse
+  php $PATCHDEMO/wikis/$NAME/w/maintenance/runJobs.php
+fi
+
 # import extension/skin/service-specific XML dumps
 while IFS=' ' read -r repo dir; do
 	filename=$(echo $repo | sed "s/\//-/g" | sed "s/^mediawiki-//")

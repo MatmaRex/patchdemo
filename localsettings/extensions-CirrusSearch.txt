@@ -1,0 +1,5 @@
+require_once "$IP/extensions/CirrusSearch/tests/jenkins/FullyFeaturedConfig.php";
+$wgCirrusSearchServers = [ 'localhost' ];
+$wgCirrusSearchWMFExtraFeatures = [
+	'weighted_tags' => [ 'build' => true, 'use' => true ]
+];
