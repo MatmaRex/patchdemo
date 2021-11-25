@@ -19,10 +19,12 @@ php $PATCHDEMO/wikis/$NAME/w/maintenance/createAndPromote.php Mallory patchdemo1
 echo "Mallory" | php $PATCHDEMO/wikis/$NAME/w/maintenance/blockUsers.php --reason "Blocking account for testing" --disable-autoblock || echo "Can't block Mallory"
 
 # set dummy email addresses, in case Inbox is being used (#254)
-php $PATCHDEMO/wikis/$NAME/w/maintenance/resetUserEmail.php --no-reset-password "Patch Demo" Patch_Demo@localhost
-php $PATCHDEMO/wikis/$NAME/w/maintenance/resetUserEmail.php --no-reset-password "Alice" Alice@localhost
-php $PATCHDEMO/wikis/$NAME/w/maintenance/resetUserEmail.php --no-reset-password "Bob" Bob@localhost
-php $PATCHDEMO/wikis/$NAME/w/maintenance/resetUserEmail.php --no-reset-password "Mallory" Mallory@localhost
+if [ -f $PATCHDEMO/wikis/$NAME/w/maintenance/resetUserEmail.php ]; then
+	php $PATCHDEMO/wikis/$NAME/w/maintenance/resetUserEmail.php --no-reset-password "Patch Demo" Patch_Demo@localhost
+	php $PATCHDEMO/wikis/$NAME/w/maintenance/resetUserEmail.php --no-reset-password "Alice" Alice@localhost
+	php $PATCHDEMO/wikis/$NAME/w/maintenance/resetUserEmail.php --no-reset-password "Bob" Bob@localhost
+	php $PATCHDEMO/wikis/$NAME/w/maintenance/resetUserEmail.php --no-reset-password "Mallory" Mallory@localhost
+fi
 
 # run arbitrary SQL
 for sql in $(find $PATCHDEMO/sql-perwiki -name "*.sql" -not -type d -printf '%P\n')
@@ -73,7 +75,9 @@ if [ "${USE_INSTANT_COMMONS}" = "1" ]; then
 fi
 
 # populate interwiki table from en.wiki
-php $PATCHDEMO/wikis/$NAME/w/maintenance/populateInterwiki.php
+if [ -f $PATCHDEMO/wikis/$NAME/w/maintenance/populateInterwiki.php ]; then
+	php $PATCHDEMO/wikis/$NAME/w/maintenance/populateInterwiki.php
+fi
 
 # update caches after import
 php $PATCHDEMO/wikis/$NAME/w/maintenance/rebuildrecentchanges.php
