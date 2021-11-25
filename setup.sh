@@ -4,6 +4,7 @@ sudo apt-get install apache2 default-mysql-server php libapache2-mod-php php-mys
 sudo apt-get install git composer npm unzip rdfind
 
 # Docker
+# https://docs.docker.com/engine/install/debian/#install-using-the-convenience-script
 curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
 # ElasticSearch
