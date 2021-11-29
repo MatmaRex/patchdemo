@@ -3,7 +3,7 @@ set -ex
 
 # update Main_Page
 sleep 1 # Ensure edit appears after creation in history
-MAINPAGETITLE=$( echo 'echo Title::newMainPage()->getDBkey();' | php $PATCHDEMO/wikis/$NAME/w/maintenance/eval.php )
+MAINPAGETITLE=$( echo 'echo Title::newMainPage()->getDBkey();' | php $PATCHDEMO/wikis/$NAME/w/maintenance/eval.php 2> /dev/null )
 echo "$MAINPAGE" | php $PATCHDEMO/wikis/$NAME/w/maintenance/edit.php "$MAINPAGETITLE"
 
 # run update script (#166, #244)

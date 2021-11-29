@@ -1,7 +1,8 @@
 // Generic verbose error reporting stuff
+$isCli = PHP_SAPI === 'cli' || PHP_SAPI === 'phpdbg';
 error_reporting( -1 );
 ini_set( 'display_startup_errors', 1 );
-ini_set( 'display_errors', 1 );
+ini_set( 'display_errors', $isCli ? 'stderr' : 1 );
 $wgShowSQLErrors = true;
 $wgDebugDumpSql  = true;
 $wgShowDBErrorBacktrace = true;
