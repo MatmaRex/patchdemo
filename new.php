@@ -362,6 +362,7 @@ $error = shell_echo( __DIR__ . '/new/install.sh',
 		'SERVER' => $server,
 		'SERVERPATH' => $serverPath,
 		'LANGUAGE' => $language,
+		'REPOSITORIES' => $reposString,
 	]
 );
 if ( $error ) {
@@ -384,6 +385,7 @@ $error = shell_echo( __DIR__ . '/new/postinstall.sh',
 		'MAINPAGE' => $mainPage,
 		'USE_PROXY' => $useProxy,
 		'USE_INSTANT_COMMONS' => $useInstantCommons,
+		'REPOSITORIES' => $reposString,
 	]
 );
 if ( $error ) {

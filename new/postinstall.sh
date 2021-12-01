@@ -42,15 +42,13 @@ fi
 # import extension/skin/service-specific XML dumps
 while IFS=' ' read -r repo dir; do
 	filename=$(echo $repo | sed "s/\//-/g" | sed "s/^mediawiki-//")
-	if [ -d $PATCHDEMO/wikis/$NAME/$dir ]; then
-		# matches extension-foo.xml or extension-foo-*.xml
-		for page in $(find $PATCHDEMO/pages -regextype egrep -regex ".*/$filename(-.+)?.xml" -not -type d -printf '%P\n')
-		do
-			echo "Importing $PATCHDEMO/pages/$page"
-			php $PATCHDEMO/wikis/$NAME/w/maintenance/importDump.php < $PATCHDEMO/pages/$page
-		done
-	fi
-done < $PATCHDEMO/repository-lists/all.txt
+	# matches extension-foo.xml or extension-foo-*.xml
+	for page in $(find $PATCHDEMO/pages -regextype egrep -regex ".*/$filename(-.+)?.xml" -not -type d -printf '%P\n')
+	do
+		echo "Importing $PATCHDEMO/pages/$page"
+		php $PATCHDEMO/wikis/$NAME/w/maintenance/importDump.php < $PATCHDEMO/pages/$page
+	done
+done <<< "$REPOSITORIES"
 
 # import generic XML dumps (core-*.xml)
 for page in $(find $PATCHDEMO/pages -name "core-*.xml" -not -type d -printf '%P\n')
