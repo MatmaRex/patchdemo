@@ -22,12 +22,10 @@ cat $PATCHDEMO/localsettings/core.txt >> $PATCHDEMO/wikis/$NAME/w/LocalSettings.
 while IFS=' ' read -r repo dir; do
 	filename=$(echo $repo | sed "s/\//-/g" | sed "s/^mediawiki-//")
 	if [ -f $PATCHDEMO/localsettings/$filename.txt ]; then
-		if [ -d $PATCHDEMO/wikis/$NAME/$dir ]; then
-			echo -e "\n// $repo" >> $PATCHDEMO/wikis/$NAME/w/LocalSettings.php
-			cat $PATCHDEMO/localsettings/$filename.txt >> $PATCHDEMO/wikis/$NAME/w/LocalSettings.php
-		fi
+		echo -e "\n// $repo" >> $PATCHDEMO/wikis/$NAME/w/LocalSettings.php
+		cat $PATCHDEMO/localsettings/$filename.txt >> $PATCHDEMO/wikis/$NAME/w/LocalSettings.php
 	fi
-done < $PATCHDEMO/repository-lists/all.txt
+done <<< "$REPOSITORIES"
 
 # create htaccess
 echo "RewriteEngine On
