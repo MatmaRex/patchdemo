@@ -4,7 +4,8 @@
 		"symfony/process": "^5.4",
 		"symfony/yaml": "^5.4",
 		"oojs/oojs-ui": "0.42.1",
-		"zolli/phabricator-php-api": "^2.0"
+		"zolli/phabricator-php-api": "^2.0",
+		"sensiolabs/ansi-to-html": "^1.2"
 	},
 	"require-dev": {
 		"php-parallel-lint/php-console-highlighter": "0.5.0",
