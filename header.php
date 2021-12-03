@@ -3,10 +3,11 @@
 OOUI\Theme::setSingleton( new OOUI\WikimediaUITheme() );
 
 echo '<!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="client-nojs">
 	<head>
 		<meta charset="utf-8">
 		<title>Patch demo</title>
+		<script>document.documentElement.className = "client-js";</script>
 		<link rel="stylesheet" href="' . $basePath . '/node_modules/oojs-ui/dist/oojs-ui-wikimediaui.min.css">
 		<link rel="stylesheet" href="' . $basePath . '/css/common.css">
 		<script src="' . $basePath . '/node_modules/jquery/dist/jquery.min.js"></script>
