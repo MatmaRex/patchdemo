@@ -1,5 +1,7 @@
 <?php
 
+use SensioLabs\AnsiConverter\AnsiToHtmlConverter;
+use SensioLabs\AnsiConverter\Theme\SolarizedXTermTheme;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Yaml\Yaml;
 
@@ -14,6 +16,8 @@ if ( file_exists( 'config.php' ) ) {
 	include 'config.php';
 	$config = array_merge( $config, $localConfig );
 }
+
+$ansiConverter = new AnsiToHtmlConverter( new SolarizedXTermTheme() );
 
 $basePath = dirname( $_SERVER['SCRIPT_NAME'] );
 if ( $basePath === '/' ) {
@@ -285,10 +289,13 @@ function shell_echo( string $cmd, array $env = [] ): int {
 		$prefix .= "$key=$value ";
 	}
 	echo htmlspecialchars( "$prefix$cmd\n" );
+
 	$process = Process::fromShellCommandline( $cmd, null, $env );
 	$process->setTimeout( null );
+	$process->setPty( true );
 	$error = $process->run( static function ( $type, $buffer ) {
-		echo htmlspecialchars( $buffer );
+		global $ansiConverter;
+		echo $ansiConverter->convert( $buffer );
 	} );
 	echo '</pre>';
 	return $error;
