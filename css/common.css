@@ -143,6 +143,19 @@ summary > .oo-ui-labelElement-label:not( .oo-ui-inline-help ) {
 	max-width: 10em;
 }
 
+.client-js .form-patches textarea {
+	height: 2.28571em;
+}
+
+.client-nojs .form-patches textarea {
+	height: 5em;
+}
+
+.form-patches .oo-ui-tagMultiselectWidget-handle .oo-ui-tagMultiselectWidget-group > input {
+	/* Look more like a TextInputWidget */
+	padding-left: 2px;
+}
+
 @media ( min-width: 721px ) {
 	.enableNotifications {
 		margin-left: 40%;
