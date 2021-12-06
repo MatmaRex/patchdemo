@@ -23,6 +23,7 @@ $branch = trim( $_POST['branch'] );
 $patches = trim( $_POST['patches'] );
 $announce = !empty( $_POST['announce'] );
 $language = trim( $_POST['language'] );
+$siteConfig = can_configure() ? trim( $_POST['siteConfig'] ) : '';
 
 $namePath = substr( md5( $branch . $patches . time() ), 0, 10 );
 $server = detectProtocol() . '://' . $_SERVER['HTTP_HOST'];
@@ -303,6 +304,17 @@ if ( $useProxy ) {
 	$allowedRepos[] = 'mediawiki/extensions/MobileFrontendContentProvider';
 }
 
+if ( $siteConfig ) {
+	$mainPage .= "\n;Extra config\n";
+	$tag = 'pre';
+	$attrs = '';
+	if ( in_array( 'mediawiki/extensions/SyntaxHighlight_GeSHi', $allowedRepos ) ) {
+		$tag = 'syntaxhighlight';
+		$attrs = ' lang="php"';
+	}
+	$mainPage .= "<$tag$attrs style=\"margin-left: 1.6em\">\n$siteConfig\n</$tag>";
+}
+
 foreach ( array_keys( $repos ) as $repo ) {
 	// Unchecked the checkbox
 	if ( $repo !== 'mediawiki/core' && !in_array( $repo, $allowedRepos ) ) {
@@ -416,6 +428,7 @@ $error = shell_echo( __DIR__ . '/new/install.sh',
 		'SERVERPATH' => $serverPath,
 		'LANGUAGE' => $language,
 		'REPOSITORIES' => $reposString,
+		'SITECONFIG' => $siteConfig,
 	]
 );
 if ( $error ) {

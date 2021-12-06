@@ -156,6 +156,14 @@ summary > .oo-ui-labelElement-label:not( .oo-ui-inline-help ) {
 	padding-left: 2px;
 }
 
+.form-siteConfig .oo-ui-inputWidget-input {
+	font-family: monospace, monospace;
+}
+
+.form-siteConfig-message {
+	font-style: italic;
+}
+
 @media ( min-width: 721px ) {
 	.enableNotifications {
 		margin-left: 40%;

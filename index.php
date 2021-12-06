@@ -139,6 +139,25 @@ if ( $useOAuth && !$user ) {
 							'align' => 'left',
 						]
 					),
+					new OOUI\FieldLayout(
+						can_configure() ?
+							new OOUI\MultilineTextInputWidget( [
+								'classes' => [ 'form-siteConfig' ],
+								'name' => 'siteConfig',
+								'placeholder' => "e.g. \$wgSitename = 'Test wiki';",
+								'rows' => 3,
+							] ) :
+							new OOUI\LabelWidget( [
+								'classes' => [ 'form-siteConfig-message' ],
+								'label' => new OOUI\HtmlSnippet( 'Only approved users can modify site config. ' . $config['oauth']['configurersRequestHtml'] ),
+							] ),
+						[
+							'label' => 'Site config:',
+							'help' => new OOUI\HtmlSnippet( 'This config will be <strong>public</strong> on the wiki\'s main page.' ),
+							'helpInline' => true,
+							'align' => 'left',
+						]
+					),
 					new DetailsFieldLayout(
 						new OOUI\CheckboxMultiselectInputWidget( [
 							'classes' => [ 'form-repos' ],

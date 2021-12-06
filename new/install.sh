@@ -30,6 +30,9 @@ while IFS=' ' read -r repo dir; do
 	fi
 done <<< "$REPOSITORIES"
 
+# apply settings from install form
+echo "$SITECONFIG" >> $PATCHDEMO/wikis/$NAME/w/LocalSettings.php
+
 # create htaccess
 echo "RewriteEngine On
 # main rewrite rule

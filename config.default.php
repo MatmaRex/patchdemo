@@ -14,7 +14,14 @@ $config = [
 		'key' => null,
 		'secret' => null,
 		// OAuth admins can delete any wiki
-		'admins' => []
+		'admins' => [],
+		// These users can override site configs. This is the same level of trust as V+2,
+		// as those users can also execute arbitrary code.
+		'configurers' => [],
+		// Same as above, but regexes e.g. / \(WMF\)$/
+		'configurersMatch' => [],
+		// Instructions to request 'configurers' user status, e.g. "File a request <a href=...>here</a>."
+		'configurersRequestHtml' => '',
 	],
 	// Conduit API key for bot cross-posting to Phabricator
 	'conduitApiKey' => null,
