@@ -382,10 +382,10 @@ if ( $error ) {
 	abandon( "Could not fetch submodules" );
 }
 
-$composerUpdateRepos = Yaml::parse( file_get_contents( __DIR__ . '/repository-lists/composerupdate.yaml' ) );
+$composerInstallRepos = Yaml::parse( file_get_contents( __DIR__ . '/repository-lists/composerinstall.yaml' ) );
 // Filter down to repos which are being installed
-$composerUpdateRepos = array_values( array_filter(
-	$composerUpdateRepos,
+$composerInstallRepos = array_values( array_filter(
+	$composerInstallRepos,
 	static function ( string $repo ) use ( $repos ): bool {
 		return isset( $repos[$repo] );
 	}
@@ -393,11 +393,11 @@ $composerUpdateRepos = array_values( array_filter(
 $start = 60;
 $end = 65;
 $repoProgress = $start;
-$repoCount = count( $composerUpdateRepos );
-foreach ( $composerUpdateRepos as $i => $repo ) {
+$repoCount = count( $composerInstallRepos );
+foreach ( $composerInstallRepos as $i => $repo ) {
 	$n = $i + 1;
 	set_progress( $repoProgress, "Fetching dependencies ($n/$repoCount)..." );
-	$error = shell_echo( __DIR__ . '/new/composerupdate.sh',
+	$error = shell_echo( __DIR__ . '/new/composerinstall.sh',
 		$baseEnv + [
 			// Variable used by composer itself, not our script
 			'COMPOSER_HOME' => __DIR__ . '/composer',

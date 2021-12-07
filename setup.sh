@@ -24,7 +24,7 @@ sudo mysql -u root --password='' < sql/user.sql
 sudo mysql -u patchdemo --password='patchdemo' < sql/patchdemo.sql
 
 # dependencies for the website
-composer update --no-dev
+composer install --no-dev
 npm ci --production
 
 # setup daily cron job to deduplicate files

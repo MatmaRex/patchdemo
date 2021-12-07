@@ -1,4 +1,4 @@
-# Repos which require `composer update` to be run during installation
+# Repos which require `composer install` to be run during installation
 - mediawiki/core
 - mediawiki/services/parsoid
 - mediawiki/extensions/AbuseFilter
