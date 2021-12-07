@@ -20,7 +20,13 @@ php $PATCHDEMO/wikis/$NAME/w/maintenance/install.php \
 echo "\$wgLanguageCode = '$LANGUAGE';" >> $PATCHDEMO/wikis/$NAME/w/LocalSettings.php
 
 mkdir $PATCHDEMO/wikis/$NAME/w/settings.d
-echo 'foreach( glob( __DIR__ . "/settings.d/*.php" ) as $conffile ) { include_once $conffile; }' >> $PATCHDEMO/wikis/$NAME/w/LocalSettings.php
+echo '
+// Always load core.php first
+include_once "settings.d/core.php";
+foreach( glob( __DIR__ . "/settings.d/*.php" ) as $conffile ) {
+	include_once $conffile;
+}
+' >> $PATCHDEMO/wikis/$NAME/w/LocalSettings.php
 
 # apply core/extension/skin/service-specific settings
 while IFS=' ' read -r repo dir; do
