@@ -375,7 +375,7 @@ foreach ( $repos as $source => $target ) {
 	$n++;
 }
 
-// TODO: Make this a loop if repos other than VE need to update submodules
+// TODO: Make this a loop
 set_progress( 60, 'Fetching submodules...' );
 $error = shell_echo( __DIR__ . '/new/submodules.sh', $baseEnv );
 if ( $error ) {
