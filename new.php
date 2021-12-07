@@ -314,6 +314,10 @@ foreach ( array_keys( $repos ) as $repo ) {
 	}
 }
 
+$reposString = implode( "\n", array_map( static function ( $k, $v ) {
+	return "$k $v";
+}, array_keys( $repos ), array_values( $repos ) ) );
+
 $baseEnv = [
 	'PATCHDEMO' => __DIR__,
 	'NAME' => $namePath,
