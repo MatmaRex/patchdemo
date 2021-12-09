@@ -1,0 +1,48 @@
+<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.11/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mediawiki.org/xml/export-0.11/ http://www.mediawiki.org/xml/export-0.11.xsd" version="0.11" xml:lang="en">
+  <siteinfo>
+    <sitename>Patch demo (master)</sitename>
+    <dbname>patchdemo_6edd61eea0</dbname>
+    <base>https://patchdemo.wmflabs.org/wikis/6edd61eea0/wiki/Project:Main_Page</base>
+    <generator>MediaWiki 1.38.0-alpha</generator>
+    <case>first-letter</case>
+    <namespaces>
+      <namespace key="-2" case="first-letter">Media</namespace>
+      <namespace key="-1" case="first-letter">Special</namespace>
+      <namespace key="0" case="first-letter" />
+      <namespace key="1" case="first-letter">Talk</namespace>
+      <namespace key="2" case="first-letter">User</namespace>
+      <namespace key="3" case="first-letter">User talk</namespace>
+      <namespace key="4" case="first-letter">Project</namespace>
+      <namespace key="5" case="first-letter">Project talk</namespace>
+      <namespace key="6" case="first-letter">File</namespace>
+      <namespace key="7" case="first-letter">File talk</namespace>
+      <namespace key="8" case="first-letter">MediaWiki</namespace>
+      <namespace key="9" case="first-letter">MediaWiki talk</namespace>
+      <namespace key="10" case="first-letter">Template</namespace>
+      <namespace key="11" case="first-letter">Template talk</namespace>
+      <namespace key="12" case="first-letter">Help</namespace>
+      <namespace key="13" case="first-letter">Help talk</namespace>
+      <namespace key="14" case="first-letter">Category</namespace>
+      <namespace key="15" case="first-letter">Category talk</namespace>
+    </namespaces>
+  </siteinfo>
+  <page>
+    <title>MediaWiki:Mainpage</title>
+    <ns>8</ns>
+    <id>1075</id>
+    <revision>
+      <id>1076</id>
+      <timestamp>2021-12-09T14:31:54Z</timestamp>
+      <contributor>
+        <username>Patch Demo</username>
+        <id>1</id>
+      </contributor>
+      <comment>Created page with "Project:Main Page"</comment>
+      <origin>1076</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="17" sha1="i1kqeuz2x6jcxw6zp7a390nc7du1zs8" xml:space="preserve">Project:Main Page</text>
+      <sha1>i1kqeuz2x6jcxw6zp7a390nc7du1zs8</sha1>
+    </revision>
+  </page>
+</mediawiki>
