@@ -137,7 +137,11 @@
 				}
 			}
 			if ( presetInput.getValue() !== matchingPresetName ) {
+				// HACK: OOUI will scroll the selected option widget
+				// into view unless it thinks it isn't visible.
+				presetInput.radioSelectWidget.visible = false;
 				presetInput.setValue( matchingPresetName );
+				presetInput.radioSelectWidget.visible = true;
 			}
 
 			var selected = 0, enabled = 0;
