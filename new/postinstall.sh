@@ -1,11 +1,6 @@
 #!/bin/bash
 set -ex
 
-# update Main_Page
-sleep 1 # Ensure edit appears after creation in history
-MAINPAGETITLE=$( echo 'echo Title::newMainPage()->getDBkey();' | php $PATCHDEMO/wikis/$NAME/w/maintenance/eval.php 2> /dev/null )
-echo "$MAINPAGE" | php $PATCHDEMO/wikis/$NAME/w/maintenance/edit.php "$MAINPAGETITLE" || echo "Can't edit main page"
-
 # run update script (#166, #244)
 php $PATCHDEMO/wikis/$NAME/w/maintenance/update.php --quick
 
@@ -78,6 +73,11 @@ fi
 if [ -f $PATCHDEMO/wikis/$NAME/w/maintenance/populateInterwiki.php ]; then
 	php $PATCHDEMO/wikis/$NAME/w/maintenance/populateInterwiki.php
 fi
+
+# Update Main_Page
+# Done after content import in case MediaWiki:Mainpage is changed
+MAINPAGETITLE=$( echo 'echo Title::newMainPage()->getPrefixedText();' | php $PATCHDEMO/wikis/$NAME/w/maintenance/eval.php 2> /dev/null )
+echo "$MAINPAGE" | php $PATCHDEMO/wikis/$NAME/w/maintenance/edit.php "$MAINPAGETITLE" || echo "Can't edit main page"
 
 # update caches after import
 php $PATCHDEMO/wikis/$NAME/w/maintenance/rebuildrecentchanges.php
