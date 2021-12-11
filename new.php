@@ -33,6 +33,26 @@ $branchDesc = preg_replace( '/^origin\//', '', $branch );
 $creator = $user ? $user->username : '';
 $created = time();
 
+/**
+ * Check if the user has dropped their connection and delete the wiki if so
+ *
+ * We could check for dropped connections with register_shutdown_function(), but
+ * that could happen in the middle of a shell command. If we tried to delete
+ * a wiki while a shell command was running (e.g composer update) we may still
+ * be left with stray files (e.g. /vendor)
+ *
+ * Instead manually check the connection at 'safe' times in between API requests
+ * or shell commands.
+ */
+function check_connection() {
+	if ( connection_status() !== CONNECTION_NORMAL ) {
+		abandon( 'User disconnected early' );
+	}
+}
+
+// Don't kill the process automatcally
+ignore_user_abort( true );
+
 // Create an entry for the wiki before we have resolved patches.
 // Will be updated later.
 insert_wiki_data( $namePath, $creator, $created, $branchDesc );
@@ -153,6 +173,7 @@ foreach ( $patches as &$patch ) {
 		$o = 'CURRENT_REVISION';
 	}
 	$data = gerrit_query( "changes/?q=change:$query&o=LABELS&o=$o", true );
+	check_connection();
 
 	if ( count( $data ) === 0 ) {
 		$patch = htmlentities( $patch );
@@ -198,6 +219,7 @@ foreach ( $patches as &$patch ) {
 		// The patch doesn't have V+2, check if the uploader is trusted
 		$uploaderId = $data[0]['revisions'][$revision]['uploader']['_account_id'];
 		$uploader = gerrit_query( 'accounts/' . $uploaderId, true );
+		check_connection();
 		if ( !is_trusted_user( $uploader['email'] ) ) {
 			abandon( "Patch must be approved (Verified+2) by jenkins-bot, or uploaded by a trusted user" );
 		}
@@ -220,6 +242,7 @@ foreach ( $patches as &$patch ) {
 
 	// Look at all commits in this patch's tree for cross-repo dependencies to add
 	$data = gerrit_query( "changes/$id/revisions/$revision/related", true );
+	check_connection();
 	// Ancestor commits only, not descendants
 	$foundCurr = false;
 	foreach ( $data['changes'] as $change ) {
@@ -232,6 +255,7 @@ foreach ( $patches as &$patch ) {
 
 	foreach ( $relatedChanges as [ $c, $r ] ) {
 		$data = gerrit_query( "changes/$c/revisions/$r/commit", true );
+		check_connection();
 
 		preg_match_all( '/^Depends-On: (.+)$/m', $data['message'], $m );
 		foreach ( $m[1] as $changeid ) {
@@ -266,6 +290,7 @@ foreach ( $patchesApplied as $patch ) {
 	list( $t, $r, $p ) = $matches;
 
 	$data = gerrit_query( "changes/$r/revisions/$p/commit", true );
+	check_connection();
 	if ( $data ) {
 		$t = $t . ': ' . $data[ 'subject' ];
 		get_linked_tasks( $data['message'], $linkedTasks );
@@ -332,6 +357,7 @@ $repoCount = count( $repos );
 foreach ( $repos as $source => $target ) {
 	set_progress( $repoProgress, "Updating repositories ($n/$repoCount)..." );
 
+	check_connection();
 	$error = shell_echo( __DIR__ . '/new/updaterepos.sh',
 		$baseEnv + [
 			'REPO_SOURCE' => $source,
@@ -347,6 +373,7 @@ foreach ( $repos as $source => $target ) {
 }
 
 // Just creates empty folders so no need for progress update
+check_connection();
 $error = shell_echo( __DIR__ . '/new/precheckout.sh', $baseEnv );
 if ( $error ) {
 	abandon( "Could not create directories for wiki" );
@@ -360,6 +387,7 @@ $repoCount = count( $repos );
 foreach ( $repos as $source => $target ) {
 	set_progress( $repoProgress, "Checking out repositories ($n/$repoCount)..." );
 
+	check_connection();
 	$error = shell_echo( __DIR__ . '/new/checkout.sh',
 		$baseEnv + [
 		'BRANCH' => $branch,
@@ -377,6 +405,7 @@ foreach ( $repos as $source => $target ) {
 
 // TODO: Make this a loop
 set_progress( 60, 'Fetching submodules...' );
+check_connection();
 $error = shell_echo( __DIR__ . '/new/submodules.sh', $baseEnv );
 if ( $error ) {
 	abandon( "Could not fetch submodules" );
@@ -397,6 +426,7 @@ $repoCount = count( $composerInstallRepos );
 foreach ( $composerInstallRepos as $i => $repo ) {
 	$n = $i + 1;
 	set_progress( $repoProgress, "Fetching dependencies ($n/$repoCount)..." );
+	check_connection();
 	$error = shell_echo( __DIR__ . '/new/composerinstall.sh',
 		$baseEnv + [
 			// Variable used by composer itself, not our script
@@ -413,6 +443,7 @@ foreach ( $composerInstallRepos as $i => $repo ) {
 
 set_progress( 65, 'Installing your wiki...' );
 
+check_connection();
 $error = shell_echo( __DIR__ . '/new/install.sh',
 	$baseEnv + [
 		'WIKINAME' => $wikiName,
@@ -433,6 +464,7 @@ $count = count( $commands );
 foreach ( $commands as $i => $command ) {
 	$n = $i + 1;
 	set_progress( $progress, "Fetching and applying patches ($n/$count)..." );
+	check_connection();
 	$error = shell_echo( $command[1], $baseEnv + $command[0] );
 	if ( $error ) {
 		abandon( "Could not apply patch {$patchesApplied[$i]}" );
@@ -442,6 +474,7 @@ foreach ( $commands as $i => $command ) {
 
 set_progress( 90, 'Setting up wiki content...' );
 
+check_connection();
 $error = shell_echo( __DIR__ . '/new/postinstall.sh',
 	$baseEnv + [
 		'MAINPAGE' => $mainPage,
