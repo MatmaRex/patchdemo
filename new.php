@@ -491,6 +491,10 @@ $error = shell_echo( __DIR__ . '/new/postinstall.sh',
 		'USE_PROXY' => $useProxy,
 		'USE_INSTANT_COMMONS' => $useInstantCommons,
 		'REPOSITORIES' => $reposString,
+		// May be required for npm (e.g. if using nvm)
+		'EXTRA_PATH' => implode( ':', $config['extraPaths'] ),
+		// Variable used by composer itself, not our script
+		'COMPOSER_HOME' => __DIR__ . '/composer',
 	]
 );
 if ( $error ) {

@@ -1,6 +1,8 @@
 #!/bin/bash
 set -ex
 
+PATH=$EXTRA_PATH:$PATH
+
 # run update script (#166, #244)
 php $PATCHDEMO/wikis/$NAME/w/maintenance/update.php --quick
 
@@ -26,6 +28,24 @@ for sql in $(find $PATCHDEMO/sql-perwiki -name "*.sql" -not -type d -printf '%P\
 do
 	mysql -u patchdemo -ppatchdemo patchdemo_$NAME < $PATCHDEMO/sql-perwiki/$sql
 done
+
+# OOUI build
+if [ -d $PATCHDEMO/wikis/$NAME/w/build/ooui ]; then
+	cd $PATCHDEMO/wikis/$NAME/w/build/ooui
+	npm install
+	npm x grunt build
+	cd $PATCHDEMO
+	# JS & CSS
+	cp -r $PATCHDEMO/wikis/$NAME/w/build/ooui/dist/* $PATCHDEMO/wikis/$NAME/w/resources/lib/ooui/
+	# PHP
+
+	cd $PATCHDEMO/wikis/$NAME/w
+	composer config repo.oojs/oojs-ui path build/ooui
+	# composer install has already run, so clear out the old version of OOUI
+	rm -rf vendor/oojs/oojs-ui
+	# ensure we skip the cache when re-installing
+	composer require "oojs/oojs-ui @dev" --no-cache --update-no-dev
+fi
 
 # grant FlaggedRevs editor rights to the default account
 if [ -d $PATCHDEMO/wikis/$NAME/w/extensions/FlaggedRevs ]; then
