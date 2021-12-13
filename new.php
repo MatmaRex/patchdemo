@@ -157,6 +157,7 @@ set_progress( 0, 'Querying patch metadata...' );
 $patchesApplied = [];
 $linkedTasks = [];
 $commands = [];
+$usedRepos = [];
 
 // Iterate by reference, so that we can modify the $patches array to add new entries
 foreach ( $patches as &$patch ) {
@@ -211,6 +212,7 @@ foreach ( $patches as &$patch ) {
 		abandon( "Repository <em>$repo</em> not supported" );
 	}
 	$path = $repos[ $repo ];
+	$usedRepos[] = $repo;
 
 	if (
 		$config[ 'requireVerified' ] &&
@@ -320,6 +322,9 @@ if ( $_POST['preset'] === 'custom' ) {
 } else {
 	$allowedRepos = get_repo_presets()[ $_POST['preset'] ];
 }
+
+// Always include repos we are trying to patch (#401)
+$allowedRepos = array_merge( $allowedRepos, $usedRepos );
 
 // When proxying, always enable MobileFrontend and its content provider
 if ( $useProxy ) {
