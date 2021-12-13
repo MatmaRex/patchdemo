@@ -8,6 +8,8 @@ $config = [
 	'banner' => '',
 	// Require that patches are V+2 before building the wiki
 	'requireVerified' => true,
+	// Additional paths, e.g. for npm when using nvm
+	'extraPaths' => [],
 	// OAuth config. When enabled only authenticated users can create
 	// wikis, and can delete their own wikis.
 	'oauth' => [

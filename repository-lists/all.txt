@@ -77,3 +77,4 @@ mediawiki/extensions/WikiLambda w/extensions/WikiLambda
 mediawiki/extensions/Wikisource w/extensions/Wikisource
 mediawiki/extensions/Wikistories w/extensions/Wikistories
 mediawiki/extensions/Disambiguator w/extensions/Disambiguator
+oojs/ui w/build/ooui

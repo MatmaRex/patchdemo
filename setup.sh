@@ -3,6 +3,19 @@ sudo apt-get install apache2 default-mysql-server php libapache2-mod-php php-mys
 # dependencies of our system
 sudo apt-get install git composer npm unzip rdfind
 
+# Node 12
+sudo curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | sudo apt-key add -
+sudo sh -c "echo deb https://deb.nodesource.com/node_12.x impish main > /etc/apt/sources.list.d/nodesource.list"
+sudo apt-get update
+sudo apt-get install nodejs
+# Update NPM
+sudo npm install -g npm@latest
+# Let www-data run NPM
+sudo mkdir /var/www/.npm /var/www/.config
+sudo chown www-data: /var/www/.npm /var/www/.config
+# We used to run NPM as root
+sudo chown -R www-data: node_modules
+
 # create master copies of repositories
 sudo -u www-data mkdir repositories
 cd repositories
@@ -25,7 +38,7 @@ sudo mysql -u patchdemo --password='patchdemo' < sql/patchdemo.sql
 
 # dependencies for the website
 composer install --no-dev
-npm ci --production
+sudo -u www-data npm ci --production
 
 # setup daily cron job to deduplicate files
 echo "#!/bin/bash
