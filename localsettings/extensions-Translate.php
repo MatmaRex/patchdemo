@@ -7,3 +7,4 @@ $wgTranslateDocumentationLanguageCode = 'qqq';
 
 // Add this if you want to enable access to page translation
 $wgGroupPermissions['sysop']['pagetranslation'] = true;
+$wgGroupPermissions['sysop']['translate-manage'] = true;
