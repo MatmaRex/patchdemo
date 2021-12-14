@@ -30,6 +30,9 @@ sudo -u www-data mkdir composer
 # Create folder for wikis
 sudo -u www-data mkdir wikis
 
+# Create folder for wiki creation logs
+sudo -u www-data mkdir logs
+
 # Create a database user that is allowed to create databases for each wiki,
 # and the central patchdemo database
 sudo mysql -u root --password='' < sql/user.sql
