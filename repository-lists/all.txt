@@ -52,6 +52,7 @@ mediawiki/extensions/TemplateData w/extensions/TemplateData
 mediawiki/extensions/TemplateStyles w/extensions/TemplateStyles
 mediawiki/extensions/TemplateWizard w/extensions/TemplateWizard
 mediawiki/extensions/TextExtracts w/extensions/TextExtracts
+mediawiki/extensions/Thanks w/extensions/Thanks
 mediawiki/extensions/TimedMediaHandler w/extensions/TimedMediaHandler
 mediawiki/extensions/TitleBlacklist w/extensions/TitleBlacklist
 mediawiki/extensions/Translate w/extensions/Translate
