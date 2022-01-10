@@ -48,7 +48,8 @@
 - mediawiki/extensions/GlobalUsage
 - mediawiki/extensions/GlobalUserPage
 - mediawiki/extensions/Graph
-- mediawiki/extensions/GrowthExperiments
+# Temporarily disabled (https://github.com/MatmaRex/patchdemo/issues/408)
+# - mediawiki/extensions/GrowthExperiments
 - mediawiki/extensions/GuidedTour
 - mediawiki/extensions/ImageMap
 - mediawiki/extensions/InputBox
