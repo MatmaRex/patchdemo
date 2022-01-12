@@ -14,6 +14,7 @@ include_once './vendor/autoload.php';
 include 'config.default.php';
 if ( file_exists( 'config.php' ) ) {
 	include 'config.php';
+	// TODO: Make this recursive
 	$config = array_merge( $config, $localConfig );
 }
 
@@ -404,6 +405,27 @@ function can_delete( string $creator = null ): bool {
 	}
 	$username = $user ? $user->username : null;
 	return ( $username && $username === $creator ) || can_admin();
+}
+
+function can_configure(): bool {
+	global $config, $user, $useOAuth;
+	if ( !$useOAuth ) {
+		// Unauthenticated site
+		return true;
+	}
+	$username = $user ? $user->username : null;
+	$admins = $config[ 'oauth' ][ 'admins' ];
+	$configurers = $config[ 'oauth' ][ 'configurers' ];
+	if ( $username && in_array( $username, $admins, true ) ) {
+		return true;
+	}
+	$configurersMatch = $config[ 'oauth' ][ 'configurersMatch' ];
+	foreach ( $configurersMatch as $pattern ) {
+		if ( preg_match( $pattern, $username ) ) {
+			return true;
+		}
+	}
+	return false;
 }
 
 function can_admin(): bool {
