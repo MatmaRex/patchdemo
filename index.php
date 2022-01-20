@@ -243,16 +243,6 @@ if ( $user ) {
 	echo new OOUI\FieldLayout(
 		new OOUI\CheckboxInputWidget( [
 			'infusable' => true,
-			'classes' => [ 'myWikis' ]
-		] ),
-		[
-			'align' => 'inline',
-			'label' => 'Show only my wikis',
-		]
-	);
-	echo new OOUI\FieldLayout(
-		new OOUI\CheckboxInputWidget( [
-			'infusable' => true,
 			'classes' => [ 'closedWikis' ]
 		] ),
 		[
@@ -269,16 +259,25 @@ $anyCanDelete = false;
 $closedWikis = 0;
 $canAdmin = can_admin();
 $wikiPatches = [];
+$username = $user ? $user->username : null;
 
-$results = $mysqli->query( '
+$stmt = $mysqli->prepare( '
 	SELECT wiki, creator, UNIX_TIMESTAMP( created ) created, patches, branch, announcedTasks, timeToCreate, deleted
 	FROM wikis
 	WHERE !deleted
-	ORDER BY created DESC
+	ORDER BY IF( creator = ?, 1, 0 ) DESC, created DESC
 ' );
+if ( !$stmt ) {
+	die( $mysqli->error );
+}
+$stmt->bind_param( 's', $username );
+$stmt->execute();
+$results = $stmt->get_result();
 if ( !$results ) {
 	die( $mysqli->error );
 }
+$shownMyWikis = false;
+$shownOtherWikis = false;
 while ( $data = $results->fetch_assoc() ) {
 	$wikiData = get_wiki_data_from_row( $data );
 	$wiki = $data['wiki'];
@@ -290,9 +289,17 @@ while ( $data = $results->fetch_assoc() ) {
 	$linkedTasks = format_linked_tasks( $wikiData['linkedTaskList'] );
 
 	$creator = $wikiData[ 'creator' ] ?? '';
-	$username = $user ? $user->username : null;
 	$canDelete = can_delete( $creator );
 	$anyCanDelete = $anyCanDelete || $canDelete;
+
+	if ( !$shownMyWikis && $creator === $username ) {
+		$rows .= '<tr class="wikiSection"><th colspan="99">My wikis</th></tr>';
+		$shownMyWikis = true;
+	}
+	if ( $shownMyWikis && !$shownOtherWikis && $creator !== $username ) {
+		$rows .= '<tr class="wikiSection"><th colspan="99">Other wikis</th></tr>';
+		$shownOtherWikis = true;
+	}
 
 	$classes = [];
 	if ( $creator !== $username ) {
@@ -322,6 +329,7 @@ while ( $data = $results->fetch_assoc() ) {
 		$closedWikis++;
 	}
 }
+$stmt->close();
 
 $rows = str_replace( '<!-- EMPTY ACTIONS -->', $anyCanDelete ? '<td></td>' : '', $rows );
 

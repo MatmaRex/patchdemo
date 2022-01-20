@@ -199,10 +199,6 @@ summary > .oo-ui-labelElement-label:not( .oo-ui-inline-help ) {
 	margin-top: 1em;
 }
 
-.wikis.hideOthers tr.other {
-	display: none;
-}
-
 .wikis.hideOpen tr.open {
 	display: none;
 }
@@ -237,6 +233,11 @@ summary > .oo-ui-labelElement-label:not( .oo-ui-inline-help ) {
 
 .wikis tr.highlight {
 	background: #fef6e7;
+}
+
+.wikis .wikiSection th {
+	text-align: left;
+	top: calc( 8.65em - 1px );
 }
 
 .wikis .patches,

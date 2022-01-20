@@ -76,24 +76,20 @@
 			updateLinkedTasks( [] );
 		}
 
-		if ( $( '.myWikis' ).length ) {
+		if ( $( '.closedWikis' ).length ) {
 			var $wikisTable = $( '.wikis' );
-			var myWikis = OO.ui.infuse( $( '.myWikis' ) );
 			var closedWikis = OO.ui.infuse( $( '.closedWikis' ) );
 
 			// eslint-disable-next-line no-inner-declarations
 			function updateTableClasses() {
-				$wikisTable.toggleClass( 'hideOthers', !!myWikis.isSelected() );
 				$wikisTable.toggleClass( 'hideOpen', !!closedWikis.isSelected() );
 			}
 
-			myWikis.on( 'change', updateTableClasses );
 			closedWikis.on( 'change', updateTableClasses );
 
 			if ( $( '.showClosedButton' ).length ) {
 				var showClosedButton = OO.ui.infuse( $( '.showClosedButton' ) );
 				showClosedButton.on( 'click', function () {
-					myWikis.setSelected( true );
 					closedWikis.setSelected( true );
 					updateTableClasses();
 				} );
