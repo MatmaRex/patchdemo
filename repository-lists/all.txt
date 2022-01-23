@@ -17,6 +17,7 @@ mediawiki/extensions/EventLogging w/extensions/EventLogging
 mediawiki/extensions/EventStreamConfig w/extensions/EventStreamConfig
 mediawiki/extensions/FlaggedRevs w/extensions/FlaggedRevs
 mediawiki/extensions/Gadgets w/extensions/Gadgets
+mediawiki/extensions/GlobalBlocking w/extensions/GlobalBlocking
 mediawiki/extensions/GlobalPreferences w/extensions/GlobalPreferences
 mediawiki/extensions/GlobalWatchlist w/extensions/GlobalWatchlist
 mediawiki/extensions/GrowthExperiments w/extensions/GrowthExperiments
