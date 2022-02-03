@@ -347,7 +347,7 @@ if ( $closedWikis ) {
 }
 
 echo '<table class="wikis">' .
-	'<tr>' .
+	'<tr class="headerRow">' .
 		'<th>Wiki</th>' .
 		'<th>Patches<br /><em>✓=Merged ✗=Abandoned 🛇=<abbr title="Open patches marked with \'DNM\' or \'DO NOT MERGE\'">Do not merge</abbr></em></th>' .
 		'<th>Linked tasks<br /><em>✓=Resolved ✗=Declined/Invalid</em></th>' .
