@@ -207,19 +207,24 @@ summary > .oo-ui-labelElement-label:not( .oo-ui-inline-help ) {
 	display: none;
 }
 
+.wikis .headerRow,
+.wikis .wikiSection {
+	background: #eaecf0;
+	position: sticky;
+	top: 5em;
+}
+
+.wikis .wikiSection {
+	text-align: left;
+	top: 8.71em;
+}
+
 .wikis th,
 .wikis td {
 	border: 1px solid #a2a9b1;
 	border-width: 0 0 1px 1px;
 	padding: 0.3em 0.6em;
 	vertical-align: top;
-}
-
-.wikis th {
-	background: #eaecf0;
-	position: sticky;
-	/* Adjust for <header> */
-	top: calc( 5em - 1px );
 }
 
 .wikis th em {
@@ -237,11 +242,6 @@ summary > .oo-ui-labelElement-label:not( .oo-ui-inline-help ) {
 
 .wikis tr.highlight {
 	background: #fef6e7;
-}
-
-.wikis .wikiSection th {
-	text-align: left;
-	top: calc( 8.65em - 1px );
 }
 
 .wikis .patches,
@@ -292,13 +292,17 @@ summary > .oo-ui-labelElement-label:not( .oo-ui-inline-help ) {
 		margin-bottom: 5px;
 	}
 
-	.wikis tr:first-child {
+	.wikis .headerRow {
 		display: none;
 	}
 
 	.wikis td {
 		background: none;
 		display: inline-block;
+	}
+
+	.wikis .wikiSection {
+		top: 5em;
 	}
 
 	.wikis .patches,
