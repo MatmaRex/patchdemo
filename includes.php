@@ -244,7 +244,7 @@ function get_task_data( int $task ): array {
 
 function all_closed( array $statuses ): bool {
 	foreach ( $statuses as $status ) {
-		if ( $status !== 'MERGED' && $status !== 'ABANDONED' ) {
+		if ( $status !== 'MERGED' && $status !== 'ABANDONED' && $status !== 'DNM' ) {
 			return false;
 		}
 	}
@@ -255,10 +255,18 @@ function format_patch_list( array $patchList, ?string $branch, bool &$closed = f
 	$statuses = [];
 	$patches = implode( '<br>', array_map( static function ( $patchData ) use ( &$statuses, &$linkedTaskList ) {
 		global $config;
-		$statuses[] = $patchData['status'];
+
+		$status = $patchData['status'];
+		if (
+			$status === 'NEW' &&
+			preg_match( '/(DNM|DO NOT MERGE)/', $patchData['subject'] )
+		) {
+			$status = 'DNM';
+		}
+		$statuses[] = $status;
 		$title = $patchData['patch'] . ': ' . $patchData[ 'subject' ];
 
-		return '<a href="' . $config['gerritUrl'] . '/r/c/' . $patchData['r'] . '/' . $patchData['p'] . '" title="' . htmlspecialchars( $title ) . '" class="status-' . $patchData['status'] . '">' .
+		return '<a href="' . $config['gerritUrl'] . '/r/c/' . $patchData['r'] . '/' . $patchData['p'] . '" title="' . htmlspecialchars( $title ) . '" class="status-' . $status . '">' .
 			htmlspecialchars( $title ) .
 		'</a>';
 	}, $patchList ) );

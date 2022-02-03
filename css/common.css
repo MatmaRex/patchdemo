@@ -185,6 +185,10 @@ summary > .oo-ui-labelElement-label:not( .oo-ui-inline-help ) {
 	content: '✓';
 }
 
+.status-DNM:before {
+	content: '🛇';
+}
+
 .status-declined:before,
 .status-invalid:before {
 	content: '✗';
