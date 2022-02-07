@@ -45,6 +45,7 @@ mediawiki/extensions/RelatedArticles w/extensions/RelatedArticles
 mediawiki/extensions/Renameuser w/extensions/Renameuser
 mediawiki/extensions/ReplaceText w/extensions/ReplaceText
 mediawiki/extensions/RevisionSlider w/extensions/RevisionSlider
+mediawiki/extensions/SandboxLink w/extensions/SandboxLink
 mediawiki/extensions/Scribunto w/extensions/Scribunto
 mediawiki/extensions/SecurePoll w/extensions/SecurePoll
 mediawiki/extensions/SpamBlacklist w/extensions/SpamBlacklist
