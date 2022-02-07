@@ -124,12 +124,10 @@ form {
 
 summary {
 	cursor: pointer;
-	/* stylelint-disable-next-line declaration-no-important */
 	display: list-item !important;
 }
 
 summary > .oo-ui-labelElement-label:not( .oo-ui-inline-help ) {
-	/* stylelint-disable-next-line declaration-no-important */
 	display: inline !important;
 }
 
@@ -140,7 +138,6 @@ summary > .oo-ui-labelElement-label:not( .oo-ui-inline-help ) {
 }
 
 .form-repos .oo-ui-multiselectWidget-group {
-	/* stylelint-disable-next-line declaration-property-unit-disallowed-list */
 	font-size: 12px;
 	column-width: 12em;
 	column-gap: 2em;
@@ -285,7 +282,6 @@ summary > .oo-ui-labelElement-label:not( .oo-ui-inline-help ) {
 @media ( max-width: 720px ) {
 	.oo-ui-fieldLayout-align-left > .oo-ui-fieldLayout-body > .oo-ui-fieldLayout-header,
 	.oo-ui-fieldLayout-align-left > .oo-ui-fieldLayout-body > .oo-ui-fieldLayout-field {
-		/* stylelint-disable-next-line declaration-no-important */
 		width: 100% !important;
 	}
 
@@ -343,7 +339,6 @@ summary > .oo-ui-labelElement-label:not( .oo-ui-inline-help ) {
 
 .installForm {
 	max-width: 50em;
-	/* stylelint-disable-next-line declaration-no-important */
 	margin: 2em auto !important;
 }
 
