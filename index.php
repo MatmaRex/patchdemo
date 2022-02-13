@@ -3,7 +3,8 @@ require_once "includes.php";
 
 include "header.php";
 
-if ( $useOAuth && !$user ) {
+$canCreate = !$useOAuth || $user;
+if ( !$canCreate ) {
 	echo oauth_signin_prompt();
 } else {
 	$branches = get_branches( 'mediawiki/core' );
@@ -19,7 +20,7 @@ if ( $useOAuth && !$user ) {
 	// Move master to the top
 	array_unshift( $branches, array_pop( $branches ) );
 
-	$branchesOptions = array_map( static function ( $branch ) {
+	$branchOptions = array_map( static function ( $branch ) {
 		return [
 			'label' => preg_replace( '/^origin\//', '', $branch ),
 			'data' => $branch,
@@ -66,7 +67,8 @@ if ( $useOAuth && !$user ) {
 						new OOUI\DropdownInputWidget( [
 							'classes' => [ 'form-branch' ],
 							'name' => 'branch',
-							'options' => $branchesOptions,
+							'options' => $branchOptions,
+							'value' => !empty( $_GET['branch' ] ) ? 'origin/' . $_GET['branch' ] : null
 						] ),
 						[
 							'label' => 'Start with version:',
@@ -79,6 +81,7 @@ if ( $useOAuth && !$user ) {
 							'name' => 'patches',
 							'rows' => 2,
 							'placeholder' => "e.g. 456123",
+							'value' => !empty( $_GET['patches'] ) ? str_replace( ',', "\n", $_GET['patches'] ) : null
 						] ),
 						[
 							'classes' => [ 'form-patches-layout' ],
@@ -306,6 +309,17 @@ while ( $data = $results->fetch_assoc() ) {
 		$classes[] = 'open';
 	}
 
+	$actions = [];
+	if ( $canDelete ) {
+		$actions[] = '<a href="delete.php?wiki=' . $wiki . '">Delete</a>';
+	}
+	if ( $canCreate ) {
+		$patchList = array_map( static function ( $data ) {
+			return htmlspecialchars( $data['r'] );
+		}, $wikiData['patchList'] );
+		$actions[] = '<a class="copyWiki" href="?patches=' . implode( ',', $patchList ) . '&branch=' . htmlspecialchars( $wikiData['branch'] ) . '">Copy</a>';
+	}
+
 	$rows .= '<tr class="' . implode( ' ', $classes ) . '">' .
 		'<td data-label="Wiki" class="wiki">' .
 			'<span class="wikiAnchor" id="' . substr( $wiki, 0, 10 ) . '"></span>' .
@@ -316,8 +330,8 @@ while ( $data = $results->fetch_assoc() ) {
 		'<td data-label="Time" class="date">' . date( 'Y-m-d H:i:s', $wikiData[ 'created' ] ) . '</td>' .
 		( $useOAuth ? '<td data-label="Creator">' . ( $creator ? user_link( $creator ) : '?' ) . '</td>' : '' ) .
 		( $canAdmin ? '<td data-label="Time to create">' . ( $wikiData['timeToCreate'] ? $wikiData['timeToCreate'] . 's' : '' ) . '</td>' : '' ) .
-		( $canDelete ?
-			'<td data-label="Actions"><a href="delete.php?wiki=' . $wiki . '">Delete</a></td>' :
+		( count( $actions ) ?
+			'<td data-label="Actions">' . implode( '&nbsp;&middot;&nbsp;', $actions ) . '</td>' :
 			'<!-- EMPTY ACTIONS -->'
 		) .
 	'</tr>';
@@ -359,15 +373,16 @@ echo '<table class="wikis">' .
 	$rows .
 '</table>';
 
-?>
-<script src="js/DetailsFieldLayout.js"></script>
-<script src="js/PatchSelectWidget.js"></script>
-<script src="js/index.js"></script>
-<?php
 echo '<script>
+window.pd = window.pd || {};
 pd.wikiPatches = ' . json_encode( $wikiPatches ) . ';
 pd.config = ' . json_encode( [
 	'phabricatorUrl' => $config['phabricatorUrl']
 ] ) . ';
 </script>';
+?>
+<script src="js/DetailsFieldLayout.js"></script>
+<script src="js/PatchSelectWidget.js"></script>
+<script src="js/index.js"></script>
+<?php
 include "footer.html";
