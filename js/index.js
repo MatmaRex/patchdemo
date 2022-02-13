@@ -154,6 +154,14 @@
 		var languageInput = OO.ui.infuse( $( '.form-language' ) );
 		languageInput.setValidation( /^[a-z-]{2,}$/ );
 
+		$( '.copyWiki' ).on( 'click', function ( e ) {
+			var params = new URL( this.href ).searchParams;
+			patchesInput.setValue( params.get( 'patches' ) ? params.get( 'patches' ).split( ',' ) : [] );
+			branchSelect.setValue( 'origin/' + params.get( 'branch' ) );
+			branchSelect.scrollElementIntoView( { padding: { top: $( 'header' ).height() + 10 } } );
+			e.preventDefault();
+		} );
+
 		if ( 'Notification' in window ) {
 			var notifField = OO.ui.infuse( document.getElementsByClassName( 'enableNotifications' )[ 0 ] );
 			// Enable placholder widget so field label isn't greyed out

@@ -1,6 +1,6 @@
 /* global OO, pd */
 
-$( function () {
+( function () {
 	pd.patchIndex = {};
 
 	// Sort patches for comparison later. It doesn't matter
@@ -12,21 +12,22 @@ $( function () {
 			pd.patchIndex[ patchKey ].push( wiki );
 		}
 	}
-} );
+}() );
 
 window.PatchSelectWidget = function PatchSelectWidget( config ) {
 	var widget = this;
-
-	// Parent constructor
-	window.PatchSelectWidget.super.call( this, $.extend( {
-		allowArbitrary: true,
-		allowDisplayInvalidTags: true
-	}, config ) );
 
 	this.$formInput = $( '<input>' ).attr( {
 		type: 'hidden',
 		name: config.name
 	} );
+
+	// Parent constructor
+	window.PatchSelectWidget.super.call( this, $.extend( {
+		allowArbitrary: true,
+		allowDisplayInvalidTags: true,
+		selected: config.value && config.value.split( '\n' )
+	}, config ) );
 
 	// Assume that a whole patch number was pasted
 	this.input.$input.on( 'paste', function () {
