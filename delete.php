@@ -17,7 +17,7 @@ if ( !isset( $_POST['confirm' ] ) ) {
 	$creator = $wikiData[ 'creator' ] ?? '';
 
 	echo '<table class="wikis">' .
-		'<tr>' .
+		'<tr class="headerRow">' .
 			'<th>Wiki</th>' .
 			'<th>Patches<br /><em>✓=Merged ✗=Abandoned</em></th>' .
 			'<th>Linked tasks<br /><em>✓=Resolved ✗=Declined/Invalid</em></th>' .
