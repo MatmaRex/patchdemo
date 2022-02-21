@@ -70,7 +70,7 @@ uksort( $wikis, static function ( $a, $b ) use ( $wikis ) {
 	return ( $wikis[ $b ][ 'ss_total_edits' ] ?? -1 ) <=> ( $wikis[ $a ][ 'ss_total_edits' ] ?? -1 );
 } );
 
-echo '<table class="wikis"><tr><th>Wiki</th>';
+echo '<table class="wikis"><tr class="headerRow"><th>Wiki</th>';
 foreach ( $short_fields as $field => $fieldMeta ) {
 	echo '<th>' . $fieldMeta['label'] . '</th>';
 }
