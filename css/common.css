@@ -139,6 +139,13 @@ summary > .oo-ui-labelElement-label:not( .oo-ui-inline-help ) {
 	margin-right: 1em;
 }
 
+.form-repos .oo-ui-multiselectWidget-group {
+	/* stylelint-disable-next-line declaration-property-unit-disallowed-list */
+	font-size: 12px;
+	column-width: 12em;
+	column-gap: 2em;
+}
+
 .form-announce-taskList {
 	font-size: 0.92857143em;
 }
