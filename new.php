@@ -314,9 +314,6 @@ foreach ( $linkedTasks as $task ) {
 // Choose repositories to enable
 $repos = get_repo_data();
 
-$useProxy = !empty( $_POST['proxy'] );
-$useInstantCommons = !empty( $_POST['instantCommons' ] );
-
 if ( $_POST['preset'] === 'custom' ) {
 	$allowedRepos = $_POST['repos'];
 } else {
@@ -326,11 +323,19 @@ if ( $_POST['preset'] === 'custom' ) {
 // Always include repos we are trying to patch (#401)
 $allowedRepos = array_merge( $allowedRepos, $usedRepos );
 
+$useProxy = !empty( $_POST['proxy'] );
+$useInstantCommons = !empty( $_POST['instantCommons' ] );
 // When proxying, always enable MobileFrontend and its content provider
 if ( $useProxy ) {
 	// Doesn't matter if this appears twice
 	$allowedRepos[] = 'mediawiki/extensions/MobileFrontend';
 	$allowedRepos[] = 'mediawiki/extensions/MobileFrontendContentProvider';
+}
+if ( $useInstantCommons ) {
+	if ( $_POST['instantCommonsMethod'] === 'quick' ) {
+		$allowedRepos[] = 'mediawiki/extensions/QuickInstantCommons';
+		$useInstantCommons = false;
+	}
 }
 
 foreach ( array_keys( $repos ) as $repo ) {

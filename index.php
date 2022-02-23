@@ -159,6 +159,7 @@ if ( !$canCreate ) {
 					),
 					new OOUI\FieldLayout(
 						new OOUI\CheckboxInputWidget( [
+							'classes' => [ 'form-instantCommons' ],
 							'name' => 'instantCommons',
 							'value' => 1,
 							'selected' => true
@@ -166,6 +167,24 @@ if ( !$canCreate ) {
 						[
 							'label' => 'Load images from Commons',
 							'help' => 'Any images not local to the wiki will be pulled from Wikimedia Commons.',
+							'helpInline' => true,
+							'align' => 'left',
+						]
+					),
+					new OOUI\FieldLayout(
+						new OOUI\DropdownInputWidget( [
+							'classes' => [ 'form-instantCommonsMethod' ],
+							'name' => 'instantCommonsMethod',
+							'options' => [
+								[ 'data' => 'quick', 'label' => 'QuickInstantCommons' ],
+								[ 'data' => 'full', 'label' => 'InstantCommons' ],
+							]
+						] ),
+						[
+							'label' => 'Method for loading images from Commons',
+							'help' => new OOUI\HtmlSnippet(
+								'<a href="https://www.mediawiki.org/wiki/Extension:QuickInstantCommons">QuickInstantCommons</a> is much faster than using full <a href="https://www.mediawiki.org/wiki/InstantCommons">InstantCommons</a> but may lack some advanced image viewing features.'
+							),
 							'helpInline' => true,
 							'align' => 'left',
 						]

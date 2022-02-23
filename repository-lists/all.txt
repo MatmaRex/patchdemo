@@ -40,6 +40,7 @@ mediawiki/extensions/PdfHandler w/extensions/PdfHandler
 mediawiki/extensions/Poem w/extensions/Poem
 mediawiki/extensions/Popups w/extensions/Popups
 mediawiki/extensions/ProofreadPage w/extensions/ProofreadPage
+mediawiki/extensions/QuickInstantCommons w/extensions/QuickInstantCommons
 mediawiki/extensions/QuickSurveys w/extensions/QuickSurveys
 mediawiki/extensions/RelatedArticles w/extensions/RelatedArticles
 mediawiki/extensions/Renameuser w/extensions/Renameuser
