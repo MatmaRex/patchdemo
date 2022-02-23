@@ -151,6 +151,13 @@
 
 		reposInput.emit( 'change' );
 
+		var instantCommonsCheckbox = OO.ui.infuse( $( '.form-instantCommons' ) );
+		var instantCommonsMethodDropdown = OO.ui.infuse( $( '.form-instantCommonsMethod' ) );
+
+		instantCommonsCheckbox.on( 'change', function ( value ) {
+			instantCommonsMethodDropdown.setDisabled( !value );
+		} );
+
 		var languageInput = OO.ui.infuse( $( '.form-language' ) );
 		languageInput.setValidation( /^[a-z-]{2,}$/ );
 
