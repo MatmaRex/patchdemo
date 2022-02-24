@@ -1,7 +1,7 @@
 # dependencies of MediaWiki
 sudo apt-get install apache2 default-mysql-server php libapache2-mod-php php-mysql php-intl php-xml php-mbstring php-curl php-wikidiff2 imagemagick librsvg2-bin
 # dependencies of our system
-sudo apt-get install git composer npm unzip rdfind
+sudo apt-get install git composer npm unzip rdfind curl
 
 # Node 12
 sudo curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | sudo apt-key add -
