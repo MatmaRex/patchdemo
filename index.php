@@ -36,7 +36,7 @@ if ( !$canCreate ) {
 		$repo = htmlspecialchars( $repo );
 		$repoOptions[] = [
 			'data' => $repo,
-			'label' => $repo,
+			'label' => preg_replace( '`^mediawiki/(extensions/)?`', '', $repo ),
 			'disabled' => ( $repo === 'mediawiki/core' ),
 		];
 	}
@@ -153,7 +153,7 @@ if ( !$canCreate ) {
 							'label' => 'Choose included repos:',
 							'help' => new OOUI\HtmlSnippet( 'If your extension is not listed, please create a <a href="https://github.com/MatmaRex/patchdemo/issues/new">new issue</a>.' ),
 							'helpInline' => true,
-							'align' => 'left',
+							'align' => 'inline',
 							'classes' => [ 'form-repos-field' ],
 						]
 					),
