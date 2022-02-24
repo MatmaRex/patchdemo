@@ -146,6 +146,13 @@ summary > .oo-ui-labelElement-label:not( .oo-ui-inline-help ) {
 	column-gap: 2em;
 }
 
+.form-repos .oo-ui-multiselectWidget-group .oo-ui-checkboxMultioptionWidget {
+	/* Avoid rendering issues in Chrome when it tries to display a checkbox across two columns */
+	-webkit-column-break-inside: avoid;
+	page-break-inside: avoid;
+	break-inside: avoid-column;
+}
+
 .form-announce-taskList {
 	font-size: 0.92857143em;
 }
