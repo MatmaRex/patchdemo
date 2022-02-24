@@ -37,14 +37,15 @@ if [ -d $PATCHDEMO/wikis/$NAME/w/build/ooui ]; then
 	cd $PATCHDEMO
 	# JS & CSS
 	cp -r $PATCHDEMO/wikis/$NAME/w/build/ooui/dist/* $PATCHDEMO/wikis/$NAME/w/resources/lib/ooui/
-	# PHP
 
+	# PHP
 	cd $PATCHDEMO/wikis/$NAME/w
 	composer config repo.oojs/oojs-ui path build/ooui
 	# composer install has already run, so clear out the old version of OOUI
 	rm -rf vendor/oojs/oojs-ui
 	# ensure we skip the cache when re-installing
-	composer require "oojs/oojs-ui @dev" --no-cache --update-no-dev
+	# should use `--no-cache` instaed of COMPOSER_CACHE_DIR but requires a newer version of composer that we have
+	COMPOSER_CACHE_DIR=/dev/null composer require "oojs/oojs-ui @dev" --update-no-dev
 fi
 
 # grant FlaggedRevs editor rights to the default account
