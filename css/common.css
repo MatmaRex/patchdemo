@@ -153,6 +153,10 @@ summary > .oo-ui-labelElement-label:not( .oo-ui-inline-help ) {
 	break-inside: avoid-column;
 }
 
+.form-repos .oo-ui-multiselectWidget-group .oo-ui-checkboxMultioptionWidget .oo-ui-labelElement-label {
+	max-width: 12em;
+}
+
 .form-announce-taskList {
 	font-size: 0.92857143em;
 }
