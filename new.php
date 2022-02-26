@@ -308,11 +308,11 @@ if ( $useInstantCommons ) {
 
 foreach ( array_keys( $repos ) as $repo ) {
 	// Unchecked the checkbox
-	if ( $repo !== 'mediawiki/core' && !in_array( $repo, $allowedRepos ) ) {
+	if ( $repo !== 'mediawiki/core' && !in_array( $repo, $allowedRepos, true ) ) {
 		unset( $repos[$repo] );
 	}
 	// This branch doesn't exist for this repo
-	if ( !in_array( $branch, get_branches( $repo ) ) ) {
+	if ( !in_array( $branch, get_branches( $repo ), true ) ) {
 		unset( $repos[$repo] );
 	}
 }
@@ -321,10 +321,16 @@ $reposString = implode( "\n", array_map( static function ( $k, $v ) {
 	return "$k $v";
 }, array_keys( $repos ), array_values( $repos ) ) );
 
-$mainPage = "This wiki was generated on [$server$serverPath '''Patch demo'''] at ~~~~~.
+// Build Main_Page
+$mainPage = "This wiki was generated on [$server$serverPath '''Patch demo'''] at ~~~~~.";
 
-;Branch: $branchDesc
-;Applied patches:";
+$hasOOUI = in_array( 'oojs/ui', $allowedRepos, true );
+if ( $hasOOUI ) {
+	$mainPage .= "\n\nThis wiki was built with OOUI patches so you can also view the [{{SERVER}}{{SCRIPTPATH}}/build/ooui/demos patched '''OOUI Demos'''].";
+}
+
+$mainPage .= "\n\n;Branch: $branchDesc";
+$mainPage .= "\n;Applied patches:";
 
 if ( !$patchesApplied ) {
 	$mainPage .= " (none)";
@@ -507,9 +513,16 @@ if ( $announce && count( $linkedTasks ) ) {
 	foreach ( $linkedTasks as $task ) {
 		post_phab_comment(
 			'T' . $task,
-			"Test wiki **created** on [[ $server$serverPath | Patch demo ]]" . ( $creator ? ' by ' . $creator : '' ) . " using patch(es) linked to this task:\n" .
+			"Test wiki **created** on [[ $server$serverPath | Patch demo ]]" . ( $creator ? ' by ' . $creator : '' ) . " using patch(es) linked to this task:" .
 			"\n" .
-			"$server$serverPath/wikis/$namePath/w/"
+			"$server$serverPath/wikis/$namePath/w/" .
+			( $hasOOUI ?
+				"\n\n" .
+				"Also created an **OOUI Demos** page:" .
+				"\n" .
+				"$server$serverPath/wikis/$namePath/w/build/ooui/demos"
+				: ""
+			)
 		);
 	}
 	wiki_add_announced_tasks( $namePath, $linkedTasks );
