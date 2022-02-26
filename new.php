@@ -279,38 +279,6 @@ $wikiName = "Patch demo (" . trim(
 // Update DB record with patches applied
 wiki_add_patches( $namePath, $patchesApplied );
 
-$mainPage = "This wiki was generated on [$server$serverPath '''Patch demo'''] at ~~~~~.
-
-;Branch: $branchDesc
-;Applied patches:";
-
-if ( !$patchesApplied ) {
-	$mainPage .= " (none)";
-}
-foreach ( $patchesApplied as $patch ) {
-	preg_match( '`([0-9]+),([0-9]+)`', $patch, $matches );
-	list( $t, $r, $p ) = $matches;
-
-	$data = gerrit_query( "changes/$r/revisions/$p/commit", true );
-	check_connection();
-	if ( $data ) {
-		$t = $t . ': ' . $data[ 'subject' ];
-		get_linked_tasks( $data['message'], $linkedTasks );
-	}
-
-	$t = htmlentities( $t );
-
-	$mainPage .= "\n:* [{$config['gerritUrl']}/r/c/$r/$p <nowiki>$t</nowiki>]";
-}
-
-$mainPage .= "\n;Linked tasks:";
-if ( !$linkedTasks ) {
-	$mainPage .= " (none)";
-}
-foreach ( $linkedTasks as $task ) {
-	$mainPage .= "\n:* [{$config['phabricatorUrl']}/T$task T$task]";
-}
-
 // Choose repositories to enable
 $repos = get_repo_data();
 
@@ -352,6 +320,38 @@ foreach ( array_keys( $repos ) as $repo ) {
 $reposString = implode( "\n", array_map( static function ( $k, $v ) {
 	return "$k $v";
 }, array_keys( $repos ), array_values( $repos ) ) );
+
+$mainPage = "This wiki was generated on [$server$serverPath '''Patch demo'''] at ~~~~~.
+
+;Branch: $branchDesc
+;Applied patches:";
+
+if ( !$patchesApplied ) {
+	$mainPage .= " (none)";
+}
+foreach ( $patchesApplied as $patch ) {
+	preg_match( '`([0-9]+),([0-9]+)`', $patch, $matches );
+	list( $t, $r, $p ) = $matches;
+
+	$data = gerrit_query( "changes/$r/revisions/$p/commit", true );
+	check_connection();
+	if ( $data ) {
+		$t = $t . ': ' . $data[ 'subject' ];
+		get_linked_tasks( $data['message'], $linkedTasks );
+	}
+
+	$t = htmlentities( $t );
+
+	$mainPage .= "\n:* [{$config['gerritUrl']}/r/c/$r/$p <nowiki>$t</nowiki>]";
+}
+
+$mainPage .= "\n;Linked tasks:";
+if ( !$linkedTasks ) {
+	$mainPage .= " (none)";
+}
+foreach ( $linkedTasks as $task ) {
+	$mainPage .= "\n:* [{$config['phabricatorUrl']}/T$task T$task]";
+}
 
 $baseEnv = [
 	'PATCHDEMO' => __DIR__,
