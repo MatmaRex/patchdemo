@@ -37,21 +37,20 @@
   <page>
     <title>Talk:DiscussionTools</title>
     <ns>1</ns>
-    <id>32</id>
+    <id>23</id>
     <revision>
-      <id>36</id>
-      <parentid>35</parentid>
-      <timestamp>2021-11-10T17:16:07Z</timestamp>
+      <id>34</id>
+      <parentid>33</parentid>
+      <timestamp>2022-02-25T15:07:49Z</timestamp>
       <contributor>
         <username>Alice</username>
         <id>6</id>
       </contributor>
-      <minor/>
-      <comment>Alice moved page [[Talk:Talk]] to [[Talk:DiscussionTools]]</comment>
-      <origin>35</origin>
+      <comment>subst template</comment>
+      <origin>34</origin>
       <model>wikitext</model>
       <format>text/x-wiki</format>
-      <text bytes="153879" sha1="konpfatyy85to00edg49q0i7831t76l" xml:space="preserve">Contents taken from https://en.wikipedia.org/wiki/Wikipedia:Village_pump_(technical)/Archive_193.
+      <text bytes="154231" sha1="9jgvbjl3jnvj7glnf2wvu5ch4vojzpq" xml:space="preserve">Contents taken from https://en.wikipedia.org/wiki/Wikipedia:Village_pump_(technical)/Archive_193.
 
 This text is available under the Creative Commons Attribution-ShareAlike Licence.
 
@@ -244,8 +243,16 @@ Hello! I'm seeing something rather peculiar. In [[Special:PageHistory/Template:C
 == Edit summaries with characters not staying on its line ==
 
 This anon is vandalizing and leaving non-linear edit summaries {{IPvandal|93.106.154.191}} which are visible in his contribution history. I am using Windows 10 Pro/64 w/ Firefox current version. It is also visible with Chrome. Should a fix be made to Wiki's html generator?
-{{cot|Some of the "offending" test}} ̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺ͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩ ̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺ͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩ ̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺ͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩ ̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺ͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩ
-{{cob}} [[User:Adakiko|Adakiko]] ([[User talk:Adakiko|talk]]) 07:08, 23 October 2021 (UTC)
+
+&lt;div style="margin-left:0"&gt;
+{| class="mw-collapsible mw-collapsed " style="background: transparent; text-align: left; border: 1px solid Silver; margin: 0.2em auto auto; width:100%; clear: both; padding: 1px;"
+|-
+! style="background: #CCFFCC; font-size:87%; padding:0.2em 0.3em; text-align:center; " | &lt;div style="font-size:115%;margin:0 4em"&gt;Some of the "offending" test&lt;/div&gt;   
+|-
+| style="border: solid 1px Silver; padding: 0.6em; background: White;" |
+ ̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺ͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩ ̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺ͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩ ̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺ͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩ ̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺̺ͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩͩ
+|}&lt;/div&gt;
+[[User:Adakiko|Adakiko]] ([[User talk:Adakiko|talk]]) 07:08, 23 October 2021 (UTC)
 :See [[Zalgo text]]. [[User:Nardog|Nardog]] ([[User talk:Nardog|talk]]) 07:18, 23 October 2021 (UTC)
 ::This could make for some interesting vandalism. Might need to request revdels so that other's edit summaries are readable? [[User:Adakiko|Adakiko]] ([[User talk:Adakiko|talk]]) 07:24, 23 October 2021 (UTC)
 :::So far, all of the "offending" edits have been at [[WP:Sandbox]], a page to which we extend a great degree of freedom; it is generally acknowledged that no edits to this page can constitute [[WP:VAND|vandalism]] as it is normally understood. So long as they're not committing a great Wikicrime - such as making an attack page or posting a massive copyvio - we generally let it be. --[[User:Redrose64|&lt;span style="color:#a80000; background:#ffeeee; text-decoration:inherit"&gt;Red&lt;/span&gt;rose64]] &amp;#x1f339; ([[User talk:Redrose64|talk]]) 11:36, 23 October 2021 (UTC)
@@ -306,7 +313,7 @@ Thanks! [[User:Mathglot|Mathglot]] ([[User talk:Mathglot|talk]]) 03:18, 25 Octob
 
 == [[m:Special:MyLanguage/Tech/News/2021/43|Tech News: 2021-43]] ==
 
-&lt;section begin="technews-2021-W43"/&gt;&lt;div class="plainlinks"&gt;
+&lt;div class="plainlinks"&gt;
 Latest '''[[m:Special:MyLanguage/Tech/News|tech news]]''' from the Wikimedia technical community. Please tell other users about these changes. Not all changes will affect you. [[m:Special:MyLanguage/Tech/News/2021/43|Translations]] are available.
 
 '''Recent changes'''
@@ -323,7 +330,7 @@ Latest '''[[m:Special:MyLanguage/Tech/News|tech news]]''' from the Wikimedia tec
 * You can join a meeting about the [[m:Special:MyLanguage/Community Wishlist Survey|Community Wishlist Survey]]. News about the [[m:Special:MyLanguage/Community Wishlist Survey 2021/Warn when linking to disambiguation pages|disambiguation]] and the [[m:Special:MyLanguage/Community Wishlist Survey 2021/Real Time Preview for Wikitext|real-time preview]] wishes will be shown. The event will take place on Wednesday, 27 October at 14:30 UTC. [[m:Special:MyLanguage/Community Wishlist Survey/Updates/Talk to Us|See how to join]].
 
 '''''[[m:Special:MyLanguage/Tech/News|Tech news]]''' prepared by [[m:Special:MyLanguage/Tech/News/Writers|Tech News writers]] and posted by [[m:Special:MyLanguage/User:MediaWiki message delivery|bot]]&amp;nbsp;• [[m:Special:MyLanguage/Tech/News#contribute|Contribute]]&amp;nbsp;• [[m:Special:MyLanguage/Tech/News/2021/43|Translate]]&amp;nbsp;• [[m:Tech|Get help]]&amp;nbsp;• [[m:Talk:Tech/News|Give feedback]]&amp;nbsp;• [[m:Global message delivery/Targets/Tech ambassadors|Subscribe or unsubscribe]].''
-&lt;/div&gt;&lt;section end="technews-2021-W43"/&gt;
+&lt;/div&gt;
 
 20:06, 25 October 2021 (UTC)
 &lt;!-- Message sent by User:Quiddity (WMF)@metawiki using the list at https://meta.wikimedia.org/w/index.php?title=Global_message_delivery/Targets/Tech_ambassadors&amp;oldid=22232718 --&gt;
@@ -405,7 +412,7 @@ On two occasions lately I have fat-fingered rollback. On both occasions a dialog
 :::::{{re|78.26}} Yes, bad news :( That must mean it's an iPhone issue, I suppose. I will try to find a device (or virtual device) to debug this further. For now, since you say you rarely use rollback, you could hide the links entirely with [[User:MusikAnimal/rollbackTouch.js]]. &lt;span style="font-family:sans-serif"&gt;&amp;mdash; &lt;span style="font-weight:bold"&gt;[[User:MusikAnimal|&lt;span style="color:black; font-style:italic"&gt;MusikAnimal&lt;/span&gt;]] &lt;sup&gt;[[User talk:MusikAnimal|&lt;span style="color:green"&gt;talk&lt;/span&gt;]]&lt;/sup&gt;&lt;/span&gt;&lt;/span&gt; 21:34, 26 October 2021 (UTC)
 ::::::{{re|MusikAnimal}}Thanks!  My next question was going to be if I could disable this (you can't in Preferences, already looked) because I can think of twice I've used rollback on purpose.  Thank you also, {{u|Xaosflux}}.  [[User:78.26|&lt;span style="border:1px solid black;color:red; padding:1px;background:1h5h1h; color: #008B8B;"&gt;&lt;b&gt;78.26&lt;/b&gt;&lt;/span&gt;]] &lt;sub&gt;([[User talk:78.26|spin me]] / [[Special:Contributions/78.26|revolutions]])&lt;/sub&gt; 21:38, 26 October 2021 (UTC)
 :::::::If you never use rollback on desktop either, you can simply hide them by adding &lt;syntaxhighlight lang="css"&gt;.mw-rollback-link {
-	display: none;
+  display: none;
 }&lt;/syntaxhighlight&gt; to your [[Special:MyPage/common.css|common.css]]. That would be simpler and faster than installing that script or enabling the gadget. [[User:Nardog|Nardog]] ([[User talk:Nardog|talk]]) 21:53, 26 October 2021 (UTC)
 ::::::::Yeah, I was going to suggest that, but it leaves a lingering pipe character next to "undo". In order to remove that you need to remove the outer span which doesn't have a CSS class or ID. We could hide the first span under &lt;code&gt;.mw-changeslist-links&lt;/code&gt;, but I'm not sure that accounts for rollback links in all places, or if there are cases where rollback isn't in the first span. Finally, the script only targets mobile devices (though 78.26 made it clear they don't use rollback on any device). But anyway, yes, a CSS-only solution is always more efficient. &lt;span style="font-family:sans-serif"&gt;&amp;mdash; &lt;span style="font-weight:bold"&gt;[[User:MusikAnimal|&lt;span style="color:black; font-style:italic"&gt;MusikAnimal&lt;/span&gt;]] &lt;sup&gt;[[User talk:MusikAnimal|&lt;span style="color:green"&gt;talk&lt;/span&gt;]]&lt;/sup&gt;&lt;/span&gt;&lt;/span&gt; 22:22, 26 October 2021 (UTC)
 :::::::::That's only true on history. On Contributions, Watchlist and RecentChanges the whole list item gets removed. It also has the problem of not taking effect after a live update. [[User:Nardog|Nardog]] ([[User talk:Nardog|talk]]) 22:27, 26 October 2021 (UTC)
@@ -829,7 +836,7 @@ but nothing actually displays. -- [[User:RoySmith|RoySmith]] [[User Talk:RoySmit
 ::::@[[User:RoySmith|RoySmith]] hmmm did I break something? I’m travelling at the moment but will have a look when I can get to a computer - assuming someone else doesn’t get there first :) [[User:Firefly|&lt;span style="color:#850808;"&gt;firefly&lt;/span&gt;]] &lt;small&gt;( [[User talk:Firefly|t]] · [[Special:Contributions/Firefly|c]] )&lt;/small&gt; 06:32, 2 November 2021 (UTC)
 *I just removed the {{t|SPIpriorcases}} template [https://en.wikipedia.org/w/index.php?title=Wikipedia:Sockpuppet_investigations/Ineedtostopforgetting/Archive&amp;diff=1053215121&amp;oldid=1052557516]. It is not needed in the archive. '''[[User:Vanjagenije|&lt;span style="color:#008B8B;"&gt;Vanjagenije&lt;/span&gt;]] [[User talk:Vanjagenije|&lt;span style="color: #F4A460;"&gt;(talk)&lt;/span&gt;]]''' 16:12, 2 November 2021 (UTC)
 *Can someone explain to me, in small words for slow minds, what the use case is for an element ''ever'' to be both float:right and width=100%?  Isn't that just asking for breakage? —[[User:Cryptic|Cryptic]] 22:09, 4 November 2021 (UTC)</text>
-      <sha1>konpfatyy85to00edg49q0i7831t76l</sha1>
+      <sha1>9jgvbjl3jnvj7glnf2wvu5ch4vojzpq</sha1>
     </revision>
   </page>
   <page>
