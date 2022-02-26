@@ -33,6 +33,8 @@ $branchDesc = preg_replace( '/^origin\//', '', $branch );
 $creator = $user ? $user->username : '';
 $created = time();
 
+$canAdmin = can_admin();
+
 /**
  * Check if the user has dropped their connection and delete the wiki if so
  *
@@ -216,14 +218,49 @@ foreach ( $patches as &$patch ) {
 
 	if (
 		$config[ 'requireVerified' ] &&
-		( $data[0]['labels']['Verified']['approved']['_account_id'] ?? null ) !== 75
+		( $data[0]['labels']['Verified']['approved']['_account_id'] ?? null ) !== 75 &&
+		// Admin override
+		!( $canAdmin && isset( $_POST['adminVerified'] ) )
 	) {
 		// The patch doesn't have V+2, check if the uploader is trusted
 		$uploaderId = $data[0]['revisions'][$revision]['uploader']['_account_id'];
 		$uploader = gerrit_query( 'accounts/' . $uploaderId, true );
 		check_connection();
 		if ( !is_trusted_user( $uploader['email'] ) ) {
-			abandon( "Patch must be approved (Verified+2) by jenkins-bot, or uploaded by a trusted user" );
+			if ( $canAdmin ) {
+				echo '<form method="POST" action="" id="resubmit-form"><input type="hidden" name="adminVerified" value="1">';
+				foreach ( $_POST as $k => $v ) {
+					if ( is_array( $v ) ) {
+						foreach ( $v as $part ) {
+							echo '<input type="hidden" name="' . htmlentities( $k ) . '[]" value="' . htmlentities( $part ) . '">';
+						}
+					} else {
+						echo '<input type="hidden" name="' . htmlentities( $k ) . '" value="' . htmlentities( $v ) . '">';
+					}
+				}
+				echo '</form>';
+			}
+			abandon(
+				"Patch must be approved (Verified+2) by jenkins-bot, or uploaded by a trusted user." .
+				( can_admin() ?
+					"<p>If you are confident all the patches are safe, as an admin you can bypass these checks:</p>" .
+					new OOUI\ButtonWidget( [
+						'classes' => [ 'resubmit-button' ],
+						'label' => 'Bypass verification',
+						'icon' => 'unLock',
+						'flags' => [ 'destructive', 'primary' ],
+						'infusable' => true,
+					] ) .
+					"<script>
+						$( '.resubmit-button' ).each( function () {
+							OO.ui.infuse( this ).on( 'click', function () {
+								document.getElementById( 'resubmit-form' ).submit();
+							} );
+						} );
+					</script>"
+					 : ""
+				)
+			);
 		}
 	}
 
