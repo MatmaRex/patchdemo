@@ -267,13 +267,12 @@ foreach ( $patches as &$patch ) {
 	$patchesApplied[] = $data[0]['_number'] . ',' . $data[0]['revisions'][$revision]['_number'];
 	$commands[] = [
 		[
-			'PATCHDEMO' => __DIR__ . '/',
 			'REPO' => $path,
 			'REF' => $ref,
 			'BASE' => $base,
 			'HASH' => $revision,
 		],
-		__DIR__ . '/applypatch.sh'
+		__DIR__ . '/new/applypatch.sh'
 	];
 
 	$relatedChanges = [];
