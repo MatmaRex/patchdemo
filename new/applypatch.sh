@@ -3,6 +3,9 @@ set -ex
 
 cd $PATCHDEMO/wikis/$NAME/$REPO
 
+# Required when updating an existing wiki
+git reset --hard origin/master
+
 git fetch origin $REF
 
 # Apply $HASH and its parent commits up to $BASE on top of current HEAD.

@@ -330,6 +330,7 @@ while ( $data = $results->fetch_assoc() ) {
 
 	$actions = [];
 	if ( $canDelete ) {
+		$actions[] = '<a href="update.php?wiki=' . $wiki . '">Update</a>';
 		$actions[] = '<a href="delete.php?wiki=' . $wiki . '">Delete</a>';
 	}
 	if ( $canCreate ) {
