@@ -343,14 +343,22 @@ if ( $useInstantCommons ) {
 	}
 }
 
+$repoSpecificBranches = [];
 foreach ( array_keys( $repos ) as $repo ) {
 	// Unchecked the checkbox
 	if ( $repo !== 'mediawiki/core' && !in_array( $repo, $allowedRepos, true ) ) {
 		unset( $repos[$repo] );
 	}
+
+	$repoBranches = get_branches( $repo );
 	// This branch doesn't exist for this repo
-	if ( !in_array( $branch, get_branches( $repo ), true ) ) {
-		unset( $repos[$repo] );
+	if ( !in_array( $branch, $repoBranches, true ) ) {
+		if ( $branch === 'origin/master' && in_array( 'origin/main', $repoBranches, true ) ) {
+			// master doesn't exist but main does; use main
+			$repoSpecificBranches[$repo] = 'origin/main';
+		} else {
+			unset( $repos[$repo] );
+		}
 	}
 }
 
@@ -443,7 +451,7 @@ foreach ( $repos as $source => $target ) {
 	check_connection();
 	$error = shell_echo( __DIR__ . '/new/checkout.sh',
 		$baseEnv + [
-		'BRANCH' => $branch,
+		'BRANCH' => $repoSpecificBranches[$source] ?? $branch,
 		'REPO_SOURCE' => $source,
 		'REPO_TARGET' => $target,
 		]

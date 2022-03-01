@@ -48,6 +48,17 @@ if [ -d $PATCHDEMO/wikis/$NAME/w/build/ooui ]; then
 	COMPOSER_CACHE_DIR=/dev/null composer require "oojs/oojs-ui @dev" --update-no-dev
 fi
 
+# Codex build
+# TODO test
+if [ -d $PATCHDEMO/wikis/$NAME/w/build/codex ]; then
+	cd $PATCHDEMO/wikis/$NAME/w/build/codex
+	npm install
+	npm run build-all
+	cd $PATCHDEMO
+	cp -r $PATCHDEMO/wikis/$NAME/w/build/codex/packages/codex/dist/* $PATCHDEMO/wikis/$NAME/w/resources/lib/codex/
+	cp -r $PATCHDEMO/wikis/$NAME/w/build/codex/packages/codex-icons/dist/codex-icons.json $PATCHDEMO/wikis/$NAME/w/resources/lib/codex-icons/
+fi
+
 # grant FlaggedRevs editor rights to the default account
 if [ -d $PATCHDEMO/wikis/$NAME/w/extensions/FlaggedRevs ]; then
 	php $PATCHDEMO/wikis/$NAME/w/maintenance/createAndPromote.php "Patch Demo" --force --custom-groups editor
