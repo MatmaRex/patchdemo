@@ -32,7 +32,7 @@ done
 # OOUI build
 if [ -d $PATCHDEMO/wikis/$NAME/w/build/ooui ]; then
 	cd $PATCHDEMO/wikis/$NAME/w/build/ooui
-	npm install
+	npm ci
 	npm x grunt build
 	cd $PATCHDEMO
 	# JS & CSS
@@ -52,7 +52,7 @@ fi
 # TODO test
 if [ -d $PATCHDEMO/wikis/$NAME/w/build/codex ]; then
 	cd $PATCHDEMO/wikis/$NAME/w/build/codex
-	npm install
+	npm ci
 	npm run build-all
 	cd $PATCHDEMO
 	cp -r $PATCHDEMO/wikis/$NAME/w/build/codex/packages/codex/dist/* $PATCHDEMO/wikis/$NAME/w/resources/lib/codex/
