@@ -130,6 +130,7 @@
 - mediawiki/skins/Vector
 - mediawiki/services/parsoid
 - VisualEditor/VisualEditor
-# Including OOUI source requires a build which is fairly slow,
+# Including OOUI or Codex source requires a build which is fairly slow,
 # so should only be done if the user explicitly requests it.
 # - oojs/ui
+# - design/codex

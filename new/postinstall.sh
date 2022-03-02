@@ -32,7 +32,7 @@ done
 # OOUI build
 if [ -d $PATCHDEMO/wikis/$NAME/w/build/ooui ]; then
 	cd $PATCHDEMO/wikis/$NAME/w/build/ooui
-	npm install
+	npm ci
 	npm x grunt build
 	cd $PATCHDEMO
 	# JS & CSS
@@ -46,6 +46,17 @@ if [ -d $PATCHDEMO/wikis/$NAME/w/build/ooui ]; then
 	# ensure we skip the cache when re-installing
 	# should use `--no-cache` instaed of COMPOSER_CACHE_DIR but requires a newer version of composer that we have
 	COMPOSER_CACHE_DIR=/dev/null composer require "oojs/oojs-ui @dev" --update-no-dev
+fi
+
+# Codex build
+# TODO test
+if [ -d $PATCHDEMO/wikis/$NAME/w/build/codex ]; then
+	cd $PATCHDEMO/wikis/$NAME/w/build/codex
+	npm ci
+	npm run build-all
+	cd $PATCHDEMO
+	cp -r $PATCHDEMO/wikis/$NAME/w/build/codex/packages/codex/dist/* $PATCHDEMO/wikis/$NAME/w/resources/lib/codex/
+	cp -r $PATCHDEMO/wikis/$NAME/w/build/codex/packages/codex-icons/dist/codex-icons.json $PATCHDEMO/wikis/$NAME/w/resources/lib/codex-icons/
 fi
 
 # grant FlaggedRevs editor rights to the default account

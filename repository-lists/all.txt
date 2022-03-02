@@ -79,3 +79,4 @@ mediawiki/extensions/Wikisource w/extensions/Wikisource
 mediawiki/extensions/Wikistories w/extensions/Wikistories
 mediawiki/extensions/Disambiguator w/extensions/Disambiguator
 oojs/ui w/build/ooui
+design/codex w/build/codex
