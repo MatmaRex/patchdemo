@@ -391,13 +391,13 @@ function get_linked_tasks( string $message, array &$alreadyLinkedTasks = [] ): a
 	return $alreadyLinkedTasks;
 }
 
-function get_repo_data(): array {
+function get_repo_data( string $pathPrefix = 'w/' ): array {
 	$data = file_get_contents( __DIR__ . '/repository-lists/all.txt' );
 	$repos = [];
 
 	foreach ( explode( "\n", trim( $data ) ) as $line ) {
 		[ $repo, $path ] = explode( ' ', $line );
-		$repos[ $repo ] = $path;
+		$repos[ $repo ] = $pathPrefix . $path;
 	}
 
 	return $repos;
