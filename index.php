@@ -396,7 +396,8 @@ echo '<script>
 window.pd = window.pd || {};
 pd.wikiPatches = ' . json_encode( $wikiPatches ) . ';
 pd.config = ' . json_encode( [
-	'phabricatorUrl' => $config['phabricatorUrl']
+	'phabricatorUrl' => $config['phabricatorUrl'],
+	'gerritUrl' => $config['gerritUrl'],
 ] ) . ';
 </script>';
 ?>

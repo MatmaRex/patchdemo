@@ -117,7 +117,7 @@ window.PatchSelectWidget.prototype.createTagItemWidget = function () {
 				$( '<a>' )
 					.attr( {
 						target: '_blank',
-						href: 'https://gerrit.wikimedia.org/r/' + data.r
+						href: pd.config.gerritUrl + '/r/' + data.r
 					} )
 					.text( response[ 0 ].subject )
 					.on( 'click', linkClick )
