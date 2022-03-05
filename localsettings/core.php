@@ -34,6 +34,10 @@ $wgMetaNamespace = 'Project';
 // Special:Upload (also UploadWizard)
 $wgEnableUploads = true;
 
+// Allow user JS & CSS
+$wgAllowUserJs = true;
+$wgAllowUserCss = true;
+
 // Logo
 $wgLogos = [
 	'svg' => "$wgResourceBasePath/logo.svg",
