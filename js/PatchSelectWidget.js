@@ -47,8 +47,15 @@ window.PatchSelectWidget.prototype.afterPaste = function () {
 	var widget = this,
 		value = this.input.getValue();
 
+	var gerritUrlPattern = new RegExp( pd.config.gerritUrl + '.*?/([0-9]+(?:/[0-9]+)?)/?$' );
+
 	value.trim().split( /[ \n]/ ).forEach( function ( patch ) {
 		patch = patch.trim();
+
+		var matches = patch.match( gerritUrlPattern );
+		if ( matches ) {
+			patch = matches[ 1 ].replace( '/', ',' );
+		}
 
 		if ( patch && widget.addTag( patch, patch ) ) {
 			widget.clearInput();
