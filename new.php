@@ -25,8 +25,8 @@ $announce = !empty( $_POST['announce'] );
 $language = trim( $_POST['language'] );
 
 $wiki = substr( md5( $branch . $patches . time() ), 0, 10 );
-$server = detectProtocol() . '://' . $_SERVER['HTTP_HOST'];
-$serverPath = preg_replace( '`/[^/]*$`', '', $_SERVER['REQUEST_URI'] );
+$server = get_server();
+$serverPath = get_server_path();
 
 $branchDesc = preg_replace( '/^origin\//', '', $branch );
 
