@@ -24,7 +24,7 @@ $patches = trim( $_POST['patches'] );
 $announce = !empty( $_POST['announce'] );
 $language = trim( $_POST['language'] );
 
-$namePath = substr( md5( $branch . $patches . time() ), 0, 10 );
+$wiki = substr( md5( $branch . $patches . time() ), 0, 10 );
 $server = detectProtocol() . '://' . $_SERVER['HTTP_HOST'];
 $serverPath = preg_replace( '`/[^/]*$`', '', $_SERVER['REQUEST_URI'] );
 
@@ -57,10 +57,10 @@ ignore_user_abort( true );
 
 // Create an entry for the wiki before we have resolved patches.
 // Will be updated later.
-insert_wiki_data( $namePath, $creator, $created, $branchDesc );
+insert_wiki_data( $wiki, $creator, $created, $branchDesc );
 
 function abandon( string $errHtml ) {
-	global $namePath;
+	global $wiki;
 	$errJson = json_encode( $errHtml );
 	echo <<<EOT
 		<script>
@@ -70,7 +70,7 @@ function abandon( string $errHtml ) {
 			pd.notify( 'Your PatchDemo wiki failed to build', $errJson );
 		</script>
 EOT;
-	delete_wiki( $namePath );
+	delete_wiki( $wiki );
 	die( $errHtml );
 }
 
@@ -113,7 +113,7 @@ echo new OOUI\FieldsetLayout( [
 			new OOUI\ButtonWidget( [
 				'label' => 'Open wiki',
 				'flags' => [ 'progressive', 'primary' ],
-				'href' => "wikis/$namePath/w/",
+				'href' => "wikis/$wiki/w/",
 				'disabled' => true,
 				'classes' => [ 'openWiki' ],
 				'infusable' => true,
@@ -121,7 +121,7 @@ echo new OOUI\FieldsetLayout( [
 			[
 				'align' => 'inline',
 				'classes' => [ 'openWikiField' ],
-				'label' => "When complete, use this button to open your wiki ($namePath)",
+				'label' => "When complete, use this button to open your wiki ($wiki)",
 				'help' => new OOUI\HtmlSnippet( <<<EOT
 					You can log in as the following users using the password <code>patchdemo1</code>
 					<ul class="userList">
@@ -314,7 +314,7 @@ $wikiName = "Patch demo (" . trim(
 ) . ")";
 
 // Update DB record with patches applied
-wiki_add_patches( $namePath, $patchesApplied );
+wiki_add_patches( $wiki, $patchesApplied );
 
 // Choose repositories to enable
 $repos = get_repo_data();
@@ -406,7 +406,7 @@ foreach ( $linkedTasks as $task ) {
 
 $baseEnv = [
 	'PATCHDEMO' => __DIR__,
-	'NAME' => $namePath,
+	'NAME' => $wiki,
 ];
 
 $start = 5;
@@ -560,21 +560,21 @@ if ( $announce && count( $linkedTasks ) ) {
 			'T' . $task,
 			"Test wiki **created** on [[ $server$serverPath | Patch demo ]]" . ( $creator ? ' by ' . $creator : '' ) . " using patch(es) linked to this task:" .
 			"\n" .
-			"$server$serverPath/wikis/$namePath/w/" .
+			"$server$serverPath/wikis/$wiki/w/" .
 			( $hasOOUI ?
 				"\n\n" .
 				"Also created an **OOUI Demos** page:" .
 				"\n" .
-				"$server$serverPath/wikis/$namePath/w/build/ooui/demos"
+				"$server$serverPath/wikis/$wiki/w/build/ooui/demos"
 				: ""
 			)
 		);
 	}
-	wiki_add_announced_tasks( $namePath, $linkedTasks );
+	wiki_add_announced_tasks( $wiki, $linkedTasks );
 }
 
 $timeToCreate = time() - $startTime;
-wiki_set_time_to_create( $namePath, $timeToCreate );
+wiki_set_time_to_create( $wiki, $timeToCreate );
 
 set_progress( 100, 'All done! Wiki created in ' . $timeToCreate . 's.' );
 
