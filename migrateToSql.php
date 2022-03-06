@@ -1,11 +1,11 @@
 <?php
 
-if ( PHP_SAPI !== 'cli' && PHP_SAPI !== 'phpdbg' ) {
+require_once "includes.php";
+
+if ( !is_cli() ) {
 	echo "This script must be run from the command line\n";
 	exit( 1 );
 }
-
-require_once "includes.php";
 
 function get_if_file_exists( $file ) {
 	return file_exists( $file ) ? file_get_contents( $file ) : null;

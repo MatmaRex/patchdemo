@@ -322,8 +322,19 @@ function shell( $cmd, array $env = [] ): ?string {
 	return $error ? null : $process->getOutput();
 }
 
-function delete_wiki( string $wiki ): int {
+/**
+ * Delete a wiki.
+ *
+ * @param string $wiki Wiki name
+ * @param string|null $serverUri Server path - must be passed in if calling from the CLI
+ * @return string|null Error message, null if successful
+ */
+function delete_wiki( string $wiki, string $serverUri = null ): ?string {
 	global $mysqli;
+
+	if ( !$serverUri ) {
+		$serverUri = get_server() . get_server_path();
+	}
 
 	$wikiData = get_wiki_data( $wiki );
 
@@ -337,18 +348,17 @@ function delete_wiki( string $wiki ): int {
 			'WIKI' => $wiki
 		]
 	);
+	if ( $error ) {
+		return 'Could not delete wiki files or database.';
+	}
 
 	foreach ( $wikiData['announcedTasks'] as $task ) {
-		// TODO: Deduplicate server/serverPath with variables in new.php
-		$server = detectProtocol() . '://' . $_SERVER['HTTP_HOST'];
-		$serverPath = preg_replace( '`/[^/]*$`', '', $_SERVER['REQUEST_URI'] );
-
 		$creator = $wikiData['creator'];
 		post_phab_comment(
 			'T' . $task,
-			"Test wiki on [[ $server$serverPath | Patch demo ]] " . ( $creator ? ' by ' . $creator : '' ) . " using patch(es) linked to this task was **deleted**:\n" .
+			"Test wiki on [[ $serverUri | Patch demo ]] " . ( $creator ? ' by ' . $creator : '' ) . " using patch(es) linked to this task was **deleted**:\n" .
 			"\n" .
-			"~~[[ $server$serverPath/wikis/$wiki/w/ ]]~~"
+			"~~[[ $serverUri/wikis/$wiki/w/ ]]~~"
 		);
 	}
 
@@ -361,7 +371,7 @@ function delete_wiki( string $wiki ): int {
 	$stmt->execute();
 	$stmt->close();
 
-	return $error;
+	return $mysqli->error ?: null;
 }
 
 $requestCache = [];
@@ -484,7 +494,14 @@ function get_repo_presets(): array {
 	return $presets;
 }
 
-function detectProtocol(): string {
+function is_cli(): bool {
+	return PHP_SAPI === 'cli' || PHP_SAPI === 'phpdbg';
+}
+
+function detect_protocol(): string {
+	if ( is_cli() ) {
+		throw new Error( 'Can\'t access server variables from CLI.' );
+	}
 	// Copied from MediaWiki's WebRequest::detectProtocol
 	if (
 		( !empty( $_SERVER['HTTPS'] ) && $_SERVER['HTTPS'] !== 'off' ) ||
@@ -497,6 +514,20 @@ function detectProtocol(): string {
 	} else {
 		return 'http';
 	}
+}
+
+function get_server(): string {
+	if ( is_cli() ) {
+		throw new Error( 'Can\'t access server variables from CLI.' );
+	}
+	return detect_protocol() . '://' . $_SERVER['HTTP_HOST'];
+}
+
+function get_server_path(): string {
+	if ( is_cli() ) {
+		throw new Error( 'Can\'t access server variables from CLI.' );
+	}
+	return preg_replace( '`/[^/]*$`', '', $_SERVER['REQUEST_URI'] );
 }
 
 function get_csrf_token(): string {
