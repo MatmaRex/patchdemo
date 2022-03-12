@@ -288,6 +288,12 @@ function format_linked_tasks( array $linkedTasks ): string {
 	return $linkedTasks ?: '<em>No tasks</em>';
 }
 
+function format_duration( int $time ): string {
+	return $time > 60 ?
+		floor( $time / 60 ) . 'm' . ( $time % 60 ) . 's' :
+		$time . 's';
+}
+
 function shell_echo( string $cmd, array $env = [] ): int {
 	echo '<pre>';
 
