@@ -348,7 +348,7 @@ while ( $data = $results->fetch_assoc() ) {
 		'<td data-label="Linked tasks" class="linkedTasks">' . $linkedTasks . '</td>' .
 		'<td data-label="Time" class="date">' . date( 'Y-m-d H:i:s', $wikiData[ 'created' ] ) . '</td>' .
 		( $useOAuth ? '<td data-label="Creator">' . ( $creator ? user_link( $creator ) : '?' ) . '</td>' : '' ) .
-		( $canAdmin ? '<td data-label="Time to create">' . ( $wikiData['timeToCreate'] ? $wikiData['timeToCreate'] . 's' : '' ) . '</td>' : '' ) .
+		( $canAdmin ? '<td data-label="Time to create">' . ( $wikiData['timeToCreate'] ? format_duration( $wikiData['timeToCreate'] ) : '' ) . '</td>' : '' ) .
 		( count( $actions ) ?
 			'<td data-label="Actions">' . implode( '&nbsp;&middot;&nbsp;', $actions ) . '</td>' :
 			'<!-- EMPTY ACTIONS -->'
