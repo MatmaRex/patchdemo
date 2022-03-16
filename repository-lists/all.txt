@@ -78,5 +78,6 @@ mediawiki/extensions/WikiLambda extensions/WikiLambda
 mediawiki/extensions/Wikisource extensions/Wikisource
 mediawiki/extensions/Wikistories extensions/Wikistories
 mediawiki/extensions/Disambiguator extensions/Disambiguator
+mediawiki/extensions/VueTest extensions/VueTest
 oojs/ui build/ooui
 design/codex build/codex
