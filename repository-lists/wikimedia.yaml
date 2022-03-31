@@ -39,7 +39,8 @@
 - mediawiki/extensions/ExternalGuidance
 - mediawiki/extensions/FeaturedFeeds
 - mediawiki/extensions/FileExporter
-- mediawiki/extensions/Flow
+# Flow is installed on a lot of wikis, but is deprecated
+# - mediawiki/extensions/Flow
 - mediawiki/extensions/Gadgets
 - mediawiki/extensions/GeoData
 - mediawiki/extensions/GlobalBlocking
