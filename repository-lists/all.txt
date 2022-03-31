@@ -16,6 +16,7 @@ mediawiki/extensions/EventBus extensions/EventBus
 mediawiki/extensions/EventLogging extensions/EventLogging
 mediawiki/extensions/EventStreamConfig extensions/EventStreamConfig
 mediawiki/extensions/FlaggedRevs extensions/FlaggedRevs
+mediawiki/extensions/Flow extensions/Flow
 mediawiki/extensions/Gadgets extensions/Gadgets
 mediawiki/extensions/GlobalBlocking extensions/GlobalBlocking
 mediawiki/extensions/GlobalPreferences extensions/GlobalPreferences
