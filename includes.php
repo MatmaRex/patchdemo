@@ -290,7 +290,7 @@ function format_linked_tasks( array $linkedTasks ): string {
 
 function format_duration( int $time ): string {
 	return $time > 60 ?
-		floor( $time / 60 ) . 'm' . ( $time % 60 ) . 's' :
+		floor( $time / 60 ) . "m\u{00A0}" . ( $time % 60 ) . 's' :
 		$time . 's';
 }
 
