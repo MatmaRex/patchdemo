@@ -44,19 +44,20 @@ if [ -d $PATCHDEMO/wikis/$NAME/w/build/ooui ]; then
 	# composer install has already run, so clear out the old version of OOUI
 	rm -rf vendor/oojs/oojs-ui
 	# ensure we skip the cache when re-installing
-	# should use `--no-cache` instaed of COMPOSER_CACHE_DIR but requires a newer version of composer that we have
+	# should use `--no-cache` instead of COMPOSER_CACHE_DIR but requires a newer version of composer that we have
 	COMPOSER_CACHE_DIR=/dev/null composer require "oojs/oojs-ui @dev" --update-no-dev
 fi
 
 # Codex build
-# TODO test
 if [ -d $PATCHDEMO/wikis/$NAME/w/build/codex ]; then
 	cd $PATCHDEMO/wikis/$NAME/w/build/codex
 	npm ci
-	npm run build-all
+	CODEX_DOC_ROOT=$SERVERPATH/wikis/$NAME/w/build/codex/docs npm run build-all
 	cd $PATCHDEMO
 	cp -r $PATCHDEMO/wikis/$NAME/w/build/codex/packages/codex/dist/* $PATCHDEMO/wikis/$NAME/w/resources/lib/codex/
 	cp -r $PATCHDEMO/wikis/$NAME/w/build/codex/packages/codex-icons/dist/codex-icons.json $PATCHDEMO/wikis/$NAME/w/resources/lib/codex-icons/
+	# Make docs available at /w/build/codex/docs/
+	mv $PATCHDEMO/wikis/$NAME/w/build/codex/packages/codex-docs/docs/.vitepress/dist $PATCHDEMO/wikis/$NAME/w/build/codex/docs
 fi
 
 # grant FlaggedRevs editor rights to the default account
