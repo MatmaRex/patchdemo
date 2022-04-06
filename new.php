@@ -373,6 +373,11 @@ if ( $hasOOUI ) {
 	$mainPage .= "\n\nThis wiki was built with OOUI patches so you can also view the [{{SERVER}}{{SCRIPTPATH}}/build/ooui/demos patched '''OOUI Demos'''].";
 }
 
+$hasCodex = in_array( 'design/codex', $allowedRepos, true );
+if ( $hasCodex ) {
+	$mainPage .= "\n\nThis wiki was built with Codex patches, so you can also view the [{{SERVER}}{{SCRIPTPATH}}/build/codex/docs patched '''Codex demos and documentation'''].";
+}
+
 $mainPage .= "\n\n;Branch: $branchDesc";
 $mainPage .= "\n;Applied patches:";
 
@@ -545,6 +550,7 @@ $error = shell_echo( __DIR__ . '/new/postinstall.sh',
 		'EXTRA_PATH' => implode( ':', $config['extraPaths'] ),
 		// Variable used by composer itself, not our script
 		'COMPOSER_HOME' => __DIR__ . '/composer',
+		'SERVERPATH' => $serverPath,
 	]
 );
 if ( $error ) {
@@ -565,6 +571,13 @@ if ( $announce && count( $linkedTasks ) ) {
 				"Also created an **OOUI Demos** page:" .
 				"\n" .
 				"$server$serverPath/wikis/$wiki/w/build/ooui/demos"
+				: ""
+			) .
+			( $hasCodex ?
+				"\n\n" .
+				"Also created a **Codex documentation** site:" .
+				"\n" .
+				"$server$serverPath/wikis/$wiki/w/build/codex/demos"
 				: ""
 			)
 		);
