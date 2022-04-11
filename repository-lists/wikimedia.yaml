@@ -87,7 +87,9 @@
 - mediawiki/extensions/Renameuser
 - mediawiki/extensions/RevisionSlider
 # - mediawiki/extensions/RSS
-- mediawiki/extensions/Score
+# Score is deployed everywhere, but doesn't work fully without a
+# secure sandbox. It is only needed to test the VisualEditor UI.
+# - mediawiki/extensions/Score
 - mediawiki/extensions/Scribunto
 - mediawiki/extensions/SecureLinkFixer
 - mediawiki/extensions/SecurePoll
