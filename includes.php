@@ -259,7 +259,7 @@ function format_patch_list( array $patchList, ?string $branch, bool &$closed = f
 		$status = $patchData['status'];
 		if (
 			$status === 'NEW' &&
-			preg_match( '/(DNM|DO NOT MERGE)/', $patchData['subject'] )
+			preg_match( '/(DNM|DO ?NOT ?MERGE)/', $patchData['subject'] )
 		) {
 			$status = 'DNM';
 		}
