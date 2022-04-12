@@ -258,7 +258,7 @@ summary > .oo-ui-labelElement-label:not( .oo-ui-inline-help ) {
 	background: #f8f9fa;
 }
 
-.wikis tr:hover {
+.wikis tr:not( .headerRow ):not( .wikiSection ):hover {
 	background: #eaf3ff;
 }
 
