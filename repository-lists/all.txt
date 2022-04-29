@@ -4,7 +4,6 @@ mediawiki/extensions/AbuseFilter extensions/AbuseFilter
 mediawiki/extensions/BetaFeatures extensions/BetaFeatures
 mediawiki/extensions/CampaignEvents extensions/CampaignEvents
 mediawiki/extensions/CategoryTree extensions/CategoryTree
-mediawiki/extensions/CategoryTree extensions/CategoryTree
 mediawiki/extensions/CharInsert extensions/CharInsert
 mediawiki/extensions/ChessBrowser extensions/ChessBrowser
 mediawiki/extensions/Cite extensions/Cite
