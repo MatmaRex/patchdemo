@@ -2,6 +2,7 @@ mediawiki/core .
 mediawiki/extensions/3D extensions/3D
 mediawiki/extensions/AbuseFilter extensions/AbuseFilter
 mediawiki/extensions/BetaFeatures extensions/BetaFeatures
+mediawiki/extensions/CampaignEvents extensions/CampaignEvents
 mediawiki/extensions/CategoryTree extensions/CategoryTree
 mediawiki/extensions/CampaignEvents extensions/CampaignEvents
 mediawiki/extensions/CharInsert extensions/CharInsert
