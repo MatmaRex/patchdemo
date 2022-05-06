@@ -30,8 +30,9 @@ window.PatchSelectWidget = function PatchSelectWidget( config ) {
 	}, config ) );
 
 	// Assume that a whole patch number was pasted
+	// TODO: Upstream?
 	this.input.$input.on( 'paste', function () {
-		setTimeout( widget.afterPaste.bind( widget ) );
+		setTimeout( widget.doInputEnter.bind( widget ) );
 	} );
 
 	this.$element
@@ -43,21 +44,32 @@ OO.inheritClass( window.PatchSelectWidget, OO.ui.TagMultiselectWidget );
 
 window.PatchSelectWidget.static.patchCache = {};
 
-window.PatchSelectWidget.prototype.afterPaste = function () {
-	var widget = this,
-		value = this.input.getValue();
+window.PatchSelectWidget.prototype.getTagInfoFromInput = function ( value ) {
+	value = value || this.input.getValue();
 
 	var gerritUrlPattern = new RegExp( pd.config.gerritUrl + '.*?/([0-9]+(?:/[0-9]+)?)/?$' );
 
-	value.trim().split( /[ \n]/ ).forEach( function ( patch ) {
-		patch = patch.trim();
+	value = value.trim();
 
-		var matches = patch.match( gerritUrlPattern );
-		if ( matches ) {
-			patch = matches[ 1 ].replace( '/', ',' );
-		}
+	var matches = value.match( gerritUrlPattern );
+	if ( matches ) {
+		value = matches[ 1 ].replace( '/', ',' );
+	}
 
-		if ( patch && widget.addTag( patch, patch ) ) {
+	return value ?
+		{ data: value, label: value } :
+		null;
+};
+
+window.PatchSelectWidget.prototype.addTagFromInput = function () {
+	var widget = this;
+	// Handle multi line inputs, e.g. from paste
+	// TODO: Upstream?
+	var tagInfos = this.input.getValue().trim().split( /[ \n]/ )
+		.map( this.getTagInfoFromInput.bind( this ) );
+
+	tagInfos.forEach( function ( tagInfo ) {
+		if ( tagInfo && widget.addTag( tagInfo.data, tagInfo.label ) ) {
 			widget.clearInput();
 		}
 	} );
