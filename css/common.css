@@ -173,11 +173,6 @@ summary > .oo-ui-labelElement-label:not( .oo-ui-inline-help ) {
 	height: 5em;
 }
 
-.form-patches .oo-ui-tagMultiselectWidget-handle .oo-ui-tagMultiselectWidget-group > input {
-	/* Look more like a TextInputWidget */
-	padding-left: 2px;
-}
-
 @media ( min-width: 721px ) {
 	.enableNotifications {
 		margin-left: 40%;
