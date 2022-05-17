@@ -28,6 +28,8 @@ mediawiki/extensions/ImageMap extensions/ImageMap
 mediawiki/extensions/Inbox extensions/Inbox
 mediawiki/extensions/InputBox extensions/InputBox
 mediawiki/extensions/Interwiki extensions/Interwiki
+mediawiki/extensions/JsonConfig extensions/JsonConfig
+mediawiki/extensions/Kartographer extensions/Kartographer
 mediawiki/extensions/Linter extensions/Linter
 mediawiki/extensions/LocalisationUpdate extensions/LocalisationUpdate
 mediawiki/extensions/Math extensions/Math
