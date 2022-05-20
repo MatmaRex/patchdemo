@@ -31,6 +31,9 @@ $wgResourceLoaderStorageEnabled = false;
 // "Patch Demo (123456,7):"
 $wgMetaNamespace = 'Project';
 
+// Use "Publish" buttons instead of "Save"
+$wgEditSubmitButtonLabelPublish = true;
+
 // Special:Upload (also UploadWizard)
 $wgEnableUploads = true;
 
