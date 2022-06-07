@@ -55,6 +55,7 @@ if [ -d $PATCHDEMO/wikis/$NAME/w/build/codex ]; then
 	CODEX_DOC_ROOT=$SERVERPATH/wikis/$NAME/w/build/codex/docs npm run build-all
 	cd $PATCHDEMO
 	cp -r $PATCHDEMO/wikis/$NAME/w/build/codex/packages/codex/dist/* $PATCHDEMO/wikis/$NAME/w/resources/lib/codex/
+	cp -r $PATCHDEMO/wikis/$NAME/w/build/codex/packages/codex-search/dist/* $PATCHDEMO/wikis/$NAME/w/resources/lib/codex-search/
 	cp -r $PATCHDEMO/wikis/$NAME/w/build/codex/packages/codex-icons/dist/codex-icons.json $PATCHDEMO/wikis/$NAME/w/resources/lib/codex-icons/
 	# Make docs available at /w/build/codex/docs/
 	mv $PATCHDEMO/wikis/$NAME/w/build/codex/packages/codex-docs/docs/.vitepress/dist $PATCHDEMO/wikis/$NAME/w/build/codex/docs
