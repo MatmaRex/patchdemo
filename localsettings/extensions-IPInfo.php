@@ -1,4 +1,4 @@
-<? php
+<?php
 
 $wgGroupPermissions['user']['ipinfo'] = true;
 $wgGroupPermissions['user']['ipinfo-view-basic'] = true;
