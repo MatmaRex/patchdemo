@@ -9,6 +9,7 @@ mediawiki/extensions/ChessBrowser extensions/ChessBrowser
 mediawiki/extensions/Cite extensions/Cite
 mediawiki/extensions/CiteThisPage extensions/CiteThisPage
 mediawiki/extensions/Citoid extensions/Citoid
+mediawiki/extensions/cldr extensions/cldr
 mediawiki/extensions/CodeEditor extensions/CodeEditor
 mediawiki/extensions/CodeMirror extensions/CodeMirror
 mediawiki/extensions/ConfirmEdit extensions/ConfirmEdit
