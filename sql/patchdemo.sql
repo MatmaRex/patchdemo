@@ -42,3 +42,9 @@ ALTER TABLE `tasks`
 
 ALTER TABLE `wikis`
 	ADD COLUMN IF NOT EXISTS `branch` VARCHAR(64) NOT NULL AFTER `patches`;
+
+ALTER TABLE `wikis`
+	ADD COLUMN `updated` DATETIME NOT NULL AFTER `created`,
+	ADD INDEX `updated` (`updated`);
+
+UPDATE wikis SET updated = created;

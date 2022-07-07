@@ -47,7 +47,7 @@ $short_fields = [
 	],
 ];
 
-$results = $mysqli->query( 'SELECT wiki FROM wikis WHERE !deleted ORDER BY created DESC' );
+$results = $mysqli->query( 'SELECT wiki FROM wikis WHERE !deleted ORDER BY updated DESC' );
 if ( !$results ) {
 	die( $mysqli->error );
 }

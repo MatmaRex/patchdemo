@@ -36,13 +36,21 @@ function insert_wiki_data( string $wiki, string $creator, int $created, string $
 	global $mysqli;
 	$stmt = $mysqli->prepare( '
 		INSERT INTO wikis
-		(wiki, creator, created, branch)
-		VALUES(?, ?, FROM_UNIXTIME(?), ?)
+		(wiki, creator, created, updated, branch)
+		VALUES(?, ?, FROM_UNIXTIME(?), FROM_UNIXTIME(?), ?)
 	' );
 	if ( !$stmt ) {
 		echo $mysqli->error;
 	}
-	$stmt->bind_param( 'ssis', $wiki, $creator, $created, $branch );
+	$stmt->bind_param( 'ssiis', $wiki, $creator, $created, $created, $branch );
+	$stmt->execute();
+	$stmt->close();
+}
+
+function wiki_update_timestamp( string $wiki ) {
+	global $mysqli;
+	$stmt = $mysqli->prepare( 'UPDATE wikis SET updated = NOW() WHERE wiki = ?' );
+	$stmt->bind_param( 's', $wiki );
 	$stmt->execute();
 	$stmt->close();
 }
@@ -77,7 +85,7 @@ function get_wiki_data( string $wiki ): array {
 	global $mysqli;
 
 	$stmt = $mysqli->prepare( '
-		SELECT wiki, creator, UNIX_TIMESTAMP( created ) created, patches, branch, announcedTasks, timeToCreate, deleted
+		SELECT wiki, creator, UNIX_TIMESTAMP( created ) created, UNIX_TIMESTAMP( updated ) updated, patches, branch, announcedTasks, timeToCreate, deleted
 		FROM wikis WHERE wiki = ?
 	' );
 	if ( !$stmt ) {

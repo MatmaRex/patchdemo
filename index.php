@@ -281,10 +281,10 @@ $wikiPatches = [];
 $username = $user ? $user->username : null;
 
 $stmt = $mysqli->prepare( '
-	SELECT wiki, creator, UNIX_TIMESTAMP( created ) created, patches, branch, announcedTasks, timeToCreate, deleted
+	SELECT wiki, creator, UNIX_TIMESTAMP( updated ) updated, patches, branch, announcedTasks, timeToCreate, deleted
 	FROM wikis
 	WHERE !deleted
-	ORDER BY IF( creator = ?, 1, 0 ) DESC, created DESC
+	ORDER BY IF( creator = ?, 1, 0 ) DESC, updated DESC
 ' );
 if ( !$stmt ) {
 	die( $mysqli->error );
@@ -330,6 +330,7 @@ while ( $data = $results->fetch_assoc() ) {
 
 	$actions = [];
 	if ( $canDelete ) {
+		$actions[] = '<a href="update.php?wiki=' . $wiki . '">Update</a>';
 		$actions[] = '<a href="delete.php?wiki=' . $wiki . '">Delete</a>';
 	}
 	if ( $canCreate ) {
@@ -346,7 +347,7 @@ while ( $data = $results->fetch_assoc() ) {
 		'</td>' .
 		'<td data-label="Patches" class="patches">' . $patches . '</td>' .
 		'<td data-label="Linked tasks" class="linkedTasks">' . $linkedTasks . '</td>' .
-		'<td data-label="Time" class="date">' . date( 'Y-m-d H:i:s', $wikiData[ 'created' ] ) . '</td>' .
+		'<td data-label="Time" class="date">' . date( 'Y-m-d H:i:s', $wikiData[ 'updated' ] ) . '</td>' .
 		( $useOAuth ? '<td data-label="Creator">' . ( $creator ? user_link( $creator ) : '?' ) . '</td>' : '' ) .
 		( $canAdmin ? '<td data-label="Time to create">' . ( $wikiData['timeToCreate'] ? format_duration( $wikiData['timeToCreate'] ) : '' ) . '</td>' : '' ) .
 		( count( $actions ) ?
