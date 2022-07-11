@@ -328,9 +328,19 @@ while ( $data = $results->fetch_assoc() ) {
 		$classes[] = 'open';
 	}
 
-	$actions = [];
+	$actions = new \OOUI\ButtonGroupWidget( [
+		'classes' => [ 'wikiActions' ]
+	] );
 	if ( $canDelete ) {
-		$actions[] = '<a href="delete.php?wiki=' . $wiki . '">Delete</a>';
+		$actions->addItems( [ new \OOUI\ButtonWidget( [
+			'label' => 'Delete',
+			'title' => 'Delete',
+			'invisibleLabel' => true,
+			'icon' => 'trash',
+			'framed' => false,
+			'flags' => [ 'destructive' ],
+			'href' => 'delete.php?wiki=' . $wiki,
+		] ) ] );
 	}
 	if ( $canCreate ) {
 		$patchList = array_map( static function ( $data ) {
@@ -338,7 +348,15 @@ while ( $data = $results->fetch_assoc() ) {
 		}, $wikiData['patchList'] );
 
 		if ( count( $patchList ) || $wikiData['branch'] !== 'master' ) {
-			$actions[] = '<a class="copyWiki" href="?patches=' . implode( ',', $patchList ) . '&branch=' . htmlspecialchars( $wikiData['branch'] ) . '">Copy</a>';
+			$actions->addItems( [ new \OOUI\ButtonWidget( [
+				'label' => 'Copy',
+				'title' => 'Copy',
+				'invisibleLabel' => true,
+				'classes' => [ 'copyWiki' ],
+				'icon' => 'copy',
+				'framed' => false,
+				'href' => '?patches=' . implode( ',', $patchList ) . '&branch=' . htmlspecialchars( $wikiData['branch'] ),
+			] ) ] );
 		}
 	}
 
@@ -352,8 +370,8 @@ while ( $data = $results->fetch_assoc() ) {
 		'<td data-label="Time" class="date">' . date( 'Y-m-d H:i:s', $wikiData[ 'created' ] ) . '</td>' .
 		( $useOAuth ? '<td data-label="Creator">' . ( $creator ? user_link( $creator ) : '?' ) . '</td>' : '' ) .
 		( $canAdmin ? '<td data-label="Time to create">' . ( $wikiData['timeToCreate'] ? format_duration( $wikiData['timeToCreate'] ) : '' ) . '</td>' : '' ) .
-		( count( $actions ) ?
-			'<td data-label="Actions">' . implode( '&nbsp;&middot;&nbsp;', $actions ) . '</td>' :
+		( !$actions->isEmpty() ?
+			'<td data-label="Actions" class="actions">' . $actions . '</td>' :
 			'<!-- EMPTY ACTIONS -->'
 		) .
 	'</tr>';

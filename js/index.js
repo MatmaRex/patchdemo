@@ -161,7 +161,8 @@
 		var languageInput = OO.ui.infuse( $( '.form-language' ) );
 		languageInput.setValidation( /^[a-z-]{2,}$/ );
 
-		$( '.copyWiki' ).on( 'click', function ( e ) {
+		// Don't bother infusing as there could be a lot of these buttons
+		$( '.copyWiki .oo-ui-buttonElement-button' ).on( 'click', function ( e ) {
 			var params = new URL( this.href ).searchParams;
 			patchesInput.setValue( params.get( 'patches' ) ? params.get( 'patches' ).split( ',' ) : [] );
 			branchSelect.setValue( 'origin/' + params.get( 'branch' ) );

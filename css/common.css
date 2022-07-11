@@ -31,7 +31,7 @@ header {
 	top: 0;
 	background: #fff;
 	box-shadow: 0 0 2px 2px rgba( 0, 0, 0, 0.25 );
-	z-index: 1;
+	z-index: 2;
 }
 
 .headerInner {
@@ -211,6 +211,23 @@ summary > .oo-ui-labelElement-label:not( .oo-ui-inline-help ) {
 	content: '✓';
 }
 
+/* Actions */
+.wikis .actions {
+	padding-top: 0;
+	padding-bottom: 0;
+	white-space: nowrap;
+	width: 1%;
+}
+
+.wikis .actions .oo-ui-buttonGroupWidget .oo-ui-buttonElement-frameless.oo-ui-iconElement:last-child {
+	margin-right: -0.42857143em;
+}
+
+.wikis .actions .oo-ui-buttonGroupWidget .oo-ui-buttonElement-frameless > .oo-ui-buttonElement-button {
+	padding-top: 26px;
+	min-height: 0;
+}
+
 .wikis {
 	width: 100%;
 	border: 1px solid #a2a9b1;
@@ -229,6 +246,7 @@ summary > .oo-ui-labelElement-label:not( .oo-ui-inline-help ) {
 	background: #eaecf0;
 	position: sticky;
 	top: 5em;
+	z-index: 1;
 }
 
 .wikis .wikiSection {
