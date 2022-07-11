@@ -336,7 +336,10 @@ while ( $data = $results->fetch_assoc() ) {
 		$patchList = array_map( static function ( $data ) {
 			return htmlspecialchars( $data['r'] );
 		}, $wikiData['patchList'] );
-		$actions[] = '<a class="copyWiki" href="?patches=' . implode( ',', $patchList ) . '&branch=' . htmlspecialchars( $wikiData['branch'] ) . '">Copy</a>';
+
+		if ( count( $patchList ) || $wikiData['branch'] !== 'master' ) {
+			$actions[] = '<a class="copyWiki" href="?patches=' . implode( ',', $patchList ) . '&branch=' . htmlspecialchars( $wikiData['branch'] ) . '">Copy</a>';
+		}
 	}
 
 	$rows .= '<tr class="' . implode( ' ', $classes ) . '">' .
