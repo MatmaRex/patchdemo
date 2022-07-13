@@ -113,7 +113,7 @@ echo new OOUI\FieldsetLayout( [
 			new OOUI\ButtonWidget( [
 				'label' => 'Open wiki',
 				'flags' => [ 'progressive', 'primary' ],
-				'href' => "wikis/$wiki/w/",
+				'href' => get_wiki_url( $wiki ),
 				'disabled' => true,
 				'classes' => [ 'openWiki' ],
 				'infusable' => true,
@@ -565,7 +565,7 @@ if ( $announce && count( $linkedTasks ) ) {
 			'T' . $task,
 			"Test wiki **created** on [[ $server$serverPath | Patch demo ]]" . ( $creator ? ' by ' . $creator : '' ) . " using patch(es) linked to this task:" .
 			"\n" .
-			"$server$serverPath/wikis/$wiki/w/" .
+			"$server$serverPath/" . get_wiki_url( $wiki ) .
 			( $hasOOUI ?
 				"\n\n" .
 				"Also created an **OOUI Demos** page:" .

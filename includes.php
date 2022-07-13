@@ -125,6 +125,18 @@ function get_wiki_data_from_row( array $data ): array {
 	return $data;
 }
 
+function get_wiki_url( string $wiki ): string {
+	return 'wikis/' . $wiki . '/w';
+}
+
+function get_wiki_link( string $wiki ): string {
+	return (
+		'<a href="' . htmlspecialchars( get_wiki_url( $wiki ) ) . ' " title="' . $wiki . '">' .
+			substr( $wiki, 0, 10 ) .
+		'</a>'
+	);
+}
+
 function get_patch_data( $r, $p ): array {
 	global $mysqli;
 
