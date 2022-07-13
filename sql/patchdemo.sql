@@ -42,3 +42,6 @@ ALTER TABLE `tasks`
 
 ALTER TABLE `wikis`
 	ADD COLUMN IF NOT EXISTS `branch` VARCHAR(64) NOT NULL AFTER `patches`;
+
+ALTER TABLE `wikis`
+	ADD COLUMN `landingPage` VARCHAR(255) NULL DEFAULT NULL AFTER `announcedTasks`;
