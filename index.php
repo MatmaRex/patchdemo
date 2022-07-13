@@ -191,6 +191,18 @@ if ( !$canCreate ) {
 					),
 					new OOUI\FieldLayout(
 						new OOUI\TextInputWidget( [
+							'placeholder' => 'Main_Page',
+							'name' => 'landingPage',
+						] ),
+						[
+							'label' => 'Landing page:',
+							'help' => 'The page linked to from this page, and any announcement posts.',
+							'helpInline' => true,
+							'align' => 'left',
+						]
+					),
+					new OOUI\FieldLayout(
+						new OOUI\TextInputWidget( [
 							'name' => 'language',
 							'value' => 'en',
 							'classes' => [ 'form-language' ]
@@ -281,7 +293,7 @@ $wikiPatches = [];
 $username = $user ? $user->username : null;
 
 $stmt = $mysqli->prepare( '
-	SELECT wiki, creator, UNIX_TIMESTAMP( created ) created, patches, branch, announcedTasks, timeToCreate, deleted
+	SELECT wiki, creator, UNIX_TIMESTAMP( created ) created, patches, branch, announcedTasks, landingPage, timeToCreate, deleted
 	FROM wikis
 	WHERE !deleted
 	ORDER BY IF( creator = ?, 1, 0 ) DESC, created DESC
@@ -345,7 +357,7 @@ while ( $data = $results->fetch_assoc() ) {
 	$rows .= '<tr class="' . implode( ' ', $classes ) . '">' .
 		'<td data-label="Wiki" class="wiki">' .
 			'<span class="wikiAnchor" id="' . substr( $wiki, 0, 10 ) . '"></span>' .
-			get_wiki_link( $wiki ) .
+			get_wiki_link( $wiki, $wikiData['landingPage'] ) .
 		'</td>' .
 		'<td data-label="Patches" class="patches">' . $patches . '</td>' .
 		'<td data-label="Linked tasks" class="linkedTasks">' . $linkedTasks . '</td>' .

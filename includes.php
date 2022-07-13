@@ -32,17 +32,17 @@ if ( $mysqli->connect_error ) {
 	die( $mysqli->connect_error );
 }
 
-function insert_wiki_data( string $wiki, string $creator, int $created, string $branch ) {
+function insert_wiki_data( string $wiki, string $creator, int $created, string $branch, ?string $landingPage ) {
 	global $mysqli;
 	$stmt = $mysqli->prepare( '
 		INSERT INTO wikis
-		(wiki, creator, created, branch)
-		VALUES(?, ?, FROM_UNIXTIME(?), ?)
+		(wiki, creator, created, branch, landingPage)
+		VALUES(?, ?, FROM_UNIXTIME(?), ?, ?)
 	' );
 	if ( !$stmt ) {
 		echo $mysqli->error;
 	}
-	$stmt->bind_param( 'ssis', $wiki, $creator, $created, $branch );
+	$stmt->bind_param( 'ssiss', $wiki, $creator, $created, $branch, $landingPage );
 	$stmt->execute();
 	$stmt->close();
 }
@@ -77,7 +77,7 @@ function get_wiki_data( string $wiki ): array {
 	global $mysqli;
 
 	$stmt = $mysqli->prepare( '
-		SELECT wiki, creator, UNIX_TIMESTAMP( created ) created, patches, branch, announcedTasks, timeToCreate, deleted
+		SELECT wiki, creator, UNIX_TIMESTAMP( created ) created, patches, branch, announcedTasks, landingPage, timeToCreate, deleted
 		FROM wikis WHERE wiki = ?
 	' );
 	if ( !$stmt ) {
@@ -125,13 +125,13 @@ function get_wiki_data_from_row( array $data ): array {
 	return $data;
 }
 
-function get_wiki_url( string $wiki ): string {
-	return 'wikis/' . $wiki . '/w';
+function get_wiki_url( string $wiki, ?string $landingPage ): string {
+	return 'wikis/' . $wiki . ( $landingPage ? '/wiki/' . $landingPage : '/w' );
 }
 
-function get_wiki_link( string $wiki ): string {
+function get_wiki_link( string $wiki, ?string $landingPage ): string {
 	return (
-		'<a href="' . htmlspecialchars( get_wiki_url( $wiki ) ) . ' " title="' . $wiki . '">' .
+		'<a href="' . htmlspecialchars( get_wiki_url( $wiki, $landingPage ) ) . ' " title="' . $wiki . '">' .
 			substr( $wiki, 0, 10 ) .
 		'</a>'
 	);

@@ -47,7 +47,7 @@ $short_fields = [
 	],
 ];
 
-$results = $mysqli->query( 'SELECT wiki FROM wikis WHERE !deleted ORDER BY created DESC' );
+$results = $mysqli->query( 'SELECT wiki, landingPage FROM wikis WHERE !deleted ORDER BY created DESC' );
 if ( !$results ) {
 	die( $mysqli->error );
 }
@@ -76,7 +76,7 @@ foreach ( $short_fields as $field => $fieldMeta ) {
 }
 foreach ( $wikis as $wiki => $data ) {
 	echo '<tr>' .
-		'<td data-label="Wikis" class="wiki">' . get_wiki_link( $wiki ) . '</td>';
+		'<td data-label="Wikis" class="wiki">' . get_wiki_link( $wiki, $data['landingPage'] ) . '</td>';
 
 	foreach ( $short_fields as $field => $fieldMeta ) {
 		echo '<td data-label="' . $fieldMeta['label'] . '">' .

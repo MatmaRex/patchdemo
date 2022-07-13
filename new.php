@@ -22,6 +22,7 @@ $startTime = time();
 $branch = trim( $_POST['branch'] );
 $patches = trim( $_POST['patches'] );
 $announce = !empty( $_POST['announce'] );
+$landingPage = trim( $_POST['landingPage'] ) ? trim( $_POST['landingPage'] ) : null;
 $language = trim( $_POST['language'] );
 
 $wiki = substr( md5( $branch . $patches . time() ), 0, 10 );
@@ -57,7 +58,7 @@ ignore_user_abort( true );
 
 // Create an entry for the wiki before we have resolved patches.
 // Will be updated later.
-insert_wiki_data( $wiki, $creator, $created, $branchDesc );
+insert_wiki_data( $wiki, $creator, $created, $branchDesc, $landingPage );
 
 function abandon( string $errHtml ) {
 	global $wiki;
@@ -113,7 +114,7 @@ echo new OOUI\FieldsetLayout( [
 			new OOUI\ButtonWidget( [
 				'label' => 'Open wiki',
 				'flags' => [ 'progressive', 'primary' ],
-				'href' => get_wiki_url( $wiki ),
+				'href' => get_wiki_url( $wiki, $landingPage ),
 				'disabled' => true,
 				'classes' => [ 'openWiki' ],
 				'infusable' => true,
@@ -368,6 +369,11 @@ $reposString = implode( "\n", array_map( static function ( $k, $v ) {
 // Build Main_Page
 $mainPage = "This wiki was generated on [$server$serverPath '''Patch demo'''] at ~~~~~.";
 
+if ( $landingPage ) {
+	// $landingPage could have a query string so build an external link.
+	$mainPage .= "\n\nThe designated landing page for this wiki is [{{SERVER}}{{ARTICLEPATH}}/../$landingPage $landingPage].";
+}
+
 $hasOOUI = in_array( 'oojs/ui', $allowedRepos, true );
 if ( $hasOOUI ) {
 	$mainPage .= "\n\nThis wiki was built with OOUI patches so you can also view the [{{SERVER}}{{SCRIPTPATH}}/build/ooui/demos patched '''OOUI Demos'''].";
@@ -565,7 +571,7 @@ if ( $announce && count( $linkedTasks ) ) {
 			'T' . $task,
 			"Test wiki **created** on [[ $server$serverPath | Patch demo ]]" . ( $creator ? ' by ' . $creator : '' ) . " using patch(es) linked to this task:" .
 			"\n" .
-			"$server$serverPath/" . get_wiki_url( $wiki ) .
+			"$server$serverPath/" . get_wiki_url( $wiki, $landingPage ) .
 			( $hasOOUI ?
 				"\n\n" .
 				"Also created an **OOUI Demos** page:" .
