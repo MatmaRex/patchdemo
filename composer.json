@@ -3,7 +3,7 @@
 		"mediawiki/oauthclient": "1.2.0",
 		"symfony/process": "^5.4",
 		"symfony/yaml": "^5.4",
-		"oojs/oojs-ui": "0.44.0",
+		"oojs/oojs-ui": "0.44.1",
 		"zolli/phabricator-php-api": "^2.0",
 		"sensiolabs/ansi-to-html": "^1.2"
 	},
