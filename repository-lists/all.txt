@@ -13,6 +13,7 @@ mediawiki/extensions/cldr extensions/cldr
 mediawiki/extensions/CodeEditor extensions/CodeEditor
 mediawiki/extensions/CodeMirror extensions/CodeMirror
 mediawiki/extensions/ConfirmEdit extensions/ConfirmEdit
+mediawiki/extensions/DarkMode extensions/DarkMode
 mediawiki/extensions/Echo extensions/Echo
 mediawiki/extensions/EventBus extensions/EventBus
 mediawiki/extensions/EventLogging extensions/EventLogging
