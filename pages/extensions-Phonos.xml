@@ -1,0 +1,133 @@
+<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.11/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mediawiki.org/xml/export-0.11/ http://www.mediawiki.org/xml/export-0.11.xsd" version="0.11" xml:lang="en">
+  <siteinfo>
+    <sitename>Patch demo (master)</sitename>
+    <dbname>patchdemo_67dbf292a1</dbname>
+    <base>http://localhost/patchdemo/wikis/67dbf292a1/wiki/Main_Page</base>
+    <generator>MediaWiki 1.39.0-alpha</generator>
+    <case>first-letter</case>
+    <namespaces>
+      <namespace key="-2" case="first-letter">Media</namespace>
+      <namespace key="-1" case="first-letter">Special</namespace>
+      <namespace key="0" case="first-letter" />
+      <namespace key="1" case="first-letter">Talk</namespace>
+      <namespace key="2" case="first-letter">User</namespace>
+      <namespace key="3" case="first-letter">User talk</namespace>
+      <namespace key="4" case="first-letter">Project</namespace>
+      <namespace key="5" case="first-letter">Project talk</namespace>
+      <namespace key="6" case="first-letter">File</namespace>
+      <namespace key="7" case="first-letter">File talk</namespace>
+      <namespace key="8" case="first-letter">MediaWiki</namespace>
+      <namespace key="9" case="first-letter">MediaWiki talk</namespace>
+      <namespace key="10" case="first-letter">Template</namespace>
+      <namespace key="11" case="first-letter">Template talk</namespace>
+      <namespace key="12" case="first-letter">Help</namespace>
+      <namespace key="13" case="first-letter">Help talk</namespace>
+      <namespace key="14" case="first-letter">Category</namespace>
+      <namespace key="15" case="first-letter">Category talk</namespace>
+    </namespaces>
+  </siteinfo>
+  <page>
+    <title>Phonos</title>
+    <ns>0</ns>
+    <id>2</id>
+    <revision>
+      <id>6</id>
+      <parentid>5</parentid>
+      <timestamp>2022-08-01T22:42:47Z</timestamp>
+      <contributor>
+        <username>Patch Demo</username>
+        <id>1</id>
+      </contributor>
+      <comment>Test corpus</comment>
+      <origin>6</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="3508" sha1="60lcj0j0xism45kiuo959zs7xx2xywl" xml:space="preserve">{| class="wikitable"
+! Word !! IPA
+|-
+| Xochimilco || {{#phonos: text=Xochimilco | ipa=sotʃiˈmilko | lang=es-MX }}
+|-
+| Tenochtitlan || {{#phonos: text=Tenochtitlan | ipa=tenoːt͡ʃˈtit͡ɬan | lang=es-MX }}
+|-
+| Jhené Aiko || {{#phonos: text=Jhené Aiko | ipa=dʒəˈneɪ ˈaɪkoʊ | lang=en-US }}
+|-
+| Albuquerque || {{#phonos: text=Albuquerque | ipa=ˈælbəˌkɜːrki | lang=en-US }}
+|-
+| Hyderabad || {{#phonos: text=Hyderabad | ipa=ˈɦaɪ̯daraːbaːd | lang=en-IN }}
+|-
+| Hasan Minhaj || {{#phonos: text=Hasan Minhaj | ipa=ˈhʌsən ˈmɪnhɑː(d)ʒ | lang=en-US }}
+|-
+| Parangaricutirimícuaro || {{#phonos: text=Parangaricutirimícuaro | ipa=paɾanɡaɾikutiɾiˈmikwaɾo | lang=es-ES }}
+|-
+| México || {{#phonos: text=México | ipa=mexiko | lang=es-ES }}
+|-
+| anticonstitutionnellement || {{#phonos: text=anticonstitutionnellement | ipa=ɑ̃.ti.kɔ̃s.ti.ty.sjɔ.nɛl.mɑ̃ | lang=fr-FR }}
+|-
+| Smørrebrød || {{#phonos: text=Smørrebrød | ipa=ˈsmɶɐ̯ˌpʁœðˀ | lang=is-IS }}
+|-
+| sudtle || {{#phonos: text=sudtle | ipa=ˈsʌt(ə)l | lang=en-US }}
+|-
+| Jewellry || {{#phonos: text=Jewellry | ipa=ˈdʒuːəlɹi | lang=en-US }}
+|-
+| hamburger || {{#phonos: text=hamburger | ipa=ˈhæmbɝɡɚ | lang=en-US }}
+|-
+| Ibibio || {{#phonos: text=Ibibio | ipa=ɪbɪˈbiːəʊ | lang=ibb }}
+|-
+| awful || {{#phonos: text=awful | ipa=ˈɔːfɫ̩ | lang=en-US }}
+|-
+| fly || {{#phonos: text=fly | ipa=flaɪ̯ | lang=en-US }}
+|-
+| catnip || {{#phonos: text=catnip | ipa=ˈkætⁿnɪp | lang=en-US }}
+|-
+| apt || {{#phonos: text=apt | ipa=ˈæp̚t | lang=en-US }}
+|-
+| spotless || {{#phonos: text=spotless | ipa=ˈspɒtˡlɨs | lang=en-US }}
+|-
+| peculiar || {{#phonos: text=peculiar | ipa=pʰə̥ˈkj̊uːliɚ | lang=en-US }}
+|-
+| confusion || {{#phonos: text=confusion | ipa=kənˈfjuːʒən | lang=en-US }}
+|-
+| thing || {{#phonos: text=thing | ipa=θɪŋ | lang=en-US }}
+|-
+| key || {{#phonos: text=key | ipa=k̟ʰi | lang=en-US }}
+|-
+| vin blanc || {{#phonos: text=vin blanc | ipa=vɛ̃ blɑ̃ | lang=fr-FR }}
+|-
+| wean || {{#phonos: text=wean | ipa=ˈwɪən | lang=sco }}
+|-
+| llandudno || {{#phonos: text=llandudno | ipa=ɬanˈdɨdnoː | lang=cy-GB }}
+|-
+| नमस्ते || {{#phonos: text=नमस्ते | ipa=nə.məs.t̪eː | lang=hi-IN }}
+|-
+| நன்றி || {{#phonos: text=நன்றி | ipa=n̪anri | lang=ta }}
+|-
+| Montréal || {{#phonos: text=Montréal | ipa=mɔ̃.ʁe.al | lang=fr-FR }}
+|-
+| Louisville || {{#phonos: text=Louisville | ipa=ˈlʊvɪl | lang=en-US }}
+|-
+| Shibboleth || {{#phonos: text=Shibboleth | ipa=ˈʃɪbəlɛθ | lang=en-US }}
+|-
+| ευχαριστώ || {{#phonos: text=ευχαριστώ | ipa=ef.xa.ɾiˈsto | lang=el }}
+|-
+| chocolate || {{#phonos: text=chocolate | ipa=ˈt͡ʃɔk(ə)lɪt | lang=en-US }}
+|-
+| sushi || {{#phonos: text=sushi | ipa=ˈsʊʃi | lang=en-US }}
+|-
+| спасибо || {{#phonos: text=спасибо | ipa=spɐˈsʲibə | lang=ru-RU }}
+|-
+| supercalifragilisticexpialidocious || {{#phonos: text=supercalifragilisticexpialidocious | ipa=suːpəˌkælɨˌfɹædʒɨˌlɪstɪkˌɛkspɪˌælɨˈdəʊʃəs | lang=en-US }}
+|-
+| Cornwall || {{#phonos: text=Cornwall | ipa=ˈkɔːrnwɔːl | lang=en-US }}
+|-
+| Thames || {{#phonos: text=Thames | ipa=tɛmz | lang=en-US }}
+|-
+| Gunwalloe || {{#phonos: text=Gunwalloe | ipa=gʌnˈwɒləʊ | lang=en-US }}
+|-
+| Porthleven || {{#phonos: text=Porthleven | ipa=ˌpɔːrθˈlɛvən | lang=en-US }}
+|-
+| Somerset || {{#phonos: text=Somerset | ipa=ˈsʌmərsɛt | lang=en-US }}
+|}</text>
+      <sha1>60lcj0j0xism45kiuo959zs7xx2xywl</sha1>
+    </revision>
+  </page>
+</mediawiki>
