@@ -45,6 +45,7 @@ mediawiki/extensions/PageTriage extensions/PageTriage
 mediawiki/extensions/PageViewInfo extensions/PageViewInfo
 mediawiki/extensions/ParserFunctions extensions/ParserFunctions
 mediawiki/extensions/PdfHandler extensions/PdfHandler
+mediawiki/extensions/Phonos extensions/Phonos
 mediawiki/extensions/Poem extensions/Poem
 mediawiki/extensions/Popups extensions/Popups
 mediawiki/extensions/ProofreadPage extensions/ProofreadPage
