@@ -43,6 +43,9 @@
 			);
 		} );
 
+		// Infuse to improve dropdown behaviour
+		OO.ui.infuse( $( '.form-landingPage' ) );
+
 		if ( $( '.form-announce' ).length ) {
 			var announceLayout = OO.ui.infuse( $( '.form-announce-layout' ) );
 			var taskLabel = new OO.ui.LabelWidget( { classes: [ 'form-announce-taskList' ] } );

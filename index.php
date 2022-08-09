@@ -51,6 +51,7 @@ if ( !$canCreate ) {
 	$presets = htmlspecialchars( json_encode( $presets ), ENT_NOQUOTES );
 	echo "<script>window.presets = $presets;</script>\n";
 
+	include_once 'ComboBoxInputWidget.php';
 	include_once 'DetailsFieldLayout.php';
 	include_once 'PatchSelectWidget.php';
 
@@ -190,9 +191,16 @@ if ( !$canCreate ) {
 						]
 					),
 					new OOUI\FieldLayout(
-						new OOUI\TextInputWidget( [
-							'placeholder' => 'Main_Page',
+						new ComboBoxInputWidget( [
+							'placeholder' => 'Main Page',
+							'classes' => [ 'form-landingPage' ],
 							'name' => 'landingPage',
+							'options' => array_map( static function ( string $page ) {
+								return [ 'data' => $page ];
+							}, get_known_pages() ),
+							'menu' => [
+								'filterFromInput' => true
+							]
 						] ),
 						[
 							'label' => 'Landing page:',
