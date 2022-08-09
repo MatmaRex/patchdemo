@@ -506,6 +506,32 @@ function get_repo_presets(): array {
 	return $presets;
 }
 
+function get_known_pages(): array {
+	$pages = [
+		'Main Page'
+	];
+	foreach ( [ 'Alice', 'Bob', 'Patch Demo', 'Mallory' ] as $user ) {
+		$pages[] = 'User:' . $user;
+		$pages[] = 'User talk:' . $user;
+	}
+	// TODO: Suggest some special pages?
+	$files = scandir( __DIR__ . '/pages' );
+	foreach ( $files as $file ) {
+		if ( str_ends_with( $file, '.txt' ) ) {
+			$contents = file_get_contents( __DIR__ . '/pages/' . $file );
+			if ( $contents ) {
+				$pages = array_merge( $pages,
+					explode( "\n",
+						str_replace( '_', ' ', trim( $contents ) )
+					)
+				);
+			}
+		}
+	}
+	sort( $pages );
+	return $pages;
+}
+
 function is_cli(): bool {
 	return PHP_SAPI === 'cli' || PHP_SAPI === 'phpdbg';
 }
