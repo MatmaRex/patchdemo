@@ -37,6 +37,7 @@ mediawiki/extensions/Linter extensions/Linter
 mediawiki/extensions/LocalisationUpdate extensions/LocalisationUpdate
 mediawiki/extensions/Math extensions/Math
 mediawiki/extensions/MassMessage extensions/MassMessage
+mediawiki/extensions/MediaSearch extensions/MediaSearch
 mediawiki/extensions/MultimediaViewer extensions/MultimediaViewer
 mediawiki/extensions/Nuke extensions/Nuke
 mediawiki/extensions/OATHAuth extensions/OATHAuth
