@@ -31,22 +31,40 @@ if ( !isset( $_POST['confirm' ] ) ) {
 			'<td data-label="Time" class="date">' . date( 'Y-m-d H:i:s', $wikiData[ 'created' ] ) . '</td>' .
 			( $useOAuth ? '<td data-label="Creator">' . ( $creator ? user_link( $creator ) : '?' ) . '</td>' : '' ) .
 		'</tr>' .
-	'</table>';
+	'</table><br>';
 
-	echo '<form method="POST">' .
-		'<p>Are you sure you want to delete this wiki?</p>' .
-		'<p>This cannot be undone.</p>' .
-		new OOUI\ButtonInputWidget( [
-			'type' => 'submit',
-			'name' => 'confirm',
-			'label' => 'Delete',
-			'flags' => [ 'primary', 'destructive' ]
-		] ) .
-		new OOUI\HiddenInputWidget( [
-			'name' => 'csrf_token',
-			'value' => get_csrf_token(),
-		] ) .
-	'</form>';
+	echo new OOUI\FormLayout( [
+		'infusable' => true,
+		'method' => 'POST',
+		'items' => [
+			new OOUI\FieldsetLayout( [
+				'label' => null,
+				'items' => [
+					new OOUI\FieldLayout(
+						new OOUI\ButtonInputWidget( [
+							'type' => 'submit',
+							'name' => 'confirm',
+							'label' => 'Delete',
+							'flags' => [ 'primary', 'destructive' ]
+						] ),
+						[
+							'label' => 'Are you sure you want to delete this wiki?',
+							'help' => 'This cannot be undone.',
+							'helpInline' => true,
+							'align' => 'left',
+						]
+					),
+					new OOUI\FieldLayout(
+						new OOUI\HiddenInputWidget( [
+							'name' => 'csrf_token',
+							'value' => get_csrf_token(),
+						] )
+					),
+				]
+			] )
+		]
+	] );
+
 	die();
 }
 
