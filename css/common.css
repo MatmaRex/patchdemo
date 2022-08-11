@@ -283,6 +283,10 @@ summary > .oo-ui-labelElement-label:not( .oo-ui-inline-help ) {
 }
 
 @media ( max-width: 720px ) {
+	.oo-ui-fieldLayout-align-left > .oo-ui-fieldLayout-body {
+		flex-wrap: wrap;
+	}
+
 	.oo-ui-fieldLayout-align-left > .oo-ui-fieldLayout-body > .oo-ui-fieldLayout-header,
 	.oo-ui-fieldLayout-align-left > .oo-ui-fieldLayout-body > .oo-ui-fieldLayout-field {
 		/* stylelint-disable-next-line declaration-no-important */
