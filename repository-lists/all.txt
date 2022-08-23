@@ -21,6 +21,7 @@ mediawiki/extensions/EventStreamConfig extensions/EventStreamConfig
 mediawiki/extensions/FlaggedRevs extensions/FlaggedRevs
 mediawiki/extensions/Flow extensions/Flow
 mediawiki/extensions/Gadgets extensions/Gadgets
+mediawiki/extensions/Geodata extensions/Geodata
 mediawiki/extensions/GlobalBlocking extensions/GlobalBlocking
 mediawiki/extensions/GlobalPreferences extensions/GlobalPreferences
 mediawiki/extensions/GlobalWatchlist extensions/GlobalWatchlist
