@@ -75,6 +75,7 @@ mediawiki/extensions/Translate extensions/Translate
 mediawiki/extensions/UniversalLanguageSelector extensions/UniversalLanguageSelector
 mediawiki/extensions/UploadWizard extensions/UploadWizard
 mediawiki/extensions/WikiEditor extensions/WikiEditor
+mediawiki/extensions/WikimediaIncubator extensions/WikimediaIncubator
 mediawiki/extensions/Wikispeech extensions/Wikispeech
 mediawiki/skins/MonoBook skins/MonoBook
 mediawiki/skins/Timeless skins/Timeless
