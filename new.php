@@ -577,7 +577,7 @@ if ( $announce && count( $linkedTasks ) ) {
 				"\n\n" .
 				"Also created a **Codex documentation** site:" .
 				"\n" .
-				"$server$serverPath/wikis/$wiki/w/build/codex/demos"
+				"$server$serverPath/wikis/$wiki/w/build/codex/docs"
 				: ""
 			)
 		);
