@@ -19,4 +19,4 @@ $wgRelatedArticlesDescriptionSource = 'wikidata';
 
 // Vector search proxying
 
-$wgVectorSearchHost = "$wgLanguageCode.wikipedia.org";
+$wgVectorSearchApiUrl = "https://$wgLanguageCode.wikipedia.org/w/rest.php";
