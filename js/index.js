@@ -43,8 +43,7 @@
 			);
 		} );
 
-		// Infuse to improve dropdown behaviour
-		OO.ui.infuse( $( '.form-landingPage' ) );
+		var landingPageInput = OO.ui.infuse( $( '.form-landingPage' ) );
 
 		if ( $( '.form-announce' ).length ) {
 			var announceLayout = OO.ui.infuse( $( '.form-announce-layout' ) );
@@ -169,6 +168,7 @@
 			patchesInput.setValue( params.get( 'patches' ) ? params.get( 'patches' ).split( ',' ) : [] );
 			branchSelect.setValue( 'origin/' + params.get( 'branch' ) );
 			branchSelect.scrollElementIntoView( { padding: { top: $( 'header' ).height() + 10 } } );
+			landingPageInput.setValue( params.get( 'landingPage' ) );
 			e.preventDefault();
 		} );
 

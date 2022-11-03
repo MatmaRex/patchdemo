@@ -200,7 +200,8 @@ if ( !$canCreate ) {
 							}, get_known_pages() ),
 							'menu' => [
 								'filterFromInput' => true
-							]
+							],
+							'value' => !empty( $_GET['landingPage' ] ) ? $_GET['landingPage' ] : null
 						] ),
 						[
 							'label' => 'Landing page:',
@@ -358,7 +359,13 @@ while ( $data = $results->fetch_assoc() ) {
 		}, $wikiData['patchList'] );
 
 		if ( count( $patchList ) || $wikiData['branch'] !== 'master' ) {
-			$actions[] = '<a class="copyWiki" href="?patches=' . implode( ',', $patchList ) . '&branch=' . htmlspecialchars( $wikiData['branch'] ) . '">Copy</a>';
+			$actions[] = '<a class="copyWiki" href="?' .
+				http_build_query( [
+					'patches' => implode( ',', $patchList ),
+					'branch' => $wikiData['branch'],
+					'landingPage' => $wikiData['landingPage'],
+				], '', '&amp;' ) .
+				'">Copy</a>';
 		}
 	}
 
