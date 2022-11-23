@@ -77,7 +77,11 @@ mediawiki/extensions/UploadWizard extensions/UploadWizard
 mediawiki/extensions/WikiEditor extensions/WikiEditor
 mediawiki/extensions/WikimediaIncubator extensions/WikimediaIncubator
 mediawiki/extensions/Wikispeech extensions/Wikispeech
+mediawiki/skins/CologneBlue skins/CologneBlue
+mediawiki/skins/Example skins/Example
+mediawiki/skins/Modern skins/Modern
 mediawiki/skins/MonoBook skins/MonoBook
+mediawiki/skins/Nostalgia skins/Nostalgia
 mediawiki/skins/Timeless skins/Timeless
 mediawiki/skins/Vector skins/Vector
 mediawiki/services/parsoid parsoid
