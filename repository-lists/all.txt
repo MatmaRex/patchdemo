@@ -76,6 +76,7 @@ mediawiki/extensions/UniversalLanguageSelector extensions/UniversalLanguageSelec
 mediawiki/extensions/UploadWizard extensions/UploadWizard
 mediawiki/extensions/WikiEditor extensions/WikiEditor
 mediawiki/extensions/WikimediaIncubator extensions/WikimediaIncubator
+mediawiki/extensions/WikimediaMessages extensions/WikimediaMessages
 mediawiki/extensions/Wikispeech extensions/Wikispeech
 mediawiki/skins/CologneBlue skins/CologneBlue
 mediawiki/skins/Example skins/Example
