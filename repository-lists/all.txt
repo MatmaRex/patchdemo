@@ -36,6 +36,7 @@ mediawiki/extensions/IPInfo extensions/IPInfo
 mediawiki/extensions/JsonConfig extensions/JsonConfig
 mediawiki/extensions/Kartographer extensions/Kartographer
 mediawiki/extensions/Linter extensions/Linter
+mediawiki/extensions/LiquidThreads extensions/LiquidThreads
 mediawiki/extensions/LocalisationUpdate extensions/LocalisationUpdate
 mediawiki/extensions/Math extensions/Math
 mediawiki/extensions/MassMessage extensions/MassMessage
