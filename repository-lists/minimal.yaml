@@ -1,0 +1,5 @@
+- mediawiki/core
+# Things don't work well without the default skin
+- mediawiki/skins/Vector
+# Unintrusive anti-spam CAPTCHA
+- mediawiki/extensions/ConfirmEdit
