@@ -129,7 +129,7 @@ if ( !$canCreate ) {
 								],
 								[
 									'data' => 'minimal',
-									'label' => new OOUI\HtmlSnippet( '<abbr title="Only MediaWiki and default skin">Minimal</abbr>' ),
+									'label' => new OOUI\HtmlSnippet( '<abbr title="Only MediaWiki and default skin with anti-spam configuration">Minimal</abbr>' ),
 								],
 								[
 									'data' => 'custom',
