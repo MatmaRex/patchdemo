@@ -21,7 +21,7 @@ Limitations
 
 Setup
 ----
-Tested on Debian 10.
+Tested on Debian 11.
 
 * Put all these files in `/var/www/html`
 * Run `sudo setup.sh`

@@ -57,7 +57,7 @@ session.cookie_lifetime = 2592000
 
 ; double the default memory limit
 memory_limit = 256M
-" > /etc/php/7.3/apache2/conf.d/patchdemo.ini
+" > /etc/php/7.4/apache2/conf.d/patchdemo.ini
 
 # enable .htaccess files
 echo "<Directory /var/www/html>
