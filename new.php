@@ -550,6 +550,7 @@ $error = shell_echo( __DIR__ . '/new/postinstall.sh',
 	$baseEnv + [
 		'MAINPAGE' => $mainPage,
 		'USE_PROXY' => $useProxy,
+		'USE_TEMPUSER' => !empty( $_POST['tempuser'] ),
 		'USE_INSTANT_COMMONS' => $useInstantCommons,
 		'REPOSITORIES' => $reposString,
 		// May be required for npm (e.g. if using nvm)

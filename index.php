@@ -237,6 +237,19 @@ if ( !$canCreate ) {
 						]
 					),
 					new OOUI\FieldLayout(
+						new OOUI\CheckboxInputWidget( [
+							'name' => 'tempuser',
+							'value' => 1,
+							'selected' => false
+						] ),
+						[
+							'label' => 'Enable temporary user account creation (IP Masking)',
+							'help' => 'Anonymous editors will have a temporary user account created for them.',
+							'helpInline' => true,
+							'align' => 'left',
+						]
+					),
+					new OOUI\FieldLayout(
 						// Placeholder, will be replaced by a ToggleButtonWidget in JS
 						new OOUI\ButtonWidget( [
 							'icon' => 'bell',
