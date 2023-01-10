@@ -70,6 +70,10 @@ if [ -d $PATCHDEMO/wikis/$NAME/w/extensions/SecurePoll ]; then
 	php $PATCHDEMO/wikis/$NAME/w/maintenance/createAndPromote.php "Patch Demo" --force --custom-groups electionadmin
 fi
 
+if [ -d $PATCHDEMO/wikis/$NAME/w/extensions/CheckUser ]; then
+	php $PATCHDEMO/wikis/$NAME/w/maintenance/createAndPromote.php "Patch Demo" --force --custom-groups checkuser
+fi
+
 # import extension/skin/service-specific XML dumps
 while IFS=' ' read -r repo dir; do
 	filename=$(echo $repo | sed "s/\//-/g" | sed "s/^mediawiki-//")
