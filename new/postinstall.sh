@@ -98,6 +98,11 @@ if [ "${USE_PROXY}" = "1" ]; then
 	done
 fi
 
+# Enable temporary user account creation (IP Masking)
+if [ "${USE_TEMPUSER}" = "1" ]; then
+	cp $PATCHDEMO/localsettings/feature-tempuser.php $PATCHDEMO/wikis/$NAME/w/settings.d
+fi
+
 # Enable instantCommons if selected
 if [ "${USE_INSTANT_COMMONS}" = "1" ]; then
 	cp $PATCHDEMO/localsettings/feature-instantCommons.php $PATCHDEMO/wikis/$NAME/w/settings.d

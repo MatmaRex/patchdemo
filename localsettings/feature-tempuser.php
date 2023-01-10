@@ -1,0 +1,3 @@
+<?php
+
+$wgAutoCreateTempUser['enabled'] = true;
