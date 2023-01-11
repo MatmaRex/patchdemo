@@ -2,6 +2,7 @@
 - mediawiki/core
 - mediawiki/services/parsoid
 - mediawiki/extensions/AbuseFilter
+- mediawiki/extensions/CheckUser
 - mediawiki/extensions/Flow
 - mediawiki/extensions/TemplateStyles
 - mediawiki/extensions/IPInfo
