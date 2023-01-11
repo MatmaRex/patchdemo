@@ -243,7 +243,7 @@ if ( !$canCreate ) {
 							'selected' => false
 						] ),
 						[
-							'label' => 'Enable temporary user account creation (IP Masking)',
+							'label' => "Enable temporary user account creation (IP\u{00A0}Masking)",
 							'help' => 'Anonymous editors will have a temporary user account created for them.',
 							'helpInline' => true,
 							'align' => 'left',
