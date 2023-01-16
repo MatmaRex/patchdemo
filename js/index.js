@@ -50,7 +50,7 @@
 			var taskLabel = new OO.ui.LabelWidget( { classes: [ 'form-announce-taskList' ] } );
 			announceLayout.$field.append( taskLabel.$element );
 
-			// eslint-disable-next-line no-inner-declarations
+			// eslint-disable-next-line es-x/no-block-scoped-functions, no-inner-declarations
 			function updateLinkedTasks( linkedTasks ) {
 				var $label = $( [] );
 				if ( !linkedTasks.length ) {
@@ -82,7 +82,7 @@
 			var $wikisTable = $( '.wikis' );
 			var closedWikis = OO.ui.infuse( $( '.closedWikis' ) );
 
-			// eslint-disable-next-line no-inner-declarations
+			// eslint-disable-next-line es-x/no-block-scoped-functions, no-inner-declarations
 			function updateTableClasses() {
 				$wikisTable.toggleClass( 'hideOpen', !!closedWikis.isSelected() );
 			}
