@@ -178,6 +178,7 @@ window.PatchSelectWidget.prototype.onChangeTags = function () {
 		}
 	} );
 
+	// eslint-disable-next-line es-x/no-array-prototype-keys
 	this.emit( 'linkedTasks', Object.keys( linkedTasks ) );
 
 	var patchKey = this.items.map( function ( item ) {
