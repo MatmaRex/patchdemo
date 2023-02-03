@@ -19,6 +19,10 @@ php $PATCHDEMO/wikis/$NAME/w/maintenance/install.php \
 
 echo "\$wgLanguageCode = '$LANGUAGE';" >> $PATCHDEMO/wikis/$NAME/w/LocalSettings.php
 
+if [ "${DEFAULT_SKIN}" != "" ]; then
+	echo "\$wgDefaultSkin = '$DEFAULT_SKIN';" >> $PATCHDEMO/wikis/$NAME/w/LocalSettings.php
+fi
+
 mkdir $PATCHDEMO/wikis/$NAME/w/settings.d
 echo '
 // Always load core.php first

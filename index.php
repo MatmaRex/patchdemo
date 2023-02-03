@@ -7,18 +7,7 @@ $canCreate = !$useOAuth || $user;
 if ( !$canCreate ) {
 	echo oauth_signin_prompt();
 } else {
-	$branches = get_branches( 'mediawiki/core' );
-
-	$branches = array_filter( $branches, static function ( $branch ) {
-		return preg_match( '/^origin\/(master|wmf|REL)/', $branch );
-	} );
-	natcasesort( $branches );
-
-	// Put newest branches first
-	$branches = array_reverse( array_values( $branches ) );
-
-	// Move master to the top
-	array_unshift( $branches, array_pop( $branches ) );
+	$branches = get_branches_sorted( 'mediawiki/core' );
 
 	$branchOptions = array_map( static function ( $branch ) {
 		return [
