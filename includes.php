@@ -432,6 +432,23 @@ function get_branches( string $repo ): array {
 	return $branches;
 }
 
+function get_branches_sorted( string $repo ): array {
+	$branches = get_branches( $repo );
+
+	$branches = array_filter( $branches, static function ( $branch ) {
+		return preg_match( '/^origin\/(master|wmf|REL)/', $branch );
+	} );
+	natcasesort( $branches );
+
+	// Put newest branches first
+	$branches = array_reverse( array_values( $branches ) );
+
+	// Move master to the top
+	array_unshift( $branches, array_pop( $branches ) );
+
+	return $branches;
+}
+
 function can_delete( string $creator = null ): bool {
 	global $user, $useOAuth;
 	if ( !$useOAuth ) {

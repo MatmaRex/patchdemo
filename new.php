@@ -36,6 +36,8 @@ $created = time();
 
 $canAdmin = can_admin();
 
+$branches = get_branches_sorted( 'mediawiki/core' );
+
 /**
  * Check if the user has dropped their connection and delete the wiki if so
  *
@@ -343,6 +345,24 @@ if ( $useInstantCommons ) {
 	}
 }
 
+$defaultSkin = '';
+if ( in_array( 'mediawiki/skins/Vector', $allowedRepos, true ) ) {
+	$defaultSkin = 'vector-2022';
+	foreach ( $branches as $b ) {
+		if ( $b === $branch ) {
+			break;
+		}
+		// Vector 2022 was deployed to en.wiki on 18th Jan 2023, around the time
+		// of this branch. At this point it became the most widely used skin
+		// in WMF environmnets.
+		// Branches older than this can use the normal default skin (vector)
+		if ( $b === 'origin/wmf/1.40.0-wmf.19' ) {
+			$defaultSkin = '';
+			break;
+		}
+	}
+}
+
 $repoSpecificBranches = [];
 foreach ( array_keys( $repos ) as $repo ) {
 	// Unchecked the checkbox
@@ -537,6 +557,7 @@ $error = shell_echo( __DIR__ . '/new/install.sh',
 		'SERVERPATH' => $serverPath,
 		'LANGUAGE' => $language,
 		'REPOSITORIES' => $reposString,
+		'DEFAULT_SKIN' => $defaultSkin,
 	]
 );
 if ( $error ) {
