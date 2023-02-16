@@ -5,6 +5,7 @@
 $wgMFContentProviderClass = "MobileFrontendContentProviders\\MwApiContentProvider";
 $wgMFContentProviderTryLocalContentFirst = true;
 $wgMFMwApiContentProviderBaseUri = "https://$wgLanguageCode.wikipedia.org/w/api.php";
+$wgMFMwApiContentProviderFixArticlePath = true;
 
 // Enable proxying for Page previews if enabled.
 
