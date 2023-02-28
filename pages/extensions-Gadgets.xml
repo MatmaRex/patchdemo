@@ -1,0 +1,2460 @@
+<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.10/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mediawiki.org/xml/export-0.10/ http://www.mediawiki.org/xml/export-0.10.xsd" version="0.10" xml:lang="en">
+  <siteinfo>
+    <sitename>Wikipedia</sitename>
+    <dbname>enwiki</dbname>
+    <base>https://en.wikipedia.org/wiki/Main_Page</base>
+    <generator>MediaWiki 1.40.0-wmf.24</generator>
+    <case>first-letter</case>
+    <namespaces>
+      <namespace key="-2" case="first-letter">Media</namespace>
+      <namespace key="-1" case="first-letter">Special</namespace>
+      <namespace key="0" case="first-letter" />
+      <namespace key="1" case="first-letter">Talk</namespace>
+      <namespace key="2" case="first-letter">User</namespace>
+      <namespace key="3" case="first-letter">User talk</namespace>
+      <namespace key="4" case="first-letter">Wikipedia</namespace>
+      <namespace key="5" case="first-letter">Wikipedia talk</namespace>
+      <namespace key="6" case="first-letter">File</namespace>
+      <namespace key="7" case="first-letter">File talk</namespace>
+      <namespace key="8" case="first-letter">MediaWiki</namespace>
+      <namespace key="9" case="first-letter">MediaWiki talk</namespace>
+      <namespace key="10" case="first-letter">Template</namespace>
+      <namespace key="11" case="first-letter">Template talk</namespace>
+      <namespace key="12" case="first-letter">Help</namespace>
+      <namespace key="13" case="first-letter">Help talk</namespace>
+      <namespace key="14" case="first-letter">Category</namespace>
+      <namespace key="15" case="first-letter">Category talk</namespace>
+      <namespace key="100" case="first-letter">Portal</namespace>
+      <namespace key="101" case="first-letter">Portal talk</namespace>
+      <namespace key="118" case="first-letter">Draft</namespace>
+      <namespace key="119" case="first-letter">Draft talk</namespace>
+      <namespace key="710" case="first-letter">TimedText</namespace>
+      <namespace key="711" case="first-letter">TimedText talk</namespace>
+      <namespace key="828" case="first-letter">Module</namespace>
+      <namespace key="829" case="first-letter">Module talk</namespace>
+      <namespace key="2300" case="case-sensitive">Gadget</namespace>
+      <namespace key="2301" case="case-sensitive">Gadget talk</namespace>
+      <namespace key="2302" case="case-sensitive">Gadget definition</namespace>
+      <namespace key="2303" case="case-sensitive">Gadget definition talk</namespace>
+    </namespaces>
+  </siteinfo>
+  <page>
+    <title>MediaWiki:Gadgets-definition</title>
+    <ns>8</ns>
+    <id>14548426</id>
+    <revision>
+      <id>1136041970</id>
+      <parentid>1135730934</parentid>
+      <timestamp>2023-01-28T12:01:43Z</timestamp>
+      <contributor>
+        <username>Xaosflux</username>
+        <id>502540</id>
+      </contributor>
+      <comment>option update requested on [[MediaWiki_talk:Gadget-dark-mode-toggle.js]]</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="11383" xml:space="preserve">&lt;noinclude&gt;'''Changes to this page should first be discussed on [[Wikipedia:Village pump (technical)]] or [[Wikipedia talk:Gadget]].'''
+
+Please add an entry for any new gadget to the table at [[Wikipedia:Gadget#Currently installed gadgets]] to make maintenance easier. Links to view and manage the gadget descriptions appear on [[Special:Gadgets]].
+&lt;/noinclude&gt;
+
+== browsing ==
+* modrollback[ResourceLoader|rights=rollback]|modrollback.js
+* confirmationRollback-mobile[ResourceLoader|default|rights=rollback|dependencies=mediawiki.util|targets=desktop,mobile]|confirmationRollback-mobile.js
+* removeAccessKeys[ResourceLoader|dependencies=user,mediawiki.util]|removeAccessKeys.js
+* searchFocus[ResourceLoader]|searchFocus.js
+* GoogleTrans[ResourceLoader]|GoogleTrans.js
+* ImageAnnotator[ResourceLoader]|ImageAnnotator.js
+* imagelinks[ResourceLoader|dependencies=mediawiki.util]|imagelinks.js
+* Navigation_popups[ResourceLoader|dependencies=mediawiki.api,mediawiki.user,mediawiki.util,user.options,mediawiki.jqueryMsg|type=general]|popups.js|navpop.css
+* exlinks[ResourceLoader|dependencies=mediawiki.util]|exlinks.js
+* search-new-tab[ResourceLoader]|search-new-tab.js
+* PrintOptions[ResourceLoader]|PrintOptions.js
+* revisionjumper[ResourceLoader]|revisionjumper.js
+* Twinkle[ResourceLoader|dependencies=ext.gadget.morebits,ext.gadget.select2,mediawiki.api,mediawiki.language|rights=autoconfirmed|type=general|peers=Twinkle-pagestyles|requiresES6]|Twinkle.js|Twinkle.css|twinklearv.js|twinklewarn.js|twinkleblock.js|friendlywelcome.js|friendlyshared.js|friendlytalkback.js|twinklespeedy.js|twinkleprod.js|twinklexfd.js|twinkleimage.js|twinkleprotect.js|friendlytag.js|twinklediff.js|twinkleunlink.js|twinklefluff.js|twinkledeprod.js|twinklebatchdelete.js|twinklebatchprotect.js|twinklebatchundelete.js|twinkleconfig.js
+* morebits[ResourceLoader|dependencies=mediawiki.user,mediawiki.util,mediawiki.Title,jquery.ui|hidden|requiresES6]|morebits.js|morebits.css
+* Twinkle-pagestyles[hidden|skins=vector,vector-2022]|Twinkle-pagestyles.css
+* select2[ResourceLoader|hidden]|select2.min.js|select2.min.css
+* HideCentralNotice[ResourceLoader|type=general]|HideCentralNotice.js|HideCentralNotice.css
+* ReferenceTooltips[ResourceLoader|default|type=general|dependencies=mediawiki.cookie,jquery.client]|ReferenceTooltips.js|ReferenceTooltips.css
+* formWizard[ResourceLoader|default|rights=minoredit]|formWizard.js
+* formWizard-core[ResourceLoader|hidden|dependencies=mediawiki.api,mediawiki.cookie,mediawiki.ui,mediawiki.user,jquery.chosen,jquery.ui,user.options]|formWizard-core.js|formWizard.css
+* responsiveContentBase[ResourceLoader|type=styles|hidden|skins=vector]|responsiveContentBase.css
+* responsiveContentBaseTimeless[ResourceLoader|type=styles|hidden|skins=timeless]|responsiveContentBaseTimeless.css
+* Prosesize[ResourceLoader|dependencies=mediawiki.api,mediawiki.util]|Prosesize.js|Prosesize.css
+* find-archived-section[ResourceLoader]|find-archived-section.js
+
+== watchlist ==
+&lt;!-- "rights=purge" is a work-around to default-enable only for logged-in users. --&gt;
+* geonotice[ResourceLoader|default|rights=purge]|geonotice.js
+* geonotice-core[ResourceLoader|dependencies=mediawiki.util,mediawiki.storage|hidden]|geonotice-list.js|geonotice-core.js|geonotice-core.css
+* watchlist-notice[ResourceLoader|default|rights=purge]|watchlist-notice.js
+* watchlist-notice-core[ResourceLoader|dependencies=mediawiki.storage|hidden]|watchlist-notice-core.js
+* WatchlistBase[ResourceLoader|default|rights=purge|skins=vector,vector-2022,monobook,modern]|WatchlistBase.css
+* WatchlistGreenIndicators[ResourceLoader|default|rights=purge|peers=WatchlistBase|skins=vector,vector-2022]|WatchlistGreenIndicators.css
+* WatchlistGreenIndicatorsMono[ResourceLoader|default|rights=purge|peers=WatchlistBase|skins=monobook,modern]|WatchlistGreenIndicatorsMono.css
+* WatchlistChangesBold[ResourceLoader|peers=WatchlistBase]|WatchlistChangesBold.css
+* SubtleUpdatemarker[ResourceLoader|default|rights=purge|skins=vector,vector-2022,monobook,modern]|SubtleUpdatemarker.css
+
+== editing ==
+&lt;!-- "rights=purge" is a work-around to default-enable only for logged-in users. --&gt;
+* defaultsummaries[ResourceLoader|dependencies=oojs-ui-core]|defaultsummaries.js
+* citations[ResourceLoader|dependencies=mediawiki.util]|citations.js
+* DotsSyntaxHighlighter[ResourceLoader|actions=edit]|DotsSyntaxHighlighter.js
+* HotCat[ResourceLoader|rights=edit,purge]|HotCat.js
+* wikEdDiff[ResourceLoader]|wikEdDiff.js
+* ProveIt[ResourceLoader]|ProveIt.js
+* ProveIt-classic[ResourceLoader|type=general|dependencies=jquery.ui,jquery.textSelection,mediawiki.util|actions=edit]|ProveIt-classic.css|ProveIt-classic.js
+* Shortdesc-helper[ResourceLoader|dependencies=mediawiki.api,user.options,mediawiki.util,ext.gadget.libSettings|skins=vector,vector-2022,monobook,modern,timeless|peers=Shortdesc-helper-pagestyles-vector]|Shortdesc-helper.js|Shortdesc-helper.css
+* Shortdesc-helper-pagestyles-vector[hidden|skins=vector,vector-2022]|Shortdesc-helper-pagestyles-vector.css
+* libSettings[ResourceLoader|hidden|dependencies=user.options]|libSettings.js
+* wikEd[ResourceLoader|dependencies=jquery.textSelection,user.options]|wikEd.js
+* afchelper[ResourceLoader|dependencies=mediawiki.api,mediawiki.util,mediawiki.user,jquery.chosen,jquery.spinner,jquery.ui]|afchelper.js|afchelper.css
+* charinsert[ResourceLoader|default]|charinsert.js
+* charinsert-core[ResourceLoader|hidden|dependencies=jquery.textSelection,user,mediawiki.storage]|charinsert-styles.css|charinsert-core.js
+* legacyToolbar[ResourceLoader]|legacyToolbar.js
+* extra-toolbar-buttons[ResourceLoader|default]|extra-toolbar-buttons.js
+* extra-toolbar-buttons-core[ResourceLoader|hidden]|extra-toolbar-buttons-core.js
+* refToolbar[ResourceLoader|default|dependencies=user.options,mediawiki.util|actions=edit]|refToolbar.js
+* refToolbarBase[ResourceLoader|hidden]|refToolbarBase.js
+* EditNoticesOnMobile[ResourceLoader|default|dependencies=mediawiki.storage|targets=mobile|skins=minerva|supportsUrlLoad=true]|EditNoticesOnMobile.js
+
+== appearance ==
+* edittop[ResourceLoader|dependencies=user.options,mediawiki.util|type=general]|edittop.js|edittop.css
+* UTCLiveClock[ResourceLoader|supportsUrlLoad|type=general|dependencies=mediawiki.util,mediawiki.api|peers=UTCLiveClock-pagestyles]|UTCLiveClock.js|UTCLiveClock.css
+* UTCLiveClock-pagestyles[hidden|skins=vector,vector-2022,monobook]|UTCLiveClock-pagestyles.css
+* purgetab[ResourceLoader|dependencies=mediawiki.util,mediawiki.api]|purgetab.js
+* ExternalSearch[ResourceLoader]|externalsearch.js
+* CollapsibleNav[ResourceLoader|dependencies=jquery.makeCollapsible,mediawiki.storage|skins=vector,vector-2022]|CollapsibleNav.js|CollapsibleNav.css
+* MenuTabsToggle[ResourceLoader|dependencies=mediawiki.cookie|skins=vector,vector-2022|type=general]|MenuTabsToggle.js|MenuTabsToggle.css
+* dropdown-menus[ResourceLoader|dependencies=mediawiki.api,mediawiki.util,mediawiki.Title,user.options|peers=dropdown-menus-pagestyles]|MoreMenu.enwiki.js|dropdown-menus.js
+* dropdown-menus-pagestyles[hidden]|dropdown-menus-pagestyles.css
+* CategoryAboveAll[ResourceLoader|skins=monobook]|CategoryAboveAll.js
+* addsection-plus[ResourceLoader]|addsection-plus.js
+* CommentsInLocalTime[ResourceLoader]|CommentsInLocalTime.js
+* OldDiff[ResourceLoader]|OldDiff.css
+* NoAnimations[ResourceLoader]|NoAnimations.js
+* disablesuggestions[ResourceLoader]|disablesuggestions.js
+* NoSmallFonts[ResourceLoader]|NoSmallFonts.css
+* topalert[ResourceLoader|type=general]|topalert.js|topalert.css
+* metadata[ResourceLoader|dependencies=mediawiki.util|type=general]|metadata.js|metadata.css
+* JustifyParagraphs[ResourceLoader]|JustifyParagraphs.css
+* righteditlinks[ResourceLoader]|righteditlinks.css
+* PrettyLog[ResourceLoader|dependencies=mediawiki.util|type=general]|PrettyLog.js|PrettyLog.css
+* switcher[ResourceLoader|default|targets=desktop,mobile]|switcher.js
+* SidebarTranslate[ResourceLoader|type=general]|SidebarTranslate.js|SidebarTranslate.css
+* Blackskin[ResourceLoader|skins=monobook,vector,vector-2022]|Blackskin.css
+* dark-mode-toggle[ResourceLoader|targets=desktop,mobile|dependencies=mediawiki.util,mediawiki.api,mediawiki.Uri,mediawiki.storage|peers=dark-mode-toggle-pagestyles]|dark-mode-toggle.js
+* dark-mode-toggle-pagestyles[hidden|targets=desktop,mobile|skins=vector,vector-2022,minerva,monobook]|dark-mode-toggle-pagestyles.css
+* VectorClassic[ResourceLoader|skins=vector,vector-2022]|VectorClassic.css
+* widensearch[ResourceLoader|skins=vector,vector-2022]|widensearch.css
+* DisambiguationLinks[ResourceLoader]|DisambiguationLinks.css
+* markblocked[ResourceLoader|dependencies=mediawiki.util,mediawiki.page.ready]|markblocked.js
+* responsiveContent[ResourceLoader|type=general|skins=vector,vector-2022|peers=responsiveContentBase]|responsiveContent.js
+* responsiveContentTimeless[ResourceLoader|type=general|skins=timeless|default|peers=responsiveContentBaseTimeless]|responsiveContentTimeless.js
+* HideInterwikiSearchResults[ResourceLoader|type=styles]|HideInterwikiSearchResults.css
+* XTools-ArticleInfo[ResourceLoader]|XTools-ArticleInfo.js
+
+== advanced ==
+* RegexMenuFramework[ResourceLoader|hidden]|RegexMenuFramework.js
+* ShowMessageNames[ResourceLoader|dependencies=mediawiki.util]|ShowMessageNames.js
+* DebugMode[ResourceLoader|dependencies=mediawiki.util]|DebugMode.js
+* contribsrange[ResourceLoader|dependencies=mediawiki.util,jquery.spinner]|contribsrange.js
+* BugStatusUpdate[ResourceLoader]|BugStatusUpdate.js
+* RTRC[ResourceLoader]|RTRC.js
+* script-installer[ResourceLoader|dependencies=mediawiki.ui.button]|script-installer.js
+
+== maintenance ==
+* XFDcloser[ResourceLoader|dependencies=mediawiki.user|rights=extendedconfirmed|type=general]|XFDcloser.js
+* XFDcloser-core[ResourceLoader|dependencies=mediawiki.util,mediawiki.api,mediawiki.Title,oojs-ui-core,oojs-ui-widgets,oojs-ui-windows,oojs-ui.styles.icons-interactions,oojs-ui.styles.icons-content,oojs-ui.styles.icons-moderation,oojs-ui.styles.icons-alerts|hidden|type=general]|XFDcloser-core.js|XFDcloser-core.css
+* XFDcloser-core-beta[ResourceLoader|dependencies=mediawiki.util,mediawiki.api,mediawiki.Title,oojs-ui-core,oojs-ui-widgets,oojs-ui-windows,oojs-ui.styles.icons-interactions,oojs-ui.styles.icons-content,oojs-ui.styles.icons-moderation,oojs-ui.styles.icons-alerts|hidden|type=general]|XFDcloser-core-beta.js|XFDcloser-core-beta.css
+* libExtraUtil[ResourceLoader|hidden]|libExtraUtil.js
+
+== test ==
+* mobile-sidebar[ResourceLoader|skins=vector,vector-2022]|mobile-sidebar.js|mobile-sidebar.css
+* addMe[ResourceLoader]|addMe.js|addMe.css
+* NewImageThumb[ResourceLoader|skins=vector,vector-2022]|NewImageThumb.js|NewImageThumb.css
+* StickyTableHeaders[ResourceLoader|type=general]|StickyTableHeaders.js|StickyTableHeaders.css
+* MobileMaps[ResourceLoader|targets=mobile]|mobilemaps.js
+* ShowJavascriptErrors[ResourceLoader|type=general]|ShowJavascriptErrors.js
+* PageDescriptions[ResourceLoader|type=general|dependencies=mediawiki.api|skins=vector,vector-2022,monobook,modern]|Page_descriptions.js
+* autonum[ResourceLoader]|autonum.css|autonum.js
+
+== modules ==
+* libLua [ResourceLoader|dependencies=mediawiki.api|hidden]|libLua.js
+* libSensitiveIPs [ResourceLoader|dependencies=ext.gadget.libLua|hidden]|libSensitiveIPs.js
+* dark-mode[ResourceLoader|supportsUrlLoad|targets=desktop,mobile|skins=vector,vector-2022,monobook,modern,minerva,timeless]|dark-mode.css</text>
+      <sha1>f16938dnuk69a8er1gn974gc1e2i5vg</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadgets-pagetext</title>
+    <ns>8</ns>
+    <id>67497660</id>
+    <revision>
+      <id>1091819368</id>
+      <parentid>1091819345</parentid>
+      <timestamp>2022-06-06T15:44:28Z</timestamp>
+      <contributor>
+        <username>Xaosflux</username>
+        <id>502540</id>
+      </contributor>
+      <comment>link fix</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="405" xml:space="preserve">Below is a list of special gadgets users can enable on their [[Special:Preferences#mw-prefsection-gadgets|preferences page]], as defined by the [[MediaWiki:Gadgets-definition|definitions]].
+This overview provides easy access to the system message pages that define each gadget's description and code. Gadget deployment statistics are available [[Special:GadgetUsage|here]].
+{{MediaWiki:Gadgets-prefstext}}</text>
+      <sha1>h0enoplyezsqjbpksobtd2zwboj3qqb</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadgets-prefstext</title>
+    <ns>8</ns>
+    <id>14548628</id>
+    <revision>
+      <id>1135426089</id>
+      <parentid>1104941142</parentid>
+      <timestamp>2023-01-24T16:16:04Z</timestamp>
+      <contributor>
+        <username>Xaosflux</username>
+        <id>502540</id>
+      </contributor>
+      <comment>+report link</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="1735" xml:space="preserve">&lt;div class="mw-parser-output"&gt;
+&lt;noinclude&gt;&lt;div style="text-align: right; font-size: smaller;"&gt;
+[[MediaWiki:Gadgets-definition|Definitions]] · [[Special:Gadgets|Descriptions]]
+&lt;/div&gt;
+
+Below is a list of custom features ("[[Wikipedia:Gadget|gadgets]]") you may enable for your account. Most of them require JavaScript to be enabled in your browser. These tools are not part of the MediaWiki software, and are usually developed and maintained by editors on Wikipedia. Gadgets may malfunction or become inoperable due to software changes. You may report errors with gadgets to the appropriate [[Wikipedia:Village pump (technical)|village pump]]. Gadgets will not operate on certain special pages, such as this User Preferences page. Some options are only available for certain [[Wikipedia:Skin|skins]]. The numbers of users for each gadget on this wiki are listed at [[Special:GadgetUsage|Gadget usage statistics]].
+&lt;/noinclude&gt;
+Gadget legend:
+*&lt;sup&gt;&lt;abbr title="{{int:gadgets-default}}"&gt;(D)&lt;/abbr&gt;&lt;/sup&gt;: These gadgets are enabled by &lt;u&gt;d&lt;/u&gt;efault
+*&lt;sup&gt;&lt;abbr title="{{int:gadgets-external}}"&gt;(E)&lt;/abbr&gt;&lt;/sup&gt;: These gadgets use code from &lt;u&gt;e&lt;/u&gt;xternal (third party) systems not subject to the WMF Privacy Policy
+*&lt;sup&gt;&lt;abbr title="{{int:gadgets-sister}}"&gt;(S)&lt;/abbr&gt;&lt;/sup&gt;: These gadgets use code from WMF &lt;u&gt;s&lt;/u&gt;ister projects, managed by that project's administrators
+*&lt;sup&gt;&lt;abbr title="{{int:gadgets-user}}"&gt;(U)&lt;/abbr&gt;&lt;/sup&gt;: These gadgets use code maintained by a single &lt;u&gt;u&lt;/u&gt;ser
+&lt;noinclude&gt;
+{{ombox
+| text = Be advised that '''you take full responsibility for any action performed''' using these features. For more information see our '''[[Wikipedia:Policies and guidelines|policies and guidelines]]'''.
+}}&lt;/noinclude&gt;
+&lt;/div&gt;</text>
+      <sha1>drf3a7z7exaje5aofvk79dqygolnham</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-section-browsing</title>
+    <ns>8</ns>
+    <id>32464496</id>
+    <revision>
+      <id>440317476</id>
+      <timestamp>2011-07-19T14:41:46Z</timestamp>
+      <contributor>
+        <username>Edokter</username>
+        <id>1624037</id>
+      </contributor>
+      <comment>[[WP:AES|←]]Created page with 'Browsing'</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="8" xml:space="preserve">Browsing</text>
+      <sha1>hhfow25l3c8tijj3ofccbkw3l5dr8r9</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-section-watchlist</title>
+    <ns>8</ns>
+    <id>39490399</id>
+    <revision>
+      <id>556847374</id>
+      <timestamp>2013-05-26T10:25:36Z</timestamp>
+      <contributor>
+        <username>Edokter</username>
+        <id>1624037</id>
+      </contributor>
+      <comment>[[WP:AES|←]]Created page with 'Watchlist'</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="9" xml:space="preserve">Watchlist</text>
+      <sha1>8hi3m6fu2grydnxurh7i5fja0wt8vil</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-section-editing</title>
+    <ns>8</ns>
+    <id>32464498</id>
+    <revision>
+      <id>440317512</id>
+      <timestamp>2011-07-19T14:42:01Z</timestamp>
+      <contributor>
+        <username>Edokter</username>
+        <id>1624037</id>
+      </contributor>
+      <comment>[[WP:AES|←]]Created page with 'Editing'</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="7" xml:space="preserve">Editing</text>
+      <sha1>6ynvqs5wdlh2wvg974uajohn5spw8jl</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-section-appearance</title>
+    <ns>8</ns>
+    <id>32464509</id>
+    <revision>
+      <id>440317604</id>
+      <timestamp>2011-07-19T14:42:37Z</timestamp>
+      <contributor>
+        <username>Edokter</username>
+        <id>1624037</id>
+      </contributor>
+      <comment>[[WP:AES|←]]Created page with 'Appearance'</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="10" xml:space="preserve">Appearance</text>
+      <sha1>7p00w7aoqzdx3ov1jxkch0b8j9s9d5z</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-section-advanced</title>
+    <ns>8</ns>
+    <id>32464527</id>
+    <revision>
+      <id>440317797</id>
+      <timestamp>2011-07-19T14:43:49Z</timestamp>
+      <contributor>
+        <username>Edokter</username>
+        <id>1624037</id>
+      </contributor>
+      <comment>[[WP:AES|←]]Created page with 'Advanced'</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="8" xml:space="preserve">Advanced</text>
+      <sha1>8zwj4iwawrk47ku1b5t06055v6lqjn1</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-section-maintenance</title>
+    <ns>8</ns>
+    <id>62343291</id>
+    <revision>
+      <id>926138299</id>
+      <timestamp>2019-11-14T13:35:14Z</timestamp>
+      <contributor>
+        <username>Evad37</username>
+        <id>16958448</id>
+      </contributor>
+      <comment>New gadget section "Maintenance and administration", per suggestion at [[Wikipedia:Village_pump_(technical)/Archive_177#XFDcloser gadget?]]</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="30" xml:space="preserve">Maintenance and administration</text>
+      <sha1>l8eotmyzybraupfuy9fmbfm5144a0ri</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-section-test</title>
+    <ns>8</ns>
+    <id>31781313</id>
+    <revision>
+      <id>553761782</id>
+      <parentid>429209360</parentid>
+      <timestamp>2013-05-06T11:08:31Z</timestamp>
+      <contributor>
+        <username>Edokter</username>
+        <id>1624037</id>
+      </contributor>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="23" xml:space="preserve">Testing and development</text>
+      <sha1>ayyvqx7rtoi80pi7pmqmyxcz30pyu6m</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-section-modules</title>
+    <ns>8</ns>
+    <id>67462333</id>
+    <revision>
+      <id>1019105951</id>
+      <parentid>1019105887</parentid>
+      <timestamp>2021-04-21T15:15:56Z</timestamp>
+      <contributor>
+        <username>Xaosflux</username>
+        <id>502540</id>
+      </contributor>
+      <comment>utilitieis</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="15" xml:space="preserve">Utility modules</text>
+      <sha1>dgc1dzo25nypy6n5le04afu8jx3lbr1</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-modrollback</title>
+    <ns>8</ns>
+    <id>18086261</id>
+    <revision>
+      <id>1064346208</id>
+      <parentid>1019206820</parentid>
+      <timestamp>2022-01-07T22:13:10Z</timestamp>
+      <contributor>
+        <username>Xaosflux</username>
+        <id>502540</id>
+      </contributor>
+      <minor/>
+      <comment>whitespace</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="136" xml:space="preserve">&lt;sup&gt;&lt;abbr title="{{int:gadgets-sister}}"&gt;(S)&lt;/abbr&gt;&lt;/sup&gt; After rolling back a user's edit, automatically open their contributions page</text>
+      <sha1>3bxmfv21o445ck4hepmuwx5p6b81iq2</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-confirmationRollback-mobile</title>
+    <ns>8</ns>
+    <id>46900164</id>
+    <revision>
+      <id>1064344616</id>
+      <parentid>983143988</parentid>
+      <timestamp>2022-01-07T22:01:53Z</timestamp>
+      <contributor>
+        <username>Xaosflux</username>
+        <id>502540</id>
+      </contributor>
+      <minor/>
+      <comment>whitespace</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="125" xml:space="preserve">&lt;sup&gt;&lt;abbr title="{{int:gadgets-default}}"&gt;(D)&lt;/abbr&gt;&lt;/sup&gt; Require confirmation before performing rollback on mobile devices</text>
+      <sha1>k25xq5wej02xflbiagehvflyqaloyfw</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-removeAccessKeys</title>
+    <ns>8</ns>
+    <id>14582436</id>
+    <revision>
+      <id>200487473</id>
+      <parentid>196237565</parentid>
+      <timestamp>2008-03-24T07:26:15Z</timestamp>
+      <contributor>
+        <username>Od Mishehu</username>
+        <id>461626</id>
+      </contributor>
+      <comment>Fixing a link - this refers to the Wikipedia shortcuts, nmot to access keys in general</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="52" xml:space="preserve">Disable [[Wikipedia:Keyboard shortcuts|access key]]s</text>
+      <sha1>ppzr9fdxgssfdx5xgtjukb3z3y2lrm4</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-searchFocus</title>
+    <ns>8</ns>
+    <id>16718109</id>
+    <revision>
+      <id>482497197</id>
+      <parentid>202536558</parentid>
+      <timestamp>2012-03-18T06:38:04Z</timestamp>
+      <contributor>
+        <username>The Earwig</username>
+        <id>7418060</id>
+      </contributor>
+      <comment>rm period ([[WP:BOLD|boldy]] standardizing gadget descriptions)</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="59" xml:space="preserve">Focus the cursor in the search bar on loading the Main Page</text>
+      <sha1>1s35ifszbkc7950v839hpks27525w95</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-GoogleTrans</title>
+    <ns>8</ns>
+    <id>24393546</id>
+    <revision>
+      <id>1064478877</id>
+      <parentid>1064336201</parentid>
+      <timestamp>2022-01-08T15:45:31Z</timestamp>
+      <contributor>
+        <username>Xaosflux</username>
+        <id>502540</id>
+      </contributor>
+      <comment>+ws</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="265" xml:space="preserve">&lt;sup&gt;&lt;abbr title="{{int:gadgets-external}}"&gt;(E)&lt;/abbr&gt;&lt;/sup&gt; &lt;sup&gt;&lt;abbr title="{{int:gadgets-user}}"&gt;(U)&lt;/abbr&gt;&lt;/sup&gt; [[User:Endo999/GoogleTrans|GoogleTrans]]: open a translation popup for the selected text or the word under the cursor when pushing the shift button</text>
+      <sha1>ryk6z311fuc00zdgp499xueqzy1gkjl</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-ImageAnnotator</title>
+    <ns>8</ns>
+    <id>28207576</id>
+    <revision>
+      <id>707353561</id>
+      <parentid>376428203</parentid>
+      <timestamp>2016-02-28T10:32:41Z</timestamp>
+      <contributor>
+        <username>The Earwig</username>
+        <id>7418060</id>
+      </contributor>
+      <comment>standardize, simplify</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="111" xml:space="preserve">[[:commons:Help:Gadget-ImageAnnotator|ImageAnnotator]]: view image notes and comments on file description pages</text>
+      <sha1>8j1o3yfx6qt9ontro8jxqzkmd5qz7ao</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-imagelinks</title>
+    <ns>8</ns>
+    <id>37871769</id>
+    <revision>
+      <id>707354312</id>
+      <parentid>527081509</parentid>
+      <timestamp>2016-02-28T10:39:14Z</timestamp>
+      <contributor>
+        <username>The Earwig</username>
+        <id>7418060</id>
+      </contributor>
+      <comment>tighten</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="54" xml:space="preserve">Redirect image links to Commons for files hosted there</text>
+      <sha1>jhdl6vxuzx8l4xetckjda6gemxy23kj</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-Navigation popups</title>
+    <ns>8</ns>
+    <id>14548457</id>
+    <revision>
+      <id>707353825</id>
+      <parentid>189411847</parentid>
+      <timestamp>2016-02-28T10:35:13Z</timestamp>
+      <contributor>
+        <username>The Earwig</username>
+        <id>7418060</id>
+      </contributor>
+      <comment>standardize</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="127" xml:space="preserve">[[Wikipedia:Tools/Navigation popups|Navigation popups]]: article previews and editing functions pop up when hovering over links</text>
+      <sha1>6oxzq7dj6l8byucxhzszahp5pk8r775</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-exlinks</title>
+    <ns>8</ns>
+    <id>14636298</id>
+    <revision>
+      <id>707354010</id>
+      <parentid>176960612</parentid>
+      <timestamp>2016-02-28T10:36:48Z</timestamp>
+      <contributor>
+        <username>The Earwig</username>
+        <id>7418060</id>
+      </contributor>
+      <comment>[[MOS:SLASH]]</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="42" xml:space="preserve">Open external links in a new tab or window</text>
+      <sha1>a6297obcxtsyjlz7vhfy2kcw1pkyek6</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-search-new-tab</title>
+    <ns>8</ns>
+    <id>37488207</id>
+    <revision>
+      <id>707481852</id>
+      <parentid>707354223</parentid>
+      <timestamp>2016-02-29T03:22:21Z</timestamp>
+      <contributor>
+        <username>The Earwig</username>
+        <id>7418060</id>
+      </contributor>
+      <minor/>
+      <comment>rm period</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="73" xml:space="preserve">Open search results in a new tab or window when holding down the Ctrl key</text>
+      <sha1>40kz4qzgn94ow3lyiv5l9vfuxwhwpod</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-PrintOptions</title>
+    <ns>8</ns>
+    <id>39468292</id>
+    <revision>
+      <id>707354743</id>
+      <parentid>556475183</parentid>
+      <timestamp>2016-02-28T10:43:49Z</timestamp>
+      <contributor>
+        <username>The Earwig</username>
+        <id>7418060</id>
+      </contributor>
+      <comment>standardize, tweak</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="117" xml:space="preserve">[[User:TheDJ/Print options|Print options]]: control how pages are printed (for example, remove images or backgrounds)</text>
+      <sha1>kgw5361s1zw8tjz33a751rp0jd2rd3k</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-revisionjumper</title>
+    <ns>8</ns>
+    <id>28849340</id>
+    <revision>
+      <id>1064346201</id>
+      <parentid>1019206730</parentid>
+      <timestamp>2022-01-07T22:13:08Z</timestamp>
+      <contributor>
+        <username>Xaosflux</username>
+        <id>502540</id>
+      </contributor>
+      <minor/>
+      <comment>whitespace</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="147" xml:space="preserve">&lt;sup&gt;&lt;abbr title="{{int:gadgets-sister}}"&gt;(S)&lt;/abbr&gt;&lt;/sup&gt; [[User:DerHexer/revisionjumper|revisionjumper]]: quickly navigate between page revisions</text>
+      <sha1>tt4hpfw670p64c08gyhrrhb5k0tqi02</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-Twinkle</title>
+    <ns>8</ns>
+    <id>16143106</id>
+    <revision>
+      <id>928375552</id>
+      <parentid>928375192</parentid>
+      <timestamp>2019-11-28T18:09:23Z</timestamp>
+      <contributor>
+        <username>Amorymeltzer</username>
+        <id>141948</id>
+      </contributor>
+      <comment>Specify that it adds menu buttons (vague since (for now, anyway) only Vector gets menus)</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="243" xml:space="preserve">[[Wikipedia:Twinkle|Twinkle]]: add menu buttons to automate common tasks, including: reporting vandalism, warning vandals, requesting deletion or protection, welcoming users, and tagging articles ([[Wikipedia:Twinkle/Preferences|preferences]])</text>
+      <sha1>j3b55lx4bhfb92ld78z8e76t098ei45</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-morebits</title>
+    <ns>8</ns>
+    <id>63271526</id>
+    <revision>
+      <id>943692850</id>
+      <timestamp>2020-03-03T11:28:21Z</timestamp>
+      <contributor>
+        <username>Amorymeltzer</username>
+        <id>141948</id>
+      </contributor>
+      <comment>Brief description</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="176" xml:space="preserve">A library with lots of useful features, used for [[Wikipedia:Twinkle]] but available for other gadgets or scripts.  You should not be able to see this from Special:Preferences.</text>
+      <sha1>0718jalj33cwh1kimmpaiiqrvqmp43z</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-Twinkle-pagestyles</title>
+    <ns>8</ns>
+    <id>67479221</id>
+    <revision>
+      <id>1019461089</id>
+      <timestamp>2021-04-23T13:26:59Z</timestamp>
+      <contributor>
+        <username>Xaosflux</username>
+        <id>502540</id>
+      </contributor>
+      <comment>init</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="55" xml:space="preserve">Components for the [[Wikipedia:Twinkle|Twinkle]] gadget</text>
+      <sha1>gczoqgegf1lyo05ljvibb885xttkfzs</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-select2</title>
+    <ns>8</ns>
+    <id>63271560</id>
+    <revision>
+      <id>943693231</id>
+      <timestamp>2020-03-03T11:32:41Z</timestamp>
+      <contributor>
+        <username>Amorymeltzer</username>
+        <id>141948</id>
+      </contributor>
+      <comment>Description and note license</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="212" xml:space="preserve">jQuery replacement for select boxes; used by Twinkle but available as a gadget for others.  Available under the MIT license, see https://select2.org/.  You should not be able to see this from Special:Preferences.</text>
+      <sha1>29gv1dzscpywqdrbmj7o1nzxat09379</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-HideCentralNotice</title>
+    <ns>8</ns>
+    <id>45423233</id>
+    <revision>
+      <id>1019294941</id>
+      <parentid>707355124</parentid>
+      <timestamp>2021-04-22T14:58:25Z</timestamp>
+      <contributor>
+        <username>Xaosflux</username>
+        <id>502540</id>
+      </contributor>
+      <comment>Special:Preferences#mw-prefsection-centralnotice-banners</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="206" xml:space="preserve">Suppress display of all [[meta:CentralNotice|CentralNotices]] (To suppress only certain classes of notices use the [[Special:Preferences#mw-prefsection-centralnotice-banners|Banners option in preferences]])</text>
+      <sha1>nsfrjde2so45y5r12740hf8slsffis9</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-ReferenceTooltips</title>
+    <ns>8</ns>
+    <id>35323375</id>
+    <revision>
+      <id>1064345882</id>
+      <parentid>1013800937</parentid>
+      <timestamp>2022-01-07T22:10:51Z</timestamp>
+      <contributor>
+        <username>Xaosflux</username>
+        <id>502540</id>
+      </contributor>
+      <minor/>
+      <comment>whitespace</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="260" xml:space="preserve">&lt;sup&gt;&lt;abbr title="{{int:gadgets-default}}"&gt;(D)&lt;/abbr&gt;&lt;/sup&gt; [[mw:Reference Tooltips|Reference Tooltips]]: hover over inline citations to see reference information without moving away from the article text (does not work if "Navigation popups" is enabled above)</text>
+      <sha1>39grf74i71yrj56row1hze4tfzw5uhx</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-formWizard</title>
+    <ns>8</ns>
+    <id>46573204</id>
+    <revision>
+      <id>1064345875</id>
+      <parentid>1013800968</parentid>
+      <timestamp>2022-01-07T22:10:49Z</timestamp>
+      <contributor>
+        <username>Xaosflux</username>
+        <id>502540</id>
+      </contributor>
+      <minor/>
+      <comment>whitespace</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="170" xml:space="preserve">&lt;sup&gt;&lt;abbr title="{{int:gadgets-default}}"&gt;(D)&lt;/abbr&gt;&lt;/sup&gt; [[meta:Meta:FormWizard|FormWizard]]: a [[w:wizard (software)|wizard]] for creating and expanding project pages</text>
+      <sha1>gq1pqmmpn0evy5tma6hbzqa4jmwyb3v</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-formWizard-core</title>
+    <ns>8</ns>
+    <id>67479204</id>
+    <revision>
+      <id>1019460810</id>
+      <timestamp>2021-04-23T13:24:41Z</timestamp>
+      <contributor>
+        <username>Xaosflux</username>
+        <id>502540</id>
+      </contributor>
+      <comment>label</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="51" xml:space="preserve">Components for [[:meta:Meta:FormWizard|FormWizard]]</text>
+      <sha1>sv21uacab7hof78o4xvvnxbx82lxjm4</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-responsiveContentBase</title>
+    <ns>8</ns>
+    <id>53371262</id>
+    <revision>
+      <id>768401367</id>
+      <timestamp>2017-03-03T15:57:46Z</timestamp>
+      <contributor>
+        <username>Jo-Jo Eumerus</username>
+        <id>17449355</id>
+      </contributor>
+      <comment>Asked for on [[MediaWiki talk:Gadgets-definition]]</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="89" xml:space="preserve">Improved appearance for mobile, narrow and wide screens. Used by Gadget-responsiveContent</text>
+      <sha1>ir4t663wf1jn9hxlhdijdrwq170eu1k</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-responsiveContentBaseTimeless</title>
+    <ns>8</ns>
+    <id>67479773</id>
+    <revision>
+      <id>1019468704</id>
+      <timestamp>2021-04-23T14:22:09Z</timestamp>
+      <contributor>
+        <username>Xaosflux</username>
+        <id>502540</id>
+      </contributor>
+      <comment>init msg</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="36" xml:space="preserve">Responsive content for Base Timeless</text>
+      <sha1>0sjtfuwbdz2zwkzttpbg61e3weh08dd</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-Prosesize</title>
+    <ns>8</ns>
+    <id>62529926</id>
+    <revision>
+      <id>929791970</id>
+      <parentid>929789967</parentid>
+      <timestamp>2019-12-08T07:25:12Z</timestamp>
+      <contributor>
+        <username>Galobtter</username>
+        <id>19502780</id>
+      </contributor>
+      <comment>add link</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="103" xml:space="preserve">[[Wikipedia:Prosesize|Prosesize]]: add a toolbox link to show the size of and number of words in a page</text>
+      <sha1>j5tzzhpev8u55f77yf7opgj7kkqyiie</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-find-archived-section</title>
+    <ns>8</ns>
+    <id>63781544</id>
+    <revision>
+      <id>953378394</id>
+      <timestamp>2020-04-27T02:11:31Z</timestamp>
+      <contributor>
+        <username>Enterprisey</username>
+        <id>16663390</id>
+      </contributor>
+      <comment>Create gadget documentation, per [[Wikipedia:Village_pump_(technical)/Archive_180#Gadget_proposal:_find_archived_sections_easily]]</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="131" xml:space="preserve">[[User:SD0001/find-archived-section|find-archived-section]]: navigate easily to an archived section after following its broken link</text>
+      <sha1>gzdqljbzya4273wei93n37wenutq4zy</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-geonotice</title>
+    <ns>8</ns>
+    <id>43484532</id>
+    <revision>
+      <id>1064344631</id>
+      <parentid>1013801003</parentid>
+      <timestamp>2022-01-07T22:01:59Z</timestamp>
+      <contributor>
+        <username>Xaosflux</username>
+        <id>502540</id>
+      </contributor>
+      <minor/>
+      <comment>whitespace</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="178" xml:space="preserve">&lt;sup&gt;&lt;abbr title="{{int:gadgets-default}}"&gt;(D)&lt;/abbr&gt;&lt;/sup&gt; [[Wikipedia:Geonotice|Geonotice]]: display notices on your [[Special:Watchlist|watchlist]] about events in your region</text>
+      <sha1>4w1ihzga1vyxzt8zfv0x304n8dfxvps</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-geonotice-core</title>
+    <ns>8</ns>
+    <id>67505439</id>
+    <revision>
+      <id>1019980753</id>
+      <timestamp>2021-04-26T14:16:12Z</timestamp>
+      <contributor>
+        <username>Xaosflux</username>
+        <id>502540</id>
+      </contributor>
+      <comment>init</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="52" xml:space="preserve">Additional components used with the Geonotice gadget</text>
+      <sha1>riiv4hhpmbv7l7wyq4d3n1xwuohp3wb</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-watchlist-notice</title>
+    <ns>8</ns>
+    <id>51397917</id>
+    <revision>
+      <id>1064344624</id>
+      <parentid>1013800994</parentid>
+      <timestamp>2022-01-07T22:01:56Z</timestamp>
+      <contributor>
+        <username>Xaosflux</username>
+        <id>502540</id>
+      </contributor>
+      <minor/>
+      <comment>whitespace</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="117" xml:space="preserve">&lt;sup&gt;&lt;abbr title="{{int:gadgets-default}}"&gt;(D)&lt;/abbr&gt;&lt;/sup&gt; Display [[Wikipedia:Watchlist notices|watchlist notices]]</text>
+      <sha1>63rnlh4s5m8062s5n7bho22argu6rgf</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-watchlist-notice-core</title>
+    <ns>8</ns>
+    <id>67513205</id>
+    <revision>
+      <id>1020133647</id>
+      <timestamp>2021-04-27T10:51:58Z</timestamp>
+      <contributor>
+        <username>Xaosflux</username>
+        <id>502540</id>
+      </contributor>
+      <comment>init</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="42" xml:space="preserve">Components for the watchlist notice gadget</text>
+      <sha1>9b8paqgnk1cdb8rwl45z643y4xon4ml</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-WatchlistBase</title>
+    <ns>8</ns>
+    <id>47570412</id>
+    <revision>
+      <id>1064344620</id>
+      <parentid>1019203816</parentid>
+      <timestamp>2022-01-07T22:01:54Z</timestamp>
+      <contributor>
+        <username>Xaosflux</username>
+        <id>502540</id>
+      </contributor>
+      <minor/>
+      <comment>whitespace</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="195" xml:space="preserve">&lt;sup&gt;&lt;abbr title="{{int:gadgets-default}}"&gt;(D)&lt;/abbr&gt;&lt;/sup&gt; &lt;small&gt;(This loads the [[MediaWiki:Gadget-WatchlistBase.css|base style]] for the watchlist. Please do not disable this option.)&lt;/small&gt;</text>
+      <sha1>aoz04r6unz4vj463z2emy9edpqql2pi</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-WatchlistGreenIndicators</title>
+    <ns>8</ns>
+    <id>46816768</id>
+    <revision>
+      <id>1064344610</id>
+      <parentid>1019203849</parentid>
+      <timestamp>2022-01-07T22:01:50Z</timestamp>
+      <contributor>
+        <username>Xaosflux</username>
+        <id>502540</id>
+      </contributor>
+      <minor/>
+      <comment>whitespace</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="236" xml:space="preserve">&lt;sup&gt;&lt;abbr title="{{int:gadgets-default}}"&gt;(D)&lt;/abbr&gt;&lt;/sup&gt; Display green collapsible arrows and green bullets for changed pages in your watchlist, page history and recent changes (unavailable with the improved Watchlist user interface)</text>
+      <sha1>akx09yupjwvxtgynccwb05qvndo3n0d</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-WatchlistGreenIndicatorsMono</title>
+    <ns>8</ns>
+    <id>46963454</id>
+    <revision>
+      <id>1064344601</id>
+      <parentid>1019203968</parentid>
+      <timestamp>2022-01-07T22:01:48Z</timestamp>
+      <contributor>
+        <username>Xaosflux</username>
+        <id>502540</id>
+      </contributor>
+      <minor/>
+      <comment>+whitespace</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="231" xml:space="preserve">&lt;sup&gt;&lt;abbr title="{{int:gadgets-default}}"&gt;(D)&lt;/abbr&gt;&lt;/sup&gt; Display green collapsible arrows and green bullets for changed pages in your Watchlist, History and Recent changes (unavailable with the improved Watchlist user interface)</text>
+      <sha1>nek08j6mbjw5483fibme4judthifz5r</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-WatchlistChangesBold</title>
+    <ns>8</ns>
+    <id>36721051</id>
+    <revision>
+      <id>707356398</id>
+      <parentid>507422041</parentid>
+      <timestamp>2016-02-28T11:02:27Z</timestamp>
+      <contributor>
+        <username>The Earwig</username>
+        <id>7418060</id>
+      </contributor>
+      <comment>standardize</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="168" xml:space="preserve">Display pages on your watchlist that have changed since your last visit in '''bold''' (see [[Wikipedia:Customizing watchlists|customizing watchlists]] for more options)</text>
+      <sha1>m22aso20elxpjc9fenb16urq7t41k7v</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-SubtleUpdatemarker</title>
+    <ns>8</ns>
+    <id>57201781</id>
+    <revision>
+      <id>1064337589</id>
+      <parentid>1019203897</parentid>
+      <timestamp>2022-01-07T21:10:57Z</timestamp>
+      <contributor>
+        <username>Xaosflux</username>
+        <id>502540</id>
+      </contributor>
+      <minor/>
+      <comment>+whitespace</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="244" xml:space="preserve">&lt;sup&gt;&lt;abbr title="{{int:gadgets-default}}"&gt;(D)&lt;/abbr&gt;&lt;/sup&gt; Subtle update marker: Tone down the "Changed since last visit" indicator on history pages. (By default it renders as a green-filled bar, enabling this gadget changes it to green text.)</text>
+      <sha1>ibvae114ao9truxhepls2g70c6fl6js</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-defaultsummaries</title>
+    <ns>8</ns>
+    <id>32028449</id>
+    <revision>
+      <id>482497329</id>
+      <parentid>482493630</parentid>
+      <timestamp>2012-03-18T06:39:30Z</timestamp>
+      <contributor>
+        <username>The Earwig</username>
+        <id>7418060</id>
+      </contributor>
+      <comment>rm period ([[WP:BOLD|boldy]] standardizing gadget descriptions)</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="88" xml:space="preserve">Add two new dropdown boxes below the edit summary box with some useful default summaries</text>
+      <sha1>ldzf6nv8vurlwmtvznjszkywlw8r5oc</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-citations</title>
+    <ns>8</ns>
+    <id>31447117</id>
+    <revision>
+      <id>707356580</id>
+      <parentid>423201688</parentid>
+      <timestamp>2016-02-28T11:04:10Z</timestamp>
+      <contributor>
+        <username>The Earwig</username>
+        <id>7418060</id>
+      </contributor>
+      <comment>formatting</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="1017" xml:space="preserve">[[WP:Citation expander|Citation expander]]: automatically expand and format citations using [[WP:UCB|Citation bot]]
+&lt;!--
+* A link in the toolbox will activate [[User:Citation bot]] on the page that you are currently viewing.  The bot will expand, format and tidy all references on that page.
+
+* A button underneath the edit box (next to "Show Changes") will send the contents of the edit box to the bot, which will process them and return the expanded version.  This has two possible uses:
+** It allows the manual checking of the bot's output before an article is modified
+** You can type a partial citation in to an article (e.g. &lt;code&gt;&lt;nowiki&gt;{{cite journal|pmid=12345}}&lt;/nowiki&gt;&lt;/code&gt;), then have the bot expand this to a complete citation before you save the page.
+
+
+For more information about the functions performed by [[User:Citation bot|Citation bot]], see [[User:Citation bot|its user page]] or [[WP:UCB|an introductory page]].  For information about the gadget's script, see [[User:Smith609/citation]].
+--&gt;</text>
+      <sha1>jys3cd3uy4p6demn14d58hoivf5ymjf</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-DotsSyntaxHighlighter</title>
+    <ns>8</ns>
+    <id>37846612</id>
+    <revision>
+      <id>1064346198</id>
+      <parentid>1019294212</parentid>
+      <timestamp>2022-01-07T22:13:06Z</timestamp>
+      <contributor>
+        <username>Xaosflux</username>
+        <id>502540</id>
+      </contributor>
+      <minor/>
+      <comment>whitespace</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="332" xml:space="preserve">&lt;sup&gt;&lt;abbr title="{{int:gadgets-sister}}"&gt;(S)&lt;/abbr&gt;&lt;/sup&gt; [[mw:User:Remember the dot/Syntax highlighter|Syntax highlighter]]: Alternative to the default coloring of wiki syntax in the edit box (works best in [[Mozilla Firefox|Firefox]] and works almost all of the time in [[Google Chrome|Chrome]] and [[Opera (web browser)|Opera]])</text>
+      <sha1>4phvql7h8dh9geoahhpgvze22my1xk8</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-HotCat</title>
+    <ns>8</ns>
+    <id>16458506</id>
+    <revision>
+      <id>1064346194</id>
+      <parentid>1019294165</parentid>
+      <timestamp>2022-01-07T22:13:03Z</timestamp>
+      <contributor>
+        <username>Xaosflux</username>
+        <id>502540</id>
+      </contributor>
+      <minor/>
+      <comment>whitespace</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="186" xml:space="preserve">&lt;sup&gt;&lt;abbr title="{{int:gadgets-sister}}"&gt;(S)&lt;/abbr&gt;&lt;/sup&gt; [[WP:HOTCAT|HotCat]]: easily add, remove, and change categories on a page, with name suggestions ([[:File:HotCat.png|example]])</text>
+      <sha1>7um1pvrd68pct49qdvjhg1o3a9ohf4k</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-wikEdDiff</title>
+    <ns>8</ns>
+    <id>16746063</id>
+    <revision>
+      <id>1064336191</id>
+      <parentid>1019294105</parentid>
+      <timestamp>2022-01-07T21:00:13Z</timestamp>
+      <contributor>
+        <username>Xaosflux</username>
+        <id>502540</id>
+      </contributor>
+      <minor/>
+      <comment>+whitespace</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="191" xml:space="preserve">&lt;sup&gt;&lt;abbr title="{{int:gadgets-user}}"&gt;(U)&lt;/abbr&gt;&lt;/sup&gt; [[User:Cacycle/wikEdDiff|wikEdDiff]]: improved diff view between article versions (not needed if [[User:Cacycle/wikEd|wikEd]] is used)</text>
+      <sha1>jzc8kccqsaj6sfvbtis3kn66vl7udbl</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-ProveIt</title>
+    <ns>8</ns>
+    <id>30006774</id>
+    <revision>
+      <id>1064345894</id>
+      <parentid>1019293924</parentid>
+      <timestamp>2022-01-07T22:10:56Z</timestamp>
+      <contributor>
+        <username>Xaosflux</username>
+        <id>502540</id>
+      </contributor>
+      <minor/>
+      <comment>whitespace</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="319" xml:space="preserve">&lt;sup&gt;&lt;abbr title="{{int:gadgets-sister}}"&gt;(S)&lt;/abbr&gt;&lt;/sup&gt; [[Wikipedia:ProveIt|ProveIt]] is a tool that adds a graphical user interface to find, edit, add and cite references (&lt;span class="plainlinks"&gt;[{{fullurl:Fallacy|action=edit&amp;withJS=MediaWiki:Gadget-ProveIt.js&amp;withCSS=MediaWiki:Gadget-ProveIt.css}} demo]&lt;/span&gt;)</text>
+      <sha1>dicldl7tovyl97qzhew80f42otr1d61</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-ProveIt-classic</title>
+    <ns>8</ns>
+    <id>52233871</id>
+    <revision>
+      <id>944557875</id>
+      <parentid>748672398</parentid>
+      <timestamp>2020-03-08T15:48:56Z</timestamp>
+      <contributor>
+        <username>Amorymeltzer</username>
+        <id>141948</id>
+      </contributor>
+      <minor/>
+      <comment>Missing period</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="348" xml:space="preserve">[[Wikipedia:ProveIt|ProveIt]] (classic version) is a tool that adds a graphical user interface to find, edit, add and cite references (&lt;span class="plainlinks"&gt;[{{fullurl:Fallacy|action=edit&amp;withJS=MediaWiki:Gadget-ProveIt-classic.js&amp;withCSS=MediaWiki:Gadget-ProveIt-classic.css}} demo]&lt;/span&gt;). This is the classic, original version of the gadget.</text>
+      <sha1>61wapvlbq8s7tv5owe5648mf190ddca</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-Shortdesc-helper</title>
+    <ns>8</ns>
+    <id>59815672</id>
+    <revision>
+      <id>929790270</id>
+      <parentid>881550699</parentid>
+      <timestamp>2019-12-08T07:03:55Z</timestamp>
+      <contributor>
+        <username>Galobtter</username>
+        <id>19502780</id>
+      </contributor>
+      <comment>bypass redirect</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="124" xml:space="preserve">[[Wikipedia:Shortdesc helper|Shortdesc helper]]: easily add and edit page [[Wikipedia:Short description|short descriptions]]</text>
+      <sha1>qwmvkv82pl74rjpcoblu9jtsne6ns4q</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-Shortdesc-helper-pagestyles-vector</title>
+    <ns>8</ns>
+    <id>67513214</id>
+    <revision>
+      <id>1020133823</id>
+      <timestamp>2021-04-27T10:53:54Z</timestamp>
+      <contributor>
+        <username>Xaosflux</username>
+        <id>502540</id>
+      </contributor>
+      <comment>init</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="50" xml:space="preserve">Components for the short description helper gadget</text>
+      <sha1>rayt0nz5cn9jf23gkvrc7dvbqj9gnpr</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-libSettings</title>
+    <ns>8</ns>
+    <id>67521753</id>
+    <revision>
+      <id>1020302318</id>
+      <timestamp>2021-04-28T10:25:43Z</timestamp>
+      <contributor>
+        <username>Xaosflux</username>
+        <id>502540</id>
+      </contributor>
+      <comment>init</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="41" xml:space="preserve">Component for the library settings gadget</text>
+      <sha1>a1xut8uudetyjgtfipo9lah4k608rtz</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-wikEd</title>
+    <ns>8</ns>
+    <id>15617056</id>
+    <revision>
+      <id>1064337560</id>
+      <parentid>1058202394</parentid>
+      <timestamp>2022-01-07T21:10:43Z</timestamp>
+      <contributor>
+        <username>Xaosflux</username>
+        <id>502540</id>
+      </contributor>
+      <minor/>
+      <comment>+whitespace</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="273" xml:space="preserve">&lt;sup&gt;&lt;abbr title="{{int:gadgets-user}}"&gt;(U)&lt;/abbr&gt;&lt;/sup&gt; [[en:User:Cacycle/wikEd|wikEd]]: alternative full-featured integrated text editor for [[Mozilla Firefox|Firefox]], [[Safari (web browser)|Safari]], and [[Google Chrome]] ([[en:User:Cacycle/wikEd help|documentation]])</text>
+      <sha1>kzip2gu46n4qmuzqdc89ce8mtxyjz1a</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-afchelper</title>
+    <ns>8</ns>
+    <id>36320483</id>
+    <revision>
+      <id>574798524</id>
+      <parentid>500580222</parentid>
+      <timestamp>2013-09-27T22:24:41Z</timestamp>
+      <contributor>
+        <username>Legoktm</username>
+        <id>3855926</id>
+      </contributor>
+      <comment>update per mabdul, more links + FFU</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="225" xml:space="preserve">[[Wikipedia:WikiProject Articles for creation/Helper script|Yet Another AFC Helper Script]]: easily review [[WP:AFC|Articles for creation]] submissions, [[WP:FFU|Files for Upload]], [[WP:AFC/R|redirect and category]] requests</text>
+      <sha1>pvp3bou933tl9yyw687nhrz56dqflco</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-charinsert</title>
+    <ns>8</ns>
+    <id>37112402</id>
+    <revision>
+      <id>1064337584</id>
+      <parentid>1019204120</parentid>
+      <timestamp>2022-01-07T21:10:54Z</timestamp>
+      <contributor>
+        <username>Xaosflux</username>
+        <id>502540</id>
+      </contributor>
+      <minor/>
+      <comment>+whitespace</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="215" xml:space="preserve">&lt;sup&gt;&lt;abbr title="{{int:gadgets-default}}"&gt;(D)&lt;/abbr&gt;&lt;/sup&gt; [[mw:extension:CharInsert|CharInsert]]: add a toolbar under the edit window for quickly inserting wiki markup and special characters ([[WP:VPT|troubles?]])</text>
+      <sha1>a4h5zjzel9ugh163iwqqgrf6hylzxm2</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-charinsert-core</title>
+    <ns>8</ns>
+    <id>67547185</id>
+    <revision>
+      <id>1020845176</id>
+      <timestamp>2021-05-01T11:10:00Z</timestamp>
+      <contributor>
+        <username>Xaosflux</username>
+        <id>502540</id>
+      </contributor>
+      <comment>init label</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="36" xml:space="preserve">Components for the CharInsert gadget</text>
+      <sha1>l5r8i1acme2vh8eadewwp5eg3179zkh</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-legacyToolbar</title>
+    <ns>8</ns>
+    <id>59173883</id>
+    <revision>
+      <id>871070574</id>
+      <parentid>871034344</parentid>
+      <timestamp>2018-11-28T19:04:23Z</timestamp>
+      <contributor>
+        <username>Writ Keeper</username>
+        <id>15425179</id>
+      </contributor>
+      <comment>add link</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="157" xml:space="preserve">[[Wikipedia:Legacy_toolbar|Enable the legacy (2006) editing toolbar]]. This will be overridden by the "Enable the editing toolbar" option in the Editing tab.</text>
+      <sha1>c351dneldvuwsswj24g9azab8bjac3y</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-extra-toolbar-buttons</title>
+    <ns>8</ns>
+    <id>51398068</id>
+    <revision>
+      <id>1064337576</id>
+      <parentid>1019204147</parentid>
+      <timestamp>2022-01-07T21:10:52Z</timestamp>
+      <contributor>
+        <username>Xaosflux</username>
+        <id>502540</id>
+      </contributor>
+      <minor/>
+      <comment>+whitespace</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="114" xml:space="preserve">&lt;sup&gt;&lt;abbr title="{{int:gadgets-default}}"&gt;(D)&lt;/abbr&gt;&lt;/sup&gt; Add extra buttons to the legacy (2006) editing toolbar</text>
+      <sha1>p717p5f11ib311jpxrx8fnqm6alsxbf</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-extra-toolbar-buttons-core</title>
+    <ns>8</ns>
+    <id>67493682</id>
+    <revision>
+      <id>1019733376</id>
+      <timestamp>2021-04-25T03:05:34Z</timestamp>
+      <contributor>
+        <username>Xaosflux</username>
+        <id>502540</id>
+      </contributor>
+      <comment>init</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="60" xml:space="preserve">Adds extra buttons to the old (non-enhanced) editing toolbar</text>
+      <sha1>s3hz8b3f5dv9oljs33lewzspljrqcxr</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-refToolbar</title>
+    <ns>8</ns>
+    <id>16682480</id>
+    <revision>
+      <id>1064337572</id>
+      <parentid>1019204172</parentid>
+      <timestamp>2022-01-07T21:10:49Z</timestamp>
+      <contributor>
+        <username>Xaosflux</username>
+        <id>502540</id>
+      </contributor>
+      <minor/>
+      <comment>+whitespace</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="194" xml:space="preserve">&lt;sup&gt;&lt;abbr title="{{int:gadgets-default}}"&gt;(D)&lt;/abbr&gt;&lt;/sup&gt; [[Wikipedia:RefToolbar|refToolbar]]: add a "cite" button to the editing toolbar for quick addition of commonly used citation templates</text>
+      <sha1>q82nawv336yjsrs86kfhf21d6m17pv4</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-refToolbarBase</title>
+    <ns>8</ns>
+    <id>67513215</id>
+    <revision>
+      <id>1020133891</id>
+      <timestamp>2021-04-27T10:54:46Z</timestamp>
+      <contributor>
+        <username>Xaosflux</username>
+        <id>502540</id>
+      </contributor>
+      <comment>init</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="36" xml:space="preserve">Components for the refToolbar gadget</text>
+      <sha1>oz650xi9iawy6dqqcb6nx1zf7hu28s9</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-EditNoticesOnMobile</title>
+    <ns>8</ns>
+    <id>71280159</id>
+    <revision>
+      <id>1099355193</id>
+      <parentid>1099279792</parentid>
+      <timestamp>2022-07-20T09:44:21Z</timestamp>
+      <contributor>
+        <username>Xaosflux</username>
+        <id>502540</id>
+      </contributor>
+      <comment>more</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="196" xml:space="preserve">&lt;sup&gt;&lt;abbr title="{{int:gadgets-default}}"&gt;(D)&lt;/abbr&gt;&lt;/sup&gt; EditNoticesOnMobile - enables [[Wikipedia:Editnotice|editnotices]] for mobile editors. ([[Wikipedia:EditNoticesOnMobile|documentation)]]</text>
+      <sha1>1uyw54rily801742ybrhb22x6tag4a8</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-edittop</title>
+    <ns>8</ns>
+    <id>14739045</id>
+    <revision>
+      <id>196236158</id>
+      <parentid>179155990</parentid>
+      <timestamp>2008-03-06T07:06:44Z</timestamp>
+      <contributor>
+        <username>Remember the dot</username>
+        <id>2821524</id>
+      </contributor>
+      <comment>use consistent terminology</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="76" xml:space="preserve">Add an [edit] link for the [[Wikipedia:Lead section|lead section]] of a page</text>
+      <sha1>azzjmpmtr4gitvmkkjunmd2jbwludnj</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-UTCLiveClock</title>
+    <ns>8</ns>
+    <id>15171433</id>
+    <revision>
+      <id>1064345889</id>
+      <parentid>1038464176</parentid>
+      <timestamp>2022-01-07T22:10:55Z</timestamp>
+      <contributor>
+        <username>Xaosflux</username>
+        <id>502540</id>
+      </contributor>
+      <minor/>
+      <comment>whitespace</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="263" xml:space="preserve">&lt;sup&gt;&lt;abbr title="{{int:gadgets-sister}}"&gt;(S)&lt;/abbr&gt;&lt;/sup&gt; Add a clock to the personal toolbar that displays the current time in [[UTC]] and provides a link to [[Wikipedia:Purge|purge]] the current page ([[mw:MediaWiki talk:Gadget-UTCLiveClock.js|documentation]])</text>
+      <sha1>3whodpfo4xq2qqv5dffbauygz7k7tl5</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-UTCLiveClock-pagestyles</title>
+    <ns>8</ns>
+    <id>67551074</id>
+    <revision>
+      <id>1020934516</id>
+      <timestamp>2021-05-01T22:39:05Z</timestamp>
+      <contributor>
+        <username>Xaosflux</username>
+        <id>502540</id>
+      </contributor>
+      <comment>init</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="38" xml:space="preserve">Components for the UTCLiveClock gadget</text>
+      <sha1>scepy1brjgb6sf07r19kwiqviwj8j49</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-purgetab</title>
+    <ns>8</ns>
+    <id>20381914</id>
+    <revision>
+      <id>707357995</id>
+      <parentid>609822007</parentid>
+      <timestamp>2016-02-28T11:19:00Z</timestamp>
+      <contributor>
+        <username>The Earwig</username>
+        <id>7418060</id>
+      </contributor>
+      <comment>standardize</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="94" xml:space="preserve">Add a "Purge" option to the top of the page, which [[Wikipedia:Purge|purges]] the page's cache</text>
+      <sha1>abif3w061zhon94nrqyiswgsqjn2zor</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-ExternalSearch</title>
+    <ns>8</ns>
+    <id>23743665</id>
+    <revision>
+      <id>707358098</id>
+      <parentid>304177862</parentid>
+      <timestamp>2016-02-28T11:19:52Z</timestamp>
+      <contributor>
+        <username>The Earwig</username>
+        <id>7418060</id>
+      </contributor>
+      <comment>standardize</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="106" xml:space="preserve">Add a selector to the Wikipedia [[Special:Search|search]] page allowing the use of external search engines</text>
+      <sha1>bjg62h425ii83e8w5gadfbq90rd3rfz</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-CollapsibleNav</title>
+    <ns>8</ns>
+    <id>42823011</id>
+    <revision>
+      <id>707358118</id>
+      <parentid>609537016</parentid>
+      <timestamp>2016-02-28T11:20:10Z</timestamp>
+      <contributor>
+        <username>The Earwig</username>
+        <id>7418060</id>
+      </contributor>
+      <comment>standardize</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="38" xml:space="preserve">Allow navigation menus to be collapsed</text>
+      <sha1>948vzvzczpspp1yqzuohafv1brxzzwp</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-MenuTabsToggle</title>
+    <ns>8</ns>
+    <id>32899947</id>
+    <revision>
+      <id>707358160</id>
+      <parentid>609537307</parentid>
+      <timestamp>2016-02-28T11:20:37Z</timestamp>
+      <contributor>
+        <username>The Earwig</username>
+        <id>7418060</id>
+      </contributor>
+      <comment>standardize</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="100" xml:space="preserve">Allow toggling between tabs and dropdown menus ([[User talk:Edokter/MenuTabsToggle.js|bug reports]])</text>
+      <sha1>hrildnqviyy4s67oqgpti94y0z4b687</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-dropdown-menus</title>
+    <ns>8</ns>
+    <id>21464598</id>
+    <revision>
+      <id>1064345887</id>
+      <parentid>1037965816</parentid>
+      <timestamp>2022-01-07T22:10:54Z</timestamp>
+      <contributor>
+        <username>Xaosflux</username>
+        <id>502540</id>
+      </contributor>
+      <minor/>
+      <comment>whitespace</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="186" xml:space="preserve">&lt;sup&gt;&lt;abbr title="{{int:gadgets-sister}}"&gt;(S)&lt;/abbr&gt;&lt;/sup&gt; [[Meta:MoreMenu|MoreMenu]]: add Page and User dropdown menus to the toolbar with links to common tasks, analytic tools and logs</text>
+      <sha1>4cn08tviazpv4stb88x0cir1p3lg89n</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-dropdown-menus-pagestyles</title>
+    <ns>8</ns>
+    <id>67554419</id>
+    <revision>
+      <id>1037965749</id>
+      <parentid>1037965705</parentid>
+      <timestamp>2021-08-09T18:43:28Z</timestamp>
+      <contributor>
+        <username>Xaosflux</username>
+        <id>502540</id>
+      </contributor>
+      <comment>Undid revision 1037965705 by [[Special:Contributions/Xaosflux|Xaosflux]] ([[User talk:Xaosflux|talk]])</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="45" xml:space="preserve">Components for [[m:MoreMenu|MoreMenu]] gadget</text>
+      <sha1>t8f7er05zlj5mp8ql4swiuyifwgluty</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-CategoryAboveAll</title>
+    <ns>8</ns>
+    <id>24954074</id>
+    <revision>
+      <id>707358611</id>
+      <parentid>323814388</parentid>
+      <timestamp>2016-02-28T11:25:36Z</timestamp>
+      <contributor>
+        <username>The Earwig</username>
+        <id>7418060</id>
+      </contributor>
+      <comment>standardize, simplify; remove note about Monobook since this seems to work on Vector too...</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="46" xml:space="preserve">Place the category box above all other content</text>
+      <sha1>o4zp3p2h1p4w7pdoc37yywpyem6xs3k</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-addsection-plus</title>
+    <ns>8</ns>
+    <id>17007353</id>
+    <revision>
+      <id>707358800</id>
+      <parentid>707358764</parentid>
+      <timestamp>2016-02-28T11:27:45Z</timestamp>
+      <contributor>
+        <username>The Earwig</username>
+        <id>7418060</id>
+      </contributor>
+      <minor/>
+      <comment>skipped a useful word</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="43" xml:space="preserve">Replace the "new section" tab text with "+"</text>
+      <sha1>7hd8n39tg29d47mjg6zs259ca3opch7</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-CommentsInLocalTime</title>
+    <ns>8</ns>
+    <id>21203493</id>
+    <revision>
+      <id>1102172105</id>
+      <parentid>1102171605</parentid>
+      <timestamp>2022-08-03T18:51:41Z</timestamp>
+      <contributor>
+        <username>Xaosflux</username>
+        <id>502540</id>
+      </contributor>
+      <comment>fix legend</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="237" xml:space="preserve">&lt;sup&gt;&lt;abbr title="{{int:gadgets-user}}"&gt;(U)&lt;/abbr&gt;&lt;/sup&gt; Change [[Coordinated Universal Time|UTC]]-based times and dates, such as those used in signatures, to be relative to local time ([[Wikipedia:Comments in Local Time|documentation]])</text>
+      <sha1>qumqadbx9221h9ubhni86tsiu7dqbox</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-OldDiff</title>
+    <ns>8</ns>
+    <id>35596888</id>
+    <revision>
+      <id>707359239</id>
+      <parentid>488884405</parentid>
+      <timestamp>2016-02-28T11:32:22Z</timestamp>
+      <contributor>
+        <username>The Earwig</username>
+        <id>7418060</id>
+      </contributor>
+      <comment>standardize</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="61" xml:space="preserve">Display diffs with the old yellow-and-green colors and design</text>
+      <sha1>rrwwv8f4v5938c10dh9uf09ul89ciox</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-NoAnimations</title>
+    <ns>8</ns>
+    <id>33332959</id>
+    <revision>
+      <id>707359262</id>
+      <parentid>509395159</parentid>
+      <timestamp>2016-02-28T11:32:34Z</timestamp>
+      <contributor>
+        <username>The Earwig</username>
+        <id>7418060</id>
+      </contributor>
+      <comment>standardize</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="35" xml:space="preserve">Disable animations in the interface</text>
+      <sha1>8u81yagw97xowehncri15al7vval51w</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-disablesuggestions</title>
+    <ns>8</ns>
+    <id>42080672</id>
+    <revision>
+      <id>597653156</id>
+      <timestamp>2014-03-01T11:26:07Z</timestamp>
+      <contributor>
+        <username>TheDJ</username>
+        <id>244887</id>
+      </contributor>
+      <comment>disable search suggestions</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="59" xml:space="preserve">Disable the suggestions dropdown-lists of the search fields</text>
+      <sha1>pbq09whwddea5hf6n5biz2ljsz7jiyf</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-NoSmallFonts</title>
+    <ns>8</ns>
+    <id>29824409</id>
+    <revision>
+      <id>707359311</id>
+      <parentid>509395203</parentid>
+      <timestamp>2016-02-28T11:33:17Z</timestamp>
+      <contributor>
+        <username>The Earwig</username>
+        <id>7418060</id>
+      </contributor>
+      <comment>standardize</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="86" xml:space="preserve">Disable smaller font sizes of elements such as infoboxes, navboxes and reference lists</text>
+      <sha1>qeod18srx2td7988ut592ltx6zh2qh6</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-topalert</title>
+    <ns>8</ns>
+    <id>39331568</id>
+    <revision>
+      <id>707359375</id>
+      <parentid>555104423</parentid>
+      <timestamp>2016-02-28T11:33:56Z</timestamp>
+      <contributor>
+        <username>The Earwig</username>
+        <id>7418060</id>
+      </contributor>
+      <comment>formatting</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="51" xml:space="preserve">Display a floating alert for new talk page messages</text>
+      <sha1>tc57a5vb34ztp527ok8ucvf4h5ixu8w</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-metadata</title>
+    <ns>8</ns>
+    <id>16198230</id>
+    <revision>
+      <id>707359453</id>
+      <parentid>680747570</parentid>
+      <timestamp>2016-02-28T11:34:47Z</timestamp>
+      <contributor>
+        <username>The Earwig</username>
+        <id>7418060</id>
+      </contributor>
+      <comment>standardize</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="150" xml:space="preserve">Display an [[:Category:Wikipedia 1.0 assessments|assessment]] of an article's quality in its page header ([[Wikipedia:Metadata gadget|documentation]])</text>
+      <sha1>ef0fxwig2h1ir6d5zq5pb88kkwgy69r</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-JustifyParagraphs</title>
+    <ns>8</ns>
+    <id>41880796</id>
+    <revision>
+      <id>707359496</id>
+      <parentid>686305728</parentid>
+      <timestamp>2016-02-28T11:35:12Z</timestamp>
+      <contributor>
+        <username>The Earwig</username>
+        <id>7418060</id>
+      </contributor>
+      <comment>standardize</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="18" xml:space="preserve">Justify paragraphs</text>
+      <sha1>jo7ov5q13ewbshewxa7x86cqcp3wjl0</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-righteditlinks</title>
+    <ns>8</ns>
+    <id>39337696</id>
+    <revision>
+      <id>707359510</id>
+      <parentid>554172611</parentid>
+      <timestamp>2016-02-28T11:35:19Z</timestamp>
+      <contributor>
+        <username>The Earwig</username>
+        <id>7418060</id>
+      </contributor>
+      <comment>standardize</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="57" xml:space="preserve">Move section [edit] links to the right side of the screen</text>
+      <sha1>4n2e28ek969q6u67tl6xg00slnhvhjx</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-PrettyLog</title>
+    <ns>8</ns>
+    <id>30322182</id>
+    <revision>
+      <id>707359736</id>
+      <parentid>406110855</parentid>
+      <timestamp>2016-02-28T11:37:55Z</timestamp>
+      <contributor>
+        <username>The Earwig</username>
+        <id>7418060</id>
+      </contributor>
+      <comment>standardize</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="159" xml:space="preserve">[[commons:Help:Gadget-PrettyLog|PrettyLog]]: format [[Special:Log|log]] pages like [[Special:Search|search]] results, and add small thumbnails for file uploads</text>
+      <sha1>dzurhpk6sqv5f014qu8bpnkm4i3z0oe</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-switcher</title>
+    <ns>8</ns>
+    <id>44569448</id>
+    <revision>
+      <id>1064337566</id>
+      <parentid>1019204278</parentid>
+      <timestamp>2022-01-07T21:10:46Z</timestamp>
+      <contributor>
+        <username>Xaosflux</username>
+        <id>502540</id>
+      </contributor>
+      <minor/>
+      <comment>+whitespace</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="140" xml:space="preserve">&lt;sup&gt;&lt;abbr title="{{int:gadgets-default}}"&gt;(D)&lt;/abbr&gt;&lt;/sup&gt; Show radio buttons to switch between views of certain content, such as some maps</text>
+      <sha1>f1xh7kiwnlkliovj4mqldb0qgsf4qra</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-SidebarTranslate</title>
+    <ns>8</ns>
+    <id>41208888</id>
+    <revision>
+      <id>707359890</id>
+      <parentid>583561450</parentid>
+      <timestamp>2016-02-28T11:39:27Z</timestamp>
+      <contributor>
+        <username>The Earwig</username>
+        <id>7418060</id>
+      </contributor>
+      <comment>standardize</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="95" xml:space="preserve">[[User:Equazcion/SidebarTranslate|SidebarTranslate]]: display sidebar language links in English</text>
+      <sha1>gjzx2d4tcombq96i8k2zc4tzy94lmau</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-Blackskin</title>
+    <ns>8</ns>
+    <id>15335996</id>
+    <revision>
+      <id>777393522</id>
+      <parentid>707359828</parentid>
+      <timestamp>2017-04-26T22:33:34Z</timestamp>
+      <contributor>
+        <username>TheDJ</username>
+        <id>244887</id>
+      </contributor>
+      <comment>don't need to specify that in the description. gadgets only show in the skins they are compatible with for a long time now.</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="38" xml:space="preserve">Use a black background with green text</text>
+      <sha1>o0aolt4gngqwnims4sdpv2kzoijkco0</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-dark-mode-toggle</title>
+    <ns>8</ns>
+    <id>69511786</id>
+    <revision>
+      <id>1063463225</id>
+      <parentid>1060653295</parentid>
+      <timestamp>2022-01-03T06:06:55Z</timestamp>
+      <contributor>
+        <username>MusikAnimal</username>
+        <id>14882394</id>
+      </contributor>
+      <comment>link to new docs</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="121" xml:space="preserve">[[Wikipedia:Dark mode (gadget)|Dark mode]] toggle: Enable a toggle for using a light text on dark background color scheme</text>
+      <sha1>d8yb2ijr1qmgu9mrdldx0gpqn2m2j2s</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-VectorClassic</title>
+    <ns>8</ns>
+    <id>42393703</id>
+    <revision>
+      <id>602632597</id>
+      <parentid>602632234</parentid>
+      <timestamp>2014-04-03T20:43:01Z</timestamp>
+      <contributor>
+        <username>Edokter</username>
+        <id>1624037</id>
+      </contributor>
+      <comment>c/e</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="62" xml:space="preserve">Vector classic typography (use only sans-serif in Vector skin)</text>
+      <sha1>g9nydw9kky2v7d1ms2541cf98u225ol</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-widensearch</title>
+    <ns>8</ns>
+    <id>27368621</id>
+    <revision>
+      <id>847973487</id>
+      <parentid>362446521</parentid>
+      <timestamp>2018-06-29T00:59:55Z</timestamp>
+      <contributor>
+        <username>Deskana</username>
+        <id>309128</id>
+      </contributor>
+      <comment>remove full stop for consistency with other gadget descriptions</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="39" xml:space="preserve">Widen the search box in the Vector skin</text>
+      <sha1>2p4jfqy8o5osr6j9g8b86kexocmycy9</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-DisambiguationLinks</title>
+    <ns>8</ns>
+    <id>51081262</id>
+    <revision>
+      <id>729947214</id>
+      <timestamp>2016-07-15T17:55:22Z</timestamp>
+      <contributor>
+        <username>Kaldari</username>
+        <id>59944</id>
+      </contributor>
+      <comment>creating description</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="71" xml:space="preserve">Display links to [[Help:Disambiguation|disambiguation pages]] in orange</text>
+      <sha1>ij8rcmfxpe2ckagjvifh4kom7cpkwdi</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-markblocked</title>
+    <ns>8</ns>
+    <id>51081269</id>
+    <revision>
+      <id>729947445</id>
+      <timestamp>2016-07-15T17:57:22Z</timestamp>
+      <contributor>
+        <username>Kaldari</username>
+        <id>59944</id>
+      </contributor>
+      <comment>creating</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="43" xml:space="preserve">Strike out usernames that have been blocked</text>
+      <sha1>ruu6k9981arsbirqhdv307mummc8qt8</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-responsiveContent</title>
+    <ns>8</ns>
+    <id>53371267</id>
+    <revision>
+      <id>847973684</id>
+      <parentid>768401491</parentid>
+      <timestamp>2018-06-29T01:01:34Z</timestamp>
+      <contributor>
+        <username>Deskana</username>
+        <id>309128</id>
+      </contributor>
+      <comment>standardise with other gadget descriptions</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="104" xml:space="preserve">Improved appearance for mobile, narrow and wide screens ([[User:TheDJ/responsiveContent|documentation]])</text>
+      <sha1>duwymm82gigxf46nw04gz4mvwo48uuw</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-responsiveContentTimeless</title>
+    <ns>8</ns>
+    <id>55872382</id>
+    <revision>
+      <id>1064336232</id>
+      <parentid>1019204289</parentid>
+      <timestamp>2022-01-07T21:00:29Z</timestamp>
+      <contributor>
+        <username>Xaosflux</username>
+        <id>502540</id>
+      </contributor>
+      <minor/>
+      <comment>+whitespace</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="109" xml:space="preserve">&lt;sup&gt;&lt;abbr title="{{int:gadgets-default}}"&gt;(D)&lt;/abbr&gt;&lt;/sup&gt; Improved appearance for mobile and narrow screens</text>
+      <sha1>691nfc42gvt8sjacpc0yz203en6xw7y</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-HideInterwikiSearchResults</title>
+    <ns>8</ns>
+    <id>54394778</id>
+    <revision>
+      <id>787591057</id>
+      <timestamp>2017-06-26T08:31:54Z</timestamp>
+      <contributor>
+        <username>TheDJ</username>
+        <id>244887</id>
+      </contributor>
+      <comment>[[WP:AES|←]]Created page with 'Do not show search results for sister projects on the search results page'</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="73" xml:space="preserve">Do not show search results for sister projects on the search results page</text>
+      <sha1>ogjzrmgy1h4bsfsr8ef98eqe3lc8mb3</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-XTools-ArticleInfo</title>
+    <ns>8</ns>
+    <id>55154023</id>
+    <revision>
+      <id>847973724</id>
+      <parentid>799166416</parentid>
+      <timestamp>2018-06-29T01:02:01Z</timestamp>
+      <contributor>
+        <username>Deskana</username>
+        <id>309128</id>
+      </contributor>
+      <comment>standardise with other gadget descriptions</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="95" xml:space="preserve">[[mw:XTools|XTools]]: dynamically show statistics about a page's history under the page heading</text>
+      <sha1>jj3dkx7lknbt7oviqhakr3d9bbrjhvz</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-RegexMenuFramework</title>
+    <ns>8</ns>
+    <id>22543882</id>
+    <revision>
+      <id>1102172803</id>
+      <parentid>707360156</parentid>
+      <timestamp>2022-08-03T18:56:36Z</timestamp>
+      <contributor>
+        <username>Xaosflux</username>
+        <id>502540</id>
+      </contributor>
+      <comment>+legend</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="220" xml:space="preserve">&lt;sup&gt;&lt;abbr title="{{int:gadgets-sister}}"&gt;(S)&lt;/abbr&gt;&lt;/sup&gt; Add a sidebar menu of user-defined regex tools, with a dynamic form for instant one-use regex ([[m:User:Pathoschild/Scripts/Regex menu framework|documentation]])</text>
+      <sha1>1y6dbcl7tchsy46jsfl0s61f8t94vjd</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-ShowMessageNames</title>
+    <ns>8</ns>
+    <id>33356534</id>
+    <revision>
+      <id>707360174</id>
+      <parentid>608865929</parentid>
+      <timestamp>2016-02-28T11:42:33Z</timestamp>
+      <contributor>
+        <username>The Earwig</username>
+        <id>7418060</id>
+      </contributor>
+      <comment>standardize</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="107" xml:space="preserve">Add a toolbox link to reload the current page with the [[Special:AllMessages|system message names]] exposed</text>
+      <sha1>a4auu64nn0byxwaar0mh2wemjf24kda</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-DebugMode</title>
+    <ns>8</ns>
+    <id>39367204</id>
+    <revision>
+      <id>707360188</id>
+      <parentid>608865614</parentid>
+      <timestamp>2016-02-28T11:42:41Z</timestamp>
+      <contributor>
+        <username>The Earwig</username>
+        <id>7418060</id>
+      </contributor>
+      <comment>standardize</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="122" xml:space="preserve">Add a toolbox link to reload the current page with Resource Loader in [[mw:ResourceLoader/Features#Debug mode|debug mode]]</text>
+      <sha1>b2hdubios2vznyr1cttolucxatewxhw</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-contribsrange</title>
+    <ns>8</ns>
+    <id>16419689</id>
+    <revision>
+      <id>919911280</id>
+      <parentid>707360489</parentid>
+      <timestamp>2019-10-06T16:00:13Z</timestamp>
+      <contributor>
+        <username>Amorymeltzer</username>
+        <id>141948</id>
+      </contributor>
+      <minor/>
+      <comment>11 years later, I don't think we need to link to this specific section</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="199" xml:space="preserve">Allow /16, /24 and /27 &amp;ndash; /32 [[CIDR]] ranges on [[Special:Contributions]] forms, as well as wildcard prefix searches (e.g., "Splark*") ([[MediaWiki talk:Gadget-contribsrange.js|report issues]])</text>
+      <sha1>b8ki4b2za8lo8fer5oowuwxz2prktoh</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-BugStatusUpdate</title>
+    <ns>8</ns>
+    <id>34713144</id>
+    <revision>
+      <id>707360213</id>
+      <parentid>642874292</parentid>
+      <timestamp>2016-02-28T11:42:58Z</timestamp>
+      <contributor>
+        <username>The Earwig</username>
+        <id>7418060</id>
+      </contributor>
+      <comment>standardize</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="69" xml:space="preserve">Enable tracking bugs on Phabricator using the {{tl|tracked}} template</text>
+      <sha1>5jhpuu1a9015dy2a7m6yaokdf0qe89n</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-RTRC</title>
+    <ns>8</ns>
+    <id>36555315</id>
+    <revision>
+      <id>1102172671</id>
+      <parentid>707360541</parentid>
+      <timestamp>2022-08-03T18:55:41Z</timestamp>
+      <contributor>
+        <username>Xaosflux</username>
+        <id>502540</id>
+      </contributor>
+      <comment>+legend</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="194" xml:space="preserve">&lt;sup&gt;&lt;abbr title="{{int:gadgets-sister}}"&gt;(S)&lt;/abbr&gt;&lt;/sup&gt; [[m:User:Krinkle/RTRC-docs|Real-Time Recent Changes]]: patrol recent changes in real-time (unpatrolled filter only works for new pages)</text>
+      <sha1>94cg5n2l6gb3chdpoyno8jl5do2vfhr</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-script-installer</title>
+    <ns>8</ns>
+    <id>60176006</id>
+    <revision>
+      <id>1017274705</id>
+      <parentid>920649909</parentid>
+      <timestamp>2021-04-11T21:10:51Z</timestamp>
+      <contributor>
+        <username>Xaosflux</username>
+        <id>502540</id>
+      </contributor>
+      <comment>expand</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="118" xml:space="preserve">Install scripts without having to manually edit JavaScript files ([[User:Enterprisey/script-installer|documentation]])</text>
+      <sha1>5ta97trtn8kgz8oevtsb0ckmgc6kaf8</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-XFDcloser</title>
+    <ns>8</ns>
+    <id>62343111</id>
+    <revision>
+      <id>926134634</id>
+      <timestamp>2019-11-14T12:59:37Z</timestamp>
+      <contributor>
+        <username>Evad37</username>
+        <id>16958448</id>
+      </contributor>
+      <comment>Create description for XFDcloser gadget</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="102" xml:space="preserve">[[WP:XFDC|XFDcloser]]: close deletion discussions at XfD venues, including actions to implement closes</text>
+      <sha1>jpq4eg6nwvncvwojhs5c6t9cpsaz5jk</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-XFDcloser-core</title>
+    <ns>8</ns>
+    <id>67563757</id>
+    <revision>
+      <id>1021180569</id>
+      <timestamp>2021-05-03T10:14:44Z</timestamp>
+      <contributor>
+        <username>Xaosflux</username>
+        <id>502540</id>
+      </contributor>
+      <comment>init</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="35" xml:space="preserve">Components for the XFDcloser gadget</text>
+      <sha1>n8b3eewg39oemz4tbkwxo4ptpq4zt1p</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-XFDcloser-core-beta</title>
+    <ns>8</ns>
+    <id>67563763</id>
+    <revision>
+      <id>1021180698</id>
+      <timestamp>2021-05-03T10:15:59Z</timestamp>
+      <contributor>
+        <username>Xaosflux</username>
+        <id>502540</id>
+      </contributor>
+      <comment>init</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="44" xml:space="preserve">Beta testing components for XFDcloser gadget</text>
+      <sha1>i190shrgqbo1re0v2fq7zpmd80z6zog</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-libExtraUtil</title>
+    <ns>8</ns>
+    <id>62343641</id>
+    <revision>
+      <id>926157176</id>
+      <parentid>926145248</parentid>
+      <timestamp>2019-11-14T16:07:32Z</timestamp>
+      <contributor>
+        <username>Evad37</username>
+        <id>16958448</id>
+      </contributor>
+      <minor/>
+      <comment>Evad37 moved page [[MediaWiki:Gadget-extra]] to [[MediaWiki:Gadget-libExtraUtil]] without leaving a redirect: more descriptive gadget name, per [[WP:IANB#XFDcloser gadgetification]]</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="76" xml:space="preserve">Utility gadget. You should not be able to see this from Special:Preferences.</text>
+      <sha1>3sd6ksu8cwhet8ci4itzp2q6ewmxxey</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-mobile-sidebar</title>
+    <ns>8</ns>
+    <id>44100064</id>
+    <revision>
+      <id>708600865</id>
+      <parentid>707360564</parentid>
+      <timestamp>2016-03-06T14:05:42Z</timestamp>
+      <contributor>
+        <username>Xaosflux</username>
+        <id>502540</id>
+      </contributor>
+      <comment>note Vector only, see talk - phab issue tracked</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="120" xml:space="preserve">Mobile sidebar preview: show page in mobile view while browsing the desktop site ([[Wikipedia:Vector|Vector]] skin only)</text>
+      <sha1>26e2ub06bviadz67o5qvzy9nrim8mol</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-addMe</title>
+    <ns>8</ns>
+    <id>48812313</id>
+    <revision>
+      <id>1064345883</id>
+      <parentid>1047565695</parentid>
+      <timestamp>2022-01-07T22:10:52Z</timestamp>
+      <contributor>
+        <username>Xaosflux</username>
+        <id>502540</id>
+      </contributor>
+      <minor/>
+      <comment>whitespace</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="128" xml:space="preserve">&lt;sup&gt;&lt;abbr title="{{int:gadgets-sister}}"&gt;(S)&lt;/abbr&gt;&lt;/sup&gt; [[m:Meta:AddMe|AddMe]]: endorse or join a project using {{tl|Probox}}</text>
+      <sha1>snmat54asvhw4w1hjy8j5yblcb39rll</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-NewImageThumb</title>
+    <ns>8</ns>
+    <id>41614380</id>
+    <revision>
+      <id>720208568</id>
+      <parentid>720208495</parentid>
+      <timestamp>2016-05-14T11:03:56Z</timestamp>
+      <contributor>
+        <username>Edokter</username>
+        <id>1624037</id>
+      </contributor>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="122" xml:space="preserve">New image thumb design, and other minor styling tweaks (TOC, categories). [[MediaWiki talk:Gadget-NewImageThumb|Discuss]].</text>
+      <sha1>ilcwexenfbb53eshofl7qzk55yn64ih</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-StickyTableHeaders</title>
+    <ns>8</ns>
+    <id>53619534</id>
+    <revision>
+      <id>1043594222</id>
+      <parentid>831194673</parentid>
+      <timestamp>2021-09-10T22:27:08Z</timestamp>
+      <contributor>
+        <username>Izno</username>
+        <id>2927383</id>
+      </contributor>
+      <comment>adjust per req</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="125" xml:space="preserve">Make headers of tables display as long as the table is in view, i.e. "sticky" (requires Chrome v91+, Firefox v59+, or Safari)</text>
+      <sha1>0fqsdv9oi57pe78co3ku2xbjfp8pwyp</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-MobileMaps</title>
+    <ns>8</ns>
+    <id>54608260</id>
+    <revision>
+      <id>791477816</id>
+      <timestamp>2017-07-20T14:43:20Z</timestamp>
+      <contributor>
+        <username>TheDJ</username>
+        <id>244887</id>
+      </contributor>
+      <comment>[[WP:AES|←]]Created page with 'Add map popups to coordinates in the mobile website'</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="51" xml:space="preserve">Add map popups to coordinates in the mobile website</text>
+      <sha1>ltwf6cjw8gttzuwtz6qy6adjwgpoxie</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-ShowJavascriptErrors</title>
+    <ns>8</ns>
+    <id>55002250</id>
+    <revision>
+      <id>1029288722</id>
+      <parentid>796848551</parentid>
+      <timestamp>2021-06-19T02:05:33Z</timestamp>
+      <contributor>
+        <username>Enterprisey</username>
+        <id>16663390</id>
+      </contributor>
+      <comment>per talk page req</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="51" xml:space="preserve">
+Show an alert when you encounter JavaScript errors</text>
+      <sha1>kr1l21i8q5cvadfdltwrbw965bn0brx</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-PageDescriptions</title>
+    <ns>8</ns>
+    <id>57039780</id>
+    <revision>
+      <id>866180070</id>
+      <parentid>834393614</parentid>
+      <timestamp>2018-10-28T19:58:45Z</timestamp>
+      <contributor>
+        <username>Amorymeltzer</username>
+        <id>141948</id>
+      </contributor>
+      <comment>Link to [[Wikipedia:Short description]] per talk page request</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="122" xml:space="preserve">Show [[Wikipedia:Short description|page description]] beneath the page title (not compatible with Page assessments gadget)</text>
+      <sha1>pbbzt2f97ekemu2o1sfm86ubjz6c09w</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-autonum</title>
+    <ns>8</ns>
+    <id>69276552</id>
+    <revision>
+      <id>1059970272</id>
+      <parentid>1059970071</parentid>
+      <timestamp>2021-12-12T19:06:33Z</timestamp>
+      <contributor>
+        <username>Oshwah</username>
+        <id>3174456</id>
+      </contributor>
+      <minor/>
+      <comment>Expand.</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="140" xml:space="preserve">Auto-number headings: Adds hierarchical outline-style numbering to headers in articles ([[:mw:Snippets/Auto-number headings|documentation]])</text>
+      <sha1>1ob5kgjqwrktjb7d7yspg214f22b6wk</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-libLua</title>
+    <ns>8</ns>
+    <id>52361258</id>
+    <revision>
+      <id>759540479</id>
+      <parentid>751116384</parentid>
+      <timestamp>2017-01-11T20:06:12Z</timestamp>
+      <contributor>
+        <username>Kaldari</username>
+        <id>59944</id>
+      </contributor>
+      <comment>Utility gadget. You should not be able to see this from Special:Preferences.</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="76" xml:space="preserve">Utility gadget. You should not be able to see this from Special:Preferences.</text>
+      <sha1>3sd6ksu8cwhet8ci4itzp2q6ewmxxey</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-libSensitiveIPs</title>
+    <ns>8</ns>
+    <id>52361254</id>
+    <revision>
+      <id>759540523</id>
+      <parentid>751116345</parentid>
+      <timestamp>2017-01-11T20:06:28Z</timestamp>
+      <contributor>
+        <username>Kaldari</username>
+        <id>59944</id>
+      </contributor>
+      <comment>Utility gadget. You should not be able to see this from Special:Preferences.</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="76" xml:space="preserve">Utility gadget. You should not be able to see this from Special:Preferences.</text>
+      <sha1>3sd6ksu8cwhet8ci4itzp2q6ewmxxey</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:Gadget-dark-mode</title>
+    <ns>8</ns>
+    <id>67466994</id>
+    <revision>
+      <id>1060653490</id>
+      <parentid>1060653010</parentid>
+      <timestamp>2021-12-16T21:09:11Z</timestamp>
+      <contributor>
+        <username>Xaosflux</username>
+        <id>502540</id>
+      </contributor>
+      <comment>exp</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="137" xml:space="preserve">Core styling for dark mode gadget (Use the [[#mw-input-wpgadget-dark-mode-toggle|dark mode toggle gadget above]] to control this feature)</text>
+      <sha1>dcszw3sqkrobel0sbnzhm0t1snntlpv</sha1>
+    </revision>
+  </page>
+</mediawiki>
