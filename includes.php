@@ -50,7 +50,7 @@ function insert_wiki_data( string $wiki, string $creator, int $created, string $
 function wiki_add_patches( string $wiki, array $patches ) {
 	global $mysqli;
 	$stmt = $mysqli->prepare( 'UPDATE wikis SET patches = ? WHERE wiki = ?' );
-	$patches = json_encode( $patches );
+	$patches = json_encode_clean( $patches );
 	$stmt->bind_param( 'ss', $patches, $wiki );
 	$stmt->execute();
 	$stmt->close();
@@ -59,7 +59,7 @@ function wiki_add_patches( string $wiki, array $patches ) {
 function wiki_add_announced_tasks( string $wiki, array $announcedTasks ) {
 	global $mysqli;
 	$stmt = $mysqli->prepare( 'UPDATE wikis SET announcedTasks = ? WHERE wiki = ?' );
-	$announcedTasks = json_encode( $announcedTasks );
+	$announcedTasks = json_encode_clean( $announcedTasks );
 	$stmt->bind_param( 'ss', $announcedTasks, $wiki );
 	$stmt->execute();
 	$stmt->close();
@@ -603,4 +603,8 @@ function check_csrf_token( string $token ): bool {
 		return false;
 	}
 	return $_SESSION['csrf_token'] === $token;
+}
+
+function json_encode_clean( $value ) {
+	return json_encode( $value, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES );
 }

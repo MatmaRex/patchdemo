@@ -29,7 +29,7 @@ if ( !$canCreate ) {
 			'disabled' => ( $repo === 'mediawiki/core' ),
 		];
 	}
-	$repoBranches = htmlspecialchars( json_encode( $repoBranches ), ENT_NOQUOTES );
+	$repoBranches = htmlspecialchars( json_encode_clean( $repoBranches ), ENT_NOQUOTES );
 	echo "<script>window.repoBranches = $repoBranches;</script>\n";
 
 	$presets = get_repo_presets();
@@ -37,7 +37,7 @@ if ( !$canCreate ) {
 	foreach ( $presets as $name => $repos ) {
 		$presets[$name] = array_values( array_intersect( $repos, $reposValid ) );
 	}
-	$presets = htmlspecialchars( json_encode( $presets ), ENT_NOQUOTES );
+	$presets = htmlspecialchars( json_encode_clean( $presets ), ENT_NOQUOTES );
 	echo "<script>window.presets = $presets;</script>\n";
 
 	include_once 'ComboBoxInputWidget.php';
@@ -426,8 +426,8 @@ echo '<table class="wikis">' .
 
 echo '<script>
 window.pd = window.pd || {};
-pd.wikiPatches = ' . json_encode( $wikiPatches ) . ';
-pd.config = ' . json_encode( [
+pd.wikiPatches = ' . json_encode_clean( $wikiPatches ) . ';
+pd.config = ' . json_encode_clean( [
 	'phabricatorUrl' => $config['phabricatorUrl'],
 	'gerritUrl' => $config['gerritUrl'],
 ] ) . ';
