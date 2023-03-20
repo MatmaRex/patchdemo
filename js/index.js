@@ -101,8 +101,10 @@
 		var presetInput = OO.ui.infuse( $( '.form-preset' ) );
 		var reposInput = OO.ui.infuse( $( '.form-repos' ) );
 		var reposField = OO.ui.infuse( $( '.form-repos-field' ) );
-		var branchSelect = OO.ui.infuse( $( '.form-branch' ) );
+		// Branch select is currently broken (#527)
+		// var branchSelect = OO.ui.infuse( $( '.form-branch' ) );
 
+		/*
 		branchSelect.on( 'change', function () {
 			var branch = branchSelect.value;
 			for ( var repo in window.repoBranches ) {
@@ -113,6 +115,7 @@
 			}
 			reposInput.emit( 'change' );
 		} );
+		*/
 
 		var reposFieldLabel = reposField.getLabel();
 
@@ -166,8 +169,9 @@
 		$( '.copyWiki' ).on( 'click', function ( e ) {
 			var params = new URL( this.href ).searchParams;
 			patchesInput.setValue( params.get( 'patches' ) ? params.get( 'patches' ).split( ',' ) : [] );
-			branchSelect.setValue( 'origin/' + params.get( 'branch' ) );
-			branchSelect.scrollElementIntoView( { padding: { top: $( 'header' ).height() + 10 } } );
+			// branchSelect.setValue( 'origin/' + params.get( 'branch' ) );
+			// branchSelect.scrollElementIntoView( { padding: { top: $( 'header' ).height() + 10 } } );
+			patchesInput.scrollElementIntoView( { padding: { top: $( 'header' ).height() + 10 } } );
 			landingPageInput.setValue( params.get( 'landingPage' ) );
 			e.preventDefault();
 		} );

@@ -19,7 +19,9 @@ if ( !isset( $_POST['csrf_token'] ) || !check_csrf_token( $_POST['csrf_token'] )
 
 $startTime = time();
 
-$branch = trim( $_POST['branch'] );
+// Branch select is currently broken (#527)
+// $branch = trim( $_POST['branch'] );
+$branch = 'origin/master';
 $patches = trim( $_POST['patches'] );
 $announce = !empty( $_POST['announce'] );
 $landingPage = trim( $_POST['landingPage'] ) ? trim( $_POST['landingPage'] ) : null;

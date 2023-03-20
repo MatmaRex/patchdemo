@@ -53,18 +53,19 @@ if ( !$canCreate ) {
 			new OOUI\FieldsetLayout( [
 				'label' => null,
 				'items' => array_filter( [
-					new OOUI\FieldLayout(
-						new OOUI\DropdownInputWidget( [
-							'classes' => [ 'form-branch' ],
-							'name' => 'branch',
-							'options' => $branchOptions,
-							'value' => !empty( $_GET['branch' ] ) ? 'origin/' . $_GET['branch' ] : null
-						] ),
-						[
-							'label' => 'Start with version:',
-							'align' => 'left',
-						]
-					),
+					// Branch select is currently broken (#527)
+					// new OOUI\FieldLayout(
+					// 	new OOUI\DropdownInputWidget( [
+					// 		'classes' => [ 'form-branch' ],
+					// 		'name' => 'branch',
+					// 		'options' => $branchOptions,
+					// 		'value' => !empty( $_GET['branch' ] ) ? 'origin/' . $_GET['branch' ] : null
+					// 	] ),
+					// 	[
+					// 		'label' => 'Start with version:',
+					// 		'align' => 'left',
+					// 	]
+					// ),
 					new OOUI\FieldLayout(
 						new PatchSelectWidget( [
 							'classes' => [ 'form-patches' ],
@@ -76,7 +77,7 @@ if ( !$canCreate ) {
 						[
 							'classes' => [ 'form-patches-layout' ],
 							'infusable' => true,
-							'label' => 'Then, apply patches:',
+							'label' => 'Apply patches:',
 							'help' => 'Gerrit changeset number or Change-Id, one per line',
 							'helpInline' => true,
 							'align' => 'left',
