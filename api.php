@@ -8,7 +8,7 @@ $data = null;
 
 function error( string $msg ) {
 	http_response_code( 400 );
-	echo json_encode( [
+	echo json_encode_clean( [
 		'error' => $msg
 	] );
 	die();
@@ -103,4 +103,4 @@ switch ( $_GET['action'] ) {
 		break;
 }
 
-echo json_encode( $data ?: [] );
+echo json_encode_clean( $data ?: [] );

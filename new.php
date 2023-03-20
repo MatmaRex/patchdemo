@@ -77,7 +77,7 @@ EOT;
 
 function abandon( string $errHtml ) {
 	global $wiki;
-	$errJson = json_encode( $errHtml );
+	$errJson = json_encode_clean( $errHtml );
 	echo <<<EOT
 		<script>
 			pd.installProgressField.fieldWidget.setDisabled( true );
@@ -92,7 +92,7 @@ EOT;
 
 function set_progress( float $pc, string $label ) {
 	echo '<p>' . htmlspecialchars( $label ) . '</p>';
-	$labelJson = json_encode( $label );
+	$labelJson = json_encode_clean( $label );
 	echo <<<EOT
 		<script>
 			pd.installProgressField.fieldWidget.setProgress( $pc );
