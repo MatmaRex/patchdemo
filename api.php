@@ -60,6 +60,44 @@ switch ( $_GET['action'] ) {
 			}
 		}
 		break;
+
+	case 'findwikis':
+		if ( empty( $_GET['change'] ) ) {
+			error( 'Missing param "change"' );
+		}
+		$change = $_GET['change'];
+		// Patches in JSON look like "CHANGENUM,PS"
+		$stmt = $mysqli->prepare( '
+			SELECT wiki, creator, UNIX_TIMESTAMP( created ) created, patches, landingPage
+			FROM wikis
+			WHERE !deleted AND patches LIKE CONCAT( \'%"\', ?, \',%\' )
+			ORDER BY created ASC
+		' );
+		if ( !$stmt ) {
+			die( $mysqli->error );
+		}
+		$stmt->bind_param( 's', $change );
+		$stmt->execute();
+		$results = $stmt->get_result();
+		if ( !$results ) {
+			die( $mysqli->error );
+		}
+
+		$server = get_server();
+		$serverPath = get_server_path();
+
+		while ( $wiki = $results->fetch_assoc() ) {
+			$data[] = [
+				'wiki' => $wiki['wiki'],
+				'creator' => $wiki['creator'],
+				'created' => date( 'Y-m-d H:i:s', $wiki['created'] ),
+				'patches' => json_decode( $wiki['patches'] ),
+				'url' => "$server$serverPath/" . get_wiki_url( $wiki['wiki'], $wiki['landingPage'] ),
+			];
+		}
+
+		break;
+
 	default:
 		error( 'Invalid action' );
 		break;
