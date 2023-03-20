@@ -62,6 +62,19 @@ ignore_user_abort( true );
 // Will be updated later.
 insert_wiki_data( $wiki, $creator, $created, $branchDesc, $landingPage );
 
+function warn( string $warnHtml ) {
+	$warnJson = json_encode( $warnHtml );
+	echo <<<EOT
+		<script>
+			pd.installProgressField.setWarnings(
+				pd.installProgressField.warnings.concat(
+					[ new OO.ui.HtmlSnippet( $warnJson ) ]
+				)
+			);
+		</script>
+EOT;
+}
+
 function abandon( string $errHtml ) {
 	global $wiki;
 	$errJson = json_encode( $errHtml );
@@ -589,26 +602,30 @@ if ( $announce && count( $linkedTasks ) ) {
 	set_progress( 95, 'Posting to Phabricator...' );
 
 	foreach ( $linkedTasks as $task ) {
-		post_phab_comment(
-			'T' . $task,
-			"Test wiki **created** on [[ $server$serverPath | Patch demo ]]" . ( $creator ? ' by ' . $creator : '' ) . " using patch(es) linked to this task:" .
-			"\n" .
-			"$server$serverPath/" . get_wiki_url( $wiki, $landingPage ) .
-			( $hasOOUI ?
-				"\n\n" .
-				"Also created an **OOUI Demos** page:" .
+		try {
+			post_phab_comment(
+				'T' . $task,
+				"Test wiki **created** on [[ $server$serverPath | Patch demo ]]" . ( $creator ? ' by ' . $creator : '' ) . " using patch(es) linked to this task:" .
 				"\n" .
-				"$server$serverPath/wikis/$wiki/w/build/ooui/demos"
-				: ""
-			) .
-			( $hasCodex ?
-				"\n\n" .
-				"Also created a **Codex documentation** site:" .
-				"\n" .
-				"$server$serverPath/wikis/$wiki/w/build/codex/docs"
-				: ""
-			)
-		);
+				"$server$serverPath/" . get_wiki_url( $wiki, $landingPage ) .
+				( $hasOOUI ?
+					"\n\n" .
+					"Also created an **OOUI Demos** page:" .
+					"\n" .
+					"$server$serverPath/wikis/$wiki/w/build/ooui/demos"
+					: ""
+				) .
+				( $hasCodex ?
+					"\n\n" .
+					"Also created a **Codex documentation** site:" .
+					"\n" .
+					"$server$serverPath/wikis/$wiki/w/build/codex/docs"
+					: ""
+				)
+			);
+		} catch ( Exception $e ) {
+			warn( "Could not post announcement to Phabricator. See log for details." );
+		}
 	}
 	wiki_add_announced_tasks( $wiki, $linkedTasks );
 }
