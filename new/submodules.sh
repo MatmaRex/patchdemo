@@ -1,12 +1,13 @@
 #!/bin/bash
 set -ex
 
-if [ -d $PATCHDEMO/wikis/$NAME/w/extensions/VisualEditor ]; then
+# Check for contents in the folder (#527)
+if [ -f $PATCHDEMO/wikis/$NAME/w/extensions/VisualEditor/.git ]; then
 	cd $PATCHDEMO/wikis/$NAME/w/extensions/VisualEditor
 	git submodule update --init --recursive
 fi
 
-if [ -d $PATCHDEMO/wikis/$NAME/w/extensions/WikiLambda ]; then
+if [ -f $PATCHDEMO/wikis/$NAME/w/extensions/WikiLambda/.git ]; then
 	cd $PATCHDEMO/wikis/$NAME/w/extensions/WikiLambda
 	git submodule update --init --recursive
 fi
