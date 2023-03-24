@@ -244,7 +244,7 @@ foreach ( $patches as &$patch ) {
 		check_connection();
 		if ( !is_trusted_user( $uploader['email'] ) ) {
 			if ( $canAdmin ) {
-				echo '<form method="POST" action="" id="resubmit-form"><input type="hidden" name="adminVerified" value="1">';
+				echo '<form method="POST" action=""><input type="hidden" name="adminVerified" value="1">';
 				foreach ( $_POST as $k => $v ) {
 					if ( is_array( $v ) ) {
 						foreach ( $v as $part ) {
@@ -254,29 +254,16 @@ foreach ( $patches as &$patch ) {
 						echo '<input type="hidden" name="' . htmlentities( $k ) . '" value="' . htmlentities( $v ) . '">';
 					}
 				}
+				echo "<p>If you are confident all the patches are safe, as an admin you can bypass these checks:</p>";
+				echo new OOUI\ButtonInputWidget( [
+					'type' => 'submit',
+					'label' => 'Bypass verification',
+					'icon' => 'unLock',
+					'flags' => [ 'destructive', 'primary' ],
+				] );
 				echo '</form>';
 			}
-			abandon(
-				"Patch must be approved (Verified+2) by jenkins-bot, or uploaded by a trusted user." .
-				( can_admin() ?
-					"<p>If you are confident all the patches are safe, as an admin you can bypass these checks:</p>" .
-					new OOUI\ButtonWidget( [
-						'classes' => [ 'resubmit-button' ],
-						'label' => 'Bypass verification',
-						'icon' => 'unLock',
-						'flags' => [ 'destructive', 'primary' ],
-						'infusable' => true,
-					] ) .
-					"<script>
-						$( '.resubmit-button' ).each( function () {
-							OO.ui.infuse( this ).on( 'click', function () {
-								document.getElementById( 'resubmit-form' ).submit();
-							} );
-						} );
-					</script>"
-					 : ""
-				)
-			);
+			abandon( "Patch must be approved (Verified+2) by jenkins-bot, or uploaded by a trusted user." );
 		}
 	}
 
