@@ -1,12 +1,10 @@
-/* global OO, pd */
-
 ( function () {
 	pd.patchIndex = {};
 
 	// Sort patches for comparison later. It doesn't matter
 	// that Array#sort is lexicographical.
-	for ( var wiki in pd.wikiPatches ) {
-		var patchKey = pd.wikiPatches[ wiki ].sort().join( '|' );
+	for ( const wiki in pd.wikiPatches ) {
+		const patchKey = pd.wikiPatches[ wiki ].sort().join( '|' );
 		if ( patchKey ) {
 			pd.patchIndex[ patchKey ] = pd.patchIndex[ patchKey ] || [];
 			pd.patchIndex[ patchKey ].push( wiki );
@@ -15,7 +13,7 @@
 }() );
 
 window.PatchSelectWidget = function PatchSelectWidget( config ) {
-	var widget = this;
+	const widget = this;
 
 	this.$formInput = $( '<input>' ).attr( {
 		type: 'hidden',
@@ -47,11 +45,11 @@ window.PatchSelectWidget.static.patchCache = {};
 window.PatchSelectWidget.prototype.getTagInfoFromInput = function ( value ) {
 	value = value || this.input.getValue();
 
-	var gerritUrlPattern = new RegExp( pd.config.gerritUrl + '.*?/([0-9]+(?:/[0-9]+)?)/?$' );
+	const gerritUrlPattern = new RegExp( pd.config.gerritUrl + '.*?/([0-9]+(?:/[0-9]+)?)/?$' );
 
 	value = value.trim();
 
-	var matches = value.match( gerritUrlPattern );
+	const matches = value.match( gerritUrlPattern );
 	if ( matches ) {
 		value = matches[ 1 ].replace( '/', ',' );
 	}
@@ -62,10 +60,10 @@ window.PatchSelectWidget.prototype.getTagInfoFromInput = function ( value ) {
 };
 
 window.PatchSelectWidget.prototype.addTagFromInput = function () {
-	var widget = this;
+	const widget = this;
 	// Handle multi line inputs, e.g. from paste
 	// TODO: Upstream?
-	var tagInfos = this.input.getValue().trim().split( /[ \n]/ )
+	const tagInfos = this.input.getValue().trim().split( /[ \n]/ )
 		.map( this.getTagInfoFromInput.bind( this ) );
 
 	tagInfos.forEach( function ( tagInfo ) {
@@ -77,9 +75,9 @@ window.PatchSelectWidget.prototype.addTagFromInput = function () {
 
 window.PatchSelectWidget.prototype.onInputKeyPress = function ( e ) {
 	if ( !this.isDisabled() ) {
-		var stopOrContinue;
+		let stopOrContinue;
 		if ( e.which === OO.ui.Keys.SPACE ) {
-			var withMetaKey = e.metaKey || e.ctrlKey;
+			const withMetaKey = e.metaKey || e.ctrlKey;
 			stopOrContinue = this.doInputEnter( e, withMetaKey );
 		}
 
@@ -95,7 +93,7 @@ window.PatchSelectWidget.prototype.onInputKeyPress = function ( e ) {
 };
 
 window.PatchSelectWidget.prototype.createTagItemWidget = function () {
-	var widget = this,
+	const widget = this,
 		patchCache = this.constructor.static.patchCache,
 		// eslint-disable-next-line max-len
 		item = window.PatchSelectWidget.super.prototype.createTagItemWidget.apply( this, arguments ),
@@ -114,7 +112,7 @@ window.PatchSelectWidget.prototype.createTagItemWidget = function () {
 			$.Deferred().reject( 'Invalid patch number' ).promise()
 	);
 	patchCache[ patch ].then( function ( response ) {
-		var data = { input: patch };
+		const data = { input: patch };
 		if ( !response.length ) {
 			return $.Deferred().reject( 'Could not find patch' ).promise();
 		} else if ( response.length > 1 ) {
@@ -160,7 +158,7 @@ window.PatchSelectWidget.prototype.onChangeTags = function () {
 	this.$formInput.val(
 		// Join items with a pipe as the hidden input is single line
 		this.items.map( function ( item ) {
-			var data = item.getData();
+			const data = item.getData();
 			return data.r ?
 				// 'latest' means the user didn't specify a patchset, and so wants the latest one.
 				( data.latest ? data.r : data.r + ',' + data.p ) :
@@ -168,9 +166,9 @@ window.PatchSelectWidget.prototype.onChangeTags = function () {
 		} ).join( '|' )
 	);
 
-	var linkedTasks = {};
+	const linkedTasks = {};
 	this.items.forEach( function ( item ) {
-		var data = item.getData();
+		const data = item.getData();
 		if ( data.linkedTasks ) {
 			data.linkedTasks.forEach( function ( task ) {
 				linkedTasks[ task ] = true;
@@ -180,8 +178,8 @@ window.PatchSelectWidget.prototype.onChangeTags = function () {
 
 	this.emit( 'linkedTasks', Object.keys( linkedTasks ) );
 
-	var patchKey = this.items.map( function ( item ) {
-		var data = item.getData();
+	const patchKey = this.items.map( function ( item ) {
+		const data = item.getData();
 		return data.r + ',' + data.p;
 	} ).sort().join( '|' );
 	this.emit( 'matchWikis', pd.patchIndex[ patchKey ] );
@@ -195,8 +193,8 @@ window.PatchSelectWidget.prototype.doInputBackspace = function ( e, withMetaKey 
 		!this.isEmpty()
 	) {
 		// Delete the last item
-		var items = this.getItems();
-		var item = items[ items.length - 1 ];
+		const items = this.getItems();
+		const item = items[ items.length - 1 ];
 
 		if ( !item.isDisabled() && !item.isFixed() ) {
 			this.removeItems( [ item ] );

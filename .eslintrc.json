@@ -1,6 +1,10 @@
 {
 	"extends": [
-		"wikimedia/client",
+		"wikimedia/client-es6",
 		"wikimedia/jquery"
-	]
+	],
+	"globals": {
+		"OO": "readonly",
+		"pd": "writable"
+	}
 }
