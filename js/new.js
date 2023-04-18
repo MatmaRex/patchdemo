@@ -11,7 +11,7 @@
 		document.getElementsByClassName( 'openWiki' )[ 0 ]
 	);
 
-	pd.notify = function ( message, body ) {
+	pd.notify = ( message, body ) => {
 		if ( 'Notification' in window && +localStorage.getItem( 'patchdemo-notifications' ) ) {
 			// eslint-disable-next-line no-new
 			new Notification(

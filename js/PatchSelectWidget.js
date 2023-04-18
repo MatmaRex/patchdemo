@@ -13,8 +13,6 @@
 }() );
 
 window.PatchSelectWidget = function PatchSelectWidget( config ) {
-	const widget = this;
-
 	this.$formInput = $( '<input>' ).attr( {
 		type: 'hidden',
 		name: config.name
@@ -29,8 +27,8 @@ window.PatchSelectWidget = function PatchSelectWidget( config ) {
 
 	// Assume that a whole patch number was pasted
 	// TODO: Upstream?
-	this.input.$input.on( 'paste', function () {
-		setTimeout( widget.doInputEnter.bind( widget ) );
+	this.input.$input.on( 'paste', () => {
+		setTimeout( this.doInputEnter.bind( this ) );
 	} );
 
 	this.$element
@@ -60,15 +58,14 @@ window.PatchSelectWidget.prototype.getTagInfoFromInput = function ( value ) {
 };
 
 window.PatchSelectWidget.prototype.addTagFromInput = function () {
-	const widget = this;
 	// Handle multi line inputs, e.g. from paste
 	// TODO: Upstream?
 	const tagInfos = this.input.getValue().trim().split( /[ \n]/ )
 		.map( this.getTagInfoFromInput.bind( this ) );
 
-	tagInfos.forEach( function ( tagInfo ) {
-		if ( tagInfo && widget.addTag( tagInfo.data, tagInfo.label ) ) {
-			widget.clearInput();
+	tagInfos.forEach( ( tagInfo ) => {
+		if ( tagInfo && this.addTag( tagInfo.data, tagInfo.label ) ) {
+			this.clearInput();
 		}
 	} );
 };
@@ -93,8 +90,7 @@ window.PatchSelectWidget.prototype.onInputKeyPress = function ( e ) {
 };
 
 window.PatchSelectWidget.prototype.createTagItemWidget = function () {
-	const widget = this,
-		patchCache = this.constructor.static.patchCache,
+	const patchCache = this.constructor.static.patchCache,
 		// eslint-disable-next-line max-len
 		item = window.PatchSelectWidget.super.prototype.createTagItemWidget.apply( this, arguments ),
 		patch = item.getData().trim();
@@ -111,7 +107,7 @@ window.PatchSelectWidget.prototype.createTagItemWidget = function () {
 			$.get( 'api.php', { action: 'patchmeta', patch: patch } ) :
 			$.Deferred().reject( 'Invalid patch number' ).promise()
 	);
-	patchCache[ patch ].then( function ( response ) {
+	patchCache[ patch ].then( ( response ) => {
 		const data = { input: patch };
 		if ( !response.length ) {
 			return $.Deferred().reject( 'Could not find patch' ).promise();
@@ -141,12 +137,12 @@ window.PatchSelectWidget.prototype.createTagItemWidget = function () {
 			)
 		);
 		// Update input after ID normalization
-		widget.onChangeTags();
-		widget.updateInputSize();
-	} ).then( null, function ( err ) {
+		this.onChangeTags();
+		this.updateInputSize();
+	} ).then( null, ( err ) => {
 		item.setLabel( item.getData().input + ': ' + err );
 		item.toggleValid( false );
-		widget.updateInputSize();
+		this.updateInputSize();
 	} );
 
 	return item;
@@ -157,7 +153,7 @@ window.PatchSelectWidget.prototype.onChangeTags = function () {
 
 	this.$formInput.val(
 		// Join items with a pipe as the hidden input is single line
-		this.items.map( function ( item ) {
+		this.items.map( ( item ) => {
 			const data = item.getData();
 			return data.r ?
 				// 'latest' means the user didn't specify a patchset, and so wants the latest one.
@@ -167,10 +163,10 @@ window.PatchSelectWidget.prototype.onChangeTags = function () {
 	);
 
 	const linkedTasks = {};
-	this.items.forEach( function ( item ) {
+	this.items.forEach( ( item ) => {
 		const data = item.getData();
 		if ( data.linkedTasks ) {
-			data.linkedTasks.forEach( function ( task ) {
+			data.linkedTasks.forEach( ( task ) => {
 				linkedTasks[ task ] = true;
 			} );
 		}
@@ -178,7 +174,7 @@ window.PatchSelectWidget.prototype.onChangeTags = function () {
 
 	this.emit( 'linkedTasks', Object.keys( linkedTasks ) );
 
-	const patchKey = this.items.map( function ( item ) {
+	const patchKey = this.items.map( ( item ) => {
 		const data = item.getData();
 		return data.r + ',' + data.p;
 	} ).sort().join( '|' );
