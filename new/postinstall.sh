@@ -23,6 +23,12 @@ if [ -f $PATCHDEMO/wikis/$NAME/w/maintenance/resetUserEmail.php ]; then
 	php $PATCHDEMO/wikis/$NAME/w/maintenance/resetUserEmail.php --no-reset-password "Mallory" Mallory@localhost
 fi
 
+# if AntiSpoof is installed, run the maintenance script to pick up accounts created
+# during installation (e.g. "Patch Demo")
+if [ -f $PATCHDEMO/wikis/$NAME/w/extensions/AntiSpoof/maintenance/batchAntiSpoof.php ]; then
+	php $PATCHDEMO/wikis/$NAME/w/extensions/AntiSpoof/maintenance/batchAntiSpoof.php
+fi
+
 # run arbitrary SQL
 for sql in $(find $PATCHDEMO/sql-perwiki -name "*.sql" -not -type d -printf '%P\n')
 do
