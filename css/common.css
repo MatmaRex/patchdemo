@@ -65,7 +65,7 @@ header {
 	color: transparent;
 }
 
-.logo:after {
+.logo::after {
 	content: ' ';
 	position: absolute;
 	top: 0;
@@ -80,7 +80,7 @@ header {
 	text-decoration: none;
 }
 
-.logo:hover:after {
+.logo:hover::after {
 	/* #2a4b8d */
 	filter: invert( 24% ) sepia( 13% ) saturate( 5585% ) hue-rotate( 195deg ) brightness( 98% ) contrast( 87% );
 }
@@ -91,7 +91,7 @@ header {
 		margin-right: 1em;
 	}
 
-	.logo:after {
+	.logo::after {
 		display: none;
 	}
 }
@@ -190,24 +190,24 @@ summary > .oo-ui-labelElement-label:not( .oo-ui-inline-help ) {
 	margin-top: -6px;
 }
 
-.status-ABANDONED:before {
+.status-ABANDONED::before {
 	content: '✗';
 }
 
-.status-MERGED:before {
+.status-MERGED::before {
 	content: '✓';
 }
 
-.status-DNM:before {
+.status-DNM::before {
 	content: '🛇';
 }
 
-.status-declined:before,
-.status-invalid:before {
+.status-declined::before,
+.status-invalid::before {
 	content: '✗';
 }
 
-.status-resolved:before {
+.status-resolved::before {
 	content: '✓';
 }
 
@@ -332,7 +332,7 @@ summary > .oo-ui-labelElement-label:not( .oo-ui-inline-help ) {
 		max-width: none;
 	}
 
-	.wikis td:before {
+	.wikis td::before {
 		content: attr( data-label );
 		font-size: 80%;
 		display: block;
