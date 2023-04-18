@@ -1,15 +1,13 @@
-/* global OO */
-
 /* eslint-disable no-jquery/no-global-selector */
 
 ( function () {
 	window.pd = window.pd || {};
 
-	var form = document.getElementById( 'new-form' );
+	const form = document.getElementById( 'new-form' );
 	if ( form ) {
-		var submit = OO.ui.infuse( $( '.form-submit' ) );
-		var patchesInput = OO.ui.infuse( $( '.form-patches' ) );
-		var patchesLayout = OO.ui.infuse( $( '.form-patches-layout' ) );
+		const submit = OO.ui.infuse( $( '.form-submit' ) );
+		const patchesInput = OO.ui.infuse( $( '.form-patches' ) );
+		const patchesLayout = OO.ui.infuse( $( '.form-patches-layout' ) );
 
 		form.addEventListener( 'submit', function ( e ) {
 			// Blur is not fired on patchesInput, so call manually
@@ -43,21 +41,21 @@
 			);
 		} );
 
-		var landingPageInput = OO.ui.infuse( $( '.form-landingPage' ) );
+		const landingPageInput = OO.ui.infuse( $( '.form-landingPage' ) );
 
 		if ( $( '.form-announce' ).length ) {
-			var announceLayout = OO.ui.infuse( $( '.form-announce-layout' ) );
-			var taskLabel = new OO.ui.LabelWidget( { classes: [ 'form-announce-taskList' ] } );
+			const announceLayout = OO.ui.infuse( $( '.form-announce-layout' ) );
+			const taskLabel = new OO.ui.LabelWidget( { classes: [ 'form-announce-taskList' ] } );
 			announceLayout.$field.append( taskLabel.$element );
 
-			// eslint-disable-next-line es-x/no-block-scoped-functions, no-inner-declarations
+			// eslint-disable-next-line no-inner-declarations
 			function updateLinkedTasks( linkedTasks ) {
-				var $label = $( [] );
+				let $label = $( [] );
 				if ( !linkedTasks.length ) {
 					$label = $( '<em>' ).text( 'No linked tasks found.' );
 				} else {
 					linkedTasks.forEach( function ( task ) {
-						var id = 'T' + task;
+						const id = 'T' + task;
 						if ( $label.length ) {
 							$label = $label.add( document.createTextNode( ', ' ) );
 						}
@@ -79,10 +77,10 @@
 		}
 
 		if ( $( '.closedWikis' ).length ) {
-			var $wikisTable = $( '.wikis' );
-			var closedWikis = OO.ui.infuse( $( '.closedWikis' ) );
+			const $wikisTable = $( '.wikis' );
+			const closedWikis = OO.ui.infuse( $( '.closedWikis' ) );
 
-			// eslint-disable-next-line es-x/no-block-scoped-functions, no-inner-declarations
+			// eslint-disable-next-line no-inner-declarations
 			function updateTableClasses() {
 				$wikisTable.toggleClass( 'hideOpen', !!closedWikis.isSelected() );
 			}
@@ -90,7 +88,7 @@
 			closedWikis.on( 'change', updateTableClasses );
 
 			if ( $( '.showClosedButton' ).length ) {
-				var showClosedButton = OO.ui.infuse( $( '.showClosedButton' ) );
+				const showClosedButton = OO.ui.infuse( $( '.showClosedButton' ) );
 				showClosedButton.on( 'click', function () {
 					closedWikis.setSelected( true );
 					updateTableClasses();
@@ -98,15 +96,15 @@
 			}
 		}
 
-		var presetInput = OO.ui.infuse( $( '.form-preset' ) );
-		var reposInput = OO.ui.infuse( $( '.form-repos' ) );
-		var reposField = OO.ui.infuse( $( '.form-repos-field' ) );
-		var branchSelect = OO.ui.infuse( $( '.form-branch' ) );
+		const presetInput = OO.ui.infuse( $( '.form-preset' ) );
+		const reposInput = OO.ui.infuse( $( '.form-repos' ) );
+		const reposField = OO.ui.infuse( $( '.form-repos-field' ) );
+		const branchSelect = OO.ui.infuse( $( '.form-branch' ) );
 
 		branchSelect.on( 'change', function () {
-			var branch = branchSelect.value;
-			for ( var repo in window.repoBranches ) {
-				var validBranch = window.repoBranches[ repo ].indexOf( branch ) !== -1;
+			const branch = branchSelect.value;
+			for ( const repo in window.repoBranches ) {
+				const validBranch = window.repoBranches[ repo ].indexOf( branch ) !== -1;
 				reposInput.checkboxMultiselectWidget
 					.findItemFromData( repo )
 					.setDisabled( !validBranch || repo === 'mediawiki/core' );
@@ -114,10 +112,10 @@
 			reposInput.emit( 'change' );
 		} );
 
-		var reposFieldLabel = reposField.getLabel();
+		const reposFieldLabel = reposField.getLabel();
 
 		presetInput.on( 'change', OO.ui.debounce( function () {
-			var val = presetInput.getValue();
+			const val = presetInput.getValue();
 			if ( val === 'custom' ) {
 				reposField.$body[ 0 ].open = true;
 			}
@@ -126,9 +124,9 @@
 			}
 		} ) );
 		reposInput.on( 'change', OO.ui.debounce( function () {
-			var val = reposInput.getValue();
-			var matchingPresetName = 'custom';
-			for ( var presetName in window.presets ) {
+			const val = reposInput.getValue();
+			let matchingPresetName = 'custom';
+			for ( const presetName in window.presets ) {
 				if ( window.presets[ presetName ].sort().join( '|' ) === val.sort().join( '|' ) ) {
 					matchingPresetName = presetName;
 					break;
@@ -138,7 +136,7 @@
 				presetInput.setValue( matchingPresetName );
 			}
 
-			var selected = 0, enabled = 0;
+			let selected = 0, enabled = 0;
 			reposInput.checkboxMultiselectWidget.items.forEach( function ( option ) {
 				if ( !option.isDisabled() ) {
 					enabled++;
@@ -153,18 +151,18 @@
 
 		reposInput.emit( 'change' );
 
-		var instantCommonsCheckbox = OO.ui.infuse( $( '.form-instantCommons' ) );
-		var instantCommonsMethodDropdown = OO.ui.infuse( $( '.form-instantCommonsMethod' ) );
+		const instantCommonsCheckbox = OO.ui.infuse( $( '.form-instantCommons' ) );
+		const instantCommonsMethodDropdown = OO.ui.infuse( $( '.form-instantCommonsMethod' ) );
 
 		instantCommonsCheckbox.on( 'change', function ( value ) {
 			instantCommonsMethodDropdown.setDisabled( !value );
 		} );
 
-		var languageInput = OO.ui.infuse( $( '.form-language' ) );
+		const languageInput = OO.ui.infuse( $( '.form-language' ) );
 		languageInput.setValidation( /^[a-z-]{2,}$/ );
 
 		$( '.copyWiki' ).on( 'click', function ( e ) {
-			var params = new URL( this.href ).searchParams;
+			const params = new URL( this.href ).searchParams;
 			patchesInput.setValue( params.get( 'patches' ) ? params.get( 'patches' ).split( ',' ) : [] );
 			branchSelect.setValue( 'origin/' + params.get( 'branch' ) );
 			branchSelect.scrollElementIntoView( { padding: { top: $( 'header' ).height() + 10 } } );
@@ -173,16 +171,16 @@
 		} );
 
 		if ( 'Notification' in window ) {
-			var notifField = OO.ui.infuse( document.getElementsByClassName( 'enableNotifications' )[ 0 ] );
+			const notifField = OO.ui.infuse( document.getElementsByClassName( 'enableNotifications' )[ 0 ] );
 			// Enable placholder widget so field label isn't greyed out
 			notifField.fieldWidget.setDisabled( false );
-			var notifFieldLabel = notifField.getLabel();
+			const notifFieldLabel = notifField.getLabel();
 
-			var notifToggle = new OO.ui.ToggleButtonWidget( {
+			const notifToggle = new OO.ui.ToggleButtonWidget( {
 				icon: 'bellOutline'
 			} );
 
-			var onRequestPermission = function ( permission ) {
+			const onRequestPermission = function ( permission ) {
 				notifToggle.setValue( permission === 'granted' );
 				if ( permission === 'granted' ) {
 					notifField.setLabel( 'You will get a browser notification when your wiki is ready' );
@@ -192,7 +190,7 @@
 				}
 			};
 
-			var onNotifChange = function ( value ) {
+			const onNotifChange = function ( value ) {
 				if ( !value ) {
 					localStorage.setItem( 'patchdemo-notifications', '0' );
 					notifField.setLabel( notifFieldLabel );
@@ -211,7 +209,7 @@
 		}
 	}
 
-	var $lastMatch = $( [] );
+	let $lastMatch = $( [] );
 	$( window ).on( 'hashchange', function () {
 		if ( location.hash.match( /^#[0-9a-f]{10}$/ ) ) {
 			$lastMatch.removeClass( 'highlight' );

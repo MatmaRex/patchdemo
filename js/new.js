@@ -1,4 +1,3 @@
-/* global OO, pd */
 ( function () {
 	window.pd = window.pd || {};
 
