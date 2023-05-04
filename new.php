@@ -588,13 +588,14 @@ if ( $error ) {
 if ( $announce && count( $linkedTasks ) ) {
 	set_progress( 95, 'Posting to Phabricator...' );
 
+	$wikiUrl = "$server$serverPath/" . get_wiki_url( $wiki, $landingPage );
 	foreach ( $linkedTasks as $task ) {
 		try {
 			post_phab_comment(
 				'T' . $task,
 				"Test wiki **created** on [[ $server$serverPath | Patch demo ]]" . ( $creator ? ' by ' . $creator : '' ) . " using patch(es) linked to this task:" .
 				"\n" .
-				"$server$serverPath/" . get_wiki_url( $wiki, $landingPage ) .
+				"[[ $wikiUrl ]]" .
 				( $hasOOUI ?
 					"\n\n" .
 					"Also created an **OOUI Demos** page:" .
