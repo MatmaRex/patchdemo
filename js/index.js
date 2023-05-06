@@ -160,7 +160,7 @@
 		const languageInput = OO.ui.infuse( $( '.form-language' ) );
 		languageInput.setValidation( /^[a-z-]{2,}$/ );
 
-		$( '.copyWiki' ).on( 'click', ( e ) => {
+		$( '.copyWiki' ).on( 'click', function ( e ) {
 			const params = new URL( this.href ).searchParams;
 			patchesInput.setValue( params.get( 'patches' ) ? params.get( 'patches' ).split( ',' ) : [] );
 			branchSelect.setValue( 'origin/' + params.get( 'branch' ) );
