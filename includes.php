@@ -230,7 +230,7 @@ function get_task_data( int $task ): array {
 		] )->getResult();
 		
 		if ( $maniphestData === null ) {
-		// Either task is private or does not exist
+			// Either task is private or does not exist
 			return [
 				'id' => 'T' . $task,
 				'task' => $task,
