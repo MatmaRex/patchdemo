@@ -228,6 +228,17 @@ function get_task_data( int $task ): array {
 		$maniphestData = $api->Maniphest( 'info', [
 			'task_id' => $task
 		] )->getResult();
+		
+		if ( $maniphestData === null ) {
+		// Either task is private or does not exist
+			return [
+				'id' => 'T' . $task,
+				'task' => $task,
+				'title' => '',
+				'status' => '',
+				'updated' => time(),
+			];
+		}
 		$title = $maniphestData['title'];
 		$status = $maniphestData['status'];
 
