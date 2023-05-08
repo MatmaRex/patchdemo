@@ -229,18 +229,14 @@ function get_task_data( int $task ): array {
 			'task_id' => $task
 		] )->getResult();
 
-		if ( $maniphestData === null ) {
-			// Either task is private or does not exist
-			return [
-				'id' => 'T' . $task,
-				'task' => $task,
-				'title' => '',
-				'status' => '',
-				'updated' => time(),
-			];
+		if ( $maniphestData ) {
+			$title = $maniphestData['title'];
+			$status = $maniphestData['status'];
+		} else {
+			// e.g. security-restricted tasks
+			$title = '';
+			$status = 'unknown';
 		}
-		$title = $maniphestData['title'];
-		$status = $maniphestData['status'];
 
 		// Update cache
 		$stmt = $mysqli->prepare( '
