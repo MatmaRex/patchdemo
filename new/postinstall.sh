@@ -140,5 +140,5 @@ cp $PATCHDEMO/images/favicon.ico $PATCHDEMO/wikis/$NAME/w/
 
 # Populate ORES database if selected
 if [ -d $PATCHDEMO/wikis/$NAME/w/extensions/ORES ]; then
-	php $PATCHDEMO/wikis/$NAME/w/extensions/ORES/maintenance/PopulateDatabase.php.php
+	php $PATCHDEMO/wikis/$NAME/w/extensions/ORES/maintenance/PopulateDatabase.php
 fi
