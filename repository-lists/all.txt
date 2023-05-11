@@ -46,6 +46,7 @@ mediawiki/extensions/MediaSearch extensions/MediaSearch
 mediawiki/extensions/MultimediaViewer extensions/MultimediaViewer
 mediawiki/extensions/Nuke extensions/Nuke
 mediawiki/extensions/OATHAuth extensions/OATHAuth
+mediawiki/extensions/ORES extensions/ORES
 mediawiki/extensions/PageImages extensions/PageImages
 mediawiki/extensions/PageTriage extensions/PageTriage
 mediawiki/extensions/PageViewInfo extensions/PageViewInfo
