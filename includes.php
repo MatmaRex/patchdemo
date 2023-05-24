@@ -98,8 +98,8 @@ function get_wiki_data( string $wiki ): array {
 
 function get_wiki_data_from_row( array $data ): array {
 	// Decode JSON
-	$data['patches'] = json_decode( $data['patches'] ) ?: [];
-	$data['announcedTasks'] = json_decode( $data['announcedTasks'] ) ?: [];
+	$data['patches'] = json_decode( $data['patches'] ?: '' ) ?: [];
+	$data['announcedTasks'] = json_decode( $data['announcedTasks'] ?: '' ) ?: [];
 
 	// Populate patch list
 	$patchList = [];
@@ -435,7 +435,7 @@ function get_repo_data( string $pathPrefix = 'w/' ): array {
 function get_branches( string $repo ): array {
 	$gitcmd = "git --git-dir=" . __DIR__ . "/repositories/$repo/.git";
 	// basically `git branch -r`, but without the silly parts
-	$branches = explode( "\n", shell_exec( "$gitcmd for-each-ref refs/remotes/origin/ --format='%(refname:short)'" ) );
+	$branches = explode( "\n", shell_exec( "$gitcmd for-each-ref refs/remotes/origin/ --format='%(refname:short)'" ) ?: '' );
 	return $branches;
 }
 
