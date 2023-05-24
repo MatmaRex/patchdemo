@@ -3,6 +3,7 @@
 require_once "includes.php";
 
 header( 'Content-Type: application/json' );
+header( 'Access-Control-Allow-Origin: *' );
 
 $data = null;
 
