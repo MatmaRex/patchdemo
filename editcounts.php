@@ -51,10 +51,27 @@ $results = $mysqli->query( 'SELECT wiki, landingPage FROM wikis WHERE !deleted O
 if ( !$results ) {
 	die( $mysqli->error );
 }
+
+$update = isset( $_POST['update'] );
+
+echo '<div class="consoleLog">';
+
 $wikis = [];
 while ( $data = $results->fetch_assoc() ) {
 	$wiki = $data['wiki'];
 	$wikis[$wiki] = $data;
+
+	if ( $update ) {
+		$cmd = make_shell_command(
+			[
+				'PATCHDEMO' => __DIR__,
+				'NAME' => $wiki,
+			],
+			'sh -c \'php $PATCHDEMO/wikis/$NAME/w/maintenance/initSiteStats.php --update --active\''
+		);
+		shell_echo( $cmd );
+	}
+
 	$stats = $mysqli->query( "
 			SELECT *,
 			( SELECT MAX( rev_timestamp ) FROM patchdemo_$wiki.revision ) AS last_edit
@@ -66,9 +83,34 @@ while ( $data = $results->fetch_assoc() ) {
 	}
 }
 
+echo '</div>';
+
 uksort( $wikis, static function ( $a, $b ) use ( $wikis ) {
 	return ( $wikis[ $b ][ 'ss_total_edits' ] ?? -1 ) <=> ( $wikis[ $a ][ 'ss_total_edits' ] ?? -1 );
 } );
+
+echo new OOUI\FormLayout( [
+	'method' => 'POST',
+	'items' => [
+		new OOUI\FieldsetLayout( [
+			'label' => null,
+			'items' => [
+				new OOUI\FieldLayout(
+					new OOUI\ButtonInputWidget( [
+						'classes' => [ 'form-submit' ],
+						'label' => 'Update stats',
+						'type' => 'submit',
+						'name' => 'update',
+						'flags' => [ 'progressive' ]
+					] ),
+					[
+						'align' => 'inline',
+					]
+				),
+			]
+		] ),
+	]
+] );
 
 echo '<table class="wikis"><tr class="headerRow"><th>Wiki</th>';
 foreach ( $short_fields as $field => $fieldMeta ) {
