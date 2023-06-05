@@ -50,8 +50,25 @@ function insert_wiki_data( string $wiki, string $creator, int $created, string $
 function wiki_add_patches( string $wiki, array $patches ) {
 	global $mysqli;
 	$stmt = $mysqli->prepare( 'UPDATE wikis SET patches = ? WHERE wiki = ?' );
-	$patches = json_encode_clean( $patches );
-	$stmt->bind_param( 'ss', $patches, $wiki );
+	$patchesJSON = json_encode_clean( $patches );
+	$stmt->bind_param( 'ss', $patchesJSON, $wiki );
+	$stmt->execute();
+	$stmt->close();
+}
+
+/**
+ * Store which repos were used to create a wiki
+ *
+ * @param string $wiki Wiki
+ * @param array $repos Array of indexed arrays, each item contains:
+ *  'preset': The preset used, and if this is 'custom' then..
+ *  'repos': The full list of repos
+ */
+function wiki_add_repos( string $wiki, array $repos ) {
+	global $mysqli;
+	$stmt = $mysqli->prepare( 'UPDATE wikis SET repos = ? WHERE wiki = ?' );
+	$reposJSON = json_encode_clean( $repos );
+	$stmt->bind_param( 'ss', $reposJSON, $wiki );
 	$stmt->execute();
 	$stmt->close();
 }
@@ -59,8 +76,8 @@ function wiki_add_patches( string $wiki, array $patches ) {
 function wiki_add_announced_tasks( string $wiki, array $announcedTasks ) {
 	global $mysqli;
 	$stmt = $mysqli->prepare( 'UPDATE wikis SET announcedTasks = ? WHERE wiki = ?' );
-	$announcedTasks = json_encode_clean( $announcedTasks );
-	$stmt->bind_param( 'ss', $announcedTasks, $wiki );
+	$announcedTasksJSON = json_encode_clean( $announcedTasks );
+	$stmt->bind_param( 'ss', $announcedTasksJSON, $wiki );
 	$stmt->execute();
 	$stmt->close();
 }
@@ -77,7 +94,7 @@ function get_wiki_data( string $wiki ): array {
 	global $mysqli;
 
 	$stmt = $mysqli->prepare( '
-		SELECT wiki, creator, UNIX_TIMESTAMP( created ) created, patches, branch, announcedTasks, landingPage, timeToCreate, deleted, ready
+		SELECT wiki, creator, UNIX_TIMESTAMP( created ) created, patches, branch, repos, announcedTasks, landingPage, timeToCreate, deleted, ready
 		FROM wikis WHERE wiki = ?
 	' );
 	if ( !$stmt ) {
@@ -100,6 +117,7 @@ function get_wiki_data_from_row( array $data ): array {
 	// Decode JSON
 	$data['patches'] = json_decode( $data['patches'] ?: '' ) ?: [];
 	$data['announcedTasks'] = json_decode( $data['announcedTasks'] ?: '' ) ?: [];
+	$data['repos'] = json_decode( $data['repos'] ?: '', true ) ?: [ 'preset' => 'unknown' ];
 
 	// Populate patch list
 	$patchList = [];
@@ -433,6 +451,10 @@ function get_repo_data( string $pathPrefix = 'w/' ): array {
 	}
 
 	return $repos;
+}
+
+function get_repo_label( string $repo ): string {
+	return preg_replace( '`^mediawiki/(extensions/)?`', '', $repo );
 }
 
 function get_branches( string $repo ): array {

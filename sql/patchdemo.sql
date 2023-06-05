@@ -54,3 +54,6 @@ ALTER TABLE `wikis`
 -- ...but we actually want the default to be zero
 ALTER TABLE `wikis`
 	CHANGE COLUMN `ready` `ready` BIT NOT NULL DEFAULT 0 AFTER `deleted`;
+
+ALTER TABLE `wikis`
+	ADD COLUMN IF NOT EXISTS `repos` TEXT NULL AFTER `branch`;
