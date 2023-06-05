@@ -282,6 +282,15 @@ summary > .oo-ui-labelElement-label:not( .oo-ui-inline-help ) {
 	white-space: nowrap;
 }
 
+.wikis tr.notReady {
+	color: #999;
+}
+
+.wikis tr.notReady .wiki::after {
+	content: 'Creating...';
+	display: block;
+}
+
 @media ( max-width: 720px ) {
 	.oo-ui-fieldLayout-align-left > .oo-ui-fieldLayout-body {
 		flex-wrap: wrap;

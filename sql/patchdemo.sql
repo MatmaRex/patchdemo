@@ -44,4 +44,13 @@ ALTER TABLE `wikis`
 	ADD COLUMN IF NOT EXISTS `branch` VARCHAR(64) NOT NULL AFTER `patches`;
 
 ALTER TABLE `wikis`
-	ADD COLUMN `landingPage` VARCHAR(255) NULL DEFAULT NULL AFTER `announcedTasks`;
+	ADD COLUMN IF NOT EXISTS `landingPage` VARCHAR(255) NULL DEFAULT NULL AFTER `announcedTasks`;
+
+-- The default is initally set to 1 so any existing wikis are marked as installed
+-- This only runs if the column doesn't exist yet
+ALTER TABLE `wikis`
+	ADD COLUMN IF NOT EXISTS `ready` BIT NOT NULL DEFAULT 1 AFTER `deleted`;
+
+-- ...but we actually want the default to be zero
+ALTER TABLE `wikis`
+	CHANGE COLUMN `ready` `ready` BIT NOT NULL DEFAULT 0 AFTER `deleted`;
