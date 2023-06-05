@@ -65,9 +65,9 @@ function wiki_add_announced_tasks( string $wiki, array $announcedTasks ) {
 	$stmt->close();
 }
 
-function wiki_set_time_to_create( string $wiki, int $timeToCreate ) {
+function wiki_set_ready( string $wiki, int $timeToCreate ) {
 	global $mysqli;
-	$stmt = $mysqli->prepare( 'UPDATE wikis SET timeToCreate = ? WHERE wiki = ?' );
+	$stmt = $mysqli->prepare( 'UPDATE wikis SET ready = 1, timeToCreate = ? WHERE wiki = ?' );
 	$stmt->bind_param( 'is', $timeToCreate, $wiki );
 	$stmt->execute();
 	$stmt->close();
@@ -77,7 +77,7 @@ function get_wiki_data( string $wiki ): array {
 	global $mysqli;
 
 	$stmt = $mysqli->prepare( '
-		SELECT wiki, creator, UNIX_TIMESTAMP( created ) created, patches, branch, announcedTasks, landingPage, timeToCreate, deleted
+		SELECT wiki, creator, UNIX_TIMESTAMP( created ) created, patches, branch, announcedTasks, landingPage, timeToCreate, deleted, ready
 		FROM wikis WHERE wiki = ?
 	' );
 	if ( !$stmt ) {
@@ -129,7 +129,10 @@ function get_wiki_url( string $wiki, ?string $landingPage ): string {
 	return 'wikis/' . $wiki . ( $landingPage ? '/wiki/' . $landingPage : '/w' );
 }
 
-function get_wiki_link( string $wiki, ?string $landingPage ): string {
+function get_wiki_link( string $wiki, ?string $landingPage, bool $ready = true ): string {
+	if ( !$ready ) {
+		return substr( $wiki, 0, 10 );
+	}
 	return (
 		'<a href="' . htmlspecialchars( get_wiki_url( $wiki, $landingPage ) ) . ' " title="' . $wiki . '">' .
 			substr( $wiki, 0, 10 ) .

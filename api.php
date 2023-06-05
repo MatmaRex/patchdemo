@@ -71,7 +71,7 @@ switch ( $_GET['action'] ) {
 		$stmt = $mysqli->prepare( '
 			SELECT wiki, creator, UNIX_TIMESTAMP( created ) created, patches, landingPage
 			FROM wikis
-			WHERE !deleted AND patches LIKE CONCAT( \'%"\', ?, \',%\' )
+			WHERE !deleted AND ready AND patches LIKE CONCAT( \'%"\', ?, \',%\' )
 			ORDER BY created ASC
 		' );
 		if ( !$stmt ) {

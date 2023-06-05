@@ -619,7 +619,7 @@ if ( $announce && count( $linkedTasks ) ) {
 }
 
 $timeToCreate = time() - $startTime;
-wiki_set_time_to_create( $wiki, $timeToCreate );
+wiki_set_ready( $wiki, $timeToCreate );
 
 set_progress( 100, 'All done! Wiki created in ' . format_duration( $timeToCreate ) . '.' );
 

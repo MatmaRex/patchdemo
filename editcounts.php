@@ -47,7 +47,7 @@ $short_fields = [
 	],
 ];
 
-$results = $mysqli->query( 'SELECT wiki, landingPage FROM wikis WHERE !deleted ORDER BY created DESC' );
+$results = $mysqli->query( 'SELECT wiki, landingPage FROM wikis WHERE !deleted AND ready ORDER BY created DESC' );
 if ( !$results ) {
 	die( $mysqli->error );
 }

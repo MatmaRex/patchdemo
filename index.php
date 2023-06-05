@@ -304,7 +304,7 @@ $wikiPatches = [];
 $username = $user ? $user->username : null;
 
 $stmt = $mysqli->prepare( '
-	SELECT wiki, creator, UNIX_TIMESTAMP( created ) created, patches, branch, announcedTasks, landingPage, timeToCreate, deleted
+	SELECT wiki, creator, UNIX_TIMESTAMP( created ) created, patches, branch, announcedTasks, landingPage, timeToCreate, deleted, ready
 	FROM wikis
 	WHERE !deleted
 	ORDER BY IF( creator = ?, 1, 0 ) DESC, created DESC
@@ -370,11 +370,14 @@ while ( $data = $results->fetch_assoc() ) {
 				'">Copy</a>';
 		}
 	}
+	if ( !$data['ready'] ) {
+		$classes[] = 'notReady';
+	}
 
 	$rows .= '<tr class="' . implode( ' ', $classes ) . '">' .
 		'<td data-label="Wiki" class="wiki">' .
 			'<span class="wikiAnchor" id="' . substr( $wiki, 0, 10 ) . '"></span>' .
-			get_wiki_link( $wiki, $wikiData['landingPage'] ) .
+			get_wiki_link( $wiki, $wikiData['landingPage'], $wikiData['ready'] ) .
 		'</td>' .
 		'<td data-label="Patches" class="patches">' . $patches . '</td>' .
 		'<td data-label="Linked tasks" class="linkedTasks">' . $linkedTasks . '</td>' .
