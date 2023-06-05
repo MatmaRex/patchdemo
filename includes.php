@@ -567,15 +567,18 @@ function get_known_pages(): array {
 		if ( str_ends_with( $file, '.txt' ) ) {
 			$contents = file_get_contents( __DIR__ . '/pages/' . $file );
 			if ( $contents ) {
-				$pages = array_merge( $pages,
-					explode( "\n",
-						str_replace( '_', ' ', trim( $contents ) )
-					)
+				$lines = explode( "\n",
+					str_replace( '_', ' ', trim( $contents ) )
 				);
+				$lines = array_filter( $lines, static function ( $line ) {
+					return $line !== '';
+				} );
+				$pages = array_merge( $pages, $lines );
 			}
 		}
 	}
 	sort( $pages );
+
 	return $pages;
 }
 
