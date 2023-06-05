@@ -99,6 +99,7 @@
 		const reposInput = OO.ui.infuse( $( '.form-repos' ) );
 		const reposField = OO.ui.infuse( $( '.form-repos-field' ) );
 		const branchSelect = OO.ui.infuse( $( '.form-branch' ) );
+		const presetSelect = OO.ui.infuse( $( '.form-preset' ) );
 
 		branchSelect.on( 'change', () => {
 			const branch = branchSelect.value;
@@ -164,6 +165,14 @@
 			const params = new URL( this.href ).searchParams;
 			patchesInput.setValue( params.get( 'patches' ) ? params.get( 'patches' ).split( ',' ) : [] );
 			branchSelect.setValue( 'origin/' + params.get( 'branch' ) );
+			const preset = params.get( 'preset' );
+			if ( preset ) {
+				presetSelect.setValue( preset );
+				const repos = params.get( 'repos' );
+				if ( repos ) {
+					reposInput.setValue( repos.split( ',' ) );
+				}
+			}
 			branchSelect.scrollElementIntoView( { padding: { top: $( 'header' ).height() + 10 } } );
 			landingPageInput.setValue( params.get( 'landingPage' ) );
 			e.preventDefault();

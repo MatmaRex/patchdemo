@@ -25,7 +25,7 @@ if ( !$canCreate ) {
 		$repo = htmlspecialchars( $repo );
 		$repoOptions[] = [
 			'data' => $repo,
-			'label' => preg_replace( '`^mediawiki/(extensions/)?`', '', $repo ),
+			'label' => get_repo_label( $repo ),
 			'disabled' => ( $repo === 'mediawiki/core' ),
 		];
 	}
@@ -43,6 +43,41 @@ if ( !$canCreate ) {
 	include_once 'ComboBoxInputWidget.php';
 	include_once 'DetailsFieldLayout.php';
 	include_once 'PatchSelectWidget.php';
+
+	$presetLabels = [
+		'all' => [
+			'title' => 'All',
+		],
+		'wikimedia' => [
+			'title' => 'Wikimedia',
+			'description' => 'Most skins and extensions installed on most Wikimedia wikis, based on MediaWiki.org',
+		],
+		'tarball' => [
+			'title' => 'Tarball',
+			'description' => 'Skins and extensions included in the official MediaWiki release',
+		],
+		'minimal' => [
+			'title' => 'Minimal',
+			'description' => 'Only MediaWiki and default skin with anti-spam configuration',
+		],
+		'custom' => [
+			'title' => 'Custom',
+		]
+	];
+
+	$presetOptions = array_map( static function ( $data, $preset ) {
+		$option = [
+			'data' => $data
+		];
+		if ( isset( $preset[ 'description' ] ) ) {
+			$option[ 'label' ] = new OOUI\HtmlSnippet(
+				'<abbr title="' . htmlspecialchars( $preset[ 'description' ] ) . '">' . htmlspecialchars( $preset[ 'title' ] ) . '</abbr>'
+			);
+		} else {
+			$option[ 'label' ] = $preset[ 'title' ];
+		}
+		return $option;
+	}, array_keys( $presetLabels ), array_values( $presetLabels ) );
 
 	echo new OOUI\FormLayout( [
 		'infusable' => true,
@@ -103,28 +138,7 @@ if ( !$canCreate ) {
 						new OOUI\RadioSelectInputWidget( [
 							'classes' => [ 'form-preset' ],
 							'name' => 'preset',
-							'options' => [
-								[
-									'data' => 'all',
-									'label' => 'All',
-								],
-								[
-									'data' => 'wikimedia',
-									'label' => new OOUI\HtmlSnippet( '<abbr title="Most skins and extensions installed on most Wikimedia wikis, based on MediaWiki.org">Wikimedia</abbr>' ),
-								],
-								[
-									'data' => 'tarball',
-									'label' => new OOUI\HtmlSnippet( '<abbr title="Skins and extensions included in the official MediaWiki release">Tarball</abbr>' ),
-								],
-								[
-									'data' => 'minimal',
-									'label' => new OOUI\HtmlSnippet( '<abbr title="Only MediaWiki and default skin with anti-spam configuration">Minimal</abbr>' ),
-								],
-								[
-									'data' => 'custom',
-									'label' => 'Custom',
-								],
-							],
+							'options' => $presetOptions,
 							'value' => 'wikimedia',
 						] ),
 						[
@@ -304,7 +318,7 @@ $wikiPatches = [];
 $username = $user ? $user->username : null;
 
 $stmt = $mysqli->prepare( '
-	SELECT wiki, creator, UNIX_TIMESTAMP( created ) created, patches, branch, announcedTasks, landingPage, timeToCreate, deleted, ready
+	SELECT wiki, creator, UNIX_TIMESTAMP( created ) created, patches, branch, repos, announcedTasks, landingPage, timeToCreate, deleted, ready
 	FROM wikis
 	WHERE !deleted
 	ORDER BY IF( creator = ?, 1, 0 ) DESC, created DESC
@@ -360,18 +374,43 @@ while ( $data = $results->fetch_assoc() ) {
 			return htmlspecialchars( $data['r'] );
 		}, $wikiData['patchList'] );
 
-		if ( count( $patchList ) || $wikiData['branch'] !== 'master' ) {
+		if (
+			count( $patchList ) ||
+			$wikiData[ 'branch' ] !== 'master' ||
+			$wikiData[ 'repos' ][ 'preset' ] === 'custom'
+		) {
+			$repos = $wikiData[ 'repos' ];
 			$actions[] = '<a class="copyWiki" href="?' .
 				http_build_query( [
 					'patches' => implode( ',', $patchList ),
-					'branch' => $wikiData['branch'],
-					'landingPage' => $wikiData['landingPage'],
+					'branch' => $wikiData[ 'branch' ],
+					'preset' => $repos[ 'preset' ] !== 'unknown' ? $repos[ 'preset' ] : null,
+					'repos' => isset( $repos[ 'repos' ] ) ? implode( ',', $repos[ 'repos' ] ) : null,
+					'landingPage' => $wikiData[ 'landingPage' ],
 				], '', '&amp;' ) .
 				'">Copy</a>';
 		}
 	}
 	if ( !$data['ready'] ) {
 		$classes[] = 'notReady';
+	}
+	$repos = '';
+	$preset = $wikiData[ 'repos' ][ 'preset' ];
+	switch ( $preset ) {
+		case 'unknown':
+			$repos = '?';
+			break;
+		case 'custom':
+			$repoList = implode( ', ',
+				array_map( static function ( $repo ) {
+					return get_repo_label( $repo );
+				}, $wikiData[ 'repos' ][ 'repos' ] )
+			);
+			$repos = '<abbr title="' . htmlspecialchars( $repoList ) . '">' . $presetLabels[ $preset ][ 'title' ] . '</abbr>';
+			break;
+		default:
+			$repos = htmlspecialchars( $presetLabels[ $preset ][ 'title' ] );
+			break;
 	}
 
 	$rows .= '<tr class="' . implode( ' ', $classes ) . '">' .
@@ -381,6 +420,7 @@ while ( $data = $results->fetch_assoc() ) {
 		'</td>' .
 		'<td data-label="Patches" class="patches">' . $patches . '</td>' .
 		'<td data-label="Linked tasks" class="linkedTasks">' . $linkedTasks . '</td>' .
+		'<td data-label="Repos" class="repos">' . $repos . '</td>' .
 		'<td data-label="Time" class="date">' . date( 'Y-m-d H:i:s', $wikiData[ 'created' ] ) . '</td>' .
 		( $useOAuth ? '<td data-label="Creator">' . ( $creator ? user_link( $creator ) : '?' ) . '</td>' : '' ) .
 		( $canAdmin ? '<td data-label="Time to create">' . ( $wikiData['timeToCreate'] ? format_duration( $wikiData['timeToCreate'] ) : '' ) . '</td>' : '' ) .
@@ -419,6 +459,7 @@ echo '<table class="wikis">' .
 		'<th>Wiki</th>' .
 		'<th>Patches<br /><em>✓=Merged ✗=Abandoned 🛇=<abbr title="Open patches marked with \'DNM\' or \'DO NOT MERGE\'">Do not merge</abbr></em></th>' .
 		'<th>Linked tasks<br /><em>✓=Resolved ✗=Declined/Invalid</em></th>' .
+		'<th>Repos</th>' .
 		'<th>Time</th>' .
 		( $useOAuth ? '<th>Creator</th>' : '' ) .
 		( $canAdmin ? '<th><abbr title="Time to create">TTC</abbr></th>' : '' ) .
