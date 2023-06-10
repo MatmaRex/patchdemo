@@ -3,6 +3,27 @@ require_once "includes.php";
 
 include "header.php";
 
+$presetLabels = [
+	'all' => [
+		'title' => 'All',
+	],
+	'wikimedia' => [
+		'title' => 'Wikimedia',
+		'description' => 'Most skins and extensions installed on most Wikimedia wikis, based on MediaWiki.org',
+	],
+	'tarball' => [
+		'title' => 'Tarball',
+		'description' => 'Skins and extensions included in the official MediaWiki release',
+	],
+	'minimal' => [
+		'title' => 'Minimal',
+		'description' => 'Only MediaWiki and default skin with anti-spam configuration',
+	],
+	'custom' => [
+		'title' => 'Custom',
+	]
+];
+
 $canCreate = !$useOAuth || $user;
 if ( !$canCreate ) {
 	echo oauth_signin_prompt();
@@ -43,27 +64,6 @@ if ( !$canCreate ) {
 	include_once 'ComboBoxInputWidget.php';
 	include_once 'DetailsFieldLayout.php';
 	include_once 'PatchSelectWidget.php';
-
-	$presetLabels = [
-		'all' => [
-			'title' => 'All',
-		],
-		'wikimedia' => [
-			'title' => 'Wikimedia',
-			'description' => 'Most skins and extensions installed on most Wikimedia wikis, based on MediaWiki.org',
-		],
-		'tarball' => [
-			'title' => 'Tarball',
-			'description' => 'Skins and extensions included in the official MediaWiki release',
-		],
-		'minimal' => [
-			'title' => 'Minimal',
-			'description' => 'Only MediaWiki and default skin with anti-spam configuration',
-		],
-		'custom' => [
-			'title' => 'Custom',
-		]
-	];
 
 	$presetOptions = array_map( static function ( $data, $preset ) {
 		$option = [
