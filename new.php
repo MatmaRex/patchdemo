@@ -510,6 +510,23 @@ if ( $error ) {
 	abandon( "Could not fetch submodules" );
 }
 
+$start = 60;
+$end = 65;
+$progress = $start;
+$count = count( $commands );
+foreach ( $commands as $i => $command ) {
+	$n = $i + 1;
+	set_progress( $progress, "Fetching and applying patches ($n/$count)..." );
+	check_connection();
+	$error = shell_echo( $command[1], $baseEnv + $command[0] );
+	if ( $error ) {
+		abandon( "Could not apply patch {$patchesApplied[$i]}" );
+	}
+	$progress += ( $end - $start ) / $count;
+}
+
+$start = 65;
+$end = 75;
 $composerInstallRepos = Yaml::parse( file_get_contents( __DIR__ . '/repository-lists/composerinstall.yaml' ) );
 // Filter down to repos which are being installed
 $composerInstallRepos = array_values( array_filter(
@@ -518,8 +535,6 @@ $composerInstallRepos = array_values( array_filter(
 		return isset( $repos[$repo] );
 	}
 ) );
-$start = 60;
-$end = 65;
 $repoProgress = $start;
 $repoCount = count( $composerInstallRepos );
 foreach ( $composerInstallRepos as $i => $repo ) {
@@ -538,21 +553,6 @@ foreach ( $composerInstallRepos as $i => $repo ) {
 	}
 
 	$repoProgress += ( $end - $start ) / $repoCount;
-}
-
-$start = 65;
-$end = 75;
-$progress = $start;
-$count = count( $commands );
-foreach ( $commands as $i => $command ) {
-	$n = $i + 1;
-	set_progress( $progress, "Fetching and applying patches ($n/$count)..." );
-	check_connection();
-	$error = shell_echo( $command[1], $baseEnv + $command[0] );
-	if ( $error ) {
-		abandon( "Could not apply patch {$patchesApplied[$i]}" );
-	}
-	$progress += ( $end - $start ) / $count;
 }
 
 set_progress( 75, 'Installing your wiki...' );
