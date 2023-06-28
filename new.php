@@ -162,6 +162,7 @@ if ( $patches ) {
 } else {
 	$patches = [];
 }
+$initialPatchCount = count( $patches );
 
 set_progress( 0, 'Checking language code...' );
 
@@ -178,7 +179,7 @@ $commands = [];
 $usedRepos = [];
 
 // Iterate by reference, so that we can modify the $patches array to add new entries
-foreach ( $patches as &$patch ) {
+foreach ( $patches as $i => &$patch ) {
 	preg_match( '/^(I[0-9a-f]+|(?<r>[0-9]+)(,(?<p>[0-9]+))?)$/', $patch, $matches );
 	if ( !$matches ) {
 		$patch = htmlentities( $patch );
@@ -226,8 +227,15 @@ foreach ( $patches as &$patch ) {
 
 	$repos = get_repo_data();
 	if ( !isset( $repos[ $repo ] ) ) {
-		$repo = htmlentities( $repo );
-		abandon( "Repository <em>$repo</em> not supported" );
+		$repoHtml = htmlentities( $repo );
+		if ( $i < $initialPatchCount ) {
+			// Patch requested by the user, so show an error
+			abandon( "Repository <em>$repoHtml</em> not supported" );
+		} else {
+			// Patch added from 'Depends-On', so we can probably ignore it
+			echo "<p>Ignoring a patch from <em>$repoHtml</em></p>";
+			continue;
+		}
 	}
 	$path = $repos[ $repo ];
 	$usedRepos[] = $repo;
