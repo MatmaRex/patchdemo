@@ -553,6 +553,10 @@ function get_repo_presets(): array {
 	return $presets;
 }
 
+function get_ignored_repos(): array {
+	return Yaml::parse( file_get_contents( __DIR__ . '/repository-lists/ignored.yaml' ) );
+}
+
 function get_known_pages(): array {
 	$pages = [
 		'Main Page'

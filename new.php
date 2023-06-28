@@ -177,6 +177,10 @@ $linkedTasks = [];
 $commands = [];
 $usedRepos = [];
 
+$repos = get_repo_data();
+$repoCount = count( $repos );
+$ignoredRepos = get_ignored_repos();
+
 // Iterate by reference, so that we can modify the $patches array to add new entries
 foreach ( $patches as &$patch ) {
 	preg_match( '/^(I[0-9a-f]+|(?<r>[0-9]+)(,(?<p>[0-9]+))?)$/', $patch, $matches );
@@ -224,7 +228,10 @@ foreach ( $patches as &$patch ) {
 	$ref = $data[0]['revisions'][$revision]['ref'];
 	$id = $data[0]['id'];
 
-	$repos = get_repo_data();
+	if ( in_array( $repo, $ignoredRepos, true ) ) {
+		echo "<p>Ignoring a patch from <em>$repo</em></p>";
+		continue;
+	}
 	if ( !isset( $repos[ $repo ] ) ) {
 		$repo = htmlentities( $repo );
 		abandon( "Repository <em>$repo</em> not supported" );
@@ -308,6 +315,10 @@ foreach ( $patches as &$patch ) {
 	}
 }
 
+if ( count( $patchesApplied ) === 0 && count( $patches ) !== 0 ) {
+	abandon( "No valid patches remaining. Sorry, testing patches to Wikimedia configuration repositories is not supported." );
+}
+
 $wikiName = "Patch demo (" . trim(
 	// Add branch name if it's not master, or if there are no patches
 	( $branchDesc !== 'master' || !$patchesApplied ? $branchDesc : '' ) . ' ' .
@@ -319,8 +330,6 @@ $wikiName = "Patch demo (" . trim(
 wiki_add_patches( $wiki, $patchesApplied );
 
 // Choose repositories to enable
-$repos = get_repo_data();
-
 $repoValue = [
 	'preset' => $_POST['preset']
 ];
@@ -451,7 +460,6 @@ $start = 5;
 $end = 40;
 $n = 1;
 $repoProgress = $start;
-$repoCount = count( $repos );
 
 foreach ( $repos as $source => $target ) {
 	set_progress( $repoProgress, "Updating repositories ($n/$repoCount)..." );
@@ -482,7 +490,7 @@ $start = 40;
 $end = 60;
 $n = 1;
 $repoProgress = $start;
-$repoCount = count( $repos );
+
 foreach ( $repos as $source => $target ) {
 	set_progress( $repoProgress, "Checking out repositories ($n/$repoCount)..." );
 

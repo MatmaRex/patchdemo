@@ -1,0 +1,5 @@
+# Wikimedia config repositories that are sometimes listed in 'Depends-On',
+# but which we don't support (and don't need to support to test patches)
+- mediawiki/vendor
+- integration/config
+- operations/mediawiki-config
