@@ -178,6 +178,9 @@ $linkedTasks = [];
 $commands = [];
 $usedRepos = [];
 
+$repos = get_repo_data();
+$repoCount = count( $repos );
+
 // Iterate by reference, so that we can modify the $patches array to add new entries
 foreach ( $patches as $i => &$patch ) {
 	preg_match( '/^(I[0-9a-f]+|(?<r>[0-9]+)(,(?<p>[0-9]+))?)$/', $patch, $matches );
@@ -225,7 +228,6 @@ foreach ( $patches as $i => &$patch ) {
 	$ref = $data[0]['revisions'][$revision]['ref'];
 	$id = $data[0]['id'];
 
-	$repos = get_repo_data();
 	if ( !isset( $repos[ $repo ] ) ) {
 		$repoHtml = htmlentities( $repo );
 		if ( $i < $initialPatchCount ) {
@@ -327,8 +329,6 @@ $wikiName = "Patch demo (" . trim(
 wiki_add_patches( $wiki, $patchesApplied );
 
 // Choose repositories to enable
-$repos = get_repo_data();
-
 $repoValue = [
 	'preset' => $_POST['preset']
 ];
@@ -459,7 +459,6 @@ $start = 5;
 $end = 40;
 $n = 1;
 $repoProgress = $start;
-$repoCount = count( $repos );
 
 foreach ( $repos as $source => $target ) {
 	set_progress( $repoProgress, "Updating repositories ($n/$repoCount)..." );
@@ -490,7 +489,7 @@ $start = 40;
 $end = 60;
 $n = 1;
 $repoProgress = $start;
-$repoCount = count( $repos );
+
 foreach ( $repos as $source => $target ) {
 	set_progress( $repoProgress, "Checking out repositories ($n/$repoCount)..." );
 
