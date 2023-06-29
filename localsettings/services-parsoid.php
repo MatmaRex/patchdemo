@@ -20,6 +20,7 @@ $wgParsoidSettings = [
 	'useSelser' => true,
 	'linting' => true,
 ];
+$wgParsoidEnableQueryString = true;
 
 // VisualEditor required configuration
 $wgVirtualRestConfig['modules']['parsoid'] = [
