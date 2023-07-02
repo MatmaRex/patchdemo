@@ -554,12 +554,14 @@ function get_repo_presets(): array {
 }
 
 function get_known_pages(): array {
+	global $user, $mysqli;
+
 	$pages = [
 		'Main Page'
 	];
-	foreach ( [ 'Alice', 'Bob', 'Patch Demo', 'Mallory' ] as $user ) {
-		$pages[] = 'User:' . $user;
-		$pages[] = 'User talk:' . $user;
+	foreach ( [ 'Alice', 'Bob', 'Patch Demo', 'Mallory' ] as $username ) {
+		$pages[] = 'User:' . $username;
+		$pages[] = 'User talk:' . $username;
 	}
 	// TODO: Suggest some special pages?
 	$files = scandir( __DIR__ . '/pages' );
@@ -577,7 +579,28 @@ function get_known_pages(): array {
 			}
 		}
 	}
-	sort( $pages );
+
+	if ( $user ) {
+		// Fetch previously used landing pages
+		$stmt = $mysqli->prepare( '
+			SELECT DISTINCT landingPage
+			FROM wikis
+			WHERE landingPage != "" AND creator = ?
+		' );
+		if ( !$stmt ) {
+			die( $mysqli->error );
+		}
+		$stmt->bind_param( 's', $user->username );
+		$stmt->execute();
+		$res = $stmt->get_result();
+		while ( $data = $res->fetch_assoc() ) {
+			$page = str_replace( '_', ' ', trim( $data[ 'landingPage' ] ) );
+			if ( !in_array( $page, $pages, true ) ) {
+				$pages[] = $page;
+			}
+		}
+	}
+	sort( $pages, SORT_NATURAL | SORT_FLAG_CASE );
 
 	return $pages;
 }
