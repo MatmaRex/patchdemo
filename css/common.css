@@ -109,6 +109,10 @@ header {
 	margin: 5em 0 3em 0;
 }
 
+.signIn a {
+	font-weight: bold;
+}
+
 form {
 	max-width: 52em;
 }
@@ -131,6 +135,21 @@ summary {
 summary > .oo-ui-labelElement-label:not( .oo-ui-inline-help ) {
 	/* stylelint-disable-next-line declaration-no-important */
 	display: inline !important;
+}
+
+.form-disabled {
+	height: 250px;
+	overflow: hidden;
+	pointer-events: none;
+	user-select: none;
+	filter: saturate( 0 ) blur( 2px );
+	opacity: 0.25;
+}
+
+.form-disabled + .signIn {
+	margin-top: -150px;
+	margin-bottom: 150px;
+	background: #fff;
 }
 
 .form-preset .oo-ui-fieldLayout,
