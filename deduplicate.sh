@@ -13,3 +13,16 @@ BASEDIR=$(dirname "$0")
 # (Also, `rdfind` doesn't have an option for that, `rmlint` could be used.)
 
 sudo -u www-data rdfind -makehardlinks true -makeresultsfile false -checksum sha1 $BASEDIR/wikis
+
+
+# Wipe the localisation cache for all wikis. For some languages it takes
+# way too much disk space. (#554)
+
+# It will be rebuilt whenever MediaWiki needs it again.
+
+# We need to `cd` to this directory, so that `find` output contains just
+# the file names, which are the same as database names, which we can pass
+# to `mysql` to run the query on them.
+
+cd /var/lib/mysql/
+sudo find * -name 'patchdemo_*' -exec mysql -e "TRUNCATE l10n_cache;" {} \;
