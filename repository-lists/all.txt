@@ -32,7 +32,7 @@ mediawiki/extensions/GrowthExperiments extensions/GrowthExperiments
 mediawiki/extensions/GuidedTour extensions/GuidedTour
 mediawiki/extensions/ImageMap extensions/ImageMap
 mediawiki/extensions/Inbox extensions/Inbox
-mediawiki/extensions/IncidentReporting extensions/IncidentReporting
+mediawiki/extensions/ReportIncident extensions/ReportIncident
 mediawiki/extensions/InputBox extensions/InputBox
 mediawiki/extensions/Interwiki extensions/Interwiki
 mediawiki/extensions/IPInfo extensions/IPInfo
