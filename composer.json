@@ -1,8 +1,8 @@
 {
 	"require": {
 		"mediawiki/oauthclient": "^2.0",
-		"symfony/process": "^5.4",
-		"symfony/yaml": "^5.4",
+		"symfony/process": "^6.3",
+		"symfony/yaml": "^6.3",
 		"oojs/oojs-ui": "^0.47",
 		"zolli/phabricator-php-api": "^2.0",
 		"sensiolabs/ansi-to-html": "^1.2"
