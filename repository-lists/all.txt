@@ -82,6 +82,7 @@ mediawiki/extensions/UniversalLanguageSelector extensions/UniversalLanguageSelec
 mediawiki/extensions/UploadWizard extensions/UploadWizard
 mediawiki/extensions/UrlShortener extensions/UrlShortener
 mediawiki/extensions/WikiEditor extensions/WikiEditor
+mediawiki/extensions/wikihiero extensions/wikihiero
 mediawiki/extensions/WikimediaIncubator extensions/WikimediaIncubator
 mediawiki/extensions/WikimediaMessages extensions/WikimediaMessages
 mediawiki/extensions/Wikispeech extensions/Wikispeech
