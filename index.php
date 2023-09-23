@@ -153,7 +153,7 @@ echo new OOUI\FormLayout( [
 					] ),
 					[
 						'label' => 'Choose included repos:',
-						'help' => new OOUI\HtmlSnippet( 'If your extension is not listed, please create a <a href="https://github.com/MatmaRex/patchdemo/issues/new">new issue</a>.' ),
+						'help' => new OOUI\HtmlSnippet( 'If your extension is not listed, please create a <a href="https://gitlab.wikimedia.org/repos/ci-tools/patchdemo/-/issues/new">new issue</a>.' ),
 						'helpInline' => true,
 						'align' => 'inline',
 						'classes' => [ 'form-repos-field' ],

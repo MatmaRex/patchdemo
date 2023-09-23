@@ -30,9 +30,9 @@ if ( $user ) {
 }
 echo '
 					<div class="source">
-						<a href="https://github.com/MatmaRex/patchdemo">Source code</a>
+						<a href="https://gitlab.wikimedia.org/repos/ci-tools/patchdemo">Source code</a>
 						&bullet;
-						<a href="https://github.com/MatmaRex/patchdemo/issues">Issues</a>' .
+						<a href="https://gitlab.wikimedia.org/repos/ci-tools/patchdemo/-/issues">Issues</a>' .
 						( can_admin() ?
 							' &bullet; <a href="editcounts.php">Edit counts</a>' :
 							''
